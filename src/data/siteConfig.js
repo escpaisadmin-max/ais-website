@@ -20,6 +20,7 @@ export const navLinks = [
   { label: "About & Team", path: "/about" },
   { label: "Events", path: "/events" },
   { label: "Presentations", path: "/presentations" },
+  { label: "Newsletters", path: "/newsletters" },
   { label: "Contact", path: "/contact" },
 ];
 
