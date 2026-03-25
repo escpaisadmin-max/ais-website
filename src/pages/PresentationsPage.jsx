@@ -10,8 +10,8 @@ export default function PresentationsPage() {
 
   const filtered =
     activeFilter === "all"
-      ? presentations
-      : presentations.filter((p) => p.department === activeFilter);
+      ? [...presentations].reverse()
+      : presentations.filter((p) => p.department === activeFilter).reverse();
 
   return (
     <section className="py-20 bg-white min-h-screen">

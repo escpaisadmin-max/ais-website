@@ -11,8 +11,8 @@ export default function NewslettersPage() {
 
   const filtered =
     activeFilter === "all"
-      ? newsletters
-      : newsletters.filter((n) => n.department === activeFilter);
+      ? [...newsletters].reverse()
+      : newsletters.filter((n) => n.department === activeFilter).reverse();
 
   return (
     <section className="py-20 bg-white min-h-screen">
