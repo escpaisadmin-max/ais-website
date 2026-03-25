@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Georgia", "Times New Roman", serif;
+
+  --color-ais-navy: #1E3360;
+  --color-ais-ocean: #046090;
+  --color-ais-slate: #3E4E62;
+  --color-ais-gray: #646464;
+  --color-ais-silver: #D9D9D9;
+  --color-ais-periwinkle: #B7C8E8;
+  --color-ais-ice: #DBE4F3;
+  --color-ais-black: #000000;
+  --color-ais-white: #FFFFFF;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #1E3360;
+  background-color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling for dark sections */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1E3360;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3E4E62;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #046090;
+}
+
+/* Logo banner animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
