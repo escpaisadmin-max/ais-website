@@ -9,10 +9,12 @@ import ScrollReveal from "../components/ui/ScrollReveal";
 export default function NewslettersPage() {
   const [activeFilter, setActiveFilter] = useState("all");
 
+  const sorted = [...newsletters].sort((a, b) => b.issue - a.issue);
+
   const filtered =
     activeFilter === "all"
-      ? [...newsletters].reverse()
-      : newsletters.filter((n) => n.department === activeFilter).reverse();
+      ? sorted
+      : sorted.filter((n) => n.department === activeFilter);
 
   return (
     <section className="py-20 bg-white min-h-screen">

@@ -8,10 +8,18 @@ import ScrollReveal from "../components/ui/ScrollReveal";
 export default function PresentationsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
 
+  const parseDate = (d) => {
+    const [month, year] = d.split(" ");
+    const months = { January:0, February:1, March:2, April:3, May:4, June:5, July:6, August:7, September:8, October:9, November:10, December:11 };
+    return new Date(parseInt(year), months[month] || 0);
+  };
+
+  const sorted = [...presentations].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+
   const filtered =
     activeFilter === "all"
-      ? [...presentations].reverse()
-      : presentations.filter((p) => p.department === activeFilter).reverse();
+      ? sorted
+      : sorted.filter((p) => p.department === activeFilter);
 
   return (
     <section className="py-20 bg-white min-h-screen">
