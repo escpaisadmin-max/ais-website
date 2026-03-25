@@ -15,9 +15,9 @@ export default function PdfViewer({ pdfPath }) {
   }
 
   return (
-    <div className="bg-ais-ice rounded-lg p-4">
+    <div className="bg-ais-ice rounded-lg p-4 flex flex-col" style={{ maxHeight: "80vh" }}>
       {/* Controls */}
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-4 flex-shrink-0">
         <button
           onClick={() => setPageNumber(Math.max(1, pageNumber - 1))}
           disabled={pageNumber <= 1}
@@ -37,8 +37,8 @@ export default function PdfViewer({ pdfPath }) {
         </button>
       </div>
 
-      {/* PDF */}
-      <div className="flex justify-center overflow-auto">
+      {/* PDF — scrollable within the capped height */}
+      <div className="flex justify-center overflow-auto flex-1 min-h-0">
         <Document
           file={pdfPath}
           onLoadSuccess={onDocumentLoadSuccess}
@@ -60,7 +60,7 @@ export default function PdfViewer({ pdfPath }) {
         >
           <Page
             pageNumber={pageNumber}
-            width={Math.min(800, typeof window !== "undefined" ? window.innerWidth - 80 : 800)}
+            width={Math.min(700, typeof window !== "undefined" ? window.innerWidth - 80 : 700)}
             renderTextLayer={true}
             renderAnnotationLayer={true}
           />
