@@ -49,15 +49,7 @@ export default function TeamMemberCard({ member }) {
                 </p>
               )}
               <div className="flex items-center gap-3">
-                {member.email && (
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="inline-block px-4 py-1.5 bg-ais-ocean text-white text-xs font-semibold rounded-full hover:bg-ais-ocean/80 transition-colors"
-                  >
-                    Email me
-                  </a>
-                )}
-                {member.linkedin && (
+{member.linkedin && (
                   <a
                     href={member.linkedin}
                     target="_blank"
