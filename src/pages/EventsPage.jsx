@@ -13,6 +13,15 @@ export default function EventsPage() {
             subtitle="Explore our past events and workshops with leading finance professionals."
           />
         </ScrollReveal>
+
+        <ScrollReveal>
+          <div className="bg-ais-ice border border-ais-periwinkle/40 rounded-lg p-6 text-center mb-12">
+            <p className="text-ais-navy font-semibold">
+              This page is under construction — event recaps are being added soon.
+            </p>
+          </div>
+        </ScrollReveal>
+
         <EventGrid events={events} />
       </div>
     </section>
