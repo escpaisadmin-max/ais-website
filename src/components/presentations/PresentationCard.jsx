@@ -19,9 +19,11 @@ export default function PresentationCard({ presentation }) {
       </div>
 
       {/* Title & description */}
-      <h3 className="text-lg font-bold text-ais-navy mb-2">
-        {presentation.title}
-      </h3>
+      <Link to={`/presentations/${presentation.id}`}>
+        <h3 className="text-lg font-bold text-ais-navy mb-2 hover:text-ais-ocean transition-colors">
+          {presentation.title}
+        </h3>
+      </Link>
       <p className="text-sm text-ais-gray mb-1">{presentation.topic}</p>
       <p className="text-sm text-ais-gray mb-4 line-clamp-2">
         {presentation.description}

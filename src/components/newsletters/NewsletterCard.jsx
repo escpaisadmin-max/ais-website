@@ -20,9 +20,11 @@ export default function NewsletterCard({ newsletter }) {
       </div>
 
       {/* Title & description */}
-      <h3 className="text-lg font-bold text-ais-navy mb-2">
-        {newsletter.title}
-      </h3>
+      <Link to={`/newsletters/${newsletter.id}`}>
+        <h3 className="text-lg font-bold text-ais-navy mb-2 hover:text-ais-ocean transition-colors">
+          {newsletter.title}
+        </h3>
+      </Link>
       <p className="text-sm text-ais-gray mb-4 line-clamp-3">
         {newsletter.description}
       </p>
