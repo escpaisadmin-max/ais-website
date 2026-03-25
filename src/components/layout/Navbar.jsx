@@ -7,12 +7,12 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-ais-navy/95 backdrop-blur-sm border-b border-ais-slate/30">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-ais-silver/30 shadow-sm">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <img src="/ais-logo.svg" alt="AIS" className="h-9 w-auto" />
-          <span className="hidden sm:inline text-sm text-ais-silver">
+          <img src="/ais-logo-dark.svg" alt="AIS" className="h-9 w-auto" />
+          <span className="hidden sm:inline text-sm text-ais-slate">
             ESCP Alternative Investment Society
           </span>
         </Link>
@@ -26,8 +26,8 @@ export default function Navbar() {
               className={({ isActive }) =>
                 `text-sm transition-colors duration-200 ${
                   isActive
-                    ? "text-ais-periwinkle font-semibold"
-                    : "text-ais-silver hover:text-ais-white"
+                    ? "text-ais-ocean font-semibold"
+                    : "text-ais-navy hover:text-ais-ocean"
                 }`
               }
             >
@@ -38,7 +38,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-ais-white p-2"
+          className="md:hidden text-ais-navy p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -60,7 +60,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden overflow-hidden bg-ais-navy border-t border-ais-slate/30"
+            className="md:hidden overflow-hidden bg-white border-t border-ais-silver/30"
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -70,7 +70,7 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className={({ isActive }) =>
                     `text-base transition-colors ${
-                      isActive ? "text-ais-periwinkle font-semibold" : "text-ais-silver"
+                      isActive ? "text-ais-ocean font-semibold" : "text-ais-navy"
                     }`
                   }
                 >

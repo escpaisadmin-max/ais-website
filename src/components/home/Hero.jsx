@@ -4,11 +4,11 @@ import Button from "../ui/Button";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* London skyline background */}
+      {/* London skyline background — scaled up to eliminate frame */}
       <img
         src="/london-skyline.jpg"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover scale-110"
       />
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-ais-navy/75" />

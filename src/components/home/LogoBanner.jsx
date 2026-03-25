@@ -35,7 +35,7 @@ export default function LogoBanner() {
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="max-h-full max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                  className="max-h-full max-w-full object-contain opacity-90 hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
@@ -52,7 +52,7 @@ export default function LogoBanner() {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="max-h-full max-w-full object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    className="max-h-full max-w-full object-contain opacity-90 hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
                 </Link>
