@@ -9,10 +9,10 @@ function ScrollingRow({ logos, direction = "left" }) {
   const animClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
   return (
-    <div className="relative bg-ais-slate py-6">
+    <div className="relative bg-[#2A2118] py-6">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-ais-slate to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-ais-slate to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#2A2118] to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#2A2118] to-transparent z-10" />
 
       <div className={`flex ${animClass}`} style={{ width: "fit-content" }}>
         {[...items, ...items].map((partner, i) => {
