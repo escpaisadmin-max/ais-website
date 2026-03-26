@@ -21,6 +21,15 @@ export const founders = [
     division: "founders",
   },
   {
+    name: "Julius Majowski",
+    role: "Co-Founder & President",
+    photo: "/team/julius-majowski.jpg",
+    linkedin: "https://www.linkedin.com/in/juliusmajowski/",
+    email: null,
+    bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
+    division: "founders",
+  },
+  {
     name: "Lukas de La Trobe",
     role: "Co-Founder & Vice-President",
     photo: "/team/lukas-de-la-trobe.jpg",
