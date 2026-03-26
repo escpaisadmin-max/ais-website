@@ -56,7 +56,7 @@ body {
 }
 
 .animate-scroll-left {
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 60s linear infinite;
 }
 
 .animate-scroll-left:hover {
@@ -74,7 +74,7 @@ body {
 }
 
 .animate-scroll-right {
-  animation: scroll-right 30s linear infinite;
+  animation: scroll-right 25s linear infinite;
 }
 
 .animate-scroll-right:hover {
