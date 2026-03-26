@@ -7,15 +7,6 @@
  * 1. Save their headshot photo to /public/team/ (square or portrait crop, min 400px wide recommended)
  * 2. Rename the file to lowercase-kebab-case (e.g., "jane-doe.jpg") — avoid spaces in filenames
  * 3. Add a new entry to the relevant section below
- *
- * FIELDS:
- * - name:      Full name
- * - role:      Title (e.g., "President", "Analyst")
- * - photo:     Path to photo in /public/team/ (starts with /team/)
- * - linkedin:  Full LinkedIn profile URL
- * - email:     Email address (optional)
- * - bio:       Short bio (2-3 sentences, shown when card is expanded)
- * - division:  Division key ("pe", "vc", "hf", "re", "admin", "leadership", "founders")
  */
 
 // ── Founder's Team ─────────────────────────────────────────────────
@@ -51,6 +42,15 @@ export const founders = [
 
 // ── Leadership ─────────────────────────────────────────────────────
 export const leadership = [
+  {
+    name: "Julius Majowski",
+    role: "President & Head of Hedge Funds",
+    photo: "/team/julius-majowski.jpg",
+    linkedin: "https://www.linkedin.com/in/juliusmajowski/",
+    email: null,
+    bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
+    division: "leadership",
+  },
   {
     name: "Theodor Kisslinger",
     role: "Head of Events",
@@ -150,12 +150,30 @@ export const divisions = {
     name: "Hedge Funds",
     members: [
       {
+        name: "Julius Majowski",
+        role: "President & Head of Hedge Funds",
+        photo: "/team/julius-majowski.jpg",
+        linkedin: "https://www.linkedin.com/in/juliusmajowski/",
+        email: null,
+        bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
+        division: "hf",
+      },
+      {
         name: "Max Henkes",
         role: "Analyst",
         photo: "/team/placeholder.svg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
         bio: "Max Henkes is an Analyst in the Hedge Funds division at AIS. Max is a German national and speaks German, English, and Russian.",
+        division: "hf",
+      },
+      {
+        name: "David Kindt",
+        role: "Analyst",
+        photo: "/team/david-kindt.jpeg",
+        linkedin: "https://www.linkedin.com/in/d-kindt/",
+        email: null,
+        bio: "David is a Hedge Fund Analyst at AIS. Prior to joining the society, he founded BLK, an online shop for vintage clothing. This summer, he will be joining the Ventures team at Axel Springer SE. David is a German national and speaks German and English.",
         division: "hf",
       },
     ],
@@ -175,5 +193,27 @@ export const divisions = {
     ],
   },
 };
+
+// ── Marketing ──────────────────────────────────────────────────────
+export const marketingTeam = [
+  {
+    name: "Elisa Alessandri",
+    role: "Marketing",
+    photo: "/team/elisa-alessandri.jpg",
+    linkedin: "https://www.linkedin.com/in/elisaalessandri7",
+    email: null,
+    bio: "Elisa is a Marketing Team Member at AIS. Prior to joining the society, she gained experience at an accounting firm in accounting and financial reporting. She will be joining DLVentures, a Milan-based VC firm, this summer as a Venture Analyst. Elisa is an Italian national and speaks Italian, English, French, and Spanish.",
+    division: "marketing",
+  },
+  {
+    name: "Laura Ceccarelli",
+    role: "Marketing",
+    photo: "/team/laura-ceccarelli.jpeg",
+    linkedin: "https://www.linkedin.com/in/laura-ceccarelli-b07130287",
+    email: null,
+    bio: "Laura Ceccarelli is a Marketing member at AIS, responsible for shaping and maintaining the society's external presence and ensuring a consistent, professional brand image. Laura is a German national and speaks English and Spanish fluently.",
+    division: "marketing",
+  },
+];
 
 export const adminStaff = [];
