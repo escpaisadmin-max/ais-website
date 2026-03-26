@@ -1,68 +1,85 @@
 import { Link } from "react-router-dom";
-import { partners } from "../../data/partners";
+import { trackRecord, academicPartners } from "../../data/partners";
 import SectionHeading from "../ui/SectionHeading";
+import ScrollReveal from "../ui/ScrollReveal";
 
-export default function LogoBanner() {
-  // Need at least a few logos for the animation to look good
-  const logos = partners.length < 4
-    ? [...partners, ...partners, ...partners, ...partners]
-    : partners;
+function ScrollingRow({ logos, direction = "left" }) {
+  // Duplicate for seamless loop
+  const items = logos.length < 6 ? [...logos, ...logos, ...logos] : logos;
+  const animClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
   return (
-    <section className="py-16 bg-ais-navy overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-10">
-        <SectionHeading
-          title="Our Network"
-          subtitle="Companies we've partnered with and where our members work."
-          light
-        />
-      </div>
+    <div className="relative">
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-ais-navy to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-ais-navy to-transparent z-10" />
 
-      {/* Scrolling banner */}
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-ais-navy to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-ais-navy to-transparent z-10" />
+      <div className={`flex ${animClass}`} style={{ width: "fit-content" }}>
+        {[...items, ...items].map((partner, i) => {
+          const img = (
+            <img
+              src={partner.logo}
+              alt={partner.name}
+              className="max-h-full max-w-full object-contain opacity-90 hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          );
 
-        <div className="flex animate-scroll-left" style={{ width: "fit-content" }}>
-          {/* Render logos twice for seamless loop */}
-          {[...logos, ...logos].map((partner, i) => {
-            const logoElement = (
-              <div
+          if (partner.eventSlug) {
+            return (
+              <Link
                 key={`${partner.id}-${i}`}
+                to={`/events/${partner.eventSlug}`}
                 className="flex-shrink-0 mx-6 md:mx-10 flex items-center justify-center h-16 w-36 md:w-44"
+                title={`${partner.name} — View event`}
               >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-full max-w-full object-contain opacity-90 hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
+                {img}
+              </Link>
             );
+          }
 
-            if (partner.eventSlug) {
-              return (
-                <Link
-                  key={`${partner.id}-${i}`}
-                  to={`/events/${partner.eventSlug}`}
-                  className="flex-shrink-0 mx-6 md:mx-10 flex items-center justify-center h-16 w-36 md:w-44"
-                  title={`${partner.name} — View event`}
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="max-h-full max-w-full object-contain opacity-90 hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                </Link>
-              );
-            }
-
-            return logoElement;
-          })}
-        </div>
+          return (
+            <div
+              key={`${partner.id}-${i}`}
+              className="flex-shrink-0 mx-6 md:mx-10 flex items-center justify-center h-16 w-36 md:w-44"
+            >
+              {img}
+            </div>
+          );
+        })}
       </div>
+    </div>
+  );
+}
+
+export default function LogoBanner() {
+  return (
+    <section className="py-16 bg-ais-navy overflow-hidden">
+      {/* Track Record */}
+      <div className="max-w-7xl mx-auto px-6 mb-6">
+        <ScrollReveal>
+          <SectionHeading
+            title="Team & Alumni Track Record"
+            subtitle="Where our members have gained experience."
+            light
+          />
+        </ScrollReveal>
+      </div>
+      <div className="mb-16">
+        <ScrollingRow logos={trackRecord} direction="left" />
+      </div>
+
+      {/* Academic Partners */}
+      <div className="max-w-7xl mx-auto px-6 mb-6">
+        <ScrollReveal>
+          <SectionHeading
+            title="Professional & Academic Partners"
+            subtitle="Companies and organizations we collaborate with."
+            light
+          />
+        </ScrollReveal>
+      </div>
+      <ScrollingRow logos={academicPartners} direction="right" />
     </section>
   );
 }
