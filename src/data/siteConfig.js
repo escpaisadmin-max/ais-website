@@ -17,10 +17,10 @@ export const communityLinks = {
 
 export const navLinks = [
   { label: "Home", path: "/" },
-  { label: "About & Team", path: "/about" },
-  { label: "Events", path: "/events" },
-  { label: "Presentations", path: "/presentations" },
   { label: "Newsletters", path: "/newsletters" },
+  { label: "Presentations", path: "/presentations" },
+  { label: "Events", path: "/events" },
+  { label: "About & Team", path: "/about" },
   { label: "Contact", path: "/contact" },
 ];
 
