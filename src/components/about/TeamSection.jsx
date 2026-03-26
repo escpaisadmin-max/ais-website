@@ -1,4 +1,4 @@
-import { leadership, divisions, adminStaff } from "../../data/team";
+import { founders, leadership, divisions, adminStaff } from "../../data/team";
 import TeamMemberCard from "./TeamMemberCard";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
@@ -15,6 +15,24 @@ export default function TeamSection() {
             subtitle="The people behind AIS."
           />
         </ScrollReveal>
+
+        {/* Founder's Team */}
+        {founders.length > 0 && (
+          <div className="mb-16">
+            <ScrollReveal>
+              <h3 className="text-lg font-bold text-ais-navy mb-6 uppercase tracking-wider">
+                Founder's Team
+              </h3>
+            </ScrollReveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-2">
+              {founders.map((member, i) => (
+                <ScrollReveal key={i} delay={i * 0.05}>
+                  <TeamMemberCard member={member} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Leadership */}
         {leadership.length > 0 && (
@@ -36,20 +54,22 @@ export default function TeamSection() {
 
         {/* Division teams */}
         {allDivisionMembers.map(([key, division]) => (
-          <div key={key} className="mb-16">
-            <ScrollReveal>
-              <h3 className="text-lg font-bold text-ais-navy mb-6 uppercase tracking-wider">
-                {division.name}
-              </h3>
-            </ScrollReveal>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-2">
-              {division.members.map((member, i) => (
-                <ScrollReveal key={i} delay={i * 0.05}>
-                  <TeamMemberCard member={member} />
-                </ScrollReveal>
-              ))}
+          division.members.length > 0 && (
+            <div key={key} className="mb-16">
+              <ScrollReveal>
+                <h3 className="text-lg font-bold text-ais-navy mb-6 uppercase tracking-wider">
+                  {division.name}
+                </h3>
+              </ScrollReveal>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-2">
+                {division.members.map((member, i) => (
+                  <ScrollReveal key={i} delay={i * 0.05}>
+                    <TeamMemberCard member={member} />
+                  </ScrollReveal>
+                ))}
+              </div>
             </div>
-          </div>
+          )
         ))}
 
         {/* Admin staff */}

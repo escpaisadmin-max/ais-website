@@ -13,20 +13,30 @@
  * - role:      Title (e.g., "President", "Analyst")
  * - photo:     Path to photo in /public/team/ (starts with /team/)
  * - linkedin:  Full LinkedIn profile URL
- * - email:     Email address (optional, shown in expanded card)
+ * - email:     Email address (optional)
  * - bio:       Short bio (2-3 sentences, shown when card is expanded)
- * - division:  Division key ("pe", "vc", "hf", "re", "admin", "leadership")
+ * - division:  Division key ("pe", "vc", "hf", "re", "admin", "leadership", "founders")
  */
 
-export const leadership = [
+// ── Founder's Team ─────────────────────────────────────────────────
+export const founders = [
   {
-    name: "David Reuther",
+    name: "Noah Junger",
     role: "Co-Founder",
-    photo: "/team/david-reuther.jpeg",
-    linkedin: "https://www.linkedin.com/in/reuther/",
+    photo: "/team/placeholder.svg",
+    linkedin: "https://linkedin.com/in/example",
     email: null,
-    bio: "David is a Co-Founder and former Head of Private Equity at AIS. During his tenure, he gained experience at BNP Paribas, where he worked within the Private Equity team in 2025. He is a German national based in Luxembourg and is fluent in English and German.",
-    division: "leadership",
+    bio: "",
+    division: "founders",
+  },
+  {
+    name: "Max Henkes",
+    role: "Co-Founder",
+    photo: "/team/placeholder.svg",
+    linkedin: "https://linkedin.com/in/example",
+    email: null,
+    bio: "Max Henkes is a Co-Founder of AIS and an analyst in the Hedge Funds division. Max is a German national and speaks German, English, and Russian.",
+    division: "founders",
   },
   {
     name: "Lukas de La Trobe",
@@ -35,8 +45,21 @@ export const leadership = [
     linkedin: "https://www.linkedin.com/in/lukas-de-la-trobe",
     email: null,
     bio: "Lukas is a Co-Founder and Vice-President at AIS. During his time at the society, he gained experience at zeb Consulting, working in the Strategy & Organization team in Frankfurt. He will join Herax Partners as an Investment Banking Summer Analyst this summer. Lukas is a German national and speaks German and English.",
-    division: "leadership",
+    division: "founders",
   },
+  {
+    name: "David Reuther",
+    role: "Co-Founder",
+    photo: "/team/david-reuther.jpeg",
+    linkedin: "https://www.linkedin.com/in/reuther/",
+    email: null,
+    bio: "David is a Co-Founder and former Head of Private Equity at AIS. During his tenure, he gained experience at BNP Paribas, where he worked within the Private Equity team in 2025. He is a German national based in Luxembourg and is fluent in English and German.",
+    division: "founders",
+  },
+];
+
+// ── Leadership ─────────────────────────────────────────────────────
+export const leadership = [
   {
     name: "Theodor Kisslinger",
     role: "Head of Events",
@@ -66,10 +89,20 @@ export const leadership = [
   },
 ];
 
+// ── Division Teams ─────────────────────────────────────────────────
 export const divisions = {
   pe: {
     name: "Private Equity",
     members: [
+      {
+        name: "Philipp Roselieb",
+        role: "Head of Private Equity",
+        photo: "/team/philipp-roselieb.jpeg",
+        linkedin: "https://www.linkedin.com/in/philipp-r-6824b922b",
+        email: null,
+        bio: "Philipp Roselieb is Head of Private Equity at AIS. During his time at the society, he gained experience at KPMG, where he worked in the M&A team in Munich. He will be joining UBS as an Investment Banking Summer Analyst this summer. Philipp is a German national and speaks German and English.",
+        division: "pe",
+      },
       {
         name: "Joschka Feuerstein",
         role: "Analyst",
@@ -124,11 +157,31 @@ export const divisions = {
   },
   hf: {
     name: "Hedge Funds",
-    members: [],
+    members: [
+      {
+        name: "Max Henkes",
+        role: "Analyst",
+        photo: "/team/placeholder.svg",
+        linkedin: "https://linkedin.com/in/example",
+        email: null,
+        bio: "Max Henkes is a Co-Founder of AIS and an analyst in the Hedge Funds division. Max is a German national and speaks German, English, and Russian.",
+        division: "hf",
+      },
+    ],
   },
   re: {
     name: "Real Estate",
-    members: [],
+    members: [
+      {
+        name: "Gustav Graner",
+        role: "Head of Real Estate",
+        photo: "/team/gustav-graner.jpeg",
+        linkedin: "https://www.linkedin.com/in/gustavgraner",
+        email: null,
+        bio: "Gustav is Head of Real Estate at AIS. During his time at the society, he gained experience at Sagax AB, where he worked in the Real Estate investment team in Paris. He will be joining EQT this summer. Gustav is a Swedish national and speaks English, Swedish, and French.",
+        division: "re",
+      },
+    ],
   },
 };
 
