@@ -10,7 +10,7 @@ export default function PresentationCard({ presentation }) {
     <motion.div
       whileHover={{ y: -4 }}
       transition={{ duration: 0.2 }}
-      className="rounded-lg border border-ais-silver/30 hover:border-ais-ocean/30 hover:shadow-lg transition-shadow duration-300 bg-white p-6"
+      className="rounded-lg border border-ais-silver/30 hover:border-ais-ocean/30 hover:shadow-lg transition-shadow duration-300 bg-white p-6 h-full flex flex-col"
     >
       {/* Tags */}
       <div className="flex items-center gap-2 mb-3">
@@ -25,11 +25,11 @@ export default function PresentationCard({ presentation }) {
         </h3>
       </Link>
       <p className="text-sm text-ais-gray mb-1">{presentation.topic}</p>
-      <p className="text-sm text-ais-gray mb-4 line-clamp-2">
+      <p className="text-sm text-ais-gray mb-4 line-clamp-2 flex-1">
         {presentation.description}
       </p>
 
-      <p className="text-xs text-ais-gray mb-4">{presentation.pageCount} pages</p>
+      <p className="text-xs text-ais-gray mb-4 mt-auto">{presentation.pageCount} pages</p>
 
       {/* Actions */}
       <div className="flex gap-3">
