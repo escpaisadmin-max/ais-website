@@ -4,12 +4,12 @@ import { FaLinkedin } from "react-icons/fa";
 
 function ExpandIcon({ expanded }) {
   return (
-    <div className="relative w-4 h-4 flex items-center justify-center">
+    <div className="relative w-3 h-3 flex items-center justify-center">
       {/* Horizontal line (always visible = minus) */}
-      <span className="absolute w-4 h-0.5 bg-ais-ocean rounded-full" />
+      <span className="absolute w-3 h-0.5 bg-ais-ocean rounded-full" />
       {/* Vertical line (collapses to 0 when expanded = plus becomes minus) */}
       <motion.span
-        className="absolute w-0.5 h-4 bg-ais-ocean rounded-full"
+        className="absolute w-0.5 h-3 bg-ais-ocean rounded-full"
         animate={{ scaleY: expanded ? 0 : 1 }}
         transition={{ duration: 0.25, ease: "easeInOut" }}
       />
