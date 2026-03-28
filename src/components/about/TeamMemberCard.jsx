@@ -2,6 +2,21 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
 
+function ExpandIcon({ expanded }) {
+  return (
+    <div className="relative w-4 h-4 flex items-center justify-center">
+      {/* Horizontal line (always visible = minus) */}
+      <span className="absolute w-4 h-0.5 bg-ais-ocean rounded-full" />
+      {/* Vertical line (collapses to 0 when expanded = plus becomes minus) */}
+      <motion.span
+        className="absolute w-0.5 h-4 bg-ais-ocean rounded-full"
+        animate={{ scaleY: expanded ? 0 : 1 }}
+        transition={{ duration: 0.25, ease: "easeInOut" }}
+      />
+    </div>
+  );
+}
+
 export default function TeamMemberCard({ member }) {
   const [expanded, setExpanded] = useState(false);
 
@@ -27,9 +42,7 @@ export default function TeamMemberCard({ member }) {
           <h3 className="text-sm font-bold text-ais-navy">{member.name}</h3>
           <p className="text-xs text-ais-gray">{member.role}</p>
         </div>
-        <span className="text-ais-ocean text-xl font-light leading-none select-none">
-          {expanded ? "\u2212" : "+"}
-        </span>
+        <ExpandIcon expanded={expanded} />
       </button>
 
       {/* Expanded content */}
@@ -49,7 +62,7 @@ export default function TeamMemberCard({ member }) {
                 </p>
               )}
               <div className="flex items-center gap-3">
-{member.linkedin && (
+                {member.linkedin && (
                   <a
                     href={member.linkedin}
                     target="_blank"
