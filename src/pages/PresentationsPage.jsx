@@ -4,6 +4,7 @@ import { divisions } from "../data/divisions";
 import PresentationGrid from "../components/presentations/PresentationGrid";
 import SectionHeading from "../components/ui/SectionHeading";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import NewsletterCTA from "../components/newsletters/NewsletterCTA";
 
 export default function PresentationsPage() {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -30,6 +31,8 @@ export default function PresentationsPage() {
             subtitle="Browse our library of educational presentations across all divisions."
           />
         </ScrollReveal>
+
+        <NewsletterCTA />
 
         {/* Filter bar */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">

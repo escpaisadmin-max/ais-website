@@ -9,12 +9,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold text-ais-white mb-2">AIS</h3>
+            <img src="/ais-logo.svg" alt="AIS" className="h-12 w-auto mb-3" />
             <p className="text-sm text-ais-white">
               ESCP Alternative Investment Society
             </p>
             <p className="text-sm text-ais-silver mt-2">
-              The premier student investment society at ESCP Business School.
+              The premier student investment society at ESCP Business School — the world's oldest business school.
             </p>
           </div>
 

@@ -9,8 +9,8 @@
  * 3. Add a new entry to the relevant section below
  */
 
-// ── Founder's Team ─────────────────────────────────────────────────
-export const founders = [
+// ── Executive Team (Founders + Leadership) ─────────────────────────
+export const executiveTeam = [
   {
     name: "Noah Junger",
     role: "Co-Founder",
@@ -18,16 +18,16 @@ export const founders = [
     linkedin: "https://linkedin.com/in/example",
     email: null,
     bio: "",
-    division: "founders",
+    division: "executive",
   },
   {
     name: "Julius Majowski",
-    role: "Co-Founder & President",
+    role: "Co-Founder, President & Head of Hedge Funds",
     photo: "/team/julius-majowski.jpg",
     linkedin: "https://www.linkedin.com/in/juliusmajowski/",
     email: null,
     bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
-    division: "founders",
+    division: "executive",
   },
   {
     name: "Lukas de La Trobe",
@@ -36,7 +36,7 @@ export const founders = [
     linkedin: "https://www.linkedin.com/in/lukas-de-la-trobe",
     email: null,
     bio: "Lukas is a Co-Founder and Vice-President at AIS. During his time at the society, he gained experience at zeb Consulting, working in the Strategy & Organization team in Frankfurt. He will join Herax Partners as an Investment Banking Summer Analyst this summer. Lukas is a German national and speaks German and English.",
-    division: "founders",
+    division: "executive",
   },
   {
     name: "David Reuther",
@@ -45,20 +45,7 @@ export const founders = [
     linkedin: "https://www.linkedin.com/in/reuther/",
     email: null,
     bio: "David is a Co-Founder and former Head of Private Equity at AIS. During his tenure, he gained experience at BNP Paribas, where he worked within the Private Equity team in 2025. He is a German national based in Luxembourg and is fluent in English and German.",
-    division: "founders",
-  },
-];
-
-// ── Leadership ─────────────────────────────────────────────────────
-export const leadership = [
-  {
-    name: "Julius Majowski",
-    role: "President & Head of Hedge Funds",
-    photo: "/team/julius-majowski.jpg",
-    linkedin: "https://www.linkedin.com/in/juliusmajowski/",
-    email: null,
-    bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
-    division: "leadership",
+    division: "executive",
   },
   {
     name: "Theodor Kisslinger",
@@ -67,7 +54,7 @@ export const leadership = [
     linkedin: "https://www.linkedin.com/in/theodor-kisslinger",
     email: "theodor.kisslinger@edu.escp.eu",
     bio: "Theodor is Head of Events at AIS. Prior to his time at the society, he gained experience at UBS and Macquarie, where he worked in the M&A team in Frankfurt. He will be joining Altor Equity Partners and Ardian Secondaries this Fall. Theodor is a German national and speaks German and English.",
-    division: "leadership",
+    division: "executive",
   },
   {
     name: "Philipp Roselieb",
@@ -76,7 +63,7 @@ export const leadership = [
     linkedin: "https://www.linkedin.com/in/philipp-r-6824b922b",
     email: null,
     bio: "Philipp Roselieb is Head of Private Equity at AIS. During his time at the society, he gained experience at KPMG, where he worked in the M&A team in Munich. He will be joining UBS as an Investment Banking Summer Analyst this summer. Philipp is a German national and speaks German and English.",
-    division: "leadership",
+    division: "executive",
   },
   {
     name: "Gustav Graner",
@@ -85,24 +72,15 @@ export const leadership = [
     linkedin: "https://www.linkedin.com/in/gustavgraner",
     email: null,
     bio: "Gustav is Head of Real Estate at AIS. During his time at the society, he gained experience at Sagax AB, where he worked in the Real Estate investment team in Paris. He will be joining EQT this summer. Gustav is a Swedish national and speaks English, Swedish, and French.",
-    division: "leadership",
+    division: "executive",
   },
 ];
 
-// ── Division Teams ─────────────────────────────────────────────────
+// ── Division Teams (analysts only, no heads) ───────────────────────
 export const divisions = {
   pe: {
     name: "Private Equity",
     members: [
-      {
-        name: "Philipp Roselieb",
-        role: "Head of Private Equity",
-        photo: "/team/philipp-roselieb.jpeg",
-        linkedin: "https://www.linkedin.com/in/philipp-r-6824b922b",
-        email: null,
-        bio: "Philipp Roselieb is Head of Private Equity at AIS. During his time at the society, he gained experience at KPMG, where he worked in the M&A team in Munich. He will be joining UBS as an Investment Banking Summer Analyst this summer. Philipp is a German national and speaks German and English.",
-        division: "pe",
-      },
       {
         name: "Joschka Feuerstein",
         role: "Analyst",
@@ -159,15 +137,6 @@ export const divisions = {
     name: "Hedge Funds",
     members: [
       {
-        name: "Julius Majowski",
-        role: "President & Head of Hedge Funds",
-        photo: "/team/julius-majowski.jpg",
-        linkedin: "https://www.linkedin.com/in/juliusmajowski/",
-        email: null,
-        bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
-        division: "hf",
-      },
-      {
         name: "Max Henkes",
         role: "Analyst",
         photo: "/team/placeholder.svg",
@@ -189,17 +158,7 @@ export const divisions = {
   },
   re: {
     name: "Real Estate",
-    members: [
-      {
-        name: "Gustav Graner",
-        role: "Head of Real Estate",
-        photo: "/team/gustav-graner.jpeg",
-        linkedin: "https://www.linkedin.com/in/gustavgraner",
-        email: null,
-        bio: "Gustav is Head of Real Estate at AIS. During his time at the society, he gained experience at Sagax AB, where he worked in the Real Estate investment team in Paris. He will be joining EQT this summer. Gustav is a Swedish national and speaks English, Swedish, and French.",
-        division: "re",
-      },
-    ],
+    members: [],
   },
 };
 

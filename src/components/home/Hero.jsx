@@ -30,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-lg md:text-xl text-ais-silver max-w-2xl mx-auto mb-10"
         >
-          ESCP's premier student investment society. We bridge academia and
+          The premier investment society at ESCP — the world's oldest business school. We bridge academia and
           finance through educational content, industry events, and a
           community of ambitious future investors.
         </motion.p>
