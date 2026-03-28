@@ -7,10 +7,12 @@
  * 1. Save their headshot photo to /public/team/ (square or portrait crop, min 400px wide recommended)
  * 2. Rename the file to lowercase-kebab-case (e.g., "jane-doe.jpg") — avoid spaces in filenames
  * 3. Add a new entry to the relevant section below
+ *
+ * NOTE: Within each division, the Head should always be the FIRST entry.
  */
 
-// ── Executive Team (Founders + Leadership) ─────────────────────────
-export const executiveTeam = [
+// ── Founding Team (max 5) ──────────────────────────────────────────
+export const founders = [
   {
     name: "Noah Junger",
     role: "Co-Founder",
@@ -18,16 +20,16 @@ export const executiveTeam = [
     linkedin: "https://linkedin.com/in/example",
     email: null,
     bio: "",
-    division: "executive",
+    division: "founders",
   },
   {
     name: "Julius Majowski",
-    role: "Co-Founder, President & Head of Hedge Funds",
+    role: "Co-Founder & President",
     photo: "/team/julius-majowski.jpg",
     linkedin: "https://www.linkedin.com/in/juliusmajowski/",
     email: null,
     bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
-    division: "executive",
+    division: "founders",
   },
   {
     name: "Lukas de La Trobe",
@@ -36,7 +38,7 @@ export const executiveTeam = [
     linkedin: "https://www.linkedin.com/in/lukas-de-la-trobe",
     email: null,
     bio: "Lukas is a Co-Founder and Vice-President at AIS. During his time at the society, he gained experience at zeb Consulting, working in the Strategy & Organization team in Frankfurt. He will join Herax Partners as an Investment Banking Summer Analyst this summer. Lukas is a German national and speaks German and English.",
-    division: "executive",
+    division: "founders",
   },
   {
     name: "David Reuther",
@@ -45,42 +47,24 @@ export const executiveTeam = [
     linkedin: "https://www.linkedin.com/in/reuther/",
     email: null,
     bio: "David is a Co-Founder and former Head of Private Equity at AIS. During his tenure, he gained experience at BNP Paribas, where he worked within the Private Equity team in 2025. He is a German national based in Luxembourg and is fluent in English and German.",
-    division: "executive",
-  },
-  {
-    name: "Theodor Kisslinger",
-    role: "Head of Events",
-    photo: "/team/theodor-kisslinger.jpeg",
-    linkedin: "https://www.linkedin.com/in/theodor-kisslinger",
-    email: "theodor.kisslinger@edu.escp.eu",
-    bio: "Theodor is Head of Events at AIS. Prior to his time at the society, he gained experience at UBS and Macquarie, where he worked in the M&A team in Frankfurt. He will be joining Altor Equity Partners and Ardian Secondaries this Fall. Theodor is a German national and speaks German and English.",
-    division: "executive",
-  },
-  {
-    name: "Philipp Roselieb",
-    role: "Head of Private Equity",
-    photo: "/team/philipp-roselieb.jpeg",
-    linkedin: "https://www.linkedin.com/in/philipp-r-6824b922b",
-    email: null,
-    bio: "Philipp Roselieb is Head of Private Equity at AIS. During his time at the society, he gained experience at KPMG, where he worked in the M&A team in Munich. He will be joining UBS as an Investment Banking Summer Analyst this summer. Philipp is a German national and speaks German and English.",
-    division: "executive",
-  },
-  {
-    name: "Gustav Graner",
-    role: "Head of Real Estate",
-    photo: "/team/gustav-graner.jpeg",
-    linkedin: "https://www.linkedin.com/in/gustavgraner",
-    email: null,
-    bio: "Gustav is Head of Real Estate at AIS. During his time at the society, he gained experience at Sagax AB, where he worked in the Real Estate investment team in Paris. He will be joining EQT this summer. Gustav is a Swedish national and speaks English, Swedish, and French.",
-    division: "executive",
+    division: "founders",
   },
 ];
 
-// ── Division Teams (analysts only, no heads) ───────────────────────
+// ── Divisions (Head is always first entry) ─────────────────────────
 export const divisions = {
   pe: {
     name: "Private Equity",
     members: [
+      {
+        name: "Philipp Roselieb",
+        role: "Head of Private Equity",
+        photo: "/team/philipp-roselieb.jpeg",
+        linkedin: "https://www.linkedin.com/in/philipp-r-6824b922b",
+        email: null,
+        bio: "Philipp Roselieb is Head of Private Equity at AIS. During his time at the society, he gained experience at KPMG, where he worked in the M&A team in Munich. He will be joining UBS as an Investment Banking Summer Analyst this summer. Philipp is a German national and speaks German and English.",
+        division: "pe",
+      },
       {
         name: "Joschka Feuerstein",
         role: "Analyst",
@@ -137,6 +121,15 @@ export const divisions = {
     name: "Hedge Funds",
     members: [
       {
+        name: "Julius Majowski",
+        role: "Head of Hedge Funds",
+        photo: "/team/julius-majowski.jpg",
+        linkedin: "https://www.linkedin.com/in/juliusmajowski/",
+        email: null,
+        bio: "Julius is President and Head of Hedge Funds at AIS. During his time at the society he gained experience at Herax Partners, where he worked in the Generalist M&A Team. He will be joining Lincoln International as an M&A intern this summer. Julius is a German national and speaks English, German, and Spanish.",
+        division: "hf",
+      },
+      {
         name: "Max Henkes",
         role: "Analyst",
         photo: "/team/placeholder.svg",
@@ -158,30 +151,55 @@ export const divisions = {
   },
   re: {
     name: "Real Estate",
-    members: [],
+    members: [
+      {
+        name: "Gustav Graner",
+        role: "Head of Real Estate",
+        photo: "/team/gustav-graner.jpeg",
+        linkedin: "https://www.linkedin.com/in/gustavgraner",
+        email: null,
+        bio: "Gustav is Head of Real Estate at AIS. During his time at the society, he gained experience at Sagax AB, where he worked in the Real Estate investment team in Paris. He will be joining EQT this summer. Gustav is a Swedish national and speaks English, Swedish, and French.",
+        division: "re",
+      },
+    ],
+  },
+  events: {
+    name: "Events",
+    members: [
+      {
+        name: "Theodor Kisslinger",
+        role: "Head of Events",
+        photo: "/team/theodor-kisslinger.jpeg",
+        linkedin: "https://www.linkedin.com/in/theodor-kisslinger",
+        email: "theodor.kisslinger@edu.escp.eu",
+        bio: "Theodor is Head of Events at AIS. Prior to his time at the society, he gained experience at UBS and Macquarie, where he worked in the M&A team in Frankfurt. He will be joining Altor Equity Partners and Ardian Secondaries this Fall. Theodor is a German national and speaks German and English.",
+        division: "events",
+      },
+    ],
+  },
+  marketing: {
+    name: "Marketing",
+    members: [
+      {
+        name: "Elisa Alessandri",
+        role: "Marketing",
+        photo: "/team/elisa-alessandri.jpg",
+        linkedin: "https://www.linkedin.com/in/elisaalessandri7",
+        email: null,
+        bio: "Elisa is a Marketing Team Member at AIS. Prior to joining the society, she gained experience at an accounting firm in accounting and financial reporting. She will be joining DLVentures, a Milan-based VC firm, this summer as a Venture Analyst. Elisa is an Italian national and speaks Italian, English, French, and Spanish.",
+        division: "marketing",
+      },
+      {
+        name: "Laura Ceccarelli",
+        role: "Marketing",
+        photo: "/team/laura-ceccarelli.jpeg",
+        linkedin: "https://www.linkedin.com/in/laura-ceccarelli-b07130287",
+        email: null,
+        bio: "Laura Ceccarelli is a Marketing member at AIS, responsible for shaping and maintaining the society's external presence and ensuring a consistent, professional brand image. Laura is a German national and speaks English and Spanish fluently.",
+        division: "marketing",
+      },
+    ],
   },
 };
-
-// ── Marketing ──────────────────────────────────────────────────────
-export const marketingTeam = [
-  {
-    name: "Elisa Alessandri",
-    role: "Marketing",
-    photo: "/team/elisa-alessandri.jpg",
-    linkedin: "https://www.linkedin.com/in/elisaalessandri7",
-    email: null,
-    bio: "Elisa is a Marketing Team Member at AIS. Prior to joining the society, she gained experience at an accounting firm in accounting and financial reporting. She will be joining DLVentures, a Milan-based VC firm, this summer as a Venture Analyst. Elisa is an Italian national and speaks Italian, English, French, and Spanish.",
-    division: "marketing",
-  },
-  {
-    name: "Laura Ceccarelli",
-    role: "Marketing",
-    photo: "/team/laura-ceccarelli.jpeg",
-    linkedin: "https://www.linkedin.com/in/laura-ceccarelli-b07130287",
-    email: null,
-    bio: "Laura Ceccarelli is a Marketing member at AIS, responsible for shaping and maintaining the society's external presence and ensuring a consistent, professional brand image. Laura is a German national and speaks English and Spanish fluently.",
-    division: "marketing",
-  },
-];
 
 export const adminStaff = [];

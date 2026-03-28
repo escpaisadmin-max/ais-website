@@ -1,10 +1,10 @@
-import { executiveTeam, divisions, marketingTeam, adminStaff } from "../../data/team";
+import { founders, divisions, adminStaff } from "../../data/team";
 import TeamMemberCard from "./TeamMemberCard";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
 
 export default function TeamSection() {
-  const allDivisionMembers = Object.entries(divisions);
+  const allDivisions = Object.entries(divisions);
 
   return (
     <section className="py-20 bg-white">
@@ -16,16 +16,16 @@ export default function TeamSection() {
           />
         </ScrollReveal>
 
-        {/* Executive Team */}
-        {executiveTeam.length > 0 && (
+        {/* Founding Team */}
+        {founders.length > 0 && (
           <div className="mb-16">
             <ScrollReveal>
               <h3 className="text-lg font-bold text-ais-navy mb-6 uppercase tracking-wider">
-                Executive Team
+                Founding Team
               </h3>
             </ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-2">
-              {executiveTeam.map((member, i) => (
+              {founders.map((member, i) => (
                 <ScrollReveal key={i} delay={i * 0.05}>
                   <TeamMemberCard member={member} />
                 </ScrollReveal>
@@ -34,8 +34,8 @@ export default function TeamSection() {
           </div>
         )}
 
-        {/* Division teams */}
-        {allDivisionMembers.map(([key, division]) => (
+        {/* Divisions (head is always first) */}
+        {allDivisions.map(([key, division]) => (
           division.members.length > 0 && (
             <div key={key} className="mb-16">
               <ScrollReveal>
@@ -53,24 +53,6 @@ export default function TeamSection() {
             </div>
           )
         ))}
-
-        {/* Marketing */}
-        {marketingTeam.length > 0 && (
-          <div className="mb-16">
-            <ScrollReveal>
-              <h3 className="text-lg font-bold text-ais-navy mb-6 uppercase tracking-wider">
-                Marketing
-              </h3>
-            </ScrollReveal>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-2">
-              {marketingTeam.map((member, i) => (
-                <ScrollReveal key={i} delay={i * 0.05}>
-                  <TeamMemberCard member={member} />
-                </ScrollReveal>
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Admin staff */}
         {adminStaff.length > 0 && (
