@@ -52,7 +52,7 @@ export const founders = [
   {
     name: "David Nenning",
     role: "Co-Founder & Head of Venture Capital",
-    photo: "/team/placeholder.svg",
+    photo: "/team/david-nenning.jpg",
     linkedin: "https://linkedin.com/in/example",
     email: null,
     bio: "David is a Co-Founder and Head of Venture Capital at AIS. During his time at the society, he gained experience at Stern & Stewart, working in the Strategy team in Munich. He will be joining Helsing, a leading European defense technology startup, this summer. David is a German national who speaks English and German.",
@@ -95,7 +95,7 @@ export const divisions = {
       {
         name: "Joséphine Schroeder",
         role: "Analyst",
-        photo: "/team/placeholder.svg",
+        photo: "/team/josephine-schroeder.jpeg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
         bio: "Joséphine is a Private Equity Analyst at AIS. Prior to her time at the society, she gained experience at Rothschild & Co and at Ardian, where she worked in the Expansion team in Frankfurt. She will be joining Triton as a Private Equity Intern this summer. Joséphine is a German and French national who speaks English, German, and French.",
@@ -104,7 +104,7 @@ export const divisions = {
       {
         name: "Eloah Brummund",
         role: "Analyst",
-        photo: "/team/placeholder.svg",
+        photo: "/team/eloah-brummund.jpg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
         bio: "Eloah is a Private Equity Analyst at AIS. Prior to his time at the society, he gained experience at DBAG and at Ardian, where he worked in the Buyout team in Frankfurt. He is currently a Visiting Analyst at CMAR Ventures. Eloah is a German national who speaks German, English, and French.",
@@ -118,7 +118,7 @@ export const divisions = {
       {
         name: "David Nenning",
         role: "Head of Venture Capital",
-        photo: "/team/placeholder.svg",
+        photo: "/team/david-nenning.jpg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
         bio: "David is a Co-Founder and Head of Venture Capital at AIS. During his time at the society, he gained experience at Stern & Stewart, working in the Strategy team in Munich. He will be joining Helsing, a leading European defense technology startup, this summer. David is a German national who speaks English and German.",
@@ -163,7 +163,7 @@ export const divisions = {
       {
         name: "Simon Putzer",
         role: "Analyst",
-        photo: "/team/placeholder.svg",
+        photo: "/team/simon-putzer.jpg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
         bio: "Simon is a Venture Capital Analyst at AIS. During his time at the society, he gained experience at Clearwater International, where he worked in the Industrials and Consumer team in Frankfurt. Simon is a German national who speaks English and French.",
@@ -172,7 +172,7 @@ export const divisions = {
       {
         name: "Antonio Trenn",
         role: "Analyst",
-        photo: "/team/placeholder.svg",
+        photo: "/team/antonio-trenn.jpg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
         bio: "Antonio is a Venture Capital Analyst at AIS. During his time at the society, he gained experience at Fortlane Partners, where he worked in the Private Equity Consulting team. He will be joining Noteus Partners as a Growth Equity Intern this summer. Antonio is a German national who speaks German and English.",
@@ -254,7 +254,7 @@ export const divisions = {
       {
         name: "Ronald Zohlen",
         role: "Analyst",
-        photo: "/team/placeholder.svg",
+        photo: "/team/ronald-zohlen.jpg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
         bio: "Ronald is a Real Estate Analyst at AIS. Prior to his time at the society, he gained experience at Ventus Capital and at Edmond de Rothschild, where he worked in the Real Estate Private Credit team in Frankfurt. Ronald is a German national who speaks German and English.",
