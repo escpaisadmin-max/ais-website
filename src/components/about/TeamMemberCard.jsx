@@ -28,7 +28,7 @@ export default function TeamMemberCard({ member }) {
         <img
           src={member.photo}
           alt={member.name}
-          className="w-full aspect-[3/4] object-cover grayscale"
+          className="w-full aspect-[3/4] object-cover object-top grayscale"
           loading="lazy"
         />
       </div>
