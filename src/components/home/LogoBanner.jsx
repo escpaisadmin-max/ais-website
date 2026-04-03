@@ -20,7 +20,7 @@ function ScrollingRow({ logos, direction = "left" }) {
             <img
               src={partner.logo}
               alt={partner.name}
-              className="h-10 w-auto object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
+              className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
               loading="lazy"
             />
           );
@@ -30,7 +30,7 @@ function ScrollingRow({ logos, direction = "left" }) {
               <Link
                 key={`${partner.id}-${i}`}
                 to={`/events/${partner.eventSlug}`}
-                className="flex-shrink-0 mx-4 md:mx-8 flex items-center justify-center h-12 w-44"
+                className="flex-shrink-0 mx-4 md:mx-8 flex items-center justify-center" style={{ width: 180, height: 50 }}
                 title={`${partner.name} — View event`}
               >
                 {img}
@@ -41,7 +41,7 @@ function ScrollingRow({ logos, direction = "left" }) {
           return (
             <div
               key={`${partner.id}-${i}`}
-              className="flex-shrink-0 mx-4 md:mx-8 flex items-center justify-center h-12 w-44"
+              className="flex-shrink-0 mx-4 md:mx-8 flex items-center justify-center" style={{ width: 180, height: 50 }}
             >
               {img}
             </div>
