@@ -20,7 +20,7 @@ function ScrollingRow({ logos, direction = "left" }) {
             <img
               src={partner.logo}
               alt={partner.name}
-              className="max-h-full max-w-full object-contain brightness-0 invert opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
+              className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
               loading="lazy"
             />
           );
