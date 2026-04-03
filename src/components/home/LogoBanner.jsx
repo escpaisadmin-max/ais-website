@@ -30,7 +30,7 @@ function ScrollingRow({ logos, direction = "left" }) {
               <Link
                 key={`${partner.id}-${i}`}
                 to={`/events/${partner.eventSlug}`}
-                className="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center h-20 w-44 md:w-52"
+                className="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center h-14"
                 title={`${partner.name} — View event`}
               >
                 {img}
@@ -41,7 +41,7 @@ function ScrollingRow({ logos, direction = "left" }) {
           return (
             <div
               key={`${partner.id}-${i}`}
-              className="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center h-20 w-44 md:w-52"
+              className="flex-shrink-0 mx-8 md:mx-12 flex items-center justify-center h-14"
             >
               {img}
             </div>
