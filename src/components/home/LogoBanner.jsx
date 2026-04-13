@@ -21,6 +21,7 @@ function ScrollingRow({ logos, direction = "left" }) {
               src={partner.logo}
               alt={partner.name}
               className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
+              style={partner.scale ? { transform: `scale(${partner.scale})` } : undefined}
               loading="lazy"
             />
           );
@@ -73,7 +74,7 @@ export default function LogoBanner() {
       <div className="max-w-7xl mx-auto px-6 mb-6">
         <ScrollReveal>
           <SectionHeading
-            title="Professional & Academic Partners"
+            title="Industry Collaborators"
             subtitle="Companies and organizations we collaborate with."
             light
           />

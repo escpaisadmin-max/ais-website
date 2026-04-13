@@ -15,7 +15,8 @@ export default function PresentationCard({ presentation }) {
       {/* Tags */}
       <div className="flex items-center gap-2 mb-3">
         {division && <Tag label={division.shortName} type={presentation.department} />}
-        <span className="text-xs text-ais-gray">{presentation.date}</span>
+        <span className="text-xs text-ais-gray">#{presentation.id.split("-")[1]}</span>
+        <span className="text-xs text-ais-gray">&middot; {presentation.date}</span>
       </div>
 
       {/* Title & description */}

@@ -28,7 +28,7 @@ export const founders = [
     photo: "/team/julius-majowski.jpg",
     linkedin: "https://www.linkedin.com/in/juliusmajowski/",
     email: null,
-    bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Tech M&A Analyst this summer. Julius is a German national who speaks English, German, and Spanish.",
+    bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Tech M&A Analyst Intern this summer. Julius is a German national who speaks English, German, and Spanish.",
     division: "founders",
   },
   {
@@ -37,7 +37,7 @@ export const founders = [
     photo: "/team/lukas-de-la-trobe.jpg",
     linkedin: "https://www.linkedin.com/in/lukas-de-la-trobe",
     email: null,
-    bio: "Lukas is a Co-Founder and Vice-President at AIS. During his time at the society, he gained experience at zeb Consulting, working in the Strategy & Organization team in Frankfurt. He will be joining Herax Partners as an M&A Analyst this summer. Lukas is a German national who speaks German and English.",
+    bio: "Lukas is a Co-Founder and Vice-President at AIS. During his time at the society, he gained experience at zeb Consulting, working in the Strategy & Organization team in Frankfurt. He will be joining Herax Partners as an M&A Analyst Intern this summer. Lukas is a German national who speaks German and English.",
     division: "founders",
   },
   {
@@ -55,7 +55,7 @@ export const founders = [
     photo: "/team/david-nenning.jpg",
     linkedin: "https://www.linkedin.com/in/david-nenning-7241b8277/",
     email: null,
-    bio: "David is a Co-Founder and Head of Venture Capital at AIS. During his time at the society, he gained experience at Stern & Stewart, working in the Strategy team in Munich. He will be joining Helsing, a leading European defense technology startup, this summer. David is a German national who speaks English and German.",
+    bio: "David is a Co-Founder and Head of Venture Capital at AIS. During his time at the society, he gained experience at Stern & Stewart, where he worked in the strategy team in Munich. He will be joining Helsing, a leading European defense technology startup, as a Product Intern this summer. David is a German national who speaks English and German.",
     division: "founders",
   },
 ];
@@ -71,7 +71,7 @@ export const divisions = {
         photo: "/team/philipp-roselieb.jpeg",
         linkedin: "https://www.linkedin.com/in/philipp-r-6824b922b",
         email: null,
-        bio: "Philipp is Head of Private Equity at AIS. During his time at the society, he gained experience at KPMG, where he worked in the M&A team in Munich. He will be joining UBS as an M&A Analyst this summer. Philipp is a German national who speaks German and English.",
+        bio: "Philipp is Head of Private Equity at AIS. During his time at the society, he gained experience at KPMG, where he worked in the M&A team in Munich. He will be joining UBS as an M&A Analyst Intern this summer. Philipp is a German national who speaks German and English.",
         division: "pe",
       },
       {
@@ -121,7 +121,7 @@ export const divisions = {
         photo: "/team/david-nenning.jpg",
         linkedin: "https://www.linkedin.com/in/david-nenning-7241b8277/",
         email: null,
-        bio: "David is a Co-Founder and Head of Venture Capital at AIS. During his time at the society, he gained experience at Stern & Stewart, working in the Strategy team in Munich. He will be joining Helsing, a leading European defense technology startup, this summer. David is a German national who speaks English and German.",
+        bio: "David is a Co-Founder and Head of Venture Capital at AIS. During his time at the society, he gained experience at Stern & Stewart, where he worked in the strategy team in Munich. He will be joining Helsing, a leading European defense technology startup, as a Product Intern this summer. David is a German national who speaks English and German.",
         division: "vc",
       },
       {
@@ -139,7 +139,7 @@ export const divisions = {
         photo: "/team/richard-krizan.jpeg",
         linkedin: "https://www.linkedin.com/in/richard-kri%C5%BEan-3aa53a252",
         email: null,
-        bio: "Richard is a Venture Capital Analyst at AIS. Prior to his time at the society, he gained experience at PurposeTech Capital, where he worked in the Investment team. He will be joining Inven Capital as a Venture Analyst this summer. Richard is a Slovak national who speaks English, Slovak, and Czech.",
+        bio: "Richard is a Venture Capital Analyst at AIS. Prior to his time at the society, he gained experience at PurposeTech Capital, where he worked in the Investment team. He will be joining Inven Capital as a Venture Capital Analyst Intern this summer. Richard is a Slovak national who speaks English, Slovak, and Czech.",
         division: "vc",
       },
       {
@@ -148,7 +148,7 @@ export const divisions = {
         photo: "/team/florian-trepetschnigg.jpeg",
         linkedin: "https://www.linkedin.com/in/florian-trepetschnigg/",
         email: null,
-        bio: "Florian is a Venture Capital Analyst at AIS. Prior to joining the society, he co-founded Hoodit, a B2B SaaS platform for merchandise. He has since gained experience in VC at Elevator Ventures and in Private Credit at Allianz Global Investors. He will be joining Plato, an early-stage software company building for wholesale distributors, this summer. Florian is an Austrian national who speaks German and English.",
+        bio: "Florian is a Venture Capital Analyst at AIS. Prior to joining the society, he co-founded Hoodit, a B2B SaaS platform for merchandise. He has since gained experience in VC at Elevator Ventures and in Private Credit at Allianz Global Investors. He will be joining Plato, an early-stage growth platform for distributors, this summer. Florian is an Austrian national who speaks German and English.",
         division: "vc",
       },
       {
@@ -157,7 +157,7 @@ export const divisions = {
         photo: "/team/thomas-longuet.jpeg",
         linkedin: "https://www.linkedin.com/in/thomas-longuet-8101431b0/",
         email: null,
-        bio: "Thomas is a Venture Capital Analyst at AIS. Prior to joining the society, he gained experience at several investment funds in San Francisco (G Squared and Mach49) as a Venture Capital Analyst, as well as at the investment arm of a CAC 40 company, Capgemini. He will be joining Avolta Partners as a Tech M&A Analyst this summer. Thomas is a French national who speaks French, English, and Spanish.",
+        bio: "Thomas is a Venture Capital Analyst at AIS. Prior to joining the society, he gained experience at several investment funds in San Francisco (G Squared and Mach49) as a Venture Capital Analyst, as well as at the investment arm of a CAC 40 company, Capgemini. He will be joining Avolta Partners as a Tech M&A Analyst Intern this summer. Thomas is a French national who speaks French, English, and Spanish.",
         division: "vc",
       },
       {
@@ -189,7 +189,7 @@ export const divisions = {
         photo: "/team/julius-majowski.jpg",
         linkedin: "https://www.linkedin.com/in/juliusmajowski/",
         email: null,
-        bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Tech M&A Analyst this summer. Julius is a German national who speaks English, German, and Spanish.",
+        bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Tech M&A Analyst Intern this summer. Julius is a German national who speaks English, German, and Spanish.",
         division: "hf",
       },
       {
@@ -198,7 +198,7 @@ export const divisions = {
         photo: "/team/placeholder.svg",
         linkedin: "https://linkedin.com/in/example",
         email: null,
-        bio: "Max is a Hedge Fund Analyst at AIS. Prior to his time at AIS, he gained experience at a German family office and at a deep tech venture capital fund, focusing on healthcare and technology. Max is a German national who speaks German, English, and Russian.",
+        bio: "Max is a Hedge Fund Analyst at AIS. Prior to his time at the society, he gained experience at a German family office. He is currently interning at MätchVC, a deep tech venture capital fund, where he focuses on healthcare and technology. Max is a German national who speaks German, English, and Russian.",
         division: "hf",
       },
       {
@@ -285,7 +285,7 @@ export const divisions = {
         photo: "/team/elisa-alessandri.jpg",
         linkedin: "https://www.linkedin.com/in/elisaalessandri7",
         email: null,
-        bio: "Elisa Co-leads the Marketing Team at AIS. Prior to joining the society, she gained experience at an accounting firm. She will be joining DLVentures as a Venture Analyst this summer. Elisa is an Italian national who speaks Italian, English, French, and Spanish.",
+        bio: "Elisa Co-leads the Marketing Team at AIS. Prior to joining the society, she gained experience at an accounting firm. She will be joining DLVentures as a Venture Capital Analyst Intern this summer. Elisa is an Italian national who speaks Italian, English, French, and Spanish.",
         division: "marketing",
       },
       {

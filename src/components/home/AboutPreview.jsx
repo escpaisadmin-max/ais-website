@@ -9,7 +9,7 @@ export default function AboutPreview() {
         <ScrollReveal>
           <SectionHeading
             title="About AIS"
-            subtitle="At ESCP — the world's oldest business school"
+            subtitle=""
             light
           />
           <p className="text-ais-silver leading-relaxed mb-6">
