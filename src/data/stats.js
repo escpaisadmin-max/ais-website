@@ -11,7 +11,7 @@
  */
 export const stats = [
   { label: "Active Members", value: 750, suffix: "+" },
-  { label: "Analysts", value: 13, suffix: "" },
+  { label: "Team Members", value: 26, suffix: "" },
   { label: "Presentations Published", value: 40, suffix: "+" },
   { label: "Partner Companies", value: 15, suffix: "" },
 ];
