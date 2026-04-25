@@ -25,3 +25,6 @@ dist-ssr
 AIS_Logo_SVG_Small.svg
 Copy of AIS_Logo_SVG_Small.svg
 London skyline.jpg
+
+# Local backup of original logo files before standardization
+public/logos/_originals_backup/
