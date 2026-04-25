@@ -31,7 +31,7 @@ export const trackRecord = [
   { id: "eqt", name: "EQT", logo: "/logos/EQT.png", eventSlug: null },
   { id: "rothschild", name: "Rothschild", logo: "/logos/Rothschild.png", eventSlug: null },
   { id: "ubs", name: "UBS", logo: "/logos/UBS.png", eventSlug: null },
-  { id: "macquarie", name: "Macquarie", logo: "/logos/Macquarie.png", eventSlug: null, scale: 0.7 },
+  { id: "macquarie", name: "Macquarie", logo: "/logos/Macquarie.png", eventSlug: null, scale: 1.1 },
   { id: "herax", name: "Herax Partners", logo: "/logos/Herax.png", eventSlug: null, scale: 0.7 },
   { id: "advent", name: "Advent", logo: "/logos/Advent.png", eventSlug: null, scale: 1.3 },
   { id: "clearwater", name: "Clearwater", logo: "/logos/Clearwater.png", eventSlug: null },
