@@ -33,7 +33,7 @@ export default function Hero() {
         >
           The premier investment society at ESCP — the world's oldest business school. We bridge academia and
           finance through educational content, industry events, and a
-          community of ambitious future investors.
+          community of like-minded individuals passionate about finance.
         </motion.p>
 
         <motion.div
