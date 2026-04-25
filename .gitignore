@@ -28,3 +28,6 @@ London skyline.jpg
 
 # Local backup of original logo files before standardization
 public/logos/_originals_backup/
+
+# Local backup of original team headshots before face-detection normalization
+public/team/_originals_backup/
