@@ -21,6 +21,7 @@ function ScrollingRow({ logos, direction = "left" }) {
               src={partner.logo}
               alt={partner.name}
               className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
+              style={partner.scale ? { transform: `scale(${partner.scale})` } : undefined}
               loading="lazy"
             />
           );
