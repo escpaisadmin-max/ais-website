@@ -46,8 +46,6 @@ export const trackRecord = [
   { id: "bain", name: "Bain & Company", logo: "/logos/Bain.png", eventSlug: null, scale: 1.4 },
   { id: "greenhill", name: "Greenhill", logo: "/logos/Greenhill.png", eventSlug: null, scale: 1.05 },
   { id: "raymond-james", name: "Raymond James", logo: "/logos/RaymondJames.png", eventSlug: null, scale: 1.5 },
-  { id: "ey-parthenon", name: "EY-Parthenon", logo: "/logos/EY_Parthenon.png", eventSlug: null },
-  { id: "kpmg", name: "KPMG", logo: "/logos/KPMG.png", eventSlug: null },
 ];
 
 /** Industry Collaborators */
