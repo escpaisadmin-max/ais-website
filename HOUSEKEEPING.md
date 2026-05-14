@@ -7,7 +7,7 @@ This document is for future Claude Code sessions (or any developer) working on t
 ## Project Overview
 
 - **Stack:** React 19 + Vite + Tailwind CSS v4 + Framer Motion + react-pdf
-- **Hosting:** Netlify (SPA with `_redirects` for client-side routing)
+- **Hosting:** Vercel (SPA with `vercel.json` rewrites for client-side routing)
 - **Content approach:** All content is hardcoded in JS data files in `src/data/`. No CMS — future board members edit source files directly.
 - **Brand font:** Georgia (serif). Brand colors defined as Tailwind `@theme` variables in `src/styles/index.css`.
 
@@ -112,7 +112,7 @@ npm run build    # Production build → dist/
 npm run preview  # Preview production build locally
 ```
 
-Netlify auto-deploys from the `main` branch. The `_redirects` file in `public/` handles SPA routing.
+Vercel auto-deploys from the connected Git branch. The `vercel.json` file handles SPA routing by rewriting all paths to `index.html`.
 
 ---
 

@@ -50,11 +50,12 @@ export const trackRecord = [
 
 /** Industry Collaborators */
 export const academicPartners = [
-  { id: "eqt-partner", name: "EQT", logo: "/logos/EQT.png", eventSlug: null },
-  { id: "tikehau", name: "Tikehau", logo: "/logos/Tikehau.png", eventSlug: null, scale: 1.15 },
-  { id: "job-test-prep", name: "Job Test Prep", logo: "/logos/JobTestPrep.png", eventSlug: null, scale: 0.9 },
-  { id: "trackr", name: "Trackr", logo: "/logos/Trackr.png", eventSlug: null, scale: 0.65 },
-  { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/DartmouthPartners.png", eventSlug: null, scale: 1.2 },
   { id: "wso", name: "Wall Street Oasis", logo: "/logos/WSO.png", eventSlug: null },
-  { id: "financial-edge", name: "Financial Edge", logo: "/logos/FinancialEdge.png", eventSlug: null, scale: 1.25 },
+  { id: "job-test-prep", name: "Job Test Prep", logo: "/logos/JobTestPrep.png", eventSlug: null, scale: 0.9 },
+  { id: "eqt-real-estate", name: "EQT Real Estate", logo: "/logos/EQTRealEstate.png", eventSlug: "eqt-real-estate-workshop" },
+  { id: "ace-the-round", name: "AceTheRound", logo: "/logos/AceTheRound.png", eventSlug: "ace-the-round-workshop" },
+  { id: "jobortunity-ai", name: "Jobortunity.AI", logo: "/logos/JobortunityAI.png", eventSlug: null },
+  { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/DartmouthPartners.png", eventSlug: null, scale: 1.2 },
+  { id: "plato", name: "Plato", logo: "/logos/Plato.png", eventSlug: "plato-event" },
+  { id: "revent", name: "Revent", logo: "/logos/Revent.png", eventSlug: "revent-event" },
 ];

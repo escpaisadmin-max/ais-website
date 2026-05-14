@@ -1,7 +1,29 @@
 import { useParams, Link } from "react-router-dom";
+import { useState } from "react";
 import { events } from "../data/events";
 import Tag from "../components/ui/Tag";
 import { divisions } from "../data/divisions";
+
+function PartnerLogo({ src, name }) {
+  const [failed, setFailed] = useState(false);
+
+  if (src && !failed) {
+    return (
+      <img
+        src={src}
+        alt={name}
+        className="w-16 h-16 object-contain bg-white rounded border border-ais-silver/30 p-2"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+
+  return (
+    <div className="w-16 h-16 flex items-center justify-center bg-white rounded border border-ais-silver/30 p-2 text-center text-[10px] font-semibold leading-tight text-ais-navy">
+      {name}
+    </div>
+  );
+}
 
 export default function EventDetailPage() {
   const { slug } = useParams();
@@ -54,11 +76,7 @@ export default function EventDetailPage() {
         {/* Header */}
         <div className="flex items-start gap-4 mb-6">
           {event.partnerLogo && (
-            <img
-              src={event.partnerLogo}
-              alt={event.partnerName}
-              className="w-16 h-16 object-contain bg-white rounded border border-ais-silver/30 p-2"
-            />
+            <PartnerLogo src={event.partnerLogo} name={event.partnerName} />
           )}
           <div>
             <h1 className="text-3xl md:text-4xl font-bold text-ais-navy">

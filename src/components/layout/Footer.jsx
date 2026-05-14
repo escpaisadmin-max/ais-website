@@ -68,8 +68,16 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-ais-slate/30 text-center text-sm text-ais-silver">
-          &copy; {new Date().getFullYear()} ESCP Alternative Investment Society. All rights reserved.
+        <div className="mt-8 pt-8 border-t border-ais-slate/30 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-ais-silver">
+          <p>&copy; {new Date().getFullYear()} ESCP Alternative Investment Society. All rights reserved.</p>
+          <div className="flex gap-4">
+            <Link to="/privacy-policy" className="hover:text-ais-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/impressum" className="hover:text-ais-white transition-colors">
+              Impressum
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@ export default function StatsBar() {
     <section className="py-16 bg-white">
       <div className="max-w-5xl mx-auto px-6">
         <ScrollReveal>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
             {stats.map((stat, i) => (
               <div key={i}>
                 <div className="text-4xl md:text-5xl font-bold text-ais-navy mb-2">

@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import PageTransition from "./PageTransition";
+import CookieNotice from "./CookieNotice";
 
 export default function Layout() {
   const location = useLocation();
@@ -18,6 +19,7 @@ export default function Layout() {
         </AnimatePresence>
       </main>
       <Footer />
+      <CookieNotice />
     </div>
   );
 }

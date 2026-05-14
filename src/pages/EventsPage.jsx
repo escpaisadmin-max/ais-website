@@ -2,6 +2,7 @@ import { events } from "../data/events";
 import EventGrid from "../components/events/EventGrid";
 import SectionHeading from "../components/ui/SectionHeading";
 import ScrollReveal from "../components/ui/ScrollReveal";
+import { FaEnvelope } from "react-icons/fa";
 
 export default function EventsPage() {
   return (
@@ -14,15 +15,25 @@ export default function EventsPage() {
           />
         </ScrollReveal>
 
+        <EventGrid events={events} />
+
         <ScrollReveal>
-          <div className="bg-ais-ice border border-ais-periwinkle/40 rounded-lg p-6 text-center mb-12">
-            <p className="text-ais-navy font-semibold">
-              This page is under construction — event recaps are being added soon.
+          <div className="mt-16 bg-ais-navy text-white rounded-lg px-6 py-8 text-center">
+            <h2 className="text-2xl font-bold mb-3">
+              Interested in an event with us?
+            </h2>
+            <p className="text-ais-ice mb-6">
+              Reach out to our events team to discuss workshops, speaker sessions, and collaborations.
             </p>
+            <a
+              href="mailto:theodor.kisslinger@edu.escp.eu"
+              className="inline-flex items-center gap-2 rounded bg-white px-5 py-3 text-sm font-semibold text-ais-navy transition-colors hover:bg-ais-ice"
+            >
+              <FaEnvelope aria-hidden="true" />
+              Contact Events Team
+            </a>
           </div>
         </ScrollReveal>
-
-        <EventGrid events={events} />
       </div>
     </section>
   );

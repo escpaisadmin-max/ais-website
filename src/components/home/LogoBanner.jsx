@@ -1,7 +1,31 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { trackRecord, academicPartners } from "../../data/partners";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
+
+function LogoContent({ partner }) {
+  const [failed, setFailed] = useState(false);
+
+  if (partner.logo && !failed) {
+    return (
+      <img
+        src={partner.logo}
+        alt={partner.name}
+        className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
+        style={partner.scale ? { transform: `scale(${partner.scale})` } : undefined}
+        loading="lazy"
+        onError={() => setFailed(true)}
+      />
+    );
+  }
+
+  return (
+    <span className="px-4 text-center text-sm md:text-base font-semibold text-ais-white/85">
+      {partner.name}
+    </span>
+  );
+}
 
 function ScrollingRow({ logos, direction = "left" }) {
   // Duplicate for seamless loop
@@ -16,15 +40,7 @@ function ScrollingRow({ logos, direction = "left" }) {
 
       <div className={`flex ${animClass}`} style={{ width: "fit-content" }}>
         {[...items, ...items].map((partner, i) => {
-          const img = (
-            <img
-              src={partner.logo}
-              alt={partner.name}
-              className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
-              style={partner.scale ? { transform: `scale(${partner.scale})` } : undefined}
-              loading="lazy"
-            />
-          );
+          const img = <LogoContent partner={partner} />;
 
           if (partner.eventSlug) {
             return (
