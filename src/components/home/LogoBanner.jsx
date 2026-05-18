@@ -4,16 +4,19 @@ import { trackRecord, academicPartners } from "../../data/partners";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
 
+const BASE_HEIGHT = 40; // px — base rendered height for all logos
+
 function LogoContent({ partner }) {
   const [failed, setFailed] = useState(false);
 
   if (partner.logo && !failed) {
+    const h = (partner.scale || 1) * BASE_HEIGHT;
     return (
       <img
         src={partner.logo}
         alt={partner.name}
-        className="max-h-full max-w-full object-contain opacity-80 hover:opacity-100 hover:scale-105 transition-all duration-300"
-        style={partner.scale ? { transform: `scale(${partner.scale})` } : undefined}
+        className="w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+        style={{ height: `${h}px` }}
         loading="lazy"
         onError={() => setFailed(true)}
       />
@@ -38,16 +41,18 @@ function ScrollingRow({ logos, direction = "left" }) {
       <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-ais-navy to-transparent z-10" />
       <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-ais-navy to-transparent z-10" />
 
-      <div className={`flex ${animClass}`} style={{ width: "fit-content" }}>
+      <div className={`flex items-center ${animClass}`} style={{ width: "fit-content" }}>
         {[...items, ...items].map((partner, i) => {
           const img = <LogoContent partner={partner} />;
+          const wrapperClass =
+            "flex-shrink-0 mx-7 md:mx-10 flex items-center justify-center h-16";
 
           if (partner.eventSlug) {
             return (
               <Link
                 key={`${partner.id}-${i}`}
                 to={`/events/${partner.eventSlug}`}
-                className="flex-shrink-0 mx-6 md:mx-10 flex items-center justify-center h-16 w-36 md:w-44"
+                className={wrapperClass}
                 title={`${partner.name} — View event`}
               >
                 {img}
@@ -56,10 +61,7 @@ function ScrollingRow({ logos, direction = "left" }) {
           }
 
           return (
-            <div
-              key={`${partner.id}-${i}`}
-              className="flex-shrink-0 mx-6 md:mx-10 flex items-center justify-center h-16 w-36 md:w-44"
-            >
+            <div key={`${partner.id}-${i}`} className={wrapperClass}>
               {img}
             </div>
           );

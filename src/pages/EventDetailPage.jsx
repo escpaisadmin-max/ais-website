@@ -65,11 +65,13 @@ export default function EventDetailPage() {
         </Link>
 
         {/* Hero image */}
-        <div className="rounded-lg overflow-hidden mb-8">
+        <div className="rounded-lg overflow-hidden mb-8 bg-ais-navy">
           <img
             src={event.photo}
             alt={event.title}
-            className="w-full h-64 md:h-96 object-cover"
+            className={`w-full h-64 md:h-96 ${
+              event.photoFit === "contain" ? "object-contain p-10" : "object-cover"
+            }`}
           />
         </div>
 

@@ -15,7 +15,18 @@ export default function PresentationsPage() {
     return new Date(parseInt(year), months[month] || 0);
   };
 
-  const sorted = [...presentations].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+  const eduNumbers = new Map(
+    [...presentations]
+      .sort((a, b) => parseDate(a.date) - parseDate(b.date) || a.id.localeCompare(b.id))
+      .map((presentation, index) => [presentation.id, index + 1])
+  );
+
+  const sorted = [...presentations]
+    .sort((a, b) => parseDate(b.date) - parseDate(a.date))
+    .map((presentation) => ({
+      ...presentation,
+      eduNumber: eduNumbers.get(presentation.id),
+    }));
 
   const filtered =
     activeFilter === "all"

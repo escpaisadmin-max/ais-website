@@ -14,7 +14,7 @@ export default function Footer() {
               ESCP Alternative Investment Society
             </p>
             <p className="text-sm text-ais-silver mt-2">
-              The premier student investment society at ESCP Business School — the world's oldest business school.
+              The leading student-led society at ESCP Business School.
             </p>
           </div>
 
