@@ -52,5 +52,5 @@ export const academicPartners = [
   { id: "jobortunity-ai", name: "Jobortunity.AI", logo: "/logos/JobortunityAI.png", eventSlug: null },
   { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/DartmouthPartners.png", eventSlug: null },
   { id: "plato", name: "Plato", logo: "/logos/Plato.png", eventSlug: "plato-event", scale: 1.1 },
-  { id: "revent", name: "Revent", logo: "/logos/Revent.png", eventSlug: "revent-event", scale: 0.9 },
+  { id: "revent", name: "Revent", logo: "/logos/Revent.svg", eventSlug: "revent-event", scale: 0.9 },
 ];
