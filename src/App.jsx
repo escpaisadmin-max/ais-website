@@ -11,6 +11,7 @@ import PresentationViewPage from "./pages/PresentationViewPage";
 import NewslettersPage from "./pages/NewslettersPage";
 import NewsletterViewPage from "./pages/NewsletterViewPage";
 import ContactPage from "./pages/ContactPage";
+import FounderReportPage from "./pages/FounderReportPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ImpressumPage from "./pages/ImpressumPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -38,6 +39,7 @@ export default function App() {
           <Route path="newsletters" element={<NewslettersPage />} />
           <Route path="newsletters/:id" element={<NewsletterViewPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="founder-report" element={<FounderReportPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="impressum" element={<ImpressumPage />} />
           <Route path="*" element={<NotFoundPage />} />

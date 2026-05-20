@@ -23,7 +23,16 @@ export default function NewsletterCTA() {
           </a>
         ) : (
           <p className="text-ais-periwinkle text-sm font-semibold">
-            Email newsletter coming soon.
+            Email subscription launching soon &mdash; follow us on{" "}
+            <a
+              href="https://www.linkedin.com/company/escpais/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-ais-white transition-colors"
+            >
+              LinkedIn
+            </a>{" "}
+            for the latest issues.
           </p>
         )}
       </div>

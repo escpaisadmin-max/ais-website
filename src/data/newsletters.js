@@ -39,7 +39,7 @@ export const newsletters = [
   {
     id: "re-03-megatrends",
     title: "Megatrends in Real Estate",
-    issue: 3,
+    issue: 2,
     date: "November 2024",
     department: "re",
     topic: "Megatrends",
@@ -52,7 +52,7 @@ export const newsletters = [
   {
     id: "hf-04-citadel",
     title: "Citadel: The Most Successful Hedge Fund of All Time",
-    issue: 4,
+    issue: 3,
     date: "November 2024",
     department: "hf",
     topic: "Citadel",
@@ -65,7 +65,7 @@ export const newsletters = [
   {
     id: "pe-05-exit-strategies",
     title: "Exit Strategies in Private Equity",
-    issue: 5,
+    issue: 4,
     date: "January 2025",
     department: "pe",
     topic: "Exit Strategies",
@@ -78,7 +78,7 @@ export const newsletters = [
   {
     id: "vc-06-european-tech",
     title: "European Tech Ascendency",
-    issue: 6,
+    issue: 5,
     date: "January 2025",
     department: "vc",
     topic: "European VC",
@@ -91,7 +91,7 @@ export const newsletters = [
   {
     id: "re-07-data-centers",
     title: "The Data Center Boom",
-    issue: 7,
+    issue: 6,
     date: "January 2025",
     department: "re",
     topic: "Data Centers",
@@ -104,7 +104,7 @@ export const newsletters = [
   {
     id: "hf-08-evolution",
     title: "Evolution of Hedge Funds",
-    issue: 8,
+    issue: 7,
     date: "February 2025",
     department: "hf",
     topic: "Industry History",
@@ -117,7 +117,7 @@ export const newsletters = [
   {
     id: "pe-09-restructuring",
     title: "Restructuring in Private Equity",
-    issue: 9,
+    issue: 8,
     date: "March 2025",
     department: "pe",
     topic: "Restructuring",
@@ -130,7 +130,7 @@ export const newsletters = [
   {
     id: "vc-10-defense-innovation",
     title: "Can Europe Sustain Its Defense Innovation Momentum?",
-    issue: 10,
+    issue: 9,
     date: "March 2025",
     department: "vc",
     topic: "Defense Tech",
@@ -143,7 +143,7 @@ export const newsletters = [
   {
     id: "re-11-logistics",
     title: "Logistics Real Estate",
-    issue: 11,
+    issue: 10,
     date: "March 2025",
     department: "re",
     topic: "Logistics",
@@ -156,7 +156,7 @@ export const newsletters = [
   {
     id: "hf-12-renaissance",
     title: "Jim Simons' Renaissance: Revolutionizing the Hedge Fund Industry",
-    issue: 12,
+    issue: 11,
     date: "April 2025",
     department: "hf",
     topic: "Renaissance Technologies",
@@ -169,7 +169,7 @@ export const newsletters = [
   {
     id: "pe-13-secondaries",
     title: "The Rise of Secondaries in Private Equity",
-    issue: 13,
+    issue: 12,
     date: "October 2025",
     department: "pe",
     topic: "Secondaries",
@@ -182,7 +182,7 @@ export const newsletters = [
   {
     id: "re-14-office",
     title: "Office Real Estate",
-    issue: 14,
+    issue: 13,
     date: "November 2025",
     department: "re",
     topic: "Office Market",
@@ -195,7 +195,7 @@ export const newsletters = [
   {
     id: "hf-15-bridgewater",
     title: "Bridgewater Associates",
-    issue: 15,
+    issue: 14,
     date: "November 2025",
     department: "hf",
     topic: "Bridgewater",
@@ -208,7 +208,7 @@ export const newsletters = [
   {
     id: "vc-16-dual-use-defense",
     title: "Dual Use in Defense",
-    issue: 16,
+    issue: 15,
     date: "December 2025",
     department: "vc",
     topic: "Dual-Use Technology",
@@ -221,7 +221,7 @@ export const newsletters = [
   {
     id: "hf-17-tiger-management",
     title: "Tiger Management",
-    issue: 17,
+    issue: 16,
     date: "January 2026",
     department: "hf",
     topic: "Tiger Management",
@@ -234,7 +234,7 @@ export const newsletters = [
   {
     id: "re-18-structural-forces",
     title: "Structural Forces in Real Estate",
-    issue: 18,
+    issue: 17,
     date: "January 2026",
     department: "re",
     topic: "Market Outlook",
@@ -247,7 +247,7 @@ export const newsletters = [
   {
     id: "vc-19-voice-ai",
     title: "Voice AI",
-    issue: 19,
+    issue: 18,
     date: "February 2026",
     department: "vc",
     topic: "Voice AI",
@@ -260,7 +260,7 @@ export const newsletters = [
   {
     id: "pe-20-democratization",
     title: "Democratization of Private Equity",
-    issue: 20,
+    issue: 19,
     date: "February 2026",
     department: "pe",
     topic: "Democratization",
@@ -273,7 +273,7 @@ export const newsletters = [
   {
     id: "re-22-student-housing",
     title: "Student Housing",
-    issue: 22,
+    issue: 20,
     date: "March 2026",
     department: "re",
     topic: "Student Housing",
@@ -286,7 +286,7 @@ export const newsletters = [
   {
     id: "pe-23-ai-in-pe",
     title: "Artificial Intelligence in Private Equity",
-    issue: 23,
+    issue: 21,
     date: "March 2026",
     department: "pe",
     topic: "AI in PE",

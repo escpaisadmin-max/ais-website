@@ -29,17 +29,18 @@ export default function NewslettersPage() {
         <NewsletterCTA />
 
         {/* Filter bar */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center items-center gap-3 mb-12">
           <button
             onClick={() => setActiveFilter("all")}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
+            className={`px-5 py-2 rounded-full text-sm font-semibold transition-all border-2 ${
               activeFilter === "all"
-                ? "bg-ais-ocean text-white"
-                : "bg-ais-ice text-ais-navy hover:bg-ais-silver/30"
+                ? "bg-ais-navy text-white border-ais-navy"
+                : "bg-white text-ais-navy border-ais-navy hover:bg-ais-navy/5"
             }`}
           >
             All
           </button>
+          <span className="text-ais-silver/60">|</span>
           {divisions.map((div) => (
             <button
               key={div.id}

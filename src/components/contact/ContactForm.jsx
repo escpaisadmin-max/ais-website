@@ -97,6 +97,7 @@ export default function ContactForm() {
           >
             <option value="general">General Question</option>
             <option value="partnership">Partnership Inquiry</option>
+            <option value="event">Event Inquiry</option>
             <option value="join">Join AIS</option>
             <option value="speaker">Guest Speaker Opportunity</option>
           </select>

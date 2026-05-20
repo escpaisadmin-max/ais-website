@@ -23,7 +23,7 @@
 /** Team & Alumni Track Record — where AIS members have worked */
 export const trackRecord = [
   { id: "blackstone", name: "Blackstone", logo: "/logos/Blackstone.png", eventSlug: null },
-  { id: "eqt", name: "EQT", logo: "/logos/EQT.png", eventSlug: null, scale: 1.1 },
+  { id: "eqt-re-track", name: "EQT Real Estate", logo: "/logos/EQTRealEstate.svg", eventSlug: null },
   { id: "rothschild", name: "Rothschild", logo: "/logos/Rothschild.png", eventSlug: null },
   { id: "ubs", name: "UBS", logo: "/logos/UBS.png", eventSlug: null, scale: 1.2 },
   { id: "macquarie", name: "Macquarie", logo: "/logos/Macquarie.png", eventSlug: null },
@@ -46,11 +46,11 @@ export const trackRecord = [
 /** Industry Collaborators */
 export const academicPartners = [
   { id: "wso", name: "Wall Street Oasis", logo: "/logos/WSO.png", eventSlug: null, scale: 1.1 },
-  { id: "job-test-prep", name: "Job Test Prep", logo: "/logos/JobTestPrep.png", eventSlug: null, scale: 1.2 },
-  { id: "eqt-real-estate", name: "EQT Real Estate", logo: "/logos/EQTRealEstate-white.svg", eventSlug: "eqt-real-estate-workshop" },
-  { id: "ace-the-round", name: "AceTheRound", logo: "/logos/AceTheRound-white.png", eventSlug: "ace-the-round-workshop", scale: 1.3 },
-  { id: "jobortunity-ai", name: "Jobortunity.AI", logo: "/logos/JobortunityAI-white.png", eventSlug: null },
+  { id: "job-test-prep", name: "Job Test Prep", logo: "/logos/JobTestPrep.png", eventSlug: null, scale: 1.4 },
+  { id: "eqt-real-estate", name: "EQT Real Estate", logo: "/logos/EQTRealEstate.svg", eventSlug: "eqt-real-estate-workshop" },
+  { id: "ace-the-round", name: "AceTheRound", logo: "/logos/AceTheRound.png", eventSlug: "ace-the-round-workshop", scale: 1.3 },
+  { id: "jobortunity-ai", name: "Jobortunity.AI", logo: "/logos/JobortunityAI.png", eventSlug: null },
   { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/DartmouthPartners.png", eventSlug: null },
-  { id: "plato", name: "Plato", logo: "/logos/Plato-white.png", eventSlug: "plato-event", scale: 1.1 },
-  { id: "revent", name: "Revent", logo: "/logos/Revent-white.png", eventSlug: "revent-event", scale: 0.85 },
+  { id: "plato", name: "Plato", logo: "/logos/Plato.png", eventSlug: "plato-event", scale: 1.1 },
+  { id: "revent", name: "Revent", logo: "/logos/Revent.png", eventSlug: "revent-event", scale: 0.9 },
 ];

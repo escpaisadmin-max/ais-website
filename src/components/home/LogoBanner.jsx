@@ -15,7 +15,7 @@ function LogoContent({ partner }) {
       <img
         src={partner.logo}
         alt={partner.name}
-        className="w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+        className="w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
         style={{ height: `${h}px` }}
         loading="lazy"
         onError={() => setFailed(true)}
@@ -24,22 +24,21 @@ function LogoContent({ partner }) {
   }
 
   return (
-    <span className="px-4 text-center text-sm md:text-base font-semibold text-ais-white/85">
+    <span className="px-4 text-center text-sm md:text-base font-semibold text-ais-navy/85">
       {partner.name}
     </span>
   );
 }
 
 function ScrollingRow({ logos, direction = "left" }) {
-  // Duplicate for seamless loop
   const items = logos.length < 6 ? [...logos, ...logos, ...logos] : logos;
   const animClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
   return (
-    <div className="relative bg-ais-navy py-6">
+    <div className="relative bg-white py-6">
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-ais-navy to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-ais-navy to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
       <div className={`flex items-center ${animClass}`} style={{ width: "fit-content" }}>
         {[...items, ...items].map((partner, i) => {
@@ -73,14 +72,13 @@ function ScrollingRow({ logos, direction = "left" }) {
 
 export default function LogoBanner() {
   return (
-    <section className="py-16 bg-ais-navy overflow-hidden">
+    <section className="py-16 bg-white overflow-hidden">
       {/* Track Record */}
       <div className="max-w-7xl mx-auto px-6 mb-6">
         <ScrollReveal>
           <SectionHeading
             title="Team & Alumni Track Record"
             subtitle="Where our members have gained experience."
-            light
           />
         </ScrollReveal>
       </div>
@@ -94,7 +92,6 @@ export default function LogoBanner() {
           <SectionHeading
             title="Industry Collaborators"
             subtitle="Companies and organizations we collaborate with."
-            light
           />
         </ScrollReveal>
       </div>
