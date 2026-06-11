@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Tag from "../ui/Tag";
 import { divisions } from "../../data/divisions";
 
 /**
@@ -69,10 +68,16 @@ export default function EventBanner({ event, variant = "detail" }) {
           <h1 className="text-2xl md:text-4xl font-bold text-white">
             {event.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-3 mt-2">
+          <div className="flex flex-wrap items-center gap-2 mt-2 text-sm">
             <span className="text-ais-ice">{event.date}</span>
-            {division && <Tag label={division.name} type={event.division} />}
-            <Tag label={event.type} type="general" />
+            {division && (
+              <span className="rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold text-white">
+                {division.name}
+              </span>
+            )}
+            <span className="rounded-full border border-white/30 bg-white/15 px-3 py-1 text-xs font-semibold capitalize text-white">
+              {event.type}
+            </span>
           </div>
         </div>
       )}
