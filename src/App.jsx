@@ -12,6 +12,7 @@ import NewslettersPage from "./pages/NewslettersPage";
 import NewsletterViewPage from "./pages/NewsletterViewPage";
 import ContactPage from "./pages/ContactPage";
 import FounderReportPage from "./pages/FounderReportPage";
+import FounderReportViewPage from "./pages/FounderReportViewPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ImpressumPage from "./pages/ImpressumPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -40,6 +41,7 @@ export default function App() {
           <Route path="newsletters/:id" element={<NewsletterViewPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="founder-report" element={<FounderReportPage />} />
+          <Route path="founder-report/:id" element={<FounderReportViewPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="impressum" element={<ImpressumPage />} />
           <Route path="*" element={<NotFoundPage />} />

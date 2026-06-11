@@ -14,9 +14,18 @@
  * - date:            Date string (e.g., "March 15, 2026")
  * - partnerLogo:     Path to partner company logo in /public/logos/
  * - partnerName:     Partner company name
+ * - partnerUrl:      (Optional) Partner website. When set, the "In partnership
+ *                    with {partnerName}" line links to it. Omit for individuals.
  * - description:     Short description (shown on card, 1-2 sentences)
  * - fullDescription: Full event recap (shown on detail page, can be multiple paragraphs)
- * - photo:           Path to main event photo in /public/events/
+ * - photo:           Path to the main event photo in /public/events/. When a
+ *                    real photo is available, set it here and it becomes the
+ *                    hero/card image. Leave null until then — a branded gradient
+ *                    banner is shown instead.
+ * - bannerLogo:      (Optional) Light/white partner logo shown on the gradient
+ *                    banner while there's no real photo. Omit if no light logo
+ *                    exists (e.g. dark logos or individual speakers) — the
+ *                    banner then shows the title only.
  * - photos:          Array of additional photo paths (for detail page gallery)
  * - division:        Which division hosted ("pe", "vc", "hf", "re", "general")
  * - type:            Event type ("workshop", "speaker", "networking", "trip")
@@ -29,12 +38,13 @@ export const events = [
     date: "2026",
     partnerLogo: "/logos/EQTRealEstate.svg",
     partnerName: "EQT Real Estate",
+    partnerUrl: "https://eqtgroup.com/real-estate",
     description:
       "A real estate investing session with EQT Real Estate, focused on market dynamics, transaction thinking, and career insights.",
     fullDescription:
       "AIS welcomed EQT Real Estate for a dedicated workshop with members interested in real estate investing. The session covered practical perspectives on the asset class, how investors evaluate opportunities, and what students should understand before entering the sector.\n\nEvent photos will be added once the final images are selected.",
-    photo: "/logos/EQTRealEstate-white.svg",
-    photoFit: "contain",
+    photo: null,
+    bannerLogo: "/logos/EQTRealEstate-white.svg",
     photos: [],
     division: "re",
     type: "workshop",
@@ -50,12 +60,13 @@ export const events = [
     date: "2026",
     partnerLogo: "/logos/Revent.png",
     partnerName: "Revent",
+    partnerUrl: "https://www.revent.vc",
     description:
       "An event with Revent exploring venture investing, founder evaluation, and the European startup ecosystem.",
     fullDescription:
       "AIS hosted Revent for a session on venture capital and the European startup ecosystem. Members discussed how early-stage investors assess founders, markets, and long-term company-building potential.\n\nEvent photos will be added once the final images are selected.",
-    photo: "/logos/Revent-white.png",
-    photoFit: "contain",
+    photo: null,
+    bannerLogo: "/logos/Revent-white.png",
     photos: [],
     division: "vc",
     type: "speaker",
@@ -71,12 +82,13 @@ export const events = [
     date: "2026",
     partnerLogo: "/logos/Plato.png",
     partnerName: "Plato",
+    partnerUrl: "https://www.platoapp.ai/en",
     description:
       "A session with Plato on company building, growth, and the operational side of scaling a business.",
     fullDescription:
       "AIS hosted Plato for a discussion on company building and the practical challenges of scaling a business. The event gave members a closer look at operating perspectives that complement investment analysis.\n\nEvent photos will be added once the final images are selected.",
-    photo: "/logos/Plato-white.png",
-    photoFit: "contain",
+    photo: null,
+    bannerLogo: "/logos/Plato-white.png",
     photos: [],
     division: "vc",
     type: "speaker",
@@ -92,12 +104,13 @@ export const events = [
     date: "2026",
     partnerLogo: "/logos/AceTheRound.png",
     partnerName: "AceTheRound",
+    partnerUrl: "https://www.acetheround.com",
     description:
       "A recruiting-focused workshop helping members prepare for finance interviews and technical selection processes.",
     fullDescription:
       "AIS worked with AceTheRound on a recruiting preparation session for members. The workshop focused on interview readiness, technical preparation, and practical advice for competitive finance processes.",
-    photo: "/logos/AceTheRound-white.png",
-    photoFit: "contain",
+    photo: null,
+    bannerLogo: "/logos/AceTheRound-white.png",
     photos: [],
     division: "general",
     type: "workshop",
@@ -117,8 +130,7 @@ export const events = [
       "A speaker event with Alexandre Casin covering investment perspectives, career lessons, and member Q&A.",
     fullDescription:
       "AIS welcomed Alexandre Casin for a speaker session with members. The event combined industry perspectives, career reflections, and an open Q&A format for students interested in investing.",
-    photo: "/events/placeholder.svg",
-    photoFit: "cover",
+    photo: null,
     photos: [],
     division: "general",
     type: "speaker",
@@ -134,12 +146,12 @@ export const events = [
     date: "2026",
     partnerLogo: "/logos/DartmouthPartners.png",
     partnerName: "Dartmouth Partners",
+    partnerUrl: "https://www.dartmouthpartners.com",
     description:
       "A careers-focused event with Dartmouth Partners on recruiting strategy and finance career paths.",
     fullDescription:
       "AIS hosted Dartmouth Partners for a session focused on recruiting strategy and career paths in finance. Members received guidance on positioning, applications, and preparing for selective processes.",
-    photo: "/logos/DartmouthPartners.png",
-    photoFit: "contain",
+    photo: null,
     photos: [],
     division: "general",
     type: "speaker",

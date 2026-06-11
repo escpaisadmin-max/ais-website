@@ -86,6 +86,25 @@ for f in sorted(os.listdir('public/newsletters/pdf')):
 3. Add an entry to `src/data/events.js` with all fields.
 4. The `slug` field is used in the URL: `/events/{slug}`.
 
+**Event banner behaviour:** if `photo` is set to a real image in `public/events/`,
+it becomes the hero/card image. Until then, leave `photo: null` — a branded
+navy→ocean gradient banner is shown instead, displaying `bannerLogo` (a light/white
+partner logo) when provided, otherwise the title only.
+
+**Partner links:** set `partnerUrl` to the partner's website to make the
+"In partnership with {partnerName}" line a link. Omit it for individuals.
+
+---
+
+## Adding New Founder Reports
+
+1. Export the final report as PDF.
+2. Save it to `public/founder-reports/pdf/` as `{year}-founder-report.pdf`.
+3. Add an entry to `src/data/founderReports.js` (uncomment the example and fill it in).
+4. Get the page count the same way as newsletters (see batch snippet above).
+
+Until the first entry is added, the Founder Report page shows a "coming soon" state.
+
 ---
 
 ## Key Files Reference
@@ -96,6 +115,7 @@ for f in sorted(os.listdir('public/newsletters/pdf')):
 | `src/data/presentations.js` | Presentation library entries |
 | `src/data/newsletters.js` | Newsletter library entries |
 | `src/data/events.js` | Event cards and detail pages |
+| `src/data/founderReports.js` | Founder Report library entries |
 | `src/data/partners.js` | Scrolling logo banner on homepage |
 | `src/data/stats.js` | Animated stat counters on homepage |
 | `src/data/divisions.js` | Division names and descriptions |

@@ -22,11 +22,14 @@ export default function PresentationsPage() {
   );
 
   const sorted = [...presentations]
-    .sort((a, b) => parseDate(b.date) - parseDate(a.date))
     .map((presentation) => ({
       ...presentation,
       eduNumber: eduNumbers.get(presentation.id),
-    }));
+    }))
+    // Display in strict descending EDU-number order so the grid always counts
+    // down cleanly. Sorting by date alone (without the same tie-breaker used to
+    // assign the numbers) made same-month pairs render out of sequence.
+    .sort((a, b) => b.eduNumber - a.eduNumber);
 
   const filtered =
     activeFilter === "all"

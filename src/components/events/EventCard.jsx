@@ -1,29 +1,8 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Tag from "../ui/Tag";
+import EventBanner from "./EventBanner";
 import { divisions } from "../../data/divisions";
-
-function PartnerLogo({ src, name }) {
-  const [failed, setFailed] = useState(false);
-
-  if (src && !failed) {
-    return (
-      <img
-        src={src}
-        alt={name}
-        className="h-8 max-w-24 object-contain"
-        onError={() => setFailed(true)}
-      />
-    );
-  }
-
-  return (
-    <span className="max-w-28 text-center text-[10px] font-semibold leading-tight text-ais-navy">
-      {name}
-    </span>
-  );
-}
 
 export default function EventCard({ event }) {
   const division = divisions.find((d) => d.id === event.division);
@@ -37,23 +16,8 @@ export default function EventCard({ event }) {
         to={`/events/${event.slug}`}
         className="block rounded-lg overflow-hidden border border-ais-silver/30 hover:border-ais-ocean/30 hover:shadow-lg transition-shadow duration-300 bg-white"
       >
-        {/* Image */}
-        <div className="relative h-48 overflow-hidden bg-ais-navy">
-          <img
-            src={event.photo}
-            alt={event.title}
-            className={`w-full h-full ${
-              event.photoFit === "contain" ? "object-contain p-8" : "object-cover"
-            }`}
-            loading="lazy"
-          />
-          {/* Partner logo overlay */}
-          {event.partnerLogo && event.partnerLogo !== event.photo && (
-            <div className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm rounded p-1.5">
-              <PartnerLogo src={event.partnerLogo} name={event.partnerName} />
-            </div>
-          )}
-        </div>
+        {/* Banner */}
+        <EventBanner event={event} variant="card" />
 
         {/* Content */}
         <div className="p-5">

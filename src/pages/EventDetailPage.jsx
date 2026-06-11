@@ -1,29 +1,6 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
 import { events } from "../data/events";
-import Tag from "../components/ui/Tag";
-import { divisions } from "../data/divisions";
-
-function PartnerLogo({ src, name }) {
-  const [failed, setFailed] = useState(false);
-
-  if (src && !failed) {
-    return (
-      <img
-        src={src}
-        alt={name}
-        className="w-16 h-16 object-contain bg-white rounded border border-ais-silver/30 p-2"
-        onError={() => setFailed(true)}
-      />
-    );
-  }
-
-  return (
-    <div className="w-16 h-16 flex items-center justify-center bg-white rounded border border-ais-silver/30 p-2 text-center text-[10px] font-semibold leading-tight text-ais-navy">
-      {name}
-    </div>
-  );
-}
+import EventBanner from "../components/events/EventBanner";
 
 export default function EventDetailPage() {
   const { slug } = useParams();
@@ -48,8 +25,6 @@ export default function EventDetailPage() {
     );
   }
 
-  const division = divisions.find((d) => d.id === event.division);
-
   return (
     <section className="py-20 bg-white min-h-screen">
       <div className="max-w-4xl mx-auto px-6">
@@ -64,38 +39,27 @@ export default function EventDetailPage() {
           Back to Events
         </Link>
 
-        {/* Hero image */}
-        <div className="rounded-lg overflow-hidden mb-8 bg-ais-navy">
-          <img
-            src={event.photo}
-            alt={event.title}
-            className={`w-full h-64 md:h-96 ${
-              event.photoFit === "contain" ? "object-contain p-10" : "object-cover"
-            }`}
-          />
-        </div>
-
-        {/* Header */}
-        <div className="flex items-start gap-4 mb-6">
-          {event.partnerLogo && (
-            <PartnerLogo src={event.partnerLogo} name={event.partnerName} />
-          )}
-          <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-ais-navy">
-              {event.title}
-            </h1>
-            <div className="flex items-center gap-3 mt-2">
-              <span className="text-ais-gray">{event.date}</span>
-              {division && <Tag label={division.name} type={event.division} />}
-              <Tag label={event.type} type="general" />
-            </div>
-          </div>
+        {/* Hero banner */}
+        <div className="rounded-lg overflow-hidden mb-8 shadow-sm">
+          <EventBanner event={event} variant="detail" />
         </div>
 
         {/* Partner */}
         {event.partnerName && (
           <p className="text-ais-gray mb-6">
-            In partnership with <span className="font-semibold text-ais-navy">{event.partnerName}</span>
+            In partnership with{" "}
+            {event.partnerUrl ? (
+              <a
+                href={event.partnerUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-ais-ocean hover:underline"
+              >
+                {event.partnerName}
+              </a>
+            ) : (
+              <span className="font-semibold text-ais-navy">{event.partnerName}</span>
+            )}
           </p>
         )}
 
