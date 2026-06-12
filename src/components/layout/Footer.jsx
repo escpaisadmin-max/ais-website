@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <img src="/ais-logo.svg" alt="AIS" className="h-12 w-auto mb-3" />
+            <img src="/ais-logo-white.svg" alt="AIS" className="h-12 w-auto mb-3" />
             <p className="text-sm text-ais-white">
               ESCP Alternative Investment Society
             </p>
