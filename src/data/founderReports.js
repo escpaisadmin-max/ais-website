@@ -19,16 +19,25 @@
  * - pageCount:   Number of pages
  *
  * Until the first report is added, the page shows a "coming soon" state.
- *
- * Example entry (uncomment and fill in once a PDF is in place):
- * {
- *   id: "2025-founder-report",
- *   title: "AIS Founder Report 2025",
- *   date: "March 2026",
- *   description:
- *     "A reflection on AIS — our mission, milestones, and the road ahead.",
- *   pdfPath: "/founder-reports/pdf/2025-founder-report.pdf",
- *   pageCount: 0,
- * },
+ * Entries are sorted newest-first by `date` automatically.
  */
-export const founderReports = [];
+export const founderReports = [
+  {
+    id: "2026-q1-founder-report",
+    title: "Founder Report — Q1 2026",
+    date: "April 2026",
+    description:
+      "The Q1 2026 edition — an updated look at ESCP's founders, startups, and investor network across the Blue Factory ecosystem.",
+    pdfPath: "/founder-reports/pdf/2026-q1-founder-report.pdf",
+    pageCount: 34,
+  },
+  {
+    id: "2025-founder-report",
+    title: "Founder Report 2025",
+    date: "January 2026",
+    description:
+      "Our 2025 review of ESCP's entrepreneurial and alternative investment ecosystem — the founders, ventures, and investors across the network, prepared with ESCP Blue Factory.",
+    pdfPath: "/founder-reports/pdf/2025-founder-report.pdf",
+    pageCount: 43,
+  },
+];
