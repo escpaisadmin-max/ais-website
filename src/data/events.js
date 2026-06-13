@@ -58,7 +58,7 @@ export const events = [
     slug: "revent-event",
     title: "Revent Event",
     date: "2026",
-    partnerLogo: "/logos/Revent.png",
+    partnerLogo: "/logos/Revent.svg",
     partnerName: "Revent",
     partnerUrl: "https://www.revent.vc",
     description:
@@ -66,7 +66,7 @@ export const events = [
     fullDescription:
       "AIS hosted Revent for a session on venture capital and the European startup ecosystem. Members discussed how early-stage investors assess founders, markets, and long-term company-building potential.\n\nEvent photos will be added once the final images are selected.",
     photo: null,
-    bannerLogo: "/logos/Revent-white.png",
+    bannerLogo: "/logos/Revent-white.svg",
     photos: [],
     division: "vc",
     type: "speaker",
