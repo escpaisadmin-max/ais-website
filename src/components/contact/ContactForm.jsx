@@ -1,5 +1,14 @@
 import { useState } from "react";
 import ScrollReveal from "../ui/ScrollReveal";
+import { contactConfig } from "../../data/siteConfig";
+
+const SUBJECTS = {
+  general: "General Question",
+  partnership: "Partnership Inquiry",
+  event: "Event Inquiry",
+  join: "Join AIS",
+  speaker: "Guest Speaker Opportunity",
+};
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -7,44 +16,84 @@ export default function ContactForm() {
     email: "",
     subject: "general",
     message: "",
+    botcheck: "", // honeypot; bots fill it, humans don't
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | mailto | error
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const subjectLabel = SUBJECTS[formData.subject] || "General Question";
 
-    /**
-     * FORM SUBMISSION
-     * ===============
-     * Currently logs to console. To connect to a backend:
-     *
-     * Option 1: Netlify Forms
-     *   Add data-netlify="true" to the <form> element. Done.
-     *
-     * Option 2: Formspree
-     *   Change form action to "https://formspree.io/f/YOUR_FORM_ID"
-     *   and method to "POST". Remove the onSubmit handler.
-     *
-     * Option 3: Custom API
-     *   fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) })
-     */
-    console.log("Contact form submitted:", formData);
-    setSubmitted(true);
+  const openMailto = () => {
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    const href = `mailto:${contactConfig.email}?subject=${encodeURIComponent(
+      `[AIS Website] ${subjectLabel}`
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+    setStatus("mailto");
   };
 
-  if (submitted) {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (formData.botcheck) return; // honeypot tripped
+
+    // No form service configured → fall back to the visitor's email app.
+    if (!contactConfig.web3formsAccessKey) {
+      openMailto();
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: contactConfig.web3formsAccessKey,
+          subject: `[AIS Website] ${subjectLabel}`,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          from_name: "AIS Website Contact Form",
+        }),
+      });
+      const data = await res.json();
+      setStatus(data.success ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  if (status === "sent") {
     return (
       <ScrollReveal>
         <div className="bg-ais-ice/50 rounded-lg p-8 text-center">
-          <h3 className="text-xl font-bold text-ais-navy mb-2">
-            Message Sent!
-          </h3>
+          <h3 className="text-xl font-bold text-ais-navy mb-2">Message Sent!</h3>
           <p className="text-ais-gray">
-            Thank you for reaching out. We'll get back to you soon.
+            Thank you for reaching out. We&apos;ll get back to you soon.
+          </p>
+        </div>
+      </ScrollReveal>
+    );
+  }
+
+  if (status === "mailto") {
+    return (
+      <ScrollReveal>
+        <div className="bg-ais-ice/50 rounded-lg p-8 text-center">
+          <h3 className="text-xl font-bold text-ais-navy mb-2">Almost there!</h3>
+          <p className="text-ais-gray">
+            Your email app should have opened with your message — just press send.
+            If it didn&apos;t, email us directly at{" "}
+            <a
+              href={`mailto:${contactConfig.email}`}
+              className="text-ais-ocean font-semibold hover:underline"
+            >
+              {contactConfig.email}
+            </a>
+            .
           </p>
         </div>
       </ScrollReveal>
@@ -95,11 +144,11 @@ export default function ContactForm() {
             onChange={handleChange}
             className="w-full px-4 py-2.5 rounded border border-ais-silver focus:border-ais-ocean focus:outline-none transition-colors text-ais-navy bg-white"
           >
-            <option value="general">General Question</option>
-            <option value="partnership">Partnership Inquiry</option>
-            <option value="event">Event Inquiry</option>
-            <option value="join">Join AIS</option>
-            <option value="speaker">Guest Speaker Opportunity</option>
+            {Object.entries(SUBJECTS).map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -118,11 +167,34 @@ export default function ContactForm() {
           />
         </div>
 
+        {/* Honeypot: hidden from humans, tempting to bots */}
+        <input
+          type="text"
+          name="botcheck"
+          value={formData.botcheck}
+          onChange={handleChange}
+          className="hidden"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+        />
+
+        {status === "error" && (
+          <p className="text-sm text-red-600">
+            Something went wrong. Please email us directly at{" "}
+            <a href={`mailto:${contactConfig.email}`} className="font-semibold underline">
+              {contactConfig.email}
+            </a>
+            .
+          </p>
+        )}
+
         <button
           type="submit"
-          className="w-full px-6 py-3 bg-ais-ocean text-white font-semibold rounded hover:bg-ais-ocean/80 transition-colors"
+          disabled={status === "sending"}
+          className="w-full px-6 py-3 bg-ais-ocean text-white font-semibold rounded hover:bg-ais-ocean/80 transition-colors disabled:opacity-60"
         >
-          Send Message
+          {status === "sending" ? "Sending…" : "Send Message"}
         </button>
       </form>
     </ScrollReveal>

@@ -1,8 +1,16 @@
-import { FaLinkedin, FaInstagram, FaWhatsapp, FaDiscord } from "react-icons/fa";
-import { socialLinks, communityLinks } from "../../data/siteConfig";
+import { FaLinkedin, FaInstagram, FaWhatsapp, FaDiscord, FaEnvelope } from "react-icons/fa";
+import { socialLinks, communityLinks, contactConfig } from "../../data/siteConfig";
 import ScrollReveal from "../ui/ScrollReveal";
 
 const links = [
+  {
+    key: "email",
+    url: `mailto:${contactConfig.email}`,
+    icon: FaEnvelope,
+    label: "Email",
+    description: contactConfig.email,
+    external: false,
+  },
   {
     key: "linkedin",
     url: socialLinks.linkedin,
@@ -57,12 +65,11 @@ export default function CommunityLinks() {
           Connect With Us
         </h3>
         <div className="space-y-4">
-          {links.map(({ key, url, icon: Icon, label, description }) => (
+          {links.map(({ key, url, icon: Icon, label, description, external = true }) => (
             <a
               key={key}
               href={url}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="flex items-center gap-4 p-4 rounded-lg border border-ais-silver/30 hover:border-ais-ocean/30 hover:shadow-md transition-all duration-200"
             >
               <Icon className="text-ais-ocean flex-shrink-0" size={28} />

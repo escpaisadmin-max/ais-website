@@ -36,3 +36,20 @@ export const newsletterConfig = {
   heading: "Stay in the Loop",
   subheading: "Subscribe to our newsletter for investment insights, event announcements, and more.",
 };
+
+/**
+ * CONTACT
+ * =======
+ * `email` is where the contact form and the "email us directly" link send to.
+ * When you move to a Google Workspace address, just change it here.
+ *
+ * `web3formsAccessKey`: optional. Leave null and the form opens the visitor's
+ * email app (mailto) — messages still reach `email`. To enable a seamless
+ * in-page submit that hides the address, create a free key at
+ * https://web3forms.com (enter the `email` below as the destination) and paste
+ * the access key here.
+ */
+export const contactConfig = {
+  email: "ais.escp@gmail.com",
+  web3formsAccessKey: null,
+};
