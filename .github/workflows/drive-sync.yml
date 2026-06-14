@@ -4,8 +4,10 @@ name: Drive content sync
 # triggers a Vercel deploy). Keyless auth via Workload Identity Federation.
 
 on:
-  schedule:
-    - cron: "*/15 * * * *" # every 15 minutes
+  # Schedule is disabled until the first manual dry-run + real run are verified.
+  # Re-enable by uncommenting once confident.
+  # schedule:
+  #   - cron: "*/15 * * * *" # every 15 minutes
   workflow_dispatch:
     inputs:
       dry_run:
