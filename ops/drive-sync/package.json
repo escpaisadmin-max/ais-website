@@ -1,0 +1,17 @@
+{
+  "name": "ais-drive-sync",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Syncs content from the AIS Google Drive into the website (data files + PDFs/photos).",
+  "scripts": {
+    "sync": "node sync.mjs",
+    "dry-run": "node sync.mjs --dry-run",
+    "self-test": "node sync.mjs --self-test"
+  },
+  "dependencies": {
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0",
+    "pdf-lib": "^1.17.1"
+  }
+}
