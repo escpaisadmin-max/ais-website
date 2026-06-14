@@ -4,16 +4,18 @@ name: Drive content sync
 # triggers a Vercel deploy). Keyless auth via Workload Identity Federation.
 
 on:
-  # Schedule is disabled until the first manual dry-run + real run are verified.
-  # Re-enable by uncommenting once confident.
-  # schedule:
-  #   - cron: "*/15 * * * *" # every 15 minutes
+  schedule:
+    - cron: "*/15 * * * *" # every 15 minutes
   workflow_dispatch:
     inputs:
       dry_run:
         description: "Read Drive and log changes without writing/committing"
         type: boolean
         default: false
+
+# Opt the JS-based actions into Node 24 (Node 20 is being deprecated).
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 # Prevent overlapping runs from racing on the same commit.
 concurrency:
