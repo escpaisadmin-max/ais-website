@@ -8,53 +8,33 @@ This document is for future Claude Code sessions (or any developer) working on t
 
 - **Stack:** React 19 + Vite + Tailwind CSS v4 + Framer Motion + react-pdf
 - **Hosting:** Vercel (SPA with `vercel.json` rewrites for client-side routing)
-- **Content approach:** All content is hardcoded in JS data files in `src/data/`. No CMS — future board members edit source files directly.
+- **Content approach:** EDUs, Newsletters, Founder Reports, and Events are managed in **Google Drive** and auto-published (see next section). Team, partner logos, stats, divisions, and site config are still hand-edited in `src/data/`.
 - **Brand font:** Georgia (serif). Brand colors defined as Tailwind `@theme` variables in `src/styles/index.css`.
 
 ---
 
-## Adding New Presentations
+## Content via Google Drive (auto-sync)
 
-1. Get the final PPTX or PDF from the division.
-2. If PPTX only, convert to PDF: `soffice --headless --convert-to pdf --outdir public/presentations/pdf/ "file.pptx"`
-3. Rename using the convention: `{dept}-{number}-{short-title}.pdf`
-   - Departments: `pe`, `vc`, `hf`, `re`
-   - Example: `pe-06-distressed-debt.pdf`
-4. Place the PDF in `public/presentations/pdf/`.
-5. Add an entry to `src/data/presentations.js` with all fields filled in.
-6. Delete any working files (PPTX sources, outlines, drafts, task managers, docx files). Only final PDFs belong in the repo.
+EDUs, Newsletters, Founder Reports, and Events publish **automatically from Google Drive** — board members just drag files in; no code, no PDFs committed by hand.
 
-**What to discard when processing a division's folder:**
-- PPTX source files (once PDF exists)
-- LinkedIn cover slides (`*_Cover_*.pptx`)
-- Outlines, feedback notes, task managers (`.docx`, `.xlsx`)
-- Draft versions (anything not `vF` or clearly the final)
-- Third-party reference PDFs (interview guides, external resources)
-- Corrupt/placeholder files (check file size — anything under 1KB is suspicious)
+**How it flows:** Drive → scheduled GitHub Action (`.github/workflows/drive-sync.yml`, every ~15 min, keyless auth via Workload Identity Federation) runs `ops/drive-sync/` → regenerates the data files + copies PDFs/photos into `public/` → commits → Vercel deploys.
 
----
+> ⚠️ `src/data/presentations.js`, `newsletters.js`, `founderReports.js`, and `events.js` are now **AUTO-GENERATED** (each carries a "do not edit by hand" banner). Editing them directly does nothing useful — the next sync overwrites them. **Change content in Drive instead.**
 
-## Adding New Newsletters
-
-1. Get the final DOCX or PDF from the division.
-2. If DOCX, convert to PDF: `soffice --headless --convert-to pdf --outdir public/newsletters/pdf/ "file.docx"`
-3. Rename using the convention: `{dept}-{issue number}-{short-title}.pdf`
-   - Example: `re-24-logistics.pdf`
-4. Place the PDF in `public/newsletters/pdf/`.
-5. Add an entry to `src/data/newsletters.js` with all fields filled in.
-6. To determine the issue number, department, and title: read the first page of the PDF. Newsletters always start with `Newsletter (N) - Title` and mention the department.
-
-**Getting page counts (batch):**
-```bash
-python3 -c "
-from PyPDF2 import PdfReader
-import os
-for f in sorted(os.listdir('public/newsletters/pdf')):
-    if f.endswith('.pdf'):
-        r = PdfReader(f'public/newsletters/pdf/{f}')
-        print(f'{f}: {len(r.pages)} pages')
-"
+**Drive folder** — "AIS Website Content", shared as Viewer with `drive-sync@ais-escp-website.iam.gserviceaccount.com`:
 ```
+EDUs/  → PE, VC, HF, RE          Newsletters/  → PE, VC, HF, RE
+Founder Reports/                  Events/  → one sub-folder per event
+```
+
+**Naming (PDF libraries):** `YYYY-MM Title.pdf` (e.g. `2025-02 Guide to LBO Modeling.pdf`); `YYYY-Qn`/`YYYY` also work for reports. Department = the sub-folder. Page count is read automatically. Google Slides/Docs can be dropped directly (auto-converted to PDF). An optional same-named `.txt` becomes the description.
+
+**Events:** one sub-folder per event (folder name = URL slug) containing an `event.json` (title, date, partnerName, partnerUrl, division, type, description, fullDescription, keyTakeaways, bannerLogo) plus images — a `banner.*` image becomes the hero, the rest form the gallery. Rendering: a real `photo` is used as the hero if present; otherwise a navy→ocean gradient shows `bannerLogo` (or just the title). `partnerUrl` turns the "In partnership with …" line into a link.
+
+**Operating it** (full detail in `ops/drive-sync/README.md`):
+- Manual run: `gh workflow run drive-sync.yml -f dry_run=true` then `gh run watch <id>` (drop `dry_run` for a real run).
+- Safety guard: the sync refuses to wipe a populated category to empty.
+- Migrating existing content in: upload PDFs named with the **current site titles** so descriptions / issue numbers / URLs carry over automatically.
 
 ---
 
@@ -79,43 +59,17 @@ for f in sorted(os.listdir('public/newsletters/pdf')):
 
 ---
 
-## Adding New Events
-
-1. Save event photos to `public/events/`.
-2. Ensure the partner logo exists in `public/logos/`.
-3. Add an entry to `src/data/events.js` with all fields.
-4. The `slug` field is used in the URL: `/events/{slug}`.
-
-**Event banner behaviour:** if `photo` is set to a real image in `public/events/`,
-it becomes the hero/card image. Until then, leave `photo: null` — a branded
-navy→ocean gradient banner is shown instead, displaying `bannerLogo` (a light/white
-partner logo) when provided, otherwise the title only.
-
-**Partner links:** set `partnerUrl` to the partner's website to make the
-"In partnership with {partnerName}" line a link. Omit it for individuals.
-
----
-
-## Adding New Founder Reports
-
-1. Export the final report as PDF.
-2. Save it to `public/founder-reports/pdf/` as `{year}-founder-report.pdf`.
-3. Add an entry to `src/data/founderReports.js` (uncomment the example and fill it in).
-4. Get the page count the same way as newsletters (see batch snippet above).
-
-Until the first entry is added, the Founder Report page shows a "coming soon" state.
-
----
-
 ## Key Files Reference
 
 | File | Purpose |
 |---|---|
 | `src/data/team.js` | Team members, photos, roles, LinkedIn |
-| `src/data/presentations.js` | Presentation library entries |
-| `src/data/newsletters.js` | Newsletter library entries |
-| `src/data/events.js` | Event cards and detail pages |
-| `src/data/founderReports.js` | Founder Report library entries |
+| `src/data/presentations.js` | EDU library entries — **auto-generated from Drive** |
+| `src/data/newsletters.js` | Newsletter library entries — **auto-generated from Drive** |
+| `src/data/events.js` | Event cards/detail pages — **auto-generated from Drive** |
+| `src/data/founderReports.js` | Founder Report entries — **auto-generated from Drive** |
+| `ops/drive-sync/` | Drive→site sync script + its README |
+| `.github/workflows/drive-sync.yml` | Scheduled sync workflow (keyless WIF) |
 | `src/data/partners.js` | Scrolling logo banner on homepage |
 | `src/data/stats.js` | Animated stat counters on homepage |
 | `src/data/divisions.js` | Division names and descriptions |
