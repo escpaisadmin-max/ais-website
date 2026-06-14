@@ -1,0 +1,60 @@
+name: Drive content sync
+
+# Pulls content from the AIS Google Drive and commits any changes (which
+# triggers a Vercel deploy). Keyless auth via Workload Identity Federation.
+
+on:
+  schedule:
+    - cron: "*/15 * * * *" # every 15 minutes
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Read Drive and log changes without writing/committing"
+        type: boolean
+        default: false
+
+# Prevent overlapping runs from racing on the same commit.
+concurrency:
+  group: drive-sync
+  cancel-in-progress: false
+
+permissions:
+  contents: write # commit synced content back to the repo
+  id-token: write # mint the OIDC token for Workload Identity Federation
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Authenticate to Google Cloud (keyless / WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/1048877455007/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: drive-sync@ais-escp-website.iam.gserviceaccount.com
+
+      - name: Install sync dependencies
+        working-directory: ops/drive-sync
+        run: npm ci
+
+      - name: Run sync
+        working-directory: ops/drive-sync
+        run: node sync.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
+
+      - name: Commit changes
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "ais-drive-sync[bot]"
+          git config user.email "ais-drive-sync@users.noreply.github.com"
+          git add public src/data
+          if git diff --cached --quiet; then
+            echo "No content changes."
+          else
+            git commit -m "Sync content from Google Drive [skip ci]"
+            git push
+          fi

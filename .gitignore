@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Google auth: never commit credential files (WIF writes a temp one in CI)
+gha-creds-*.json
+**/service-account*.json
+*-key.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
