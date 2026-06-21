@@ -33,7 +33,7 @@ export const founders = [
     photo: "/team/julius-majowski.jpg",
     linkedin: "https://www.linkedin.com/in/juliusmajowski/",
     email: null,
-    bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Tech M&A Analyst Intern this summer. Julius is a German national who speaks English, German, and Spanish.",
+    bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Technology M&A Analyst Intern, followed by M&A internships at Jefferies and Rothschild & Co. Julius is a German national who speaks English, German, and Spanish.",
     division: "founders",
   },
   {
@@ -194,7 +194,7 @@ export const divisions = {
         photo: "/team/julius-majowski.jpg",
         linkedin: "https://www.linkedin.com/in/juliusmajowski/",
         email: null,
-        bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Tech M&A Analyst Intern this summer. Julius is a German national who speaks English, German, and Spanish.",
+        bio: "Julius is a Co-Founder, President and Head of Hedge Funds at AIS. During his time at the society, he gained experience at Herax Partners, where he worked in the M&A team in London. He will be joining Lincoln International as a Technology M&A Analyst Intern, followed by M&A internships at Jefferies and Rothschild & Co. Julius is a German national who speaks English, German, and Spanish.",
         division: "hf",
       },
       {

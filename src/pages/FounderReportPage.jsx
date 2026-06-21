@@ -14,7 +14,7 @@ export default function FounderReportPage() {
         <ScrollReveal>
           <SectionHeading
             title="Founder Report"
-            subtitle="A reflection on AIS — our mission, milestones, and the road ahead."
+            subtitle="An inside look at ESCP's entrepreneurial ecosystem — its founders, startups, and investors."
           />
         </ScrollReveal>
 
