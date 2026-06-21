@@ -50,6 +50,6 @@ export const newsletterConfig = {
  * the access key here.
  */
 export const contactConfig = {
-  email: "ais.escp@gmail.com",
-  web3formsAccessKey: null,
+  email: "contact@escpais.com",
+  web3formsAccessKey: "3a292908-0b33-4399-b8a0-14aa58c716d8",
 };
