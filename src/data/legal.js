@@ -3,7 +3,7 @@ export const legalMetadata = {
   organizationName: "ESCP Alternative Investment Society (AIS)",
   organizationType: "Nonprofit student society",
   addressLines: ["79 Av. de la Republique", "75011 Paris", "France"],
-  contactEmail: "theodor.kisslinger@edu.escp.eu",
+  contactEmail: "contact@escpais.com",
   linkedinUrl: "https://www.linkedin.com/company/escpais/",
   dpoEmail: "dpo@escpeurope.eu",
   dpoPostalAddress: "SERVICE DATA PROTECTION OFFICER - ESCP, 3 rue Armand Moisant, 75015 Paris, France",
