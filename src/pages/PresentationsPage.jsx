@@ -41,8 +41,8 @@ export default function PresentationsPage() {
       <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeading
-            title="Educational Presentations (EDUs)"
-            subtitle="Browse our library of educational presentations across all divisions."
+            title="Publications & Educational Resources (EDUs)"
+            subtitle="Educational resources, technical guides, and industry deep dives."
           />
         </ScrollReveal>
 

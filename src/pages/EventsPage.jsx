@@ -11,7 +11,7 @@ export default function EventsPage() {
         <ScrollReveal>
           <SectionHeading
             title="Events"
-            subtitle="Explore our past events and workshops with leading finance professionals."
+            subtitle="Speaker events, workshops, and industry discussions with finance professionals."
           />
         </ScrollReveal>
 

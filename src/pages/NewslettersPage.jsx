@@ -22,7 +22,7 @@ export default function NewslettersPage() {
         <ScrollReveal>
           <SectionHeading
             title="Newsletters"
-            subtitle="In-depth research and analysis from our divisions."
+            subtitle="Market trends, investment insights, and industry case studies across alternative assets."
           />
         </ScrollReveal>
 
