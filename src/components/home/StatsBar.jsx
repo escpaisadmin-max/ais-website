@@ -14,7 +14,7 @@ export default function StatsBar() {
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="min-h-[2.5rem] flex items-center justify-center">
-                  <span className="text-sm text-ais-gray uppercase tracking-wider text-balance">
+                  <span className="text-sm text-ais-gray uppercase tracking-wider whitespace-pre-line">
                     {stat.label}
                   </span>
                 </div>
