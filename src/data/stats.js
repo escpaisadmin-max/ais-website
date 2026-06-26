@@ -12,5 +12,5 @@
 export const stats = [
   { label: "Students / Member Network", value: 800, suffix: "+" },
   { label: "Operating Team", value: 26, suffix: "" },
-  { label: "Presentations Published", value: 40, suffix: "+" },
+  { label: "Publications & Educational Resources", value: 40, suffix: "+" },
 ];
