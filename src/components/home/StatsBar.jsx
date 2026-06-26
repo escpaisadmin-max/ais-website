@@ -13,8 +13,10 @@ export default function StatsBar() {
                 <div className="text-4xl md:text-5xl font-bold text-ais-navy mb-2">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-sm text-ais-gray uppercase tracking-wider">
-                  {stat.label}
+                <div className="min-h-[2.5rem] flex items-center justify-center">
+                  <span className="text-sm text-ais-gray uppercase tracking-wider text-balance">
+                    {stat.label}
+                  </span>
                 </div>
               </div>
             ))}
