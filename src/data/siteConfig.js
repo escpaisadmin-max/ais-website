@@ -18,7 +18,7 @@ export const communityLinks = {
 export const navLinks = [
   { label: "Home", path: "/" },
   { label: "Newsletters", path: "/newsletters" },
-  { label: "EDUs", path: "/presentations" },
+  { label: "Publications", path: "/presentations" },
   { label: "Founder Report", path: "/founder-report" },
   { label: "Events", path: "/events" },
   { label: "About & Team", path: "/about" },
