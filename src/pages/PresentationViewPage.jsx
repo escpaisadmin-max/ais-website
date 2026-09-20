@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
 import { presentations } from "../data/presentations";
 import Button from "../components/ui/Button";
+import { trackGoal } from "../lib/analytics.js";
 
 const PdfViewer = lazy(() => import("../components/presentations/PdfViewer"));
 
@@ -51,6 +52,7 @@ export default function PresentationViewPage() {
             href={presentation.pdfPath}
             variant="primary"
             download
+            onClick={() => trackGoal("publication_download", { publication_type: "presentation", publication_id: presentation.id })}
           >
             Download PDF
           </Button>

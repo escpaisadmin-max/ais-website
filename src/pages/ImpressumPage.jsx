@@ -60,11 +60,10 @@ export default function ImpressumPage() {
             <h2 className="text-2xl font-bold text-ais-navy mb-4">Source Notes</h2>
             <p>
               The society description, nonprofit status, Paris headquarters, and campus addresses are taken
-              from public AIS profiles. ESCP data protection contact details are taken from ESCP's public
-              personal data protection policy.
+              from public AIS profiles.
             </p>
             <ul className="list-disc pl-6 mt-4 space-y-2">
-              {legalSources.slice(0, 2).map((source) => (
+              {legalSources.slice(0, 1).map((source) => (
                 <li key={source.url}>
                   <a href={source.url} target="_blank" rel="noopener noreferrer" className="text-ais-ocean underline">
                     {source.label}

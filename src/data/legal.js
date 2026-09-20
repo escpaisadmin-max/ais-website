@@ -1,12 +1,10 @@
 export const legalMetadata = {
-  lastUpdated: "May 14, 2026",
+  lastUpdated: "September 20, 2026",
   organizationName: "ESCP Alternative Investment Society (AIS)",
   organizationType: "Nonprofit student society",
   addressLines: ["79 Av. de la Republique", "75011 Paris", "France"],
   contactEmail: "contact@escpais.com",
   linkedinUrl: "https://www.linkedin.com/company/escpais/",
-  dpoEmail: "dpo@escpeurope.eu",
-  dpoPostalAddress: "SERVICE DATA PROTECTION OFFICER - ESCP, 3 rue Armand Moisant, 75015 Paris, France",
   supervisoryAuthorityUrl: "https://www.cnil.fr/en/contact-cnil",
 };
 
@@ -16,16 +14,20 @@ export const legalSources = [
     url: "https://uk.linkedin.com/company/escpais",
   },
   {
-    label: "ESCP Personal Data Protection Policy",
-    url: "https://escp.eu/sites/default/files/PDF/legal-mentions/Personal-data-protection-policy-ENG.pdf",
+    label: "Web3Forms Privacy Policy",
+    url: "https://web3forms.com/privacy",
   },
   {
     label: "Vercel Privacy Policy",
-    url: "https://vercel.com/legal/privacy-policy",
+    url: "https://vercel.com/legal/privacy-notice",
   },
   {
-    label: "Vercel Data Processing Addendum",
-    url: "https://vercel.com/legal/dpa",
+    label: "DataFast Data Processing Agreement",
+    url: "https://datafa.st/dpa",
+  },
+  {
+    label: "DataFast privacy and tracking information",
+    url: "https://datafa.st/docs/gdpr-cookieless-tracking",
   },
   {
     label: "CNIL cookie guidance",

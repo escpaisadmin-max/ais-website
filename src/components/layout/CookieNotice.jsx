@@ -1,39 +1,42 @@
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { getAnalyticsConsent, setAnalyticsConsent } from "../../lib/analytics";
 
-const STORAGE_KEY = "ais-cookie-notice-acknowledged";
+const buttonClass = "rounded border border-ais-navy bg-white px-5 py-2 text-sm font-semibold text-ais-navy hover:bg-ais-silver/30 transition-colors";
 
-export default function CookieNotice() {
-  const [visible, setVisible] = useState(
-    () => window.localStorage.getItem(STORAGE_KEY) !== "true"
-  );
+export default function CookieNotice({ open, focusOnOpen, onClose }) {
+  const panel = useRef(null);
+  const consent = getAnalyticsConsent();
 
-  const acknowledge = () => {
-    window.localStorage.setItem(STORAGE_KEY, "true");
-    setVisible(false);
+  useEffect(() => {
+    if (open && focusOnOpen) panel.current?.focus();
+  }, [open, focusOnOpen]);
+
+  const choose = (accepted) => {
+    setAnalyticsConsent(accepted);
+    onClose();
   };
 
-  if (!visible) return null;
+  if (!open) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[60] border-t border-ais-silver/40 bg-white shadow-2xl">
+    <section ref={panel} tabIndex={-1} aria-label="Analytics privacy settings" className="fixed bottom-0 left-0 right-0 z-[60] max-h-[70vh] overflow-y-auto border-t border-ais-silver/40 bg-white shadow-2xl">
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center gap-4">
-        <p className="text-sm text-ais-navy/80 flex-1">
-          We do not use analytics or advertising cookies. This site stores only a local preference to remember
-          that you have seen this notice. See our{" "}
-          <Link to="/privacy-policy" className="text-ais-ocean underline">
-            Privacy Policy
-          </Link>
-          .
-        </p>
-        <button
-          type="button"
-          onClick={acknowledge}
-          className="rounded bg-ais-navy px-5 py-2 text-sm font-semibold text-white hover:bg-ais-slate transition-colors"
-        >
-          Acknowledge
-        </button>
+        <div className="text-sm text-ais-navy/80 flex-1 space-y-2">
+          <p>
+            With your permission, DataFast measures page visits, successful enquiries, newsletter requests
+            and publication download clicks to help us improve AIS. Analytics is off until you accept.
+            You can change your choice anytime in Privacy settings. See our{" "}
+            <Link to="/privacy-policy" className="text-ais-ocean underline">Privacy Policy</Link>.
+          </p>
+          {consent !== null && <p>Current choice: analytics {consent ? "accepted" : "rejected"}.</p>}
+        </div>
+        <div className="flex flex-wrap gap-3">
+          <button type="button" onClick={() => choose(false)} className={buttonClass}>Reject analytics</button>
+          <button type="button" onClick={() => choose(true)} className={buttonClass}>Accept analytics</button>
+          {consent !== null && <button type="button" onClick={onClose} className="px-2 py-2 text-sm text-ais-navy underline">Close</button>}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

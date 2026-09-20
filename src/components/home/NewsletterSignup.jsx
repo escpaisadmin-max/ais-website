@@ -2,6 +2,7 @@ import { useState } from "react";
 import { newsletterConfig, contactConfig } from "../../data/siteConfig";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
+import { trackGoal } from "../../lib/analytics.js";
 
 export default function NewsletterSignup() {
   const [email, setEmail] = useState("");
@@ -41,8 +42,12 @@ export default function NewsletterSignup() {
         }),
       });
       const data = await res.json();
-      setStatus(data.success ? "sent" : "error");
-      if (data.success) setEmail("");
+      const success = res.ok && data.success;
+      setStatus(success ? "sent" : "error");
+      if (success) {
+        setEmail("");
+        trackGoal("newsletter_signup");
+      }
     } catch {
       setStatus("error");
     }
@@ -103,6 +108,12 @@ export default function NewsletterSignup() {
               </button>
             </form>
           )}
+
+          <p className="text-center text-ais-silver text-sm mt-3">
+            Subscribe to receive AIS newsletter updates. Your email is sent through Web3Forms.
+            You can withdraw your request by contacting us. See our{" "}
+            <a href="/privacy-policy" className="underline">Privacy Policy</a>.
+          </p>
 
           <p
             role="alert"

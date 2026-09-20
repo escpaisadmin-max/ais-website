@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { useParams, Link } from "react-router-dom";
 import { founderReports } from "../data/founderReports";
 import Button from "../components/ui/Button";
+import { trackGoal } from "../lib/analytics.js";
 
 const PdfViewer = lazy(() => import("../components/presentations/PdfViewer"));
 
@@ -50,7 +51,12 @@ export default function FounderReportViewPage() {
               {report.pageCount > 0 && ` · ${report.pageCount} pages`}
             </p>
           </div>
-          <Button href={report.pdfPath} variant="primary" download>
+          <Button
+            href={report.pdfPath}
+            variant="primary"
+            download
+            onClick={() => trackGoal("publication_download", { publication_type: "founder_report", publication_id: report.id })}
+          >
             Download PDF
           </Button>
         </div>

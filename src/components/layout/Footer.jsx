@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 import { navLinks, socialLinks } from "../../data/siteConfig";
 
-export default function Footer() {
+export default function Footer({ onOpenPrivacy }) {
   return (
     <footer className="bg-ais-navy text-ais-silver">
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -70,10 +70,13 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-ais-slate/30 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-ais-silver">
           <p>&copy; {new Date().getFullYear()} ESCP Alternative Investment Society. All rights reserved.</p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-4">
             <Link to="/privacy-policy" className="hover:text-ais-white transition-colors">
               Privacy Policy
             </Link>
+            <button type="button" onClick={onOpenPrivacy} className="hover:text-ais-white transition-colors underline">
+              Privacy settings
+            </button>
             <Link to="/impressum" className="hover:text-ais-white transition-colors">
               Impressum
             </Link>

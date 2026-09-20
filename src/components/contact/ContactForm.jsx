@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ScrollReveal from "../ui/ScrollReveal";
 import { contactConfig } from "../../data/siteConfig";
+import { trackGoal } from "../../lib/analytics.js";
 
 const SUBJECTS = {
   general: "General Question",
@@ -60,7 +61,9 @@ export default function ContactForm() {
         }),
       });
       const data = await res.json();
-      setStatus(data.success ? "sent" : "error");
+      const success = res.ok && data.success;
+      setStatus(success ? "sent" : "error");
+      if (success) trackGoal("contact_submit");
     } catch {
       setStatus("error");
     }
@@ -194,6 +197,11 @@ export default function ContactForm() {
               .
             </>
           )}
+        </p>
+
+        <p className="text-sm text-ais-gray">
+          Your details are sent to AIS through Web3Forms so we can reply. See our{" "}
+          <a href="/privacy-policy" className="text-ais-ocean underline">Privacy Policy</a>.
         </p>
 
         <button

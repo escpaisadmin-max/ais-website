@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { newsletters } from "../data/newsletters";
 import Button from "../components/ui/Button";
 import NewsletterCTA from "../components/newsletters/NewsletterCTA";
+import { trackGoal } from "../lib/analytics.js";
 
 const PdfViewer = lazy(() => import("../components/presentations/PdfViewer"));
 
@@ -54,6 +55,7 @@ export default function NewsletterViewPage() {
             href={newsletter.pdfPath}
             variant="primary"
             download
+            onClick={() => trackGoal("publication_download", { publication_type: "newsletter", publication_id: newsletter.id })}
           >
             Download PDF
           </Button>

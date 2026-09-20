@@ -9,6 +9,7 @@
     "build": "vite build",
     "postbuild": "node scripts/generate-pages.mjs",
     "lint": "eslint .",
+    "test:privacy": "node --test scripts/analytics.test.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

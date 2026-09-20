@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Tag from "../ui/Tag";
 import { divisions } from "../../data/divisions";
+import { trackGoal } from "../../lib/analytics.js";
 
 export default function NewsletterCard({ newsletter }) {
   const division = divisions.find((d) => d.id === newsletter.department);
@@ -42,6 +43,7 @@ export default function NewsletterCard({ newsletter }) {
         <a
           href={newsletter.pdfPath}
           download
+          onClick={() => trackGoal("publication_download", { publication_type: "newsletter", publication_id: newsletter.id })}
           className="px-4 py-2 border border-ais-ocean text-ais-ocean text-sm font-semibold rounded hover:bg-ais-ocean hover:text-white transition-colors"
         >
           Download

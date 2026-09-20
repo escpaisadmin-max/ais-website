@@ -26,8 +26,8 @@ export default function PrivacyPolicyPage() {
         <div className="space-y-10">
           <Section title="Controller">
             <p>
-              The website is operated by {legalMetadata.organizationName}, a nonprofit student society
-              headquartered in Paris.
+              This is the website of {legalMetadata.organizationName}, a student-led society at ESCP
+              Business School. For questions about the website or your personal data, contact AIS below.
             </p>
             <address className="not-italic">
               {legalMetadata.addressLines.map((line) => (
@@ -50,14 +50,20 @@ export default function PrivacyPolicyPage() {
               and secure the website.
             </p>
             <p>
-              If you contact us by email or through future connected forms, we process the information you
-              choose to provide, such as your name, email address, subject, message, and any context needed
-              to answer your request.
+              The contact form sends your name, email address, selected subject and message through
+              Web3Forms to the society's configured contact inbox. The newsletter form sends your email
+              address and subscription request through the same service. Web3Forms also processes technical
+              information needed to deliver submissions and prevent abuse. You can contact us directly by
+              email instead of using a form.
             </p>
             <p>
-              The current contact and newsletter components in this source code do not send form data to a
-              production backend unless a provider is configured later. If newsletter or form providers are
-              connected in the future, this policy should be updated before launch of those integrations.
+              Newsletter requests are currently collected by email; there is no automated newsletter
+              delivery service connected to this website. Signing up asks AIS to send you newsletter
+              updates. You can withdraw that request by contacting us.
+            </p>
+            <p>
+              The website publishes member names, roles, biographies and photographs to present
+              the society and its work. Members can contact us to request a correction or removal.
             </p>
           </Section>
 
@@ -68,17 +74,25 @@ export default function PrivacyPolicyPage() {
               public website.
             </p>
             <p>
-              We process messages and event inquiries to respond to requests and manage potential
-              collaborations or membership-related communication. The legal basis is consent or legitimate
-              interest, depending on the nature of the request.
+              We use contact submissions to respond to your request, based on our legitimate interest in
+              handling enquiries. Newsletter updates and optional analytics rely on your consent. Declining
+              analytics does not prevent you from using the website, forms or publications.
             </p>
           </Section>
 
           <Section title="Hosting And Service Providers">
             <p>
-              This website is hosted on Vercel. Vercel states that it processes customer website traffic
-              data such as end-user IP address, IP-derived location, request data, and service-generated
-              logs. Vercel also provides GDPR-related data processing terms for customers.
+              Vercel hosts the website and processes technical access data. Web3Forms processes form
+              submissions and forwards them by email. DataFast provides optional website analytics.
+              These providers and their infrastructure may process data outside the European Economic
+              Area, including in the United States; Web3Forms also operates in India. Their privacy and
+              data-processing information is linked below.
+            </p>
+            <p>
+              Publications and images are served as public website files. When you open an embedded PDF,
+              your browser also requests the PDF viewer software from UNPKG, which receives the technical
+              information associated with that request. Public publications originate from the society's
+              Google Drive folders; website visitors are not asked to sign in to Drive.
             </p>
             <p>
               Public links to LinkedIn or other third-party websites are external services. When you follow
@@ -86,24 +100,42 @@ export default function PrivacyPolicyPage() {
             </p>
           </Section>
 
-          <Section title="Cookies And Local Storage">
+          <Section title="Optional Analytics And Your Choice">
             <p>
-              We do not currently use analytics, advertising, or social-media tracking cookies on this
-              website. The cookie notice stores a small preference in your browser's local storage so the
-              notice does not reappear after you acknowledge it.
+              DataFast loads only after you select Accept analytics. It measures page visits, referral
+              sources, IP address, browser and device information, approximate location, and successful contact or
+              newsletter requests and publication download clicks. It uses visitor and session identifiers
+              to connect these interactions. Analytics events do not include your name, email address,
+              message or other form contents; the custom fields on download events include only the public publication type
+              and identifier.
             </p>
             <p>
-              Under CNIL guidance, consent is generally required for trackers unless they are strictly
-              necessary for a service requested by the user or serve purposes such as remembering a user's
-              tracker choice.
+              Select Reject analytics to keep DataFast off. You can change or withdraw your choice through
+              Privacy settings in the footer at any time. Withdrawal stops future analytics and clears the
+              DataFast identifiers stored by this site in your browser. It does not automatically erase
+              information already received by DataFast or affect the lawfulness of earlier processing.
+            </p>
+            <p>
+              We remember your analytics choice in local storage for 180 days, then ask again. DataFast's
+              visitor cookies have a lifetime of up to 365 days and its session cookie expires after
+              30 minutes of inactivity. DataFast also uses session storage to avoid duplicate page views.
+              These analytics identifiers are created only after acceptance. We do not use advertising
+              cookies or embedded social-media tracking widgets.
             </p>
           </Section>
 
           <Section title="Retention">
             <p>
-              Technical logs are retained according to Vercel's platform practices. Email or inquiry
-              messages are retained only as long as needed to answer the request, manage the relationship,
-              or comply with applicable obligations.
+              We retain correspondence while needed to handle your request and any continuing society
+              relationship, subject to applicable legal obligations. Newsletter requests are kept while
+              you wish to receive updates. You may ask us to remove your request or correspondence.
+            </p>
+            <p>
+              Web3Forms' published privacy policy allows storage of submissions for up to three years,
+              subject to account settings and deletion requests. Copies delivered to the society's inbox
+              are separate from that provider storage. Vercel's technical logs and DataFast's stored
+              analytics follow their service retention practices; the browser-storage lifetimes above
+              do not describe how long providers retain server-side records.
             </p>
           </Section>
 
@@ -114,12 +146,12 @@ export default function PrivacyPolicyPage() {
               email above.
             </p>
             <p>
-              ESCP's public data protection policy lists the ESCP Data Protection Officer contact as{" "}
-              <a href={`mailto:${legalMetadata.dpoEmail}`} className="text-ais-ocean underline">
-                {legalMetadata.dpoEmail}
+              You may withdraw consent at any time. For analytics, use Privacy settings; for newsletter
+              requests or member information, contact AIS using the email above. You may also complain to{" "}
+              <a href={legalMetadata.supervisoryAuthorityUrl} target="_blank" rel="noopener noreferrer" className="text-ais-ocean underline">
+                CNIL
               </a>{" "}
-              and {legalMetadata.dpoPostalAddress}. You may also contact CNIL if you are not satisfied with
-              the handling of a data protection request.
+              or your local data protection authority.
             </p>
           </Section>
 
