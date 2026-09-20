@@ -58,24 +58,30 @@ export default function NewsletterSignup() {
             light
           />
 
-          {status === "sent" ? (
-            <div className="text-center">
-              <p className="text-ais-periwinkle text-lg font-semibold">
-                You&apos;re on the list!
-              </p>
-              <p className="text-ais-silver text-sm mt-2">
-                We&apos;ll email you when the first newsletter goes out.
-              </p>
-            </div>
-          ) : (
+          <div role="status" aria-atomic="true">
+            {status === "sent" && (
+              <div className="text-center">
+                <p className="text-ais-periwinkle text-lg font-semibold">
+                  You&apos;re on the list!
+                </p>
+                <p className="text-ais-silver text-sm mt-2">
+                  We&apos;ll email you when the first newsletter goes out.
+                </p>
+              </div>
+            )}
+          </div>
+          {status !== "sent" && (
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <input
                 type="email"
+                name="email"
+                autoComplete="email"
+                aria-label="Email address for newsletter updates"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded bg-ais-slate/50 border border-ais-slate text-ais-white placeholder-ais-gray focus:outline-none focus:border-ais-ocean transition-colors"
+                className="flex-1 px-4 py-3 rounded bg-ais-slate/50 border border-ais-slate text-ais-white placeholder-ais-silver focus:outline-none focus:border-ais-silver focus:ring-2 focus:ring-ais-silver transition-colors"
               />
               {/* Honeypot: hidden from humans, tempting to bots */}
               <input
@@ -98,18 +104,24 @@ export default function NewsletterSignup() {
             </form>
           )}
 
-          {status === "error" && (
-            <p className="text-center text-ais-periwinkle text-sm mt-3">
-              Something went wrong — please email us at{" "}
-              <a
-                href={`mailto:${contactConfig.email}`}
-                className="underline font-semibold hover:text-ais-white transition-colors"
-              >
-                {contactConfig.email}
-              </a>
-              .
-            </p>
-          )}
+          <p
+            role="alert"
+            aria-atomic="true"
+            className={status === "error" ? "text-center text-ais-periwinkle text-sm mt-3" : "sr-only"}
+          >
+            {status === "error" && (
+              <>
+                Something went wrong — please email us at{" "}
+                <a
+                  href={`mailto:${contactConfig.email}`}
+                  className="underline font-semibold hover:text-ais-white transition-colors"
+                >
+                  {contactConfig.email}
+                </a>
+                .
+              </>
+            )}
+          </p>
         </ScrollReveal>
       </div>
     </section>

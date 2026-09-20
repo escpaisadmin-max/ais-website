@@ -67,7 +67,7 @@ export default function NewsletterViewPage() {
             </div>
           }
         >
-          <PdfViewer pdfPath={newsletter.pdfPath} />
+          <PdfViewer pdfPath={newsletter.pdfPath} continuous />
         </Suspense>
 
         {/* CTA below the viewer */}

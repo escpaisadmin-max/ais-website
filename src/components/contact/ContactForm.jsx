@@ -69,7 +69,7 @@ export default function ContactForm() {
   if (status === "sent") {
     return (
       <ScrollReveal>
-        <div className="bg-ais-ice/50 rounded-lg p-8 text-center">
+        <div role="status" aria-atomic="true" className="bg-ais-ice/50 rounded-lg p-8 text-center">
           <h3 className="text-xl font-bold text-ais-navy mb-2">Message Sent!</h3>
           <p className="text-ais-gray">
             Thank you for reaching out. We&apos;ll get back to you soon.
@@ -82,7 +82,7 @@ export default function ContactForm() {
   if (status === "mailto") {
     return (
       <ScrollReveal>
-        <div className="bg-ais-ice/50 rounded-lg p-8 text-center">
+        <div role="status" aria-atomic="true" className="bg-ais-ice/50 rounded-lg p-8 text-center">
           <h3 className="text-xl font-bold text-ais-navy mb-2">Almost there!</h3>
           <p className="text-ais-gray">
             Your email app should have opened with your message — just press send.
@@ -102,6 +102,7 @@ export default function ContactForm() {
 
   return (
     <ScrollReveal>
+      <div role="status" aria-atomic="true" />
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-ais-navy mb-1">
@@ -179,15 +180,21 @@ export default function ContactForm() {
           aria-hidden="true"
         />
 
-        {status === "error" && (
-          <p className="text-sm text-red-600">
-            Something went wrong. Please email us directly at{" "}
-            <a href={`mailto:${contactConfig.email}`} className="font-semibold underline">
-              {contactConfig.email}
-            </a>
-            .
-          </p>
-        )}
+        <p
+          role="alert"
+          aria-atomic="true"
+          className={status === "error" ? "text-sm text-red-600" : "sr-only"}
+        >
+          {status === "error" && (
+            <>
+              Something went wrong. Please email us directly at{" "}
+              <a href={`mailto:${contactConfig.email}`} className="font-semibold underline">
+                {contactConfig.email}
+              </a>
+              .
+            </>
+          )}
+        </p>
 
         <button
           type="submit"

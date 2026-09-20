@@ -201,7 +201,7 @@ export const divisions = {
         name: "Max Henkes",
         role: "Analyst",
         photo: "/team/max-henkes.jpg",
-        linkedin: "https://linkedin.com/in/example",
+        linkedin: null,
         email: null,
         bio: "Max is a Hedge Fund Analyst at AIS. Prior to his time at the society, he gained experience at a German family office. He is currently interning at MätchVC, a deep tech venture capital fund, where he focuses on healthcare and technology. Max is a German national who speaks German, English, and Russian.",
         division: "hf",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
 
@@ -19,6 +19,7 @@ function ExpandIcon({ expanded }) {
 
 export default function TeamMemberCard({ member }) {
   const [expanded, setExpanded] = useState(false);
+  const detailsId = useId();
 
   return (
     <div className="group">
@@ -36,6 +37,8 @@ export default function TeamMemberCard({ member }) {
       {/* Name + toggle */}
       <button
         onClick={() => setExpanded(!expanded)}
+        aria-expanded={expanded}
+        aria-controls={expanded ? detailsId : undefined}
         className="w-full flex items-center justify-between py-3 text-left"
       >
         <div>
@@ -49,6 +52,7 @@ export default function TeamMemberCard({ member }) {
       <AnimatePresence>
         {expanded && (
           <motion.div
+            id={detailsId}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
