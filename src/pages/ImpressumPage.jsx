@@ -13,9 +13,10 @@ export default function ImpressumPage() {
 
         <div className="space-y-10 text-ais-navy/80 leading-relaxed">
           <section>
-            <h2 className="text-2xl font-bold text-ais-navy mb-4">Website Operator</h2>
+            <h2 className="text-2xl font-bold text-ais-navy mb-4">Society Information</h2>
             <p>{legalMetadata.organizationName}</p>
             <p>{legalMetadata.organizationType}</p>
+            <p className="mt-3">Society contact address:</p>
             <address className="not-italic mt-3">
               {legalMetadata.addressLines.map((line) => (
                 <span key={line} className="block">{line}</span>
@@ -59,8 +60,8 @@ export default function ImpressumPage() {
           <section className="border-t border-ais-silver/40 pt-8">
             <h2 className="text-2xl font-bold text-ais-navy mb-4">Source Notes</h2>
             <p>
-              The society description, nonprofit status, Paris headquarters, and campus addresses are taken
-              from public AIS profiles.
+              The society description and campus contact address are based on AIS's official ESCP Campus
+              Life listing.
             </p>
             <ul className="list-disc pl-6 mt-4 space-y-2">
               {legalSources.slice(0, 1).map((source) => (

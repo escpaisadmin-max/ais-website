@@ -1,7 +1,7 @@
 export const legalMetadata = {
   lastUpdated: "September 20, 2026",
   organizationName: "ESCP Alternative Investment Society (AIS)",
-  organizationType: "Nonprofit student society",
+  organizationType: "Student society recognised by ESCP Business School",
   addressLines: ["79 Av. de la Republique", "75011 Paris", "France"],
   contactEmail: "contact@escpais.com",
   linkedinUrl: "https://www.linkedin.com/company/escpais/",
@@ -10,8 +10,8 @@ export const legalMetadata = {
 
 export const legalSources = [
   {
-    label: "AIS LinkedIn profile",
-    url: "https://uk.linkedin.com/company/escpais",
+    label: "AIS on ESCP Campus Life",
+    url: "https://campuslife.escp.eu/ldnrealestate/home/",
   },
   {
     label: "Web3Forms Privacy Policy",

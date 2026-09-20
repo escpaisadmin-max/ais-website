@@ -24,11 +24,12 @@ export default function PrivacyPolicyPage() {
         </div>
 
         <div className="space-y-10">
-          <Section title="Controller">
+          <Section title="Website Contact">
             <p>
               This is the website of {legalMetadata.organizationName}, a student-led society at ESCP
               Business School. For questions about the website or your personal data, contact AIS below.
             </p>
+            <p>Society contact address:</p>
             <address className="not-italic">
               {legalMetadata.addressLines.map((line) => (
                 <span key={line} className="block">{line}</span>
