@@ -11,6 +11,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-6">
           <ScrollReveal>
             <SectionHeading
+              as="h1"
               title="Get in Touch"
               subtitle="Interested in partnering with AIS, joining our community, or have a question? We'd love to hear from you."
             />

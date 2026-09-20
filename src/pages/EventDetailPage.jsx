@@ -75,7 +75,7 @@ export default function EventDetailPage() {
         {/* Key takeaways */}
         {event.keyTakeaways && event.keyTakeaways.length > 0 && (
           <div className="bg-ais-ice/50 rounded-lg p-6 mb-8">
-            <h3 className="text-lg font-bold text-ais-navy mb-4">Key Takeaways</h3>
+            <h2 className="text-lg font-bold text-ais-navy mb-4">Key Takeaways</h2>
             <ul className="space-y-2">
               {event.keyTakeaways.map((takeaway, i) => (
                 <li key={i} className="flex items-start gap-2 text-ais-navy/80">
@@ -90,7 +90,7 @@ export default function EventDetailPage() {
         {/* Photo gallery */}
         {event.photos && event.photos.length > 0 && (
           <div>
-            <h3 className="text-lg font-bold text-ais-navy mb-4">Photos</h3>
+            <h2 className="text-lg font-bold text-ais-navy mb-4">Photos</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {event.photos.map((photo, i) => (
                 <img

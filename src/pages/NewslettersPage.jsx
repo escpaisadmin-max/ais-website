@@ -21,6 +21,7 @@ export default function NewslettersPage() {
       <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeading
+            as="h1"
             title="Newsletters"
             subtitle="Market trends, investment insights, and industry case studies across alternative assets."
           />
@@ -32,6 +33,7 @@ export default function NewslettersPage() {
         <div className="flex flex-wrap justify-center items-center gap-3 mb-12">
           <button
             onClick={() => setActiveFilter("all")}
+            aria-pressed={activeFilter === "all"}
             className={`px-5 py-2 rounded-full text-sm font-semibold transition-all border-2 ${
               activeFilter === "all"
                 ? "bg-ais-navy text-white border-ais-navy"
@@ -45,6 +47,7 @@ export default function NewslettersPage() {
             <button
               key={div.id}
               onClick={() => setActiveFilter(div.id)}
+              aria-pressed={activeFilter === div.id}
               className={`px-4 py-2 rounded-full text-sm font-semibold transition-all ${
                 activeFilter === div.id
                   ? "bg-ais-ocean text-white"

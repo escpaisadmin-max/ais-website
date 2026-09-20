@@ -30,19 +30,20 @@ function LogoContent({ partner }) {
   );
 }
 
-function ScrollingRow({ logos, direction = "left" }) {
+function ScrollingRow({ logos, direction = "left", paused }) {
   const items = logos.length < 6 ? [...logos, ...logos, ...logos] : logos;
   const animClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
   return (
-    <div className="relative bg-white py-6">
+    <div className={`logo-row relative bg-white py-6 ${paused ? "logo-row-paused" : ""}`}>
       {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+      <div aria-hidden="true" className="logo-fade pointer-events-none absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+      <div aria-hidden="true" className="logo-fade pointer-events-none absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
-      <div className={`flex items-center ${animClass}`} style={{ width: "fit-content" }}>
+      <div className={`logo-track flex items-center ${animClass}`}>
         {[...items, ...items].map((partner, i) => {
           const img = <LogoContent partner={partner} />;
+          const duplicate = i >= logos.length;
           const wrapperClass =
             "flex-shrink-0 mx-7 md:mx-10 flex items-center justify-center h-16";
 
@@ -53,6 +54,9 @@ function ScrollingRow({ logos, direction = "left" }) {
                 to={`/events/${partner.eventSlug}`}
                 className={wrapperClass}
                 title={`${partner.name} — View event`}
+                tabIndex={duplicate ? -1 : undefined}
+                aria-hidden={duplicate || undefined}
+                data-logo-duplicate={duplicate || undefined}
               >
                 {img}
               </Link>
@@ -60,7 +64,7 @@ function ScrollingRow({ logos, direction = "left" }) {
           }
 
           return (
-            <div key={`${partner.id}-${i}`} className={wrapperClass}>
+            <div key={`${partner.id}-${i}`} className={wrapperClass} aria-hidden={duplicate || undefined} data-logo-duplicate={duplicate || undefined}>
               {img}
             </div>
           );
@@ -71,6 +75,7 @@ function ScrollingRow({ logos, direction = "left" }) {
 }
 
 export default function LogoBanner() {
+  const [paused, setPaused] = useState(false);
   return (
     <section className="py-16 bg-white overflow-hidden">
       {/* Track Record */}
@@ -83,7 +88,7 @@ export default function LogoBanner() {
         </ScrollReveal>
       </div>
       <div className="mb-16">
-        <ScrollingRow logos={trackRecord} direction="left" />
+        <ScrollingRow logos={trackRecord} direction="left" paused={paused} />
       </div>
 
       {/* Academic Partners */}
@@ -95,7 +100,17 @@ export default function LogoBanner() {
           />
         </ScrollReveal>
       </div>
-      <ScrollingRow logos={academicPartners} direction="right" />
+      <ScrollingRow logos={academicPartners} direction="right" paused={paused} />
+      <div className="text-center mt-6 motion-reduce:hidden">
+        <button
+          type="button"
+          onClick={() => setPaused(!paused)}
+          aria-pressed={paused}
+          className="text-sm text-ais-gray underline hover:text-ais-navy"
+        >
+          {paused ? "Play moving logos" : "Pause moving logos"}
+        </button>
+      </div>
     </section>
   );
 }

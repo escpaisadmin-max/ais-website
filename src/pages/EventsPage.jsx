@@ -10,6 +10,7 @@ export default function EventsPage() {
       <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeading
+            as="h1"
             title="Events"
             subtitle="Speaker events, workshops, and industry discussions with finance professionals."
           />

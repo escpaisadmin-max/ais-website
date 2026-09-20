@@ -16,6 +16,7 @@ import FounderReportViewPage from "./pages/FounderReportViewPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ImpressumPage from "./pages/ImpressumPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import RouteMetadata from "./components/layout/RouteMetadata";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -28,6 +29,7 @@ function ScrollToTop() {
 export default function App() {
   return (
     <BrowserRouter>
+      <RouteMetadata />
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>

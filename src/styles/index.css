@@ -80,3 +80,45 @@ body {
 .animate-scroll-right:hover {
   animation-play-state: paused;
 }
+
+.logo-track {
+  width: fit-content;
+}
+
+.logo-row:has(a:focus-visible) .logo-track,
+.logo-row-paused .logo-track {
+  animation: none;
+  transform: none;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo-row:has(a:focus-visible) [data-logo-duplicate],
+.logo-row-paused [data-logo-duplicate],
+.logo-row:has(a:focus-visible) .logo-fade,
+.logo-row-paused .logo-fade {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, ::before, ::after {
+    transition-duration: 0s !important;
+  }
+
+  .logo-track {
+    animation: none;
+    transform: none;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  [data-logo-duplicate], .logo-fade {
+    display: none;
+  }
+}

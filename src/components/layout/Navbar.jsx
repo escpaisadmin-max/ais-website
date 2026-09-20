@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { navLinks } from "../../data/siteConfig";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const reduceMotion = useReducedMotion();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-ais-silver/30 shadow-sm">
@@ -62,7 +63,7 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: reduceMotion ? 0 : 0.2 }}
             className="md:hidden overflow-hidden bg-white border-t border-ais-silver/30"
           >
             <div className="px-6 py-4 flex flex-col gap-4">

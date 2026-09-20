@@ -19,10 +19,13 @@ export default function EventBanner({ event, variant = "detail" }) {
 
   const heightClass = isDetail ? "h-64 md:h-96" : "h-48";
 
-  // Real photo available → show it.
-  if (event.photo) {
-    return (
-      <div className={`relative overflow-hidden bg-ais-navy ${heightClass}`}>
+  const showLogo = event.bannerLogo && !logoFailed;
+
+  return (
+    <div
+      className={`relative overflow-hidden bg-gradient-to-br from-ais-navy via-ais-navy to-ais-ocean ${heightClass}`}
+    >
+      {event.photo ? (
         <img
           src={event.photo}
           alt={event.title}
@@ -31,36 +34,26 @@ export default function EventBanner({ event, variant = "detail" }) {
           }`}
           loading={isDetail ? undefined : "lazy"}
         />
-      </div>
-    );
-  }
-
-  // No photo yet → branded gradient banner.
-  const showLogo = event.bannerLogo && !logoFailed;
-
-  return (
-    <div
-      className={`relative overflow-hidden bg-gradient-to-br from-ais-navy via-ais-navy to-ais-ocean ${heightClass}`}
-    >
-      {/* Centered partner logo */}
-      <div className="absolute inset-0 flex items-center justify-center p-8">
-        {showLogo ? (
-          <img
-            src={event.bannerLogo}
-            alt={event.partnerName}
-            onError={() => setLogoFailed(true)}
-            className={`object-contain ${
-              isDetail ? "max-h-24 md:max-h-32 max-w-[60%]" : "max-h-14 max-w-[55%]"
-            }`}
-          />
-        ) : (
-          !isDetail && (
-            <span className="text-white/90 font-bold text-center px-4">
-              {event.partnerName}
-            </span>
-          )
-        )}
-      </div>
+      ) : (
+        <div className="absolute inset-0 flex items-center justify-center p-8">
+          {showLogo ? (
+            <img
+              src={event.bannerLogo}
+              alt={event.partnerName}
+              onError={() => setLogoFailed(true)}
+              className={`object-contain ${
+                isDetail ? "max-h-24 md:max-h-32 max-w-[60%]" : "max-h-14 max-w-[55%]"
+              }`}
+            />
+          ) : (
+            !isDetail && (
+              <span className="text-white/90 font-bold text-center px-4">
+                {event.partnerName}
+              </span>
+            )
+          )}
+        </div>
+      )}
 
       {/* Title overlay (detail only) */}
       {isDetail && (

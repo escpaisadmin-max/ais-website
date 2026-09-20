@@ -13,6 +13,7 @@ export default function FounderReportPage() {
       <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeading
+            as="h1"
             title="Founder Report"
             subtitle="Data-driven reports on ESCP's founders, startups, and investor ecosystem."
           />

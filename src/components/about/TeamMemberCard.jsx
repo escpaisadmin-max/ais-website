@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
 
 function ExpandIcon({ expanded }) {
@@ -20,6 +20,7 @@ function ExpandIcon({ expanded }) {
 export default function TeamMemberCard({ member }) {
   const [expanded, setExpanded] = useState(false);
   const detailsId = useId();
+  const reduceMotion = useReducedMotion();
 
   return (
     <div className="group">
@@ -56,7 +57,7 @@ export default function TeamMemberCard({ member }) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
+            transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeInOut" }}
             className="overflow-hidden"
           >
             <div className="pb-4">
