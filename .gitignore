@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Regenerated from the current content before each production build.
+public/sitemap.xml
+
 # Google auth: never commit credential files (WIF writes a temp one in CI)
 gha-creds-*.json
 **/service-account*.json
