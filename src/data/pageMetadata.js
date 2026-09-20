@@ -81,6 +81,7 @@ export function getHeadTags(pathname) {
       text: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": `${siteOrigin}/#organization`,
         name: siteName,
         alternateName: "AIS",
         url: `${siteOrigin}/`,
