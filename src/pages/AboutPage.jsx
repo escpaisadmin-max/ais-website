@@ -8,8 +8,8 @@ export default function AboutPage() {
     <>
       <MissionSection />
       <DivisionsGrid />
-      <FaqSection />
       <TeamSection />
+      <FaqSection />
     </>
   );
 }

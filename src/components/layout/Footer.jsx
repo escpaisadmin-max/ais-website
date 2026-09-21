@@ -33,6 +33,9 @@ export default function Footer({ onOpenPrivacy }) {
                   {link.label}
                 </Link>
               ))}
+              <a href="/about#faq" className="text-sm text-ais-silver hover:text-ais-white transition-colors">
+                FAQ
+              </a>
             </div>
           </div>
 

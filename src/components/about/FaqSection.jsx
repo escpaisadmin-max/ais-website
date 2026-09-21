@@ -89,10 +89,15 @@ export default function FaqSection() {
         <SectionHeading title="Questions about AIS" />
         <div className="divide-y divide-ais-silver/50">
           {questions.map(({ question, answer }) => (
-            <div key={question} className="py-6 first:pt-0 last:pb-0">
-              <h3 className="text-xl font-bold text-ais-navy mb-3">{question}</h3>
-              <p className="text-ais-gray leading-relaxed">{answer}</p>
-            </div>
+            <details key={question} className="group">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-6 text-lg md:text-xl font-bold text-ais-navy [&::-webkit-details-marker]:hidden focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ais-ocean">
+                <span>{question}</span>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mt-1 shrink-0 group-open:rotate-180">
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </summary>
+              <p className="pb-6 text-ais-gray leading-relaxed">{answer}</p>
+            </details>
           ))}
         </div>
       </div>

@@ -20,8 +20,9 @@ newsletter readership, sponsors, student applications, then event attendance.
 
 ## Approved SEO work, starting with the FAQ
 
-1. About-page FAQ: six approved answers, useful internal links, ESCP and Blue
-   Factory links, and a route to newsletter signup for prospective members.
+1. About-page FAQ: six expandable approved answers at the bottom of the page,
+   linked from the site footer, with useful internal links, ESCP and Blue Factory
+   links, and a route to newsletter signup for prospective members.
 2. Clearer page titles and factual AIS identity copy.
 3. Pilot readable summaries on the Founder Report, one investment publication,
    and the next newsletter, alongside the PDFs.
