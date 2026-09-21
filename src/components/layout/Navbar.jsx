@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <img src="/ais-logo-dark.svg" alt="AIS" className="h-9 w-auto" />
+          <img src="/ais-logo-dark.svg" alt="AIS" width={926} height={814} className="h-9 w-auto" />
           <span className="hidden sm:inline text-sm text-ais-slate">
             ESCP Alternative Investment Society
           </span>

@@ -9,7 +9,7 @@ export default function Footer({ onOpenPrivacy }) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <img src="/ais-logo-white.svg" alt="AIS" className="h-12 w-auto mb-3" />
+            <img src="/ais-logo-white.svg" alt="AIS" width={926} height={814} className="h-12 w-auto mb-3" />
             <p className="text-sm text-ais-white">
               ESCP Alternative Investment Society
             </p>
@@ -20,9 +20,9 @@ export default function Footer({ onOpenPrivacy }) {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-sm font-semibold text-ais-white uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-semibold text-ais-white uppercase tracking-wider mb-4">
               Navigation
-            </h4>
+            </h2>
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
@@ -38,9 +38,9 @@ export default function Footer({ onOpenPrivacy }) {
 
           {/* Social */}
           <div>
-            <h4 className="text-sm font-semibold text-ais-white uppercase tracking-wider mb-4">
+            <h2 className="text-sm font-semibold text-ais-white uppercase tracking-wider mb-4">
               Connect
-            </h4>
+            </h2>
             <div className="flex gap-4">
               {socialLinks.linkedin && (
                 <a

@@ -15,8 +15,10 @@ function LogoContent({ partner }) {
       <img
         src={partner.logo}
         alt={partner.name}
+        width={partner.logoWidth}
+        height={partner.logoHeight}
         className="w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
-        style={{ height: `${h}px` }}
+        style={{ height: `${h}px`, width: `${h * partner.logoWidth / partner.logoHeight}px` }}
         loading="lazy"
         onError={() => setFailed(true)}
       />
@@ -30,12 +32,12 @@ function LogoContent({ partner }) {
   );
 }
 
-function ScrollingRow({ logos, direction = "left", paused }) {
+function ScrollingRow({ logos, direction = "left" }) {
   const items = logos.length < 6 ? [...logos, ...logos, ...logos] : logos;
   const animClass = direction === "left" ? "animate-scroll-left" : "animate-scroll-right";
 
   return (
-    <div className={`logo-row relative bg-white py-6 ${paused ? "logo-row-paused" : ""}`}>
+    <div className="logo-row relative bg-white py-6">
       {/* Fade edges */}
       <div aria-hidden="true" className="logo-fade pointer-events-none absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
       <div aria-hidden="true" className="logo-fade pointer-events-none absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
@@ -75,7 +77,6 @@ function ScrollingRow({ logos, direction = "left", paused }) {
 }
 
 export default function LogoBanner() {
-  const [paused, setPaused] = useState(false);
   return (
     <section className="py-16 bg-white overflow-hidden">
       {/* Track Record */}
@@ -88,7 +89,7 @@ export default function LogoBanner() {
         </ScrollReveal>
       </div>
       <div className="mb-16">
-        <ScrollingRow logos={trackRecord} direction="left" paused={paused} />
+        <ScrollingRow logos={trackRecord} direction="left" />
       </div>
 
       {/* Academic Partners */}
@@ -100,17 +101,7 @@ export default function LogoBanner() {
           />
         </ScrollReveal>
       </div>
-      <ScrollingRow logos={academicPartners} direction="right" paused={paused} />
-      <div className="text-center mt-6 motion-reduce:hidden">
-        <button
-          type="button"
-          onClick={() => setPaused(!paused)}
-          aria-pressed={paused}
-          className="text-sm text-ais-gray underline hover:text-ais-navy"
-        >
-          {paused ? "Play moving logos" : "Pause moving logos"}
-        </button>
-      </div>
+      <ScrollingRow logos={academicPartners} direction="right" />
     </section>
   );
 }

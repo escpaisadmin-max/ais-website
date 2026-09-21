@@ -6,11 +6,17 @@ export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* London skyline background — scaled up to eliminate frame */}
-      <img
-        src="/london-skyline.jpg"
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover scale-110"
-      />
+      <picture>
+        <source srcSet="/london-skyline.avif" type="image/avif" />
+        <img
+          src="/london-skyline.jpg"
+          alt=""
+          width={2000}
+          height={1333}
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover scale-110"
+        />
+      </picture>
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-ais-navy/75" />
 

@@ -19,6 +19,9 @@ function renderTags(path) {
 
 for (const path of [...sitePages.map((page) => page.path), "/404"]) {
   let html = template.replace(/<!-- ais:metadata -->[\s\S]*?<!-- \/ais:metadata -->/, renderTags(path));
+  if (path === "/") {
+    html = html.replace("</head>", '  <link rel="preload" as="image" href="/london-skyline.avif" type="image/avif" fetchpriority="high" />\n  </head>');
+  }
   if (path === "/404") {
     html = html.replace('<div id="root"></div>', `<div id="root"><main style="min-height:100vh;display:grid;place-content:center;text-align:center;background:#1E3360;color:white;font-family:Arial,sans-serif;padding:2rem"><h1>404 — Page not found</h1><p>The page you're looking for doesn't exist.</p><p><a href="/" style="color:#B7C8E8">Back to AIS home</a></p></main></div>`);
   }

@@ -24,7 +24,7 @@ export default function AboutPreview() {
             to="/about"
             className="inline-block px-6 py-3 border border-ais-silver text-ais-silver font-semibold rounded hover:bg-ais-silver hover:text-ais-navy transition-colors text-sm"
           >
-            Learn More
+            About AIS
           </Link>
         </ScrollReveal>
       </div>
