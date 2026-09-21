@@ -108,7 +108,7 @@ export default function FaqSection() {
                     className="flex w-full cursor-pointer items-start justify-between gap-4 py-6 text-left text-lg md:text-xl font-bold text-ais-navy focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ais-ocean"
                   >
                     <span>{question}</span>
-                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`mt-1 shrink-0 transition-transform duration-300 motion-reduce:transition-none ${isOpen ? "rotate-180" : ""}`}>
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`mt-1 shrink-0 transition-transform duration-500 ease-in-out motion-reduce:transition-none ${isOpen ? "rotate-180" : ""}`}>
                       <path d="m6 9 6 6 6-6" />
                     </svg>
                   </button>
@@ -120,8 +120,8 @@ export default function FaqSection() {
                   aria-hidden={!isOpen}
                   inert={!isOpen}
                   initial={false}
-                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                  transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  animate={{ height: isOpen ? "auto" : 0 }}
+                  transition={{ type: "tween", duration: reduceMotion ? 0 : 0.5, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
                   <p className="pb-6 text-ais-gray leading-relaxed">{answer}</p>
