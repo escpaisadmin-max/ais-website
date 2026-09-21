@@ -7,7 +7,7 @@ export default function TeamSection() {
   const allDivisions = Object.entries(divisions);
 
   return (
-    <section className="py-20 bg-white">
+    <section id="team" className="py-20 bg-white scroll-mt-24">
       <div className="max-w-[90rem] mx-auto px-6">
         <ScrollReveal>
           <SectionHeading

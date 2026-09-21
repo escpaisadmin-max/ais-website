@@ -54,7 +54,7 @@ export default function NewsletterSignup() {
   };
 
   return (
-    <section className="py-20 bg-ais-navy">
+    <section id="newsletter" className="py-20 bg-ais-navy scroll-mt-24">
       <div className="max-w-xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeading

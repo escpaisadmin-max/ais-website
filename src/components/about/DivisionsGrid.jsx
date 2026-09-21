@@ -37,7 +37,7 @@ const iconMap = {
 
 export default function DivisionsGrid() {
   return (
-    <section className="py-20 bg-white">
+    <section id="divisions" className="py-20 bg-white scroll-mt-24">
       <div className="max-w-6xl mx-auto px-6">
         <ScrollReveal>
           <SectionHeading
