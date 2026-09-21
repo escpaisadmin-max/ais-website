@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading";
 import { socialLinks } from "../../data/siteConfig";
 
@@ -83,22 +85,50 @@ const questions = [
 ];
 
 export default function FaqSection() {
+  const [openIndex, setOpenIndex] = useState(null);
+  const reduceMotion = useReducedMotion();
+
   return (
     <section id="faq" className="py-20 bg-ais-ice scroll-mt-24">
       <div className="max-w-4xl mx-auto px-6">
         <SectionHeading title="Questions about AIS" />
         <div className="divide-y divide-ais-silver/50">
-          {questions.map(({ question, answer }) => (
-            <details key={question} className="group">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 py-6 text-lg md:text-xl font-bold text-ais-navy [&::-webkit-details-marker]:hidden focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ais-ocean">
-                <span>{question}</span>
-                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mt-1 shrink-0 group-open:rotate-180">
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-              </summary>
-              <p className="pb-6 text-ais-gray leading-relaxed">{answer}</p>
-            </details>
-          ))}
+          {questions.map(({ question, answer }, index) => {
+            const isOpen = openIndex === index;
+
+            return (
+              <div key={question}>
+                <h3>
+                  <button
+                    type="button"
+                    id={`faq-question-${index}`}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${index}`}
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    className="flex w-full cursor-pointer items-start justify-between gap-4 py-6 text-left text-lg md:text-xl font-bold text-ais-navy focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ais-ocean"
+                  >
+                    <span>{question}</span>
+                    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={`mt-1 shrink-0 transition-transform duration-300 motion-reduce:transition-none ${isOpen ? "rotate-180" : ""}`}>
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                </h3>
+                <motion.div
+                  id={`faq-answer-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
+                  aria-hidden={!isOpen}
+                  inert={!isOpen}
+                  initial={false}
+                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                  transition={{ duration: reduceMotion ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="overflow-hidden"
+                >
+                  <p className="pb-6 text-ais-gray leading-relaxed">{answer}</p>
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
