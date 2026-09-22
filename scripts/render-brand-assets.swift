@@ -18,3 +18,4 @@ func render(_ source: String, to output: String, width: Int, height: Int, inset:
 
 try render("scripts/social-preview.svg", to: "public/social-preview.png", width: 1200, height: 630)
 try render("public/ais-logo-white.svg", to: "public/apple-touch-icon.png", width: 180, height: 180, inset: 20)
+try render("public/ais-logo-white.svg", to: "public/favicon.png", width: 192, height: 192, inset: 21)
