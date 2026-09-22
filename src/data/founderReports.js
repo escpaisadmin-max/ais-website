@@ -5,6 +5,14 @@
  */
 export const founderReports = [
   {
+    "id": "founder-report-q2-2026",
+    "title": "Founder Report — Q2 2026",
+    "date": "August 2026",
+    "description": "The Q2 2026 edition explores ESCP alumni startup funding, with over $212 million raised across 18 rounds, and interviews with investors from Balderton and Accel and Qorelo co-founder Louis Schmidlin. Prepared by AIS with institutional support from ESCP and Blue Factory.",
+    "pdfPath": "/founder-reports/pdf/founder-report-q2-2026.pdf",
+    "pageCount": 30
+  },
+  {
     "id": "2026-q1-founder-report",
     "title": "Founder Report — Q1 2026",
     "date": "April 2026",
