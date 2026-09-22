@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Tag from "../ui/Tag";
 import { divisions } from "../../data/divisions";
@@ -21,11 +20,11 @@ export default function PresentationCard({ presentation }) {
       </div>
 
       {/* Title & description */}
-      <Link to={`/presentations/${presentation.id}`}>
+      <a href={presentation.pdfPath}>
         <h3 className="text-lg font-bold text-ais-navy mb-2 hover:text-ais-ocean transition-colors">
           {presentation.title}
         </h3>
-      </Link>
+      </a>
       <p className="text-sm text-ais-gray mb-1">{presentation.topic}</p>
       <p className="text-sm text-ais-gray mb-4 line-clamp-2 flex-1">
         {presentation.description}
@@ -35,14 +34,14 @@ export default function PresentationCard({ presentation }) {
 
       {/* Actions */}
       <div className="flex gap-3">
-        <Link
-          to={`/presentations/${presentation.id}`}
-          className="px-4 py-2 bg-ais-ocean text-white text-sm font-semibold rounded hover:bg-ais-ocean/80 transition-colors"
-        >
-          View
-        </Link>
         <a
           href={presentation.pdfPath}
+          className="px-4 py-2 bg-ais-ocean text-white text-sm font-semibold rounded hover:bg-ais-ocean/80 transition-colors"
+        >
+          Read
+        </a>
+        <a
+          href={presentation.downloadPath || presentation.pdfPath}
           download
           onClick={() => trackGoal("publication_download", { publication_type: "presentation", publication_id: presentation.id })}
           className="px-4 py-2 border border-ais-ocean text-ais-ocean text-sm font-semibold rounded hover:bg-ais-ocean hover:text-white transition-colors"

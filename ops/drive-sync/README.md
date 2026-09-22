@@ -42,6 +42,16 @@ Name each file with an optional leading date, then the title:
 
 - **Department** comes from the sub-folder (PE/VC/HF/RE) — you don't put it in the name.
 - **Page count** is read from the PDF automatically.
+- **Reading and downloads**: every PDF opens in the browser's full-page reader.
+  The sync keeps the unchanged Drive file under `originals/` for **Download** and
+  creates a smaller reading copy under `pdf/` for **Read**. Images are optimized
+  for screens; text, links, page geometry and bookmarks are checked before use.
+  The smaller of the original, lossless and image-optimized versions is published.
+  Fully scanned PDFs retain their original image resolution.
+- **Automatic optimization**: `pdf-cache.json` records source/optimizer hashes so
+  unchanged PDFs are reused. Updating a Drive file or the optimizer regenerates
+  its reading copy. Reading copies can remain in a visitor's browser cache for
+  up to five minutes; originals are excluded from search indexing.
 - You can drop **Google Slides/Docs** directly (no need to export) — they're converted to PDF.
 - **Description / topic** (the blurb under the title): add an optional text file
   with the *same name* as the PDF, e.g. `2025-02 Guide to LBO Modeling.txt`, whose
@@ -96,6 +106,8 @@ To migrate a category without losing the current descriptions:
 ```bash
 gcloud auth application-default login   # one-time, as escpaisadmin@gmail.com
 cd ops/drive-sync && npm install
+python3 -m pip install -r requirements.txt
+# Also install qpdf (brew install qpdf on macOS; apt-get install qpdf on Linux).
 npm run dry-run     # read Drive, write nothing
 npm run sync        # real run
 npm run self-test   # offline parsing/generation tests

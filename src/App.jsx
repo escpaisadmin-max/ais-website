@@ -7,9 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import EventsPage from "./pages/EventsPage";
 import EventDetailPage from "./pages/EventDetailPage";
 import PresentationsPage from "./pages/PresentationsPage";
-import PresentationViewPage from "./pages/PresentationViewPage";
 import NewslettersPage from "./pages/NewslettersPage";
-import NewsletterViewPage from "./pages/NewsletterViewPage";
 import ContactPage from "./pages/ContactPage";
 import FounderReportPage from "./pages/FounderReportPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
@@ -42,9 +40,7 @@ export default function App() {
           <Route path="events" element={<EventsPage />} />
           <Route path="events/:slug" element={<EventDetailPage />} />
           <Route path="presentations" element={<PresentationsPage />} />
-          <Route path="presentations/:id" element={<PresentationViewPage />} />
           <Route path="newsletters" element={<NewslettersPage />} />
-          <Route path="newsletters/:id" element={<NewsletterViewPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="founder-report" element={<FounderReportPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />

@@ -12,6 +12,7 @@ export const newsletters = [
     "date": "March 2026",
     "description": "The growing role of AI across the private equity lifecycle — from deal sourcing and due diligence to portfolio management.",
     "pdfPath": "/newsletters/pdf/pe-23-ai-in-pe.pdf",
+    "downloadPath": "/newsletters/originals/pe-23-ai-in-pe.pdf",
     "pageCount": 3,
     "issue": 21
   },
@@ -23,6 +24,7 @@ export const newsletters = [
     "date": "March 2026",
     "description": "An in-depth look at the student housing asset class — demand drivers, supply bottlenecks, key risks, and current institutional trends.",
     "pdfPath": "/newsletters/pdf/re-22-student-housing.pdf",
+    "downloadPath": "/newsletters/originals/re-22-student-housing.pdf",
     "pageCount": 4,
     "issue": 20
   },
@@ -34,6 +36,7 @@ export const newsletters = [
     "date": "February 2026",
     "description": "The process of making private markets more accessible to non-institutional investors — trends, vehicles, and implications.",
     "pdfPath": "/newsletters/pdf/pe-20-democratization.pdf",
+    "downloadPath": "/newsletters/originals/pe-20-democratization.pdf",
     "pageCount": 3,
     "issue": 19
   },
@@ -45,6 +48,7 @@ export const newsletters = [
     "date": "February 2026",
     "description": "The technology behind Voice AI — how companies like ElevenLabs are building and scaling systems that generate, recognize, and interact through spoken language.",
     "pdfPath": "/newsletters/pdf/vc-19-voice-ai.pdf",
+    "downloadPath": "/newsletters/originals/vc-19-voice-ai.pdf",
     "pageCount": 3,
     "issue": 18
   },
@@ -56,6 +60,7 @@ export const newsletters = [
     "date": "January 2026",
     "description": "The story of Julian Robertson's Tiger Management — one of the most influential hedge funds of the 1980s and 1990s.",
     "pdfPath": "/newsletters/pdf/hf-17-tiger-management.pdf",
+    "downloadPath": "/newsletters/originals/hf-17-tiger-management.pdf",
     "pageCount": 3,
     "issue": 16
   },
@@ -67,6 +72,7 @@ export const newsletters = [
     "date": "January 2026",
     "description": "Structural forces shaping the commercial real estate market — refinancing demands, interest rates, and sector divergence.",
     "pdfPath": "/newsletters/pdf/re-18-structural-forces.pdf",
+    "downloadPath": "/newsletters/originals/re-18-structural-forces.pdf",
     "pageCount": 3,
     "issue": 17
   },
@@ -78,6 +84,7 @@ export const newsletters = [
     "date": "December 2025",
     "description": "How dual-use innovation is redefining Europe's defense landscape — the blending of civilian and military technologies.",
     "pdfPath": "/newsletters/pdf/vc-16-dual-use-defense.pdf",
+    "downloadPath": "/newsletters/originals/vc-16-dual-use-defense.pdf",
     "pageCount": 3,
     "issue": 15
   },
@@ -89,6 +96,7 @@ export const newsletters = [
     "date": "November 2025",
     "description": "Bridgewater's Pure Alpha flagship delivers one of the strongest performances in the industry — a look at the firm's strategy and revival.",
     "pdfPath": "/newsletters/pdf/hf-15-bridgewater.pdf",
+    "downloadPath": "/newsletters/originals/hf-15-bridgewater.pdf",
     "pageCount": 3,
     "issue": 14
   },
@@ -100,6 +108,7 @@ export const newsletters = [
     "date": "November 2025",
     "description": "The state of office real estate — selective revitalisation after years of post-pandemic disruption.",
     "pdfPath": "/newsletters/pdf/re-14-office.pdf",
+    "downloadPath": "/newsletters/originals/re-14-office.pdf",
     "pageCount": 3,
     "issue": 13
   },
@@ -111,6 +120,7 @@ export const newsletters = [
     "date": "October 2025",
     "description": "The expanding role of secondary transactions in PE as exit markets remain subdued and holding periods extend.",
     "pdfPath": "/newsletters/pdf/pe-13-secondaries.pdf",
+    "downloadPath": "/newsletters/originals/pe-13-secondaries.pdf",
     "pageCount": 3,
     "issue": 12
   },
@@ -122,6 +132,7 @@ export const newsletters = [
     "date": "April 2025",
     "description": "How mathematician Jim Simons built Renaissance Technologies into one of the most successful hedge funds in history.",
     "pdfPath": "/newsletters/pdf/hf-12-renaissance.pdf",
+    "downloadPath": "/newsletters/originals/hf-12-renaissance.pdf",
     "pageCount": 3,
     "issue": 11
   },
@@ -133,6 +144,7 @@ export const newsletters = [
     "date": "March 2025",
     "description": "Restructuring strategies in PE — how firms restructure out of necessity, to create value, or both.",
     "pdfPath": "/newsletters/pdf/pe-09-restructuring.pdf",
+    "downloadPath": "/newsletters/originals/pe-09-restructuring.pdf",
     "pageCount": 3,
     "issue": 8
   },
@@ -144,6 +156,7 @@ export const newsletters = [
     "date": "March 2025",
     "description": "Examining the evolving landscape of Europe's defense, security and resilience sector and the surge in venture capital interest.",
     "pdfPath": "/newsletters/pdf/vc-10-defense-innovation.pdf",
+    "downloadPath": "/newsletters/originals/vc-10-defense-innovation.pdf",
     "pageCount": 3,
     "issue": 9
   },
@@ -155,6 +168,7 @@ export const newsletters = [
     "date": "March 2025",
     "description": "Industrial real estate amid shifting market conditions — changing demand dynamics and declining construction starts.",
     "pdfPath": "/newsletters/pdf/re-11-logistics.pdf",
+    "downloadPath": "/newsletters/originals/re-11-logistics.pdf",
     "pageCount": 3,
     "issue": 10
   },
@@ -166,6 +180,7 @@ export const newsletters = [
     "date": "February 2025",
     "description": "How hedge funds evolved from experimental investment vehicles into some of the most influential financial institutions in the world.",
     "pdfPath": "/newsletters/pdf/hf-08-evolution.pdf",
+    "downloadPath": "/newsletters/originals/hf-08-evolution.pdf",
     "pageCount": 3,
     "issue": 7
   },
@@ -177,6 +192,7 @@ export const newsletters = [
     "date": "January 2025",
     "description": "A closer look at key exit strategies for PE portfolio companies and how GPs are navigating today's challenging exit environment.",
     "pdfPath": "/newsletters/pdf/pe-05-exit-strategies.pdf",
+    "downloadPath": "/newsletters/originals/pe-05-exit-strategies.pdf",
     "pageCount": 3,
     "issue": 4
   },
@@ -188,6 +204,7 @@ export const newsletters = [
     "date": "January 2025",
     "description": "Exploring the state of Europe's venture capital landscape — is the region lagging behind or building a prosperous future?",
     "pdfPath": "/newsletters/pdf/vc-06-european-tech.pdf",
+    "downloadPath": "/newsletters/originals/vc-06-european-tech.pdf",
     "pageCount": 4,
     "issue": 5
   },
@@ -199,6 +216,7 @@ export const newsletters = [
     "date": "January 2025",
     "description": "The rise of data centers as a real estate and infrastructure asset class, driven by AI growth and surging digital demand.",
     "pdfPath": "/newsletters/pdf/re-07-data-centers.pdf",
+    "downloadPath": "/newsletters/originals/re-07-data-centers.pdf",
     "pageCount": 3,
     "issue": 6
   },
@@ -210,6 +228,7 @@ export const newsletters = [
     "date": "November 2024",
     "description": "A deep dive into Citadel — from Ken Griffin's founding in 1990 to becoming the leader in net gains in the hedge fund industry.",
     "pdfPath": "/newsletters/pdf/hf-04-citadel.pdf",
+    "downloadPath": "/newsletters/originals/hf-04-citadel.pdf",
     "pageCount": 3,
     "issue": 3
   },
@@ -221,6 +240,7 @@ export const newsletters = [
     "date": "November 2024",
     "description": "Exploring the structural megatrends reshaping the real estate industry — supply-demand imbalances, demographic shifts, and new investment themes.",
     "pdfPath": "/newsletters/pdf/re-03-megatrends.pdf",
+    "downloadPath": "/newsletters/originals/re-03-megatrends.pdf",
     "pageCount": 3,
     "issue": 2
   },
@@ -232,6 +252,7 @@ export const newsletters = [
     "date": "October 2024",
     "description": "Exploring the rise of AI — how this transformative technology is reshaping industries, investment opportunities, and everyday life.",
     "pdfPath": "/newsletters/pdf/vc-01-ai-boom.pdf",
+    "downloadPath": "/newsletters/originals/vc-01-ai-boom.pdf",
     "pageCount": 3,
     "issue": 1
   }

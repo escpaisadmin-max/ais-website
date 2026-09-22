@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+__pycache__/
 
 # Regenerated from the current content before each production build.
 public/sitemap.xml

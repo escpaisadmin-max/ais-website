@@ -12,6 +12,7 @@ export const presentations = [
     "date": "February 2026",
     "description": "A deep dive into activist hedge funds — how they identify targets, build positions, and drive corporate change.",
     "pdfPath": "/presentations/pdf/hf-05-activist.pdf",
+    "downloadPath": "/presentations/originals/hf-05-activist.pdf",
     "pageCount": 27
   },
   {
@@ -22,6 +23,7 @@ export const presentations = [
     "date": "February 2026",
     "description": "Technical and behavioural interview preparation for real estate roles, with common questions and frameworks.",
     "pdfPath": "/presentations/pdf/re-05-interview-prep.pdf",
+    "downloadPath": "/presentations/originals/re-05-interview-prep.pdf",
     "pageCount": 32
   },
   {
@@ -32,6 +34,7 @@ export const presentations = [
     "date": "January 2026",
     "description": "Exploring the rise of private credit and its growing role in financing leveraged buyouts and PE-backed transactions.",
     "pdfPath": "/presentations/pdf/pe-05-private-credit.pdf",
+    "downloadPath": "/presentations/originals/pe-05-private-credit.pdf",
     "pageCount": 31
   },
   {
@@ -42,6 +45,7 @@ export const presentations = [
     "date": "November 2025",
     "description": "How private debt is deployed in real estate transactions, covering direct lending, bridge financing, and risk considerations.",
     "pdfPath": "/presentations/pdf/re-04-private-debt.pdf",
+    "downloadPath": "/presentations/originals/re-04-private-debt.pdf",
     "pageCount": 33
   },
   {
@@ -52,6 +56,7 @@ export const presentations = [
     "date": "October 2025",
     "description": "How PE firms use platform acquisitions and add-on strategies to create value through consolidation.",
     "pdfPath": "/presentations/pdf/pe-04-buy-and-build.pdf",
+    "downloadPath": "/presentations/originals/pe-04-buy-and-build.pdf",
     "pageCount": 24
   },
   {
@@ -62,6 +67,7 @@ export const presentations = [
     "date": "October 2025",
     "description": "A joint presentation with TU Investment Club exploring distressed investing — credit analysis, restructuring, and opportunities in financial distress.",
     "pdfPath": "/presentations/pdf/hf-04-distressed-investing.pdf",
+    "downloadPath": "/presentations/originals/hf-04-distressed-investing.pdf",
     "pageCount": 32
   },
   {
@@ -72,6 +78,7 @@ export const presentations = [
     "date": "March 2025",
     "description": "An overview of deal syndication in private equity — how firms co-invest, structure syndicates, and share risk on large transactions.",
     "pdfPath": "/presentations/pdf/pe-03-deal-syndication.pdf",
+    "downloadPath": "/presentations/originals/pe-03-deal-syndication.pdf",
     "pageCount": 23
   },
   {
@@ -82,6 +89,7 @@ export const presentations = [
     "date": "March 2025",
     "description": "An introduction to Software as a Service investing — key metrics, valuation approaches, and what makes a compelling SaaS business.",
     "pdfPath": "/presentations/pdf/vc-03-saas-investing.pdf",
+    "downloadPath": "/presentations/originals/vc-03-saas-investing.pdf",
     "pageCount": 34
   },
   {
@@ -92,6 +100,7 @@ export const presentations = [
     "date": "March 2025",
     "description": "A landscape overview of the major hedge funds — their strategies, AUM, track records, and key figures.",
     "pdfPath": "/presentations/pdf/hf-03-main-players.pdf",
+    "downloadPath": "/presentations/originals/hf-03-main-players.pdf",
     "pageCount": 24
   },
   {
@@ -102,6 +111,7 @@ export const presentations = [
     "date": "March 2025",
     "description": "An exploration of debt structures in real estate — senior lending, mezzanine, and how leverage impacts returns.",
     "pdfPath": "/presentations/pdf/re-03-debt.pdf",
+    "downloadPath": "/presentations/originals/re-03-debt.pdf",
     "pageCount": 43
   },
   {
@@ -112,6 +122,7 @@ export const presentations = [
     "date": "February 2025",
     "description": "Step-by-step guide to building a leveraged buyout model from scratch, with an attached LBO model template.",
     "pdfPath": "/presentations/pdf/pe-02-guide-lbo-modeling.pdf",
+    "downloadPath": "/presentations/originals/pe-02-guide-lbo-modeling.pdf",
     "pageCount": 27
   },
   {
@@ -122,6 +133,7 @@ export const presentations = [
     "date": "February 2025",
     "description": "A comprehensive overview of term sheets in venture capital, covering key clauses, cap tables, liquidation preferences, and negotiation strategies.",
     "pdfPath": "/presentations/pdf/vc-02-term-sheets.pdf",
+    "downloadPath": "/presentations/originals/vc-02-term-sheets.pdf",
     "pageCount": 30
   },
   {
@@ -132,6 +144,7 @@ export const presentations = [
     "date": "January 2025",
     "description": "Core valuation methodologies used in public markets — DCF, comparable companies, precedent transactions, and more.",
     "pdfPath": "/presentations/pdf/hf-02-valuation.pdf",
+    "downloadPath": "/presentations/originals/hf-02-valuation.pdf",
     "pageCount": 26
   },
   {
@@ -142,6 +155,7 @@ export const presentations = [
     "date": "January 2025",
     "description": "A deep dive into capitalization rates — how they work, what drives them, and how to use them in real estate valuation.",
     "pdfPath": "/presentations/pdf/re-02-cap-rates.pdf",
+    "downloadPath": "/presentations/originals/re-02-cap-rates.pdf",
     "pageCount": 33
   },
   {
@@ -152,6 +166,7 @@ export const presentations = [
     "date": "November 2024",
     "description": "An introduction to leveraged buyouts covering deal structures, financing, and value creation mechanics.",
     "pdfPath": "/presentations/pdf/pe-01-intro-lbo.pdf",
+    "downloadPath": "/presentations/originals/pe-01-intro-lbo.pdf",
     "pageCount": 31
   },
   {
@@ -162,6 +177,7 @@ export const presentations = [
     "date": "November 2024",
     "description": "A landscape overview of the major venture capital firms — their strategies, portfolio highlights, and positioning across stages.",
     "pdfPath": "/presentations/pdf/vc-01-main-players.pdf",
+    "downloadPath": "/presentations/originals/vc-01-main-players.pdf",
     "pageCount": 22
   },
   {
@@ -172,6 +188,7 @@ export const presentations = [
     "date": "November 2024",
     "description": "A landscape overview of the major players in real estate investing, covering leading firms and their strategies.",
     "pdfPath": "/presentations/pdf/re-01-main-players.pdf",
+    "downloadPath": "/presentations/originals/re-01-main-players.pdf",
     "pageCount": 24
   },
   {
@@ -182,6 +199,7 @@ export const presentations = [
     "date": "October 2024",
     "description": "An introduction to the major hedge fund strategies — long/short equity, global macro, event-driven, and quantitative approaches.",
     "pdfPath": "/presentations/pdf/hf-01-strategies.pdf",
+    "downloadPath": "/presentations/originals/hf-01-strategies.pdf",
     "pageCount": 18
   }
 ];

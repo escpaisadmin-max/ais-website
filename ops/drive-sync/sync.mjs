@@ -11,7 +11,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { PDFDocument } from "pdf-lib";
 
 import {
@@ -27,6 +29,8 @@ const DRY_RUN = process.argv.includes("--dry-run");
 const SELF_TEST = process.argv.includes("--self-test");
 const log = (...a) => console.log(...a);
 const warn = (...a) => console.warn("⚠ ", ...a);
+const run = promisify(execFile);
+const optimizer = fileURLToPath(new URL("./optimize-pdf.py", import.meta.url));
 
 async function ensureDir(dir) {
   await fs.mkdir(dir, { recursive: true });
@@ -115,6 +119,7 @@ async function syncPdfCategory(drive, cat) {
         date: displayDate || prev?.date || "",
         description,
         pdfPath: `${cat.pdfUrlBase}/${id}.pdf`,
+        downloadPath: `${cat.pdfUrlBase.replace(/\/pdf$/, "/originals")}/${id}.pdf`,
         pageCount,
       });
       if (cat.key === "newsletters" && prev?.issue != null) entry.issue = prev.issue;
@@ -145,10 +150,17 @@ async function syncPdfCategory(drive, cat) {
   log(`  ${cat.key}: ${entries.length} item(s) (was ${existing.length})`);
   if (DRY_RUN) return { dryRun: true, count: entries.length };
 
-  // Write PDFs, then the data file.
+  // Preserve Drive originals and generate reading copies before publishing links.
   await ensureDir(cat.pdfDir);
+  const originalsDir = path.join(cat.pdfDir, "..", "originals");
+  await ensureDir(originalsDir);
   for (const r of records) {
-    await fs.writeFile(path.join(cat.pdfDir, r.pdfFilename), r.buffer);
+    const original = path.join(originalsDir, r.pdfFilename);
+    await fs.writeFile(original, r.buffer);
+    const { stdout } = await run(process.env.PYTHON || "python3", [
+      optimizer, original, path.join(cat.pdfDir, r.pdfFilename),
+    ]);
+    log(stdout.trimEnd());
   }
   await fs.writeFile(
     cat.dataFile,

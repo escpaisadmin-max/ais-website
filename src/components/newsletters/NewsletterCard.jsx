@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Tag from "../ui/Tag";
 import { divisions } from "../../data/divisions";
@@ -21,11 +20,11 @@ export default function NewsletterCard({ newsletter }) {
       </div>
 
       {/* Title & description */}
-      <Link to={`/newsletters/${newsletter.id}`}>
+      <a href={newsletter.pdfPath}>
         <h3 className="text-lg font-bold text-ais-navy mb-2 hover:text-ais-ocean transition-colors">
           {newsletter.title}
         </h3>
-      </Link>
+      </a>
       <p className="text-sm text-ais-gray mb-4 line-clamp-3 flex-1">
         {newsletter.description}
       </p>
@@ -34,14 +33,14 @@ export default function NewsletterCard({ newsletter }) {
 
       {/* Actions */}
       <div className="flex gap-3">
-        <Link
-          to={`/newsletters/${newsletter.id}`}
+        <a
+          href={newsletter.pdfPath}
           className="px-4 py-2 bg-ais-ocean text-white text-sm font-semibold rounded hover:bg-ais-ocean/80 transition-colors"
         >
           Read
-        </Link>
+        </a>
         <a
-          href={newsletter.pdfPath}
+          href={newsletter.downloadPath || newsletter.pdfPath}
           download
           onClick={() => trackGoal("publication_download", { publication_type: "newsletter", publication_id: newsletter.id })}
           className="px-4 py-2 border border-ais-ocean text-ais-ocean text-sm font-semibold rounded hover:bg-ais-ocean hover:text-white transition-colors"

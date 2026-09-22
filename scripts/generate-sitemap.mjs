@@ -1,11 +1,15 @@
 import { writeFile } from "node:fs/promises";
 import { siteOrigin, sitePages } from "../src/data/pageMetadata.js";
 import { founderReports } from "../src/data/founderReports.js";
+import { presentations } from "../src/data/presentations.js";
+import { newsletters } from "../src/data/newsletters.js";
 
-const reportUrls = new Map(founderReports.map((report) => [
-  `/founder-report/${encodeURIComponent(report.id)}`, report.pdfPath,
-]));
-const urls = [...new Set(sitePages.map(({ path }) => reportUrls.get(path) || path))].map((path) =>
+const pdfUrls = new Map([
+  ...founderReports.map((item) => [`/founder-report/${encodeURIComponent(item.id)}`, item.pdfPath]),
+  ...presentations.map((item) => [`/presentations/${encodeURIComponent(item.id)}`, item.pdfPath]),
+  ...newsletters.map((item) => [`/newsletters/${encodeURIComponent(item.id)}`, item.pdfPath]),
+]);
+const urls = [...new Set(sitePages.map(({ path }) => pdfUrls.get(path) || path))].map((path) =>
   `  <url><loc>${siteOrigin}${path.replaceAll("&", "&amp;")}</loc></url>`
 );
 const xml = [

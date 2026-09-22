@@ -39,7 +39,7 @@ export default function FounderReportCard({ report }) {
           Read
         </a>
         <a
-          href={report.pdfPath}
+          href={report.downloadPath || report.pdfPath}
           download
           onClick={() => trackGoal("publication_download", { publication_type: "founder_report", publication_id: report.id })}
           className="px-4 py-2 border border-ais-ocean text-ais-ocean text-sm font-semibold rounded hover:bg-ais-ocean hover:text-white transition-colors"
