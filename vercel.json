@@ -2,6 +2,13 @@
   "buildCommand": "npm run build",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/founder-report/:id",
+      "destination": "/founder-reports/pdf/:id.pdf",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

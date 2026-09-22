@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { trackGoal } from "../../lib/analytics.js";
 
@@ -18,11 +17,11 @@ export default function FounderReportCard({ report }) {
       </div>
 
       {/* Title & description */}
-      <Link to={`/founder-report/${report.id}`}>
+      <a href={report.pdfPath}>
         <h3 className="text-lg font-bold text-ais-navy mb-2 hover:text-ais-ocean transition-colors">
           {report.title}
         </h3>
-      </Link>
+      </a>
       <p className="text-sm text-ais-gray mb-4 line-clamp-3 flex-1">
         {report.description}
       </p>
@@ -33,12 +32,12 @@ export default function FounderReportCard({ report }) {
 
       {/* Actions */}
       <div className="flex gap-3">
-        <Link
-          to={`/founder-report/${report.id}`}
+        <a
+          href={report.pdfPath}
           className="px-4 py-2 bg-ais-ocean text-white text-sm font-semibold rounded hover:bg-ais-ocean/80 transition-colors"
         >
           Read
-        </Link>
+        </a>
         <a
           href={report.pdfPath}
           download
