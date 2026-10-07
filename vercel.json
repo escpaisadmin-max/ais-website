@@ -6,17 +6,17 @@
     {
       "source": "/presentations/:id",
       "destination": "/presentations/pdf/:id.pdf",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/newsletters/:id",
       "destination": "/newsletters/pdf/:id.pdf",
-      "permanent": false
+      "permanent": true
     },
     {
       "source": "/founder-report/:id",
       "destination": "/founder-reports/pdf/:id.pdf",
-      "permanent": false
+      "permanent": true
     }
   ],
   "headers": [
@@ -42,10 +42,15 @@
       ]
     },
     {
+      "source": "/:library(presentations|newsletters|founder-reports)/:variant(pdf|originals)/:file.pdf",
+      "headers": [
+        { "key": "Link", "value": "<https://www.escpais.com/:library/pdf/:file.pdf>; rel=\"canonical\"" }
+      ]
+    },
+    {
       "source": "/:library(presentations|newsletters|founder-reports)/originals/:file*",
       "headers": [
-        { "key": "Content-Disposition", "value": "attachment" },
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        { "key": "Content-Disposition", "value": "attachment" }
       ]
     }
   ]
