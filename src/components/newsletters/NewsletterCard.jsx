@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Tag from "../ui/Tag";
-import { divisions } from "../../data/divisions";
+import { publicationDepartments as divisions } from "../../data/divisions";
 import { trackGoal } from "../../lib/analytics.js";
 
 export default function NewsletterCard({ newsletter }) {

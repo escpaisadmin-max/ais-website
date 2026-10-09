@@ -17,13 +17,14 @@ import { promisify } from "node:util";
 import { PDFDocument } from "pdf-lib";
 
 import {
-  ROOT_FOLDER_ID, DEPARTMENTS, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES,
+  ROOT_FOLDER_ID, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES, GOOGLE_PDF_EXPORTABLE,
 } from "./config.mjs";
 import {
   getDrive, listChildren, findFolder, isFolder, fetchAsPdf, fetchBinary,
 } from "./drive.mjs";
 import { parseFilename, stripExt, slugify, titleKey } from "./parse.mjs";
-import { loadExisting, indexByTitle, renderDataFile } from "./generate.mjs";
+import { loadExisting, renderDataFile } from "./generate.mjs";
+import { publicationSources } from "./sources.mjs";
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const SELF_TEST = process.argv.includes("--self-test");
@@ -67,52 +68,39 @@ async function readSidecars(drive, files) {
 
 /** Process one PDF-library category. Returns { wrote, count } and queues PDF writes. */
 async function syncPdfCategory(drive, cat) {
-  const root = await findFolder(drive, ROOT_FOLDER_ID, cat.folderName);
-  if (!root) {
-    warn(`folder "${cat.folderName}" not found in Drive; skipping ${cat.key}`);
-    return { skipped: true };
-  }
-
+  const sources = await publicationSources(drive, cat);
   const existing = await loadExisting(cat.dataFile, cat.exportName);
-  const byTitle = indexByTitle(existing);
+  const byFileId = new Map(existing.filter((entry) => entry.driveFileId).map((entry) => [entry.driveFileId, entry]));
+  const byTitle = new Map(existing.map((entry) => [`${entry.department || ""}:${titleKey(entry.title)}`, entry]));
   const usedIds = new Set();
+  const seenFiles = new Set();
+  const seenTitles = new Set();
   const records = []; // { entry, sortDate, buffer, pdfFilename }
 
-  // Gather source folders: department sub-folders, or the category folder itself.
-  const sources = [];
-  if (cat.byDepartment) {
-    for (const [folderName, deptKey] of Object.entries(DEPARTMENTS)) {
-      const sub = await findFolder(drive, root.id, folderName);
-      if (sub) sources.push({ folderId: sub.id, dept: deptKey });
-    }
-  } else {
-    sources.push({ folderId: root.id, dept: null });
-  }
-
   for (const src of sources) {
+    log(`  Source: ${src.label} (${src.folderId})${src.departmentFolderId ? ` department=${src.departmentFolderId}` : ""}`);
     const children = await listChildren(drive, src.folderId);
     const sidecars = await readSidecars(drive, children);
     const docs = children.filter(
-      (f) => !isFolder(f) && (f.mimeType === "application/pdf" || f.mimeType.startsWith("application/vnd.google-apps."))
-        && !/\.txt$/i.test(f.name)
+      (f) => f.mimeType === "application/pdf" || GOOGLE_PDF_EXPORTABLE.has(f.mimeType)
     );
 
     for (const f of docs) {
-      let buffer;
-      try {
-        buffer = await fetchAsPdf(drive, f);
-      } catch (e) {
-        warn(`could not fetch ${f.name}: ${e.message}`);
-        continue;
-      }
+      if (seenFiles.has(f.id)) continue;
+      seenFiles.add(f.id);
+      const buffer = await fetchAsPdf(drive, f);
       const { title, displayDate, sortDate } = parseFilename(f.name, f.createdTime);
-      const prev = byTitle.get(titleKey(title));
+      const key = `${src.dept || ""}:${titleKey(title)}`;
+      if (seenTitles.has(key)) throw new Error(`Duplicate title in ${cat.key}/${src.dept || ""}: ${title}. Keep one file per title.`);
+      seenTitles.add(key);
+      const prev = byFileId.get(f.id) || byTitle.get(key);
       const idBase = prev?.id || (src.dept ? `${src.dept}-${slugify(title)}` : slugify(title));
       const id = uniqueId(idBase, usedIds);
       const pageCount = await pdfPageCount(buffer);
-      const description = prev?.description ?? sidecars.get(stripExt(f.name).toLowerCase()) ?? "";
+      if (!pageCount) throw new Error(`Unreadable PDF: ${f.name}. Publication stopped; existing website is unchanged.`);
+      const description = sidecars.get(stripExt(f.name).toLowerCase()) ?? prev?.description ?? "";
 
-      const entry = { id, title };
+      const entry = { id, title, driveFileId: f.id };
       if (src.dept) entry.department = src.dept;
       if (cat.key !== "founderReports") entry.topic = prev?.topic ?? "";
       Object.assign(entry, {

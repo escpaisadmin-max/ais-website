@@ -5,7 +5,7 @@ them in and updates the website automatically.
 
 ```
 Google Drive (AIS Website Content)
-   → GitHub Action (every ~15 min, keyless auth via Workload Identity Federation)
+   → GitHub Action (scheduled every 15 min; GitHub may delay runs)
    → regenerates src/data/*.js + copies PDFs/photos into public/
    → commits to the repo → Vercel deploys
 ```
@@ -20,16 +20,30 @@ short-lived OIDC token (WIF), and commits with GitHub's built-in token.
 Inside the shared folder **AIS Website Content**:
 
 ```
-EDUs/            → PE/  VC/  HF/  RE/      (educational presentation PDFs)
-Newsletters/     → PE/  VC/  HF/  RE/      (newsletter PDFs)
-Founder Reports/                            (founder report PDFs)
-Events/          → <one sub-folder per event>
+Department Publishing/
+  Private Equity/   → Publications/  Newsletters/
+  Venture Capital/  → Publications/  Newsletters/
+  Hedge Funds/      → Publications/  Newsletters/
+  Real Estate/      → Publications/  Newsletters/
+  Private Credit/   → Publications/  Newsletters/
+  Infrastructure/   → Publications/  Newsletters/
+Founder Reports/   (founder report PDFs)
+Events/            → <one sub-folder per event>
 ```
 
 The folder **must stay shared (Viewer)** with
 `drive-sync@ais-escp-website.iam.gserviceaccount.com`.
 
-## Naming convention (PDF libraries: EDUs, Newsletters, Founder Reports)
+Share each department folder with its head as **Editor**. They only need that
+one link. Upload final PDFs into **Publications** or **Newsletters**; publication
+is automatic, with no further approval step. Keep drafts outside these folders.
+Google Slides/Docs are also exported automatically, so do not draft in the live folders.
+Keep folder names unchanged. New folders inherit the sync account's Viewer access.
+
+The original `EDUs/PE`, `Newsletters/PE`, etc. paths remain supported during
+migration. Do not leave copies of the same publication in both layouts.
+
+## Naming convention (PDF libraries)
 
 Name each file with an optional leading date, then the title:
 
@@ -40,7 +54,7 @@ Name each file with an optional leading date, then the title:
 | `2025 Founder Report.pdf` | "Founder Report" · 2025 |
 | `Some Title.pdf` (no date) | "Some Title" · ordered by upload time |
 
-- **Department** comes from the sub-folder (PE/VC/HF/RE) — you don't put it in the name.
+- **Department** comes from the department folder — you don't put it in the name.
 - **Page count** is read from the PDF automatically.
 - **Reading and downloads**: every PDF opens in the browser's full-page reader.
   The sync keeps the unchanged Drive file under `originals/` for **Download** and
@@ -53,12 +67,12 @@ Name each file with an optional leading date, then the title:
   its reading copy. Reading copies can remain in a visitor's browser cache for
   up to five minutes; originals are excluded from search indexing.
 - You can drop **Google Slides/Docs** directly (no need to export) — they're converted to PDF.
-- **Description / topic** (the blurb under the title): add an optional text file
+- **Description** (the blurb under the title): add an optional text file
   with the *same name* as the PDF, e.g. `2025-02 Guide to LBO Modeling.txt`, whose
-  contents become the description.
+  contents become the description. Editing that text file updates the description on the next sync.
 
 ### Updating / removing
-- **Update**: replace the file in Drive (keep the same name to keep the same URL).
+- **Update**: use Drive → File information → Manage versions → Upload new version. Keep the filename when replacing a file. Drive file IDs are also stored to preserve the website URL across renames.
 - **Remove**: delete the file from Drive — it disappears from the site on the next sync.
 
 ## Events
@@ -89,14 +103,12 @@ Put an **`event.json`** in it for the editorial fields, plus images:
 ## First run & migration (operator)
 
 Because Drive is the source of truth, a category's existing site content must be
-**uploaded into Drive first**, or the sync would have nothing to publish. A safety
-guard refuses to wipe a category to empty, so nothing breaks if a folder is empty —
-it's just skipped.
+**uploaded into Drive first**, or the sync would have nothing to publish. Missing required folders, duplicate titles within a department/category, and unreadable PDFs fail the run before any commit. A safety guard also refuses to wipe an entire populated category to empty. Deleting an individual PDF removes its listing; cached PDF URLs are retained.
 
 To migrate a category without losing the current descriptions:
 1. Upload the existing PDFs into the matching Drive folders.
 2. **Name them with the same titles** currently shown on the site — the sync
-   carries over the existing description/topic/issue/URL by matching the title.
+   carries over the existing description/topic/issue/URL by matching the Drive file ID, or the title and department for an existing file that has not been synced with an ID yet.
 3. Trigger a **dry run** first (Actions tab → "Drive content sync" → Run workflow →
    tick *dry_run*) and read the log to confirm the counts look right.
 4. Run it for real (untick dry_run). It commits and Vercel deploys.
@@ -120,3 +132,22 @@ npm run self-test   # offline parsing/generation tests
   `drive-sync` service account (read-only Drive scope).
 - **Local:** Application Default Credentials from `gcloud auth application-default login`.
 - The service account has **no key**; the Drive folder is shared with it as Viewer.
+
+## Scheduling and recovery
+
+The Action is active on the default branch. It requests runs at minutes 7, 22,
+37 and 52; GitHub can delay or drop scheduled jobs, so 15 minutes is not a
+publishing guarantee. Vercel deployment follows a successful content commit.
+An unchanged library produces no deployment. A heartbeat commit after 30 days
+without repository commits prevents the ordinary 60-day inactivity shutdown of
+public-repository schedules. This does not prevent authentication, service,
+quota, or manually disabled-workflow failures.
+
+For urgent publishing, open the repository's **Actions → Drive content sync →
+Run workflow** with `dry_run` off. For troubleshooting, use `dry_run` first and
+inspect the source folders and counts. A failed run does not commit partial
+content. Restore a renamed folder or fix the named PDF, then rerun.
+
+Verification: `node --test ops/drive-sync/sources.test.mjs`,
+`node ops/drive-sync/sync.mjs --self-test`, `npm run lint`, `npm run build`, and a
+successful authenticated Drive run with the expected content counts.

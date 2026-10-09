@@ -5,7 +5,7 @@ name: Drive content sync
 
 on:
   schedule:
-    - cron: "*/15 * * * *" # every 15 minutes
+    - cron: "7,22,37,52 * * * *" # avoid the busiest start-of-hour queue
   workflow_dispatch:
     inputs:
       dry_run:
@@ -61,6 +61,9 @@ jobs:
       - name: Check PDF image optimization
         run: python -m unittest discover -s ops/drive-sync -p 'test_*.py'
 
+      - name: Check publishing folder discovery
+        run: node --test ops/drive-sync/sources.test.mjs
+
       - name: Run sync
         working-directory: ops/drive-sync
         run: node sync.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
@@ -75,5 +78,18 @@ jobs:
             echo "No content changes."
           else
             git commit -m "Sync content from Google Drive [skip ci]"
+            git push
+          fi
+
+      # Public repositories lose schedules after 60 days without activity.
+      # A monthly heartbeat keeps publishing available between academic terms.
+      - name: Keep scheduled publishing active during quiet periods
+        if: ${{ !inputs.dry_run }}
+        run: |
+          last_commit=$(git log -1 --format=%ct)
+          if [ $(( $(date +%s) - last_commit )) -ge 2592000 ]; then
+            date -u +%FT%TZ > ops/drive-sync/heartbeat.txt
+            git add ops/drive-sync/heartbeat.txt
+            git commit -m "Keep Drive publishing schedule active [skip ci]"
             git push
           fi

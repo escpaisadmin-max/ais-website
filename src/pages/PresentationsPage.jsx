@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { presentations } from "../data/presentations";
-import { divisions } from "../data/divisions";
+import { publicationDepartments as divisions } from "../data/divisions";
 import PresentationGrid from "../components/presentations/PresentationGrid";
 import SectionHeading from "../components/ui/SectionHeading";
 import ScrollReveal from "../components/ui/ScrollReveal";

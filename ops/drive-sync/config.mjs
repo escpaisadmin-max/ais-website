@@ -2,11 +2,11 @@
  * Central configuration for the Drive → website sync.
  *
  * The only Drive identifier we hardcode is the ROOT folder ID ("AIS Website
- * Content"). Sub-folders (EDUs/PE, Newsletters/…, Founder Reports, Events) are
- * discovered by name at runtime, so renaming/restructuring is forgiving.
+ * Content"). Publishing sub-folders are discovered by their documented names.
  */
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { publicationDepartments } from "../../src/data/divisions.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // repo root = two levels up from ops/drive-sync
@@ -18,6 +18,8 @@ export const ROOT_FOLDER_ID = "1gIGmUrMXPJitLj4kPlDwRvvpWZyJHhkw";
 
 // Department sub-folder names → division keys used across the site.
 export const DEPARTMENTS = { PE: "pe", VC: "vc", HF: "hf", RE: "re" };
+export const PUBLISHING_FOLDER = "Department Publishing";
+export const PUBLISHING_DEPARTMENTS = publicationDepartments;
 
 /**
  * Each PDF-library category: which top folder to read, where to write the data
@@ -27,6 +29,7 @@ export const PDF_CATEGORIES = [
   {
     key: "presentations",
     folderName: "EDUs",
+    departmentFolderName: "Publications",
     byDepartment: true,
     exportName: "presentations",
     dataFile: path.join(DATA_DIR, "presentations.js"),
@@ -36,6 +39,7 @@ export const PDF_CATEGORIES = [
   {
     key: "newsletters",
     folderName: "Newsletters",
+    departmentFolderName: "Newsletters",
     byDepartment: true,
     exportName: "newsletters",
     dataFile: path.join(DATA_DIR, "newsletters.js"),

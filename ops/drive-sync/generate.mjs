@@ -4,7 +4,6 @@
  */
 import { pathToFileURL } from "node:url";
 import fs from "node:fs/promises";
-import { titleKey } from "./parse.mjs";
 
 /**
  * Dynamically import the current data file and return { exportName: array }.
@@ -19,13 +18,6 @@ export async function loadExisting(dataFile, exportName) {
   const url = pathToFileURL(dataFile).href + `?t=${Date.now()}`;
   const mod = await import(url);
   return Array.isArray(mod[exportName]) ? mod[exportName] : [];
-}
-
-/** Map existing entries by normalised title for carry-over of curated fields. */
-export function indexByTitle(entries) {
-  const map = new Map();
-  for (const e of entries) if (e && e.title) map.set(titleKey(e.title), e);
-  return map;
 }
 
 const BANNER = (exportName, folderName) =>

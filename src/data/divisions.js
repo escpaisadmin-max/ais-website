@@ -44,3 +44,10 @@ export const divisions = [
     icon: "building",
   },
 ];
+
+// Publishing supports the new departments before the next team-profile refresh.
+export const publicationDepartments = [
+  ...divisions,
+  { id: "pc", name: "Private Credit", shortName: "PC" },
+  { id: "infra", name: "Infrastructure", shortName: "Infra" },
+];

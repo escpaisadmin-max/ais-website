@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { newsletters } from "../data/newsletters";
-import { divisions } from "../data/divisions";
+import { publicationDepartments as divisions } from "../data/divisions";
 import NewsletterGrid from "../components/newsletters/NewsletterGrid";
 import NewsletterCTA from "../components/newsletters/NewsletterCTA";
 import SectionHeading from "../components/ui/SectionHeading";
