@@ -138,17 +138,23 @@ async function syncPdfCategory(drive, cat) {
   log(`  ${cat.key}: ${entries.length} item(s) (was ${existing.length})`);
   if (DRY_RUN) return { dryRun: true, count: entries.length };
 
-  // Preserve Drive originals and generate reading copies before publishing links.
+  // Generate titled full-quality downloads and reading copies before publishing links.
   await ensureDir(cat.pdfDir);
   const originalsDir = path.join(cat.pdfDir, "..", "originals");
   await ensureDir(originalsDir);
-  for (const r of records) {
-    const original = path.join(originalsDir, r.pdfFilename);
-    await fs.writeFile(original, r.buffer);
-    const { stdout } = await run(process.env.PYTHON || "python3", [
-      optimizer, original, path.join(cat.pdfDir, r.pdfFilename),
-    ]);
-    log(stdout.trimEnd());
+  const sourceDir = await fs.mkdtemp(path.join(os.tmpdir(), "ais-drive-source-"));
+  try {
+    for (const r of records) {
+      const source = path.join(sourceDir, r.pdfFilename);
+      await fs.writeFile(source, r.buffer);
+      const { stdout } = await run(process.env.PYTHON || "python3", [
+        optimizer, source, path.join(cat.pdfDir, r.pdfFilename),
+        r.entry.title, path.join(originalsDir, r.pdfFilename),
+      ]);
+      log(stdout.trimEnd());
+    }
+  } finally {
+    await fs.rm(sourceDir, { recursive: true, force: true });
   }
   await fs.writeFile(
     cat.dataFile,

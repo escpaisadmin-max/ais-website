@@ -59,10 +59,12 @@ Name each file with an optional leading date, then the title:
 - **Department** comes from the department folder — you don't put it in the name.
 - **Page count** is read from the PDF automatically.
 - **Reading and downloads**: every PDF opens in the browser's full-page reader.
-  The sync keeps the unchanged Drive file under `originals/` for **Download** and
+  The sync keeps a full-quality copy under `originals/` for **Download** and
   creates a smaller reading copy under `pdf/` for **Read**. Images are optimized
   for screens; text, links, page geometry and bookmarks are checked before use.
-  The smaller of the original, lossless and image-optimized versions is published.
+  Both copies have their PDF document Title set to the website publication title,
+  including any embedded XMP title. Other metadata and the Drive source stay intact.
+  The smaller of the titled lossless and image-optimized versions is published.
   Fully scanned PDFs retain their original image resolution.
 - **Automatic optimization**: `pdf-cache.json` records source/optimizer hashes so
   unchanged PDFs are reused. Updating a Drive file or the optimizer regenerates
@@ -153,3 +155,11 @@ content. Restore a renamed folder or fix the named PDF, then rerun.
 Verification: `node --test ops/drive-sync/sources.test.mjs`,
 `node ops/drive-sync/sync.mjs --self-test`, `npm run lint`, `npm run build`, and a
 successful authenticated Drive run with the expected content counts.
+
+## Later: department-head authoring guide
+
+Requested by Max on 9 October 2026; prepare later, not part of the folder setup.
+Create a detailed guide to producing good AIS research: topic selection, original
+analysis, primary sources and clickable citations, fact-checking, authorship and
+review, charts, writing/design standards, PDF export, and the publishing checklist.
+The current Drive guide only explains the immediate upload workflow.

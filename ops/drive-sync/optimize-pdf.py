@@ -1,4 +1,4 @@
-"""Build a smaller, fast-web-view PDF without modifying the Drive original."""
+"""Build titled full-quality and fast-web-view PDFs; leave the Drive source intact."""
 import hashlib
 import json
 import math
@@ -7,8 +7,36 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import xml.etree.ElementTree as ET
 
 import pymupdf
+
+
+def set_document_title(document, title):
+    document.set_metadata({**document.metadata, "title": title})
+    xml = document.get_xml_metadata()
+    if not xml:
+        return
+    # Readers can prefer XMP to /Info. Replace stale titles in both formats,
+    # retaining the other metadata, including the original authorship.
+    namespaces = {"x": "adobe:ns:meta/", "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", "dc": "http://purl.org/dc/elements/1.1/"}
+    for prefix, uri in namespaces.items():
+        ET.register_namespace(prefix, uri)
+    root = ET.fromstring(xml)
+    description = root.find(".//rdf:Description", namespaces)
+    if description is None:
+        raise ValueError("XMP metadata has no RDF description")
+    title_tag = f"{{{namespaces['dc']}}}title"
+    for element in root.iter():
+        element.attrib.pop(title_tag, None)
+        for child in list(element):
+            if child.tag == title_tag:
+                element.remove(child)
+    heading = ET.SubElement(description, title_tag)
+    alternatives = ET.SubElement(heading, f"{{{namespaces['rdf']}}}Alt")
+    value = ET.SubElement(alternatives, f"{{{namespaces['rdf']}}}li", {"{http://www.w3.org/XML/1998/namespace}lang": "x-default"})
+    value.text = title
+    document.set_xml_metadata(ET.tostring(root, encoding="unicode"))
 
 
 def optimize_images(document):
@@ -72,25 +100,31 @@ def linearize(source, target):
     subprocess.run(["qpdf", "--check", str(target)], check=True, capture_output=True)
 
 
-def optimize(source, target):
+def optimize(source, target, title, download):
     cache_path = Path(__file__).with_name("pdf-cache.json")
     repo = Path(__file__).resolve().parents[2]
     key = str(target.relative_to(repo))
     fingerprint = hashlib.sha256(
-        source.read_bytes() + Path(__file__).read_bytes() + pymupdf.VersionBind.encode()
+        source.read_bytes() + Path(__file__).read_bytes() + pymupdf.VersionBind.encode() + title.encode()
     ).hexdigest()
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
-    if cache.get(key) == fingerprint and target.exists():
+    if cache.get(key) == fingerprint and target.exists() and download.exists():
         print(f"  PDF cached: {target.name}")
         return
 
     with tempfile.TemporaryDirectory(prefix="ais-pdf-") as temp:
         temp = Path(temp)
-        lossless = temp / "lossless.pdf"
-        linearize(source, lossless)
-        candidates = [source, lossless]
         with pymupdf.open(source) as original:
             expected = contents(original)
+            set_document_title(original, title)
+            titled = temp / "titled.pdf"
+            original.save(titled, garbage=4, deflate=True, use_objstms=1, no_new_id=True)
+            lossless = temp / "lossless.pdf"
+            linearize(titled, lossless)
+            with pymupdf.open(lossless) as full_quality:
+                if contents(full_quality) != expected or full_quality.metadata["title"] != title:
+                    raise RuntimeError(f"PDF metadata validation failed: {source.name}")
+            candidates = [lossless]
             # Leave fully scanned documents at their original image resolution.
             if any(page.get_text().strip() for page in original):
                 try:
@@ -107,13 +141,15 @@ def optimize(source, target):
                 except (RuntimeError, subprocess.CalledProcessError):
                     print(f"  Using lossless optimization for {source.name}: rewritten PDF failed validation.")
 
-        # Never replace an already-small PDF with a larger reading copy.
+        # Choose the smaller titled, linearized reading copy.
         chosen = min(candidates, key=lambda file: file.stat().st_size)
         with pymupdf.open(chosen) as candidate:
-            if contents(candidate) != expected:
+            if contents(candidate) != expected or candidate.metadata["title"] != title:
                 raise RuntimeError(f"PDF validation failed: {source.name}")
         target.parent.mkdir(parents=True, exist_ok=True)
+        download.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(chosen, target)
+        shutil.copyfile(lossless, download)
 
     cache[key] = fingerprint
     cache_path.write_text(json.dumps(cache, indent=2, sort_keys=True) + "\n")
@@ -121,4 +157,4 @@ def optimize(source, target):
 
 
 if __name__ == "__main__":
-    optimize(Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve())
+    optimize(Path(sys.argv[1]).resolve(), Path(sys.argv[2]).resolve(), sys.argv[3], Path(sys.argv[4]).resolve())
