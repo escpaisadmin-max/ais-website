@@ -40,8 +40,10 @@ is automatic, with no further approval step. Keep drafts outside these folders.
 Google Slides/Docs are also exported automatically, so do not draft in the live folders.
 Keep folder names unchanged. New folders inherit the sync account's Viewer access.
 
-The original `EDUs/PE`, `Newsletters/PE`, etc. paths remain supported during
-migration. Do not leave copies of the same publication in both layouts.
+Existing department PDFs were moved into this layout on 9 October 2026. The
+empty old folders are in `Archive - retired folder structure` for old Drive
+links. The original root-level `EDUs/PE`, `Newsletters/PE`, etc. paths remain
+supported for migration/rollback; do not leave duplicate publications there.
 
 ## Naming convention (PDF libraries)
 

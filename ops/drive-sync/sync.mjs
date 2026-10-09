@@ -17,7 +17,7 @@ import { promisify } from "node:util";
 import { PDFDocument } from "pdf-lib";
 
 import {
-  ROOT_FOLDER_ID, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES, GOOGLE_PDF_EXPORTABLE,
+  ROOT_FOLDER_ID, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES, GOOGLE_PDF_EXPORTABLE, PUBLISHING_FOLDER,
 } from "./config.mjs";
 import {
   getDrive, listChildren, findFolder, isFolder, fetchAsPdf, fetchBinary,
@@ -152,7 +152,11 @@ async function syncPdfCategory(drive, cat) {
   }
   await fs.writeFile(
     cat.dataFile,
-    renderDataFile({ exportName: cat.exportName, folderName: cat.folderName, entries })
+    renderDataFile({
+      exportName: cat.exportName,
+      folderName: cat.byDepartment ? `${PUBLISHING_FOLDER}/<department>/${cat.departmentFolderName}` : cat.folderName,
+      entries,
+    })
   );
   return { wrote: true, count: entries.length };
 }
