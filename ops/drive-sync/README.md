@@ -69,7 +69,7 @@ Name each file with an optional leading date, then the title:
 - **Automatic optimization**: `pdf-cache.json` records source/optimizer hashes so
   unchanged PDFs are reused. Updating a Drive file or the optimizer regenerates
   its reading copy. Reading copies can remain in a visitor's browser cache for
-  up to five minutes; originals are excluded from search indexing.
+  up to five minutes; both copies declare the reading URL as canonical for search.
 - You can drop **Google Slides/Docs** directly (no need to export) — they're converted to PDF.
 - **Description** (the blurb under the title): add an optional text file
   with the *same name* as the PDF, e.g. `2025-02 Guide to LBO Modeling.txt`, whose
