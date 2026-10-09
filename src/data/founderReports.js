@@ -7,6 +7,7 @@ export const founderReports = [
   {
     "id": "founder-report-q2-2026",
     "title": "Founder Report — Q2 2026",
+    "driveFileId": "1L1B6bfxSmQc2sYo0n27ff3UuBEFHyBDG",
     "date": "August 2026",
     "description": "The Q2 2026 edition explores ESCP alumni startup funding, with over $212 million raised across 18 rounds, and interviews with investors from Balderton and Accel and Qorelo co-founder Louis Schmidlin. Prepared by AIS with institutional support from ESCP and Blue Factory.",
     "pdfPath": "/founder-reports/pdf/founder-report-q2-2026.pdf",
@@ -16,6 +17,7 @@ export const founderReports = [
   {
     "id": "2026-q1-founder-report",
     "title": "Founder Report — Q1 2026",
+    "driveFileId": "1A-c7X82Fw2CqY2U-r2_lbbDKERV4IGUM",
     "date": "April 2026",
     "description": "The Q1 2026 edition — an updated look at ESCP's founders, startups, and investor network across the Blue Factory ecosystem.",
     "pdfPath": "/founder-reports/pdf/2026-q1-founder-report.pdf",
@@ -25,6 +27,7 @@ export const founderReports = [
   {
     "id": "2025-founder-report",
     "title": "Founder Report 2025",
+    "driveFileId": "1-N8V_7sSVdHp8SEGWZfourVKWyykkaoW",
     "date": "January 2026",
     "description": "Our 2025 review of ESCP's entrepreneurial and alternative investment ecosystem — the founders, ventures, and investors across the network, prepared with ESCP Blue Factory.",
     "pdfPath": "/founder-reports/pdf/2025-founder-report.pdf",
