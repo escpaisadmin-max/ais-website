@@ -5,6 +5,18 @@
  */
 export const presentations = [
   {
+    "id": "hf-treasury-yields-and-stock-prices",
+    "title": "Treasury Yields and Stock Prices",
+    "driveFileId": "15qNuAzjrIFusFAgkEie4hr2mPWC0jdO2",
+    "department": "hf",
+    "topic": "",
+    "date": "October 2026",
+    "description": "",
+    "pdfPath": "/presentations/pdf/hf-treasury-yields-and-stock-prices.pdf",
+    "downloadPath": "/presentations/originals/hf-treasury-yields-and-stock-prices.pdf",
+    "pageCount": 26
+  },
+  {
     "id": "hf-05-activist",
     "title": "Deep Dive- Activist Hedge Funds",
     "driveFileId": "1jIHebpK-4FgmEujQlglka8n9NHqsR9q6",
