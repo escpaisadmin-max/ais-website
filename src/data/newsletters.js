@@ -5,6 +5,19 @@
  */
 export const newsletters = [
   {
+    "id": "hf-treasury-yields-and-stock-prices",
+    "title": "Treasury Yields_and Stock Prices",
+    "driveFileId": "1OWcYzY6R0K6P8HgONoye_8FZmX6fptA9",
+    "department": "hf",
+    "topic": "",
+    "date": "October 2026",
+    "description": "",
+    "pdfPath": "/newsletters/pdf/hf-treasury-yields-and-stock-prices.pdf",
+    "downloadPath": "/newsletters/originals/hf-treasury-yields-and-stock-prices.pdf",
+    "pageCount": 26,
+    "issue": 22
+  },
+  {
     "id": "pe-23-ai-in-pe",
     "title": "Artificial Intelligence in Private Equity",
     "driveFileId": "11uw04siKI-DAxq7qgxMp_8Z57b4alMh0",

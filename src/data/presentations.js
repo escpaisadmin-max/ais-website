@@ -11,7 +11,7 @@ export const presentations = [
     "department": "hf",
     "topic": "",
     "date": "October 2026",
-    "description": "",
+    "description": "Explores how Treasury yields affect equity valuations through discount rates, earnings growth and risk premiums, using historical case studies and scenarios for US stocks.",
     "pdfPath": "/presentations/pdf/hf-treasury-yields-and-stock-prices.pdf",
     "downloadPath": "/presentations/originals/hf-treasury-yields-and-stock-prices.pdf",
     "pageCount": 26
