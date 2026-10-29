@@ -22,10 +22,11 @@ const questions = [
     question: "Which investment areas does AIS cover?",
     answer: (
       <>
-        AIS has <a href="#divisions" className={linkClassName}>four divisions</a>:
-        Private Equity, Venture Capital, Hedge Funds and Real Estate. Their work
-        covers topics including leveraged buyouts, startup investing,
-        public-market investment strategies and property markets. Explore our{" "}
+        AIS has <a href="#divisions" className={linkClassName}>six divisions</a>:
+        Private Equity, Venture Capital, Hedge Funds, Real Estate, Private Credit
+        and Infrastructure. Their work covers topics including leveraged buyouts,
+        startup investing, public-market investment strategies, property markets,
+        direct lending and infrastructure assets. Explore our{" "}
         <a href="/presentations" className={linkClassName}>publications</a> to
         discover research and educational resources from each division.
       </>
@@ -36,7 +37,7 @@ const questions = [
     answer: (
       <>
         Our publications are produced by <a href="#team" className={linkClassName}>student teams</a> across
-        AIS’s four investment divisions. They include market commentary,
+        AIS’s six investment divisions. They include market commentary,
         industry research and educational guides. We also collaborate on
         selected projects with organisations within the ESCP community,
         including the <a href="/founder-report" className={linkClassName}>Founder Report</a>,

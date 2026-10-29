@@ -43,11 +43,23 @@ export const divisions = [
       "The Real Estate division examines property investment, REIT analysis, and real asset valuation. Members explore commercial and residential market dynamics across European markets.",
     icon: "building",
   },
+  {
+    id: "pc",
+    name: "Private Credit",
+    shortName: "PC",
+    description:
+      "The Private Credit division studies direct lending, debt advisory and credit analysis for European companies. Members learn to assess credit risk, structure financing and understand how private debt funds generate returns.",
+    icon: "credit",
+  },
+  {
+    id: "infra",
+    name: "Infrastructure",
+    shortName: "Infra",
+    description:
+      "The Infrastructure division covers energy, transport, digital and social infrastructure. Members analyse long-term contracted cash flows, project finance structures and the funds that invest in essential assets.",
+    icon: "infrastructure",
+  },
 ];
 
-// Publishing supports the new departments before the next team-profile refresh.
-export const publicationDepartments = [
-  ...divisions,
-  { id: "pc", name: "Private Credit", shortName: "PC" },
-  { id: "infra", name: "Infrastructure", shortName: "Infra" },
-];
+// Publication filters use the same departments as the About page.
+export const publicationDepartments = divisions;

@@ -13,7 +13,7 @@ const sections = [
   ["/presentations", "Publications & Educational Resources", "Educational resources, technical guides, and industry deep dives covering private equity, venture capital, hedge funds, and real estate."],
   ["/founder-report", "Founder Report", "Data-driven reports on ESCP's founders, startups, and investor ecosystem from the Alternative Investment Society."],
   ["/events", "Events", "Explore AIS speaker events, workshops, and industry discussions with finance professionals."],
-  ["/about", "About & Team", "Meet the people and four investment divisions behind ESCP's Alternative Investment Society, and learn about our educational mission."],
+  ["/about", "About & Team", "Meet the people and six investment divisions behind ESCP's Alternative Investment Society, and learn about our educational mission."],
   ["/contact", "Contact", "Contact AIS about partnerships, membership, guest speakers, and events at ESCP's Alternative Investment Society."],
   ["/privacy-policy", "Privacy Policy", "Read the privacy information for the ESCP Alternative Investment Society website and find our contact details."],
   ["/impressum", "Legal Notice", "Website operator and contact information for ESCP Alternative Investment Society."],
