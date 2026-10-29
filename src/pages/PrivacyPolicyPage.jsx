@@ -76,18 +76,21 @@ export default function PrivacyPolicyPage() {
             </p>
             <p>
               We use contact submissions to respond to your request, based on our legitimate interest in
-              handling enquiries. Newsletter updates and optional analytics rely on your consent. Declining
-              analytics does not prevent you from using the website, forms or publications.
+              handling enquiries. Newsletter updates, analytics cookies and session recordings rely on your
+              consent. Anonymous, cookieless counting of visits and completed actions after you reject cookies
+              relies on our legitimate interest in understanding how the website is used as a whole; you can
+              object by contacting us. Declining analytics cookies does not prevent you from using the
+              website, forms or publications.
             </p>
           </Section>
 
           <Section title="Hosting And Service Providers">
             <p>
               Vercel hosts the website and processes technical access data. Web3Forms processes form
-              submissions and forwards them by email. DataFast provides optional website analytics.
-              These providers and their infrastructure may process data outside the European Economic
-              Area, including in the United States; Web3Forms also operates in India. Their privacy and
-              data-processing information is linked below.
+              submissions and forwards them by email. PostHog provides website analytics from its EU cloud,
+              hosted in Frankfurt. These providers and their infrastructure may process data outside the
+              European Economic Area, including in the United States; Web3Forms also operates in India. Their
+              privacy and data-processing information is linked below.
             </p>
             <p>
               Publications and images are served as public website files. When you open an embedded PDF,
@@ -103,25 +106,42 @@ export default function PrivacyPolicyPage() {
 
           <Section title="Optional Analytics And Your Choice">
             <p>
-              DataFast loads only after you select Accept analytics. It measures page visits, referral
-              sources, IP address, browser and device information, approximate location, and successful contact or
-              newsletter requests and publication download clicks. It uses visitor and session identifiers
-              to connect these interactions. Analytics events do not include your name, email address,
-              message or other form contents; the custom fields on download events include only the public publication type
-              and identifier.
+              We use PostHog for analytics. PostHog is not loaded and nothing is measured until you choose
+              Accept analytics or Reject cookies in the privacy banner.
             </p>
             <p>
-              Select Reject analytics to keep DataFast off. You can change or withdraw your choice through
-              Privacy settings in the footer at any time. Withdrawal stops future analytics and clears the
-              DataFast identifiers stored by this site in your browser. It does not automatically erase
-              information already received by DataFast or affect the lawfulness of earlier processing.
+              If you select Accept analytics, PostHog stores a visitor identifier in a first-party cookie and
+              in your browser's local and session storage, so it can recognise returning visits. It measures
+              page visits, referral sources, clicks and page interactions, browser and device information,
+              approximate location derived from your IP address, page performance, and successful contact or
+              newsletter requests and publication download clicks. It also records how you use the pages
+              (session recordings), with all form field contents masked. Your IP address is used to derive
+              approximate location and is not stored with the events.
             </p>
             <p>
-              We remember your analytics choice in local storage for 180 days, then ask again. DataFast's
-              visitor cookies have a lifetime of up to 365 days and its session cookie expires after
-              30 minutes of inactivity. DataFast also uses session storage to avoid duplicate page views.
-              These analytics identifiers are created only after acceptance. We do not use advertising
-              cookies or embedded social-media tracking widgets.
+              If you select Reject cookies, PostHog sets no cookies, stores no identifier in your browser (only a
+              record of your choice) and records no clicks and no session recordings. It only counts page visits, referral sources, and successful contact or
+              newsletter requests and publication download clicks. To count unique visitors without cookies,
+              PostHog computes a hash on its servers from your IP address, browser user agent, our website's
+              address and a value that changes daily; the IP address is then discarded and no location is
+              derived. The same visitor therefore appears as a new visitor each day. If your browser sends a
+              Do Not Track or Global Privacy Control signal, we treat it as a rejection of cookies and do not
+              show the banner.
+            </p>
+            <p>
+              Analytics events never include your name, email address, message or other form contents; the
+              custom fields on download events include only the public publication type and identifier.
+            </p>
+            <p>
+              You can change or withdraw your choice through Privacy settings in the footer at any time.
+              Withdrawing acceptance stops session recordings, deletes the PostHog identifiers stored by this
+              site in your browser and switches to cookieless counting. It does not automatically erase
+              information already received by PostHog or affect the lawfulness of earlier processing.
+            </p>
+            <p>
+              We remember your choice in local storage for 180 days, then ask again. After acceptance,
+              PostHog's cookie has a lifetime of up to 365 days. We do not use advertising cookies or embedded
+              social-media tracking widgets.
             </p>
           </Section>
 
@@ -134,9 +154,10 @@ export default function PrivacyPolicyPage() {
             <p>
               Web3Forms' published privacy policy allows storage of submissions for up to three years,
               subject to account settings and deletion requests. Copies delivered to the society's inbox
-              are separate from that provider storage. Vercel's technical logs and DataFast's stored
-              analytics follow their service retention practices; the browser-storage lifetimes above
-              do not describe how long providers retain server-side records.
+              are separate from that provider storage. Vercel's technical logs follow its service retention
+              practices. Our PostHog project keeps analytics events for up to one year and session recordings
+              for 30 days. The browser-storage lifetimes above do not describe how long providers retain
+              server-side records.
             </p>
           </Section>
 

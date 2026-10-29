@@ -1,5 +1,5 @@
 export const legalMetadata = {
-  lastUpdated: "September 20, 2026",
+  lastUpdated: "October 29, 2026",
   organizationName: "ESCP Alternative Investment Society (AIS)",
   organizationType: "Student society recognised by ESCP Business School",
   addressLines: ["79 Av. de la Republique", "75011 Paris", "France"],
@@ -22,12 +22,12 @@ export const legalSources = [
     url: "https://vercel.com/legal/privacy-notice",
   },
   {
-    label: "DataFast Data Processing Agreement",
-    url: "https://datafa.st/dpa",
+    label: "PostHog Privacy Policy",
+    url: "https://posthog.com/privacy",
   },
   {
-    label: "DataFast privacy and tracking information",
-    url: "https://datafa.st/docs/gdpr-cookieless-tracking",
+    label: "PostHog cookieless tracking",
+    url: "https://posthog.com/tutorials/cookieless-tracking",
   },
   {
     label: "CNIL cookie guidance",
