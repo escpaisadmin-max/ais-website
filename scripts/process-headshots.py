@@ -8,8 +8,9 @@ and saved as a progressive JPEG in public/team/<slug>.jpg.
 Usage:
   python3 scripts/process-headshots.py <mapping.csv>
 
-mapping.csv has two columns without a header: <path to raw image>,<slug>
-Requires Pillow and opencv-python (face detection falls back to a centred crop).
+mapping.csv has no header: <path to raw image>,<slug>[,<face share of crop height, default 0.38>]
+Raise the face share (e.g. 0.5) to crop tighter, for example for small faces or round profile screenshots.
+Requires Pillow and opencv-python 4.x (without it, or on OpenCV 5, crops fall back to the top centre).
 """
 import csv
 import sys
@@ -35,7 +36,7 @@ RATIO = WIDTH / HEIGHT
 
 
 def largest_face(image):
-    if cv2 is None:
+    if cv2 is None or not hasattr(cv2, "CascadeClassifier"):  # OpenCV 5 dropped Haar cascades; use opencv-python 4.x.
         return None
     gray = cv2.cvtColor(np.array(image.convert("RGB")), cv2.COLOR_RGB2GRAY)
     cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
@@ -45,7 +46,7 @@ def largest_face(image):
     return max(faces, key=lambda f: f[2] * f[3])
 
 
-def crop_box(image, face):
+def crop_box(image, face, face_share=0.38):
     w, h = image.size
     if face is None:
         # No face found: keep the top of the photo, where heads usually are.
@@ -56,7 +57,7 @@ def crop_box(image, face):
         return (left, top, left + crop_w, top + crop_h)
     fx, fy, fw, fh = face
     # The face should take roughly 38% of the crop height, centred, with its middle at 38% from the top.
-    crop_h = min(h, max(fh / 0.38, fh * 1.8))
+    crop_h = min(h, max(fh / face_share, fh * 1.6))
     crop_w = crop_h * RATIO
     if crop_w > w:
         crop_w = w
@@ -68,10 +69,10 @@ def crop_box(image, face):
     return (left, top, left + crop_w, top + crop_h)
 
 
-def process(src, slug):
+def process(src, slug, face_share=0.38):
     image = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
     face = largest_face(image)
-    box = crop_box(image, face)
+    box = crop_box(image, face, face_share)
     out = image.crop(tuple(round(v) for v in box)).resize((WIDTH, HEIGHT), Image.LANCZOS)
     target = OUT_DIR / f"{slug}.jpg"
     out.save(target, "JPEG", quality=82, optimize=True, progressive=True)
@@ -82,8 +83,10 @@ def main():
     if len(sys.argv) != 2:
         sys.exit(__doc__)
     with open(sys.argv[1], newline="", encoding="utf-8") as handle:
-        for src, slug in csv.reader(handle):
-            target, found = process(src, slug)
+        for row in csv.reader(handle):
+            src, slug = row[0], row[1]
+            share = float(row[2]) if len(row) > 2 and row[2] else 0.38
+            target, found = process(src, slug, share)
             print(f"{slug}: {target.stat().st_size // 1024} KB, face {'found' if found else 'NOT found, check crop'}")
 
 
