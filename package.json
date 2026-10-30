@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "vite",
     "prebuild": "node scripts/generate-sitemap.mjs",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "postbuild": "node scripts/generate-pages.mjs",
     "lint": "eslint .",
     "test:privacy": "node --test scripts/analytics.test.mjs",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check:publications": "node scripts/check-publications.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",

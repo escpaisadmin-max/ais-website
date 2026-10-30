@@ -35,6 +35,18 @@ export function titleKey(s) {
 }
 
 /**
+ * Filenames cannot hold every character, so people type "Deep Dive- Activists" for
+ * "Deep Dive: Activists" and use underscores for spaces. Tidy both for display.
+ */
+export function normalizeTitle(title) {
+  return title
+    .replace(/_+/g, " ")
+    .replace(/([\p{L}\p{N})])- (?=\S)/gu, "$1: ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
+/**
  * Parse "YYYY-MM Title", "YYYY-Qn Title", "YYYY Title" or "Title".
  * Returns { title, displayDate, sortDate } — sortDate is a JS Date for ordering.
  */
@@ -46,7 +58,7 @@ export function parseFilename(rawName, fallbackIso) {
     const year = Number(m[1]);
     const month = m[2] ? Number(m[2]) : null; // 1-12
     const quarter = m[3] ? Number(m[3].slice(1)) : null; // 1-4
-    const title = (m[4] || "").trim() || base;
+    const title = normalizeTitle((m[4] || "").trim() || base);
 
     let displayDate;
     let sortMonth = 0;
@@ -65,7 +77,7 @@ export function parseFilename(rawName, fallbackIso) {
 
   // No date prefix → use Drive createdTime for ordering, blank display date.
   const sortDate = fallbackIso ? new Date(fallbackIso) : new Date(0);
-  return { title: base, displayDate: "", sortDate };
+  return { title: normalizeTitle(base), displayDate: "", sortDate };
 }
 
 export { MONTHS };

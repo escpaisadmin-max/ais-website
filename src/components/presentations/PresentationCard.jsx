@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { publicationPath } from "../../lib/publications.js";
 import { motion } from "framer-motion";
 import Tag from "../ui/Tag";
 import { publicationDepartments as divisions } from "../../data/divisions";
@@ -20,11 +22,11 @@ export default function PresentationCard({ presentation }) {
       </div>
 
       {/* Title & description */}
-      <a href={presentation.pdfPath}>
+      <Link to={publicationPath("presentations", presentation.id)}>
         <h3 className="text-lg font-bold text-ais-navy mb-2 hover:text-ais-ocean transition-colors">
           {presentation.title}
         </h3>
-      </a>
+      </Link>
       <p className="text-sm text-ais-gray mb-1">{presentation.topic}</p>
       <p className="text-sm text-ais-gray mb-4 line-clamp-2 flex-1">
         {presentation.description}

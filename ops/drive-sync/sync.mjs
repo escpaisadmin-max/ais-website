@@ -256,6 +256,12 @@ async function selfTest() {
   p = parseFilename("2025 Founder Report.pdf");
   assert(p.displayDate === "2025" && p.title === "Founder Report", `year-only parse: ${JSON.stringify(p)}`);
 
+  p = parseFilename("2026-02 Deep Dive- Activist Hedge Funds.pdf");
+  assert(p.title === "Deep Dive: Activist Hedge Funds", `colon normalisation: ${p.title}`);
+  p = parseFilename("2026-10 Treasury Yields_and Stock Prices.pdf");
+  assert(p.title === "Treasury Yields and Stock Prices", `underscore normalisation: ${p.title}`);
+  p = parseFilename("2025-01 Buy-and-Build - Strategies.pdf");
+  assert(p.title === "Buy-and-Build - Strategies", `hyphens kept: ${p.title}`);
   p = parseFilename("No Date Title.pdf", "2026-03-01T00:00:00Z");
   assert(p.title === "No Date Title" && p.displayDate === "", "no-date fallback");
 

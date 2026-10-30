@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { publicationPath } from "../../lib/publications.js";
 import { motion } from "framer-motion";
 import { trackGoal } from "../../lib/analytics.js";
 
@@ -17,11 +19,11 @@ export default function FounderReportCard({ report }) {
       </div>
 
       {/* Title & description */}
-      <a href={report.pdfPath}>
+      <Link to={publicationPath("founderReports", report.id)}>
         <h3 className="text-lg font-bold text-ais-navy mb-2 hover:text-ais-ocean transition-colors">
           {report.title}
         </h3>
-      </a>
+      </Link>
       <p className="text-sm text-ais-gray mb-4 line-clamp-3 flex-1">
         {report.description}
       </p>

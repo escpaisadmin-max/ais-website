@@ -9,7 +9,8 @@ import { getAnalyticsConsent, initializeAnalytics } from "../../lib/analytics";
 
 export default function Layout() {
   const location = useLocation();
-  const [privacyPanel, setPrivacyPanel] = useState(() => getAnalyticsConsent() === null ? "initial" : null);
+  // The prerendered HTML leaves the banner out; the browser decides once the app loads.
+  const [privacyPanel, setPrivacyPanel] = useState(() => typeof window !== "undefined" && getAnalyticsConsent() === null ? "initial" : null);
   const privacyButton = useRef(null);
 
   useEffect(initializeAnalytics, []);
