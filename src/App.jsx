@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/HomePage";
@@ -14,6 +14,9 @@ import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ImpressumPage from "./pages/ImpressumPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import RouteMetadata from "./components/layout/RouteMetadata";
+
+// Unlisted preview page, loaded only when visited.
+const FallIntake2026Page = lazy(() => import("./pages/FallIntake2026Page"));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -45,6 +48,7 @@ export default function App() {
           <Route path="founder-report" element={<FounderReportPage />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="impressum" element={<ImpressumPage />} />
+          <Route path="2026-fall-intake" element={<Suspense fallback={null}><FallIntake2026Page /></Suspense>} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
