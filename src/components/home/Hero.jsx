@@ -27,7 +27,7 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-4xl md:text-6xl lg:text-7xl font-bold text-ais-white leading-tight mb-6"
         >
-          ESCP
+          ESCP{" "}
           <br />
           <span className="text-ais-periwinkle">Alternative Investment Society</span>
         </motion.h1>

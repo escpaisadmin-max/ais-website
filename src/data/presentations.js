@@ -18,7 +18,7 @@ export const presentations = [
   },
   {
     "id": "hf-05-activist",
-    "title": "Deep Dive- Activist Hedge Funds",
+    "title": "Deep Dive: Activist Hedge Funds",
     "driveFileId": "1jIHebpK-4FgmEujQlglka8n9NHqsR9q6",
     "department": "hf",
     "topic": "Activist Investing",
@@ -30,7 +30,7 @@ export const presentations = [
   },
   {
     "id": "re-05-interview-prep",
-    "title": "Interview Prep- Real Estate",
+    "title": "Interview Prep: Real Estate",
     "driveFileId": "1JXXfQY8wMsWuH3Wk__HyjnaotulM4vK2",
     "department": "re",
     "topic": "Interview Preparation",

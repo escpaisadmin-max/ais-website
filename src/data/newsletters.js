@@ -6,7 +6,7 @@
 export const newsletters = [
   {
     "id": "hf-treasury-yields-and-stock-prices",
-    "title": "Treasury Yields_and Stock Prices",
+    "title": "Treasury Yields and Stock Prices",
     "driveFileId": "1OWcYzY6R0K6P8HgONoye_8FZmX6fptA9",
     "department": "hf",
     "topic": "",
@@ -149,7 +149,7 @@ export const newsletters = [
   },
   {
     "id": "hf-12-renaissance",
-    "title": "Jim Simons' Renaissance- Revolutionizing the Hedge Fund Industry",
+    "title": "Jim Simons' Renaissance: Revolutionizing the Hedge Fund Industry",
     "driveFileId": "1g0XcxAJBE1ffoltbikx_IkU5FCFmyhCu",
     "department": "hf",
     "topic": "Renaissance Technologies",
@@ -253,7 +253,7 @@ export const newsletters = [
   },
   {
     "id": "hf-04-citadel",
-    "title": "Citadel- The Most Successful Hedge Fund of All Time",
+    "title": "Citadel: The Most Successful Hedge Fund of All Time",
     "driveFileId": "1tMOZpW1dJt69nsX4DmDBrx_Wn7j3UgpN",
     "department": "hf",
     "topic": "Citadel",

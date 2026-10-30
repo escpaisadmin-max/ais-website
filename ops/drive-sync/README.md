@@ -69,8 +69,16 @@ Name each file with an optional leading date, then the title:
 - **Automatic optimization**: `pdf-cache.json` records source/optimizer hashes so
   unchanged PDFs are reused. Updating a Drive file or the optimizer regenerates
   its reading copy. Reading copies can remain in a visitor's browser cache for
-  up to five minutes; both copies declare the reading URL as canonical for search.
+  up to five minutes; both copies declare the publication page as canonical for search.
 - You can drop **Google Slides/Docs** directly (no need to export) — they're converted to PDF.
+- **Publication pages**: every PDF gets its own page (`/presentations/<id>`,
+  `/newsletters/<id>`, `/founder-report/<id>`) with the description, the PDF links and
+  a text version. After each sync, `extract_text.py` writes that text to
+  `public/<library>/text/<id>.json` (only when the PDF changed). Both PDF copies name
+  this page as canonical for search engines, and `originals/` is marked noindex.
+  `npm run check:publications` (add `--live` for the live site) lists anything missing.
+- **Titles**: underscores become spaces and `Word- Word` becomes `Word: Word`, because
+  file names cannot contain a colon on every system.
 - **Description** (the blurb under the title): add an optional text file
   with the *same name* as the PDF, e.g. `2025-02 Guide to LBO Modeling.txt`, whose
   contents become the description. Editing that text file updates the description on the next sync.

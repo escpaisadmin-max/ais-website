@@ -68,6 +68,10 @@ jobs:
         working-directory: ops/drive-sync
         run: node sync.mjs ${{ inputs.dry_run && '--dry-run' || '' }}
 
+      - name: Write text versions of publications
+        if: ${{ !inputs.dry_run }}
+        run: python ops/drive-sync/extract_text.py
+
       - name: Commit changes
         if: ${{ !inputs.dry_run }}
         run: |
