@@ -69,11 +69,14 @@ const questions = [
     ),
   },
   {
-    question: "Who can join AIS, and how does recruitment work?",
+    question: "How do I join AIS, and how selective is it?",
     answer: (
       <>
-        AIS recruits ESCP students interested in alternative investments and
-        contributing to the society’s activities. Interested in joining?{" "}
+        AIS recruits ESCP students at the start of each semester. You apply to
+        one division, and shortlisted candidates are interviewed by that team.
+        Places are limited: historically, between 1 and 4 percent of applicants
+        receive an offer. <a href="#join" className={linkClassName}>See how we recruit</a>.
+        Interested in joining?{" "}
         <a href="/contact#newsletter" className={linkClassName}>Register for our newsletter</a> for
         research updates and future recruitment announcements. We plan to email
         interested students whenever applications open. You can also follow our{" "}

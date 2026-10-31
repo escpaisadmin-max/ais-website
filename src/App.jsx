@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/HomePage";
@@ -17,7 +17,6 @@ import PublicationPage from "./pages/PublicationPage";
 import RouteMetadata from "./components/layout/RouteMetadata";
 
 // Unlisted preview page, loaded only when visited.
-const FallIntake2026Page = lazy(() => import("./pages/FallIntake2026Page"));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -53,7 +52,6 @@ export function AppRoutes() {
           <Route path="founder-report/:id" element={<PublicationPage library="founderReports" />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="impressum" element={<ImpressumPage />} />
-          <Route path="2026-fall-intake" element={<Suspense fallback={null}><FallIntake2026Page /></Suspense>} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

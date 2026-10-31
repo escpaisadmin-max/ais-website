@@ -25,24 +25,6 @@
       ]
     },
     {
-      "source": "/2026-fall-intake",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
-      "source": "/team-2026/(.*)",
-      "headers": [
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow"
-        }
-      ]
-    },
-    {
       "source": "/assets/(.*)",
       "headers": [
         {
@@ -105,7 +87,7 @@
       ]
     },
     {
-      "source": "/:dir(team|team-2026|logos|events)/:path*",
+      "source": "/:dir(team|logos|events)/:path*",
       "headers": [
         {
           "key": "Cache-Control",

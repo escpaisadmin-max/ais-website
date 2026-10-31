@@ -38,9 +38,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="text-lg md:text-xl text-ais-silver max-w-2xl mx-auto mb-10"
         >
-          The leading student-led society at ESCP Business School. We bridge academia and
-          finance through educational content, industry events, and a
-          community of like-minded individuals passionate about finance.
+          A selective student society at ESCP Business School. Our six divisions
+          publish research on private equity, venture capital, hedge funds, real
+          estate, private credit and infrastructure, and host events with industry
+          professionals.
         </motion.p>
 
         <motion.div
