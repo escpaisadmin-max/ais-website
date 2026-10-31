@@ -5,6 +5,18 @@ import SectionHeading from "../components/ui/SectionHeading";
 import ScrollReveal from "../components/ui/ScrollReveal";
 import { FaEnvelope } from "react-icons/fa";
 
+// Newest first. Dates come from event.json in Drive: "2026-10-22", "October 2026" or "2026".
+// Parsed by hand because browsers disagree on Date.parse("October 2026"). Unreadable dates sort last.
+const MONTHS = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+const eventTime = ({ date = "" }) => {
+  const iso = date.match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/);
+  if (iso) return Date.UTC(+iso[1], (+iso[2] || 1) - 1, +iso[3] || 1);
+  const named = date.trim().toLowerCase().match(/^(?:(\d{1,2}) )?([a-z]+) (\d{4})$/);
+  const month = named ? MONTHS.indexOf(named[2]) : -1;
+  return month >= 0 ? Date.UTC(+named[3], month, +named[1] || 1) : -Infinity;
+};
+const sortedEvents = [...events].sort((a, b) => eventTime(b) - eventTime(a));
+
 export default function EventsPage() {
   return (
     <section className="py-20 bg-white">
@@ -17,7 +29,7 @@ export default function EventsPage() {
           />
         </ScrollReveal>
 
-        <EventGrid events={events} />
+        <EventGrid events={sortedEvents} />
 
         <ScrollReveal>
           <div className="mt-16 bg-ais-navy text-white rounded-lg px-6 py-8 text-center">
