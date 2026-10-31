@@ -29,7 +29,7 @@ Founder Reports/                  Events/  → one sub-folder per event
 
 **Naming (PDF libraries):** `YYYY-MM Title.pdf` (e.g. `2025-02 Guide to LBO Modeling.pdf`); `YYYY-Qn`/`YYYY` also work for reports. Department = the sub-folder. Page count is read automatically. Google Slides/Docs can be dropped directly (auto-converted to PDF). An optional same-named `.txt` becomes the description.
 
-**Events:** one sub-folder per event (folder name = URL slug) containing an `event.json` (title, date, partnerName, partnerUrl, division, type, description, fullDescription, keyTakeaways, bannerLogo) plus images — a `banner.*` image becomes the hero, the rest form the gallery. Rendering: a real `photo` is used as the hero if present; otherwise a navy→ocean gradient shows `bannerLogo` (or just the title). `partnerUrl` turns the "In partnership with …" line into a link.
+**Events:** one sub-folder per event (folder name = URL slug) containing an `event.json` (title, date such as "October 2026" or "2026-10-22", partnerName, partnerUrl, division, type, description, fullDescription, keyTakeaways, bannerLogo; the events page lists newest first) plus images — a `banner.*` image becomes the hero, the rest form the gallery. Rendering: a real `photo` is used as the hero if present; otherwise a navy→ocean gradient shows `bannerLogo` (or just the title). `partnerUrl` turns the "In partnership with …" line into a link.
 
 **Operating it** (full detail in `ops/drive-sync/README.md`):
 - Manual run: `gh workflow run drive-sync.yml -f dry_run=true` then `gh run watch <id>` (drop `dry_run` for a real run).
