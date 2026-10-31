@@ -273,15 +273,6 @@ export const divisions = {
         division: "re",
       },
       {
-        name: "Rafael Flaig",
-        role: "Analyst",
-        photo: "/team/rafael-flaig.jpg",
-        linkedin: "https://www.linkedin.com/in/rafael-flaig1",
-        email: null,
-        bio: "Rafael is a Real Estate Analyst at AIS. He interned in finance and investment at RB Capital in Singapore. Rafael is a German national who grew up in Asia and speaks German and English, with knowledge of Mandarin and French.",
-        division: "re",
-      },
-      {
         name: "Solene Robinson",
         role: "Analyst",
         photo: "/team/solene-robinson.jpg",
