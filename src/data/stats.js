@@ -11,6 +11,6 @@
  */
 export const stats = [
   { label: "Student Member\nNetwork", value: 1100, suffix: "+" },
-  { label: "Operating\nTeam", value: 27, suffix: "" },
+  { label: "Operating\nTeam", value: 26, suffix: "" },
   { label: "Publications &\nEducational Resources", value: 40, suffix: "+" },
 ];
