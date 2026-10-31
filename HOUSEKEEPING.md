@@ -2,6 +2,8 @@
 
 This document is for future Claude Code sessions (or any developer) working on this repo. It covers the content workflow, file conventions, and how to add new material.
 
+> **Campus Life rule.** Any change to how the site describes AIS (society description, divisions, recruitment and selectivity, newsletter signup, main section URLs, branding) must also be made on the ESCP Campus Life page in the same piece of work. How and where: [`docs/campus-life.md`](docs/campus-life.md).
+
 ---
 
 ## Project Overview
@@ -59,6 +61,12 @@ Founder Reports/                  Events/  → one sub-folder per event
 
 ---
 
+## ESCP Campus Life
+
+escpais.com has a mirror profile on ESCP Campus Life (campuslife.escp.eu/ldnrealestate). When you change how the site describes AIS (description, divisions, recruitment and selectivity, newsletter signup, section URLs, branding), update Campus Life in the same piece of work and add a line to the change log in `docs/campus-life.md`. Single publications, events and team changes don't need mirroring.
+
+---
+
 ## Key Files Reference
 
 | File | Purpose |
@@ -75,6 +83,7 @@ Founder Reports/                  Events/  → one sub-folder per event
 | `src/data/divisions.js` | Division names and descriptions |
 | `src/data/siteConfig.js` | Nav links, social URLs, newsletter config |
 | `src/styles/index.css` | Brand colors, base styles, animations |
+| `docs/campus-life.md` | ESCP Campus Life mirror pages: what to keep in sync and how to edit |
 
 ---
 
