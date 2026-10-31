@@ -17,7 +17,7 @@ import { promisify } from "node:util";
 import { PDFDocument } from "pdf-lib";
 
 import {
-  ROOT_FOLDER_ID, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES, GOOGLE_PDF_EXPORTABLE, PUBLISHING_FOLDER,
+  ROOT_FOLDER_ID, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES, GOOGLE_PDF_EXPORTABLE, PUBLISHING_FOLDER, REPO_ROOT,
 } from "./config.mjs";
 import {
   getDrive, listChildren, findFolder, isFolder, fetchAsPdf, fetchBinary,
@@ -164,6 +164,17 @@ async function syncPdfCategory(drive, cat) {
       entries,
     })
   );
+  // A file removed from Drive leaves the site: delete its PDFs too, so the old URL
+  // stops serving a copy that no page lists (extract_text.py then drops its text).
+  const keep = new Set(records.map((r) => r.pdfFilename));
+  for (const dir of [cat.pdfDir, originalsDir]) {
+    for (const name of await fs.readdir(dir)) {
+      if (name.toLowerCase().endsWith(".pdf") && !keep.has(name)) {
+        await fs.rm(path.join(dir, name), { force: true });
+        log(`  ${cat.key}: removed ${path.relative(REPO_ROOT, path.join(dir, name))} (no longer in Drive)`);
+      }
+    }
+  }
   return { wrote: true, count: entries.length };
 }
 
@@ -256,6 +267,12 @@ async function selfTest() {
   p = parseFilename("2025 Founder Report.pdf");
   assert(p.displayDate === "2025" && p.title === "Founder Report", `year-only parse: ${JSON.stringify(p)}`);
 
+  p = parseFilename("2026-02 Deep Dive- Activist Hedge Funds.pdf");
+  assert(p.title === "Deep Dive: Activist Hedge Funds", `colon normalisation: ${p.title}`);
+  p = parseFilename("2026-10 Treasury Yields_and Stock Prices.pdf");
+  assert(p.title === "Treasury Yields and Stock Prices", `underscore normalisation: ${p.title}`);
+  p = parseFilename("2025-01 Buy-and-Build - Strategies.pdf");
+  assert(p.title === "Buy-and-Build - Strategies", `hyphens kept: ${p.title}`);
   p = parseFilename("No Date Title.pdf", "2026-03-01T00:00:00Z");
   assert(p.title === "No Date Title" && p.displayDate === "", "no-date fallback");
 

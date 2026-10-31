@@ -5,19 +5,6 @@
  */
 export const newsletters = [
   {
-    "id": "hf-treasury-yields-and-stock-prices",
-    "title": "Treasury Yields_and Stock Prices",
-    "driveFileId": "1OWcYzY6R0K6P8HgONoye_8FZmX6fptA9",
-    "department": "hf",
-    "topic": "",
-    "date": "October 2026",
-    "description": "",
-    "pdfPath": "/newsletters/pdf/hf-treasury-yields-and-stock-prices.pdf",
-    "downloadPath": "/newsletters/originals/hf-treasury-yields-and-stock-prices.pdf",
-    "pageCount": 26,
-    "issue": 22
-  },
-  {
     "id": "pe-23-ai-in-pe",
     "title": "Artificial Intelligence in Private Equity",
     "driveFileId": "11uw04siKI-DAxq7qgxMp_8Z57b4alMh0",
@@ -149,7 +136,7 @@ export const newsletters = [
   },
   {
     "id": "hf-12-renaissance",
-    "title": "Jim Simons' Renaissance- Revolutionizing the Hedge Fund Industry",
+    "title": "Jim Simons' Renaissance: Revolutionizing the Hedge Fund Industry",
     "driveFileId": "1g0XcxAJBE1ffoltbikx_IkU5FCFmyhCu",
     "department": "hf",
     "topic": "Renaissance Technologies",
@@ -253,7 +240,7 @@ export const newsletters = [
   },
   {
     "id": "hf-04-citadel",
-    "title": "Citadel- The Most Successful Hedge Fund of All Time",
+    "title": "Citadel: The Most Successful Hedge Fund of All Time",
     "driveFileId": "1tMOZpW1dJt69nsX4DmDBrx_Wn7j3UgpN",
     "department": "hf",
     "topic": "Citadel",

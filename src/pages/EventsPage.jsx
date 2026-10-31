@@ -1,3 +1,4 @@
+import { contactConfig } from "../data/siteConfig";
 import { events } from "../data/events";
 import EventGrid from "../components/events/EventGrid";
 import SectionHeading from "../components/ui/SectionHeading";
@@ -27,7 +28,7 @@ export default function EventsPage() {
               Reach out to our events team to discuss workshops, speaker sessions, and collaborations.
             </p>
             <a
-              href="mailto:theodor.kisslinger@edu.escp.eu"
+              href={`mailto:${contactConfig.email}?subject=${encodeURIComponent("Event enquiry")}`}
               className="inline-flex items-center gap-2 rounded bg-white px-5 py-3 text-sm font-semibold text-ais-navy transition-colors hover:bg-ais-ice"
             >
               <FaEnvelope aria-hidden="true" />

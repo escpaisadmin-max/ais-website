@@ -1,7 +1,5 @@
-import { presentations } from "./presentations.js";
-import { newsletters } from "./newsletters.js";
-import { founderReports } from "./founderReports.js";
 import { events } from "./events.js";
+import { divisionFor, isoDate, libraries } from "../lib/publications.js";
 
 export const siteOrigin = "https://www.escpais.com";
 const siteName = "ESCP Alternative Investment Society";
@@ -19,12 +17,35 @@ const sections = [
   ["/impressum", "Legal Notice", "Website operator and contact information for ESCP Alternative Investment Society."],
 ];
 
-const publicationPages = (items, section) => items.map((item) => ({
-  path: `/${section}/${encodeURIComponent(item.id)}`,
-  title: `${item.title} | AIS`,
-  description: item.description || `Read ${item.title}, a publication from ${siteName}.`,
-  type: "article",
-}));
+const kindDescriptions = {
+  presentations: "an educational presentation",
+  newsletters: "a newsletter",
+  founderReports: "a Founder Report",
+};
+
+// The same PDF published in two libraries gets one canonical page (the first library).
+const titleKey = (title) => title.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+function duplicateOf(libraryKey, item) {
+  const order = Object.keys(libraries);
+  for (const other of order.slice(0, order.indexOf(libraryKey))) {
+    const match = libraries[other].items.find((candidate) => titleKey(candidate.title) === titleKey(item.title));
+    if (match) return `${libraries[other].route}/${encodeURIComponent(match.id)}`;
+  }
+  return null;
+}
+
+const publicationPages = (libraryKey) => libraries[libraryKey].items.map((item) => {
+  const division = divisionFor(item);
+  const team = division && libraryKey !== "founderReports" ? ` by the ${division.name} team` : "";
+  return {
+    path: `${libraries[libraryKey].route}/${encodeURIComponent(item.id)}`,
+    canonicalPath: duplicateOf(libraryKey, item),
+    title: `${item.title} | AIS`,
+    description: item.description || `${item.title}: ${kindDescriptions[libraryKey]}${team} of ${siteName}, with a full text version and PDF.`,
+    type: "article",
+    publication: { libraryKey, item },
+  };
+});
 
 export const sitePages = [
   ...sections.map(([path, title, description]) => ({
@@ -33,9 +54,9 @@ export const sitePages = [
     description,
     type: "website",
   })),
-  ...publicationPages(presentations, "presentations"),
-  ...publicationPages(newsletters, "newsletters"),
-  ...publicationPages(founderReports, "founder-report"),
+  ...publicationPages("presentations"),
+  ...publicationPages("newsletters"),
+  ...publicationPages("founderReports"),
   ...events.map((event) => ({
     path: `/events/${encodeURIComponent(event.slug)}`,
     title: `${event.title} | AIS`,
@@ -43,6 +64,56 @@ export const sitePages = [
     type: "website",
   })),
 ];
+
+const organization = {
+  "@type": "Organization",
+  "@id": `${siteOrigin}/#organization`,
+  name: siteName,
+  alternateName: ["AIS", "ESCP AIS"],
+  url: `${siteOrigin}/`,
+  logo: { "@type": "ImageObject", url: `${siteOrigin}/ais-logo-512.png`, width: 512, height: 512 },
+  description: "Student society at ESCP Business School focused on alternative investments: private equity, venture capital, hedge funds, real estate, private credit and infrastructure.",
+  parentOrganization: { "@type": "CollegeOrUniversity", name: "ESCP Business School", url: "https://escp.eu/" },
+  sameAs: ["https://www.linkedin.com/company/escpais/", "https://campuslife.escp.eu/ldnrealestate/home/"],
+};
+
+const jsonLd = (data) => ({ tag: "script", type: "application/ld+json", text: JSON.stringify(data) });
+
+function publicationSchema(page) {
+  const { libraryKey, item } = page.publication;
+  const library = libraries[libraryKey];
+  const url = `${siteOrigin}${page.path}`;
+  const published = isoDate(item.date);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": libraryKey === "founderReports" ? "Report" : "Article",
+        "@id": `${url}#publication`,
+        headline: item.title,
+        name: item.title,
+        description: page.description,
+        url,
+        mainEntityOfPage: url,
+        ...(published ? { datePublished: published } : {}),
+        inLanguage: "en",
+        author: organization,
+        publisher: organization,
+        isAccessibleForFree: true,
+        ...(item.pageCount ? { numberOfPages: item.pageCount } : {}),
+        encoding: { "@type": "MediaObject", contentUrl: `${siteOrigin}${item.pdfPath}`, encodingFormat: "application/pdf" },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${siteOrigin}/` },
+          { "@type": "ListItem", position: 2, name: library.listLabel, item: `${siteOrigin}${library.route}` },
+          { "@type": "ListItem", position: 3, name: item.title, item: url },
+        ],
+      },
+    ],
+  };
+}
 
 // Shared by static HTML generation and client-side navigation.
 export function getHeadTags(pathname) {
@@ -70,24 +141,24 @@ export function getHeadTags(pathname) {
   ];
   if (page) {
     tags.push(
-      { tag: "link", rel: "canonical", href: `${siteOrigin}${page.path}` },
-      { tag: "meta", property: "og:url", content: `${siteOrigin}${page.path}` },
+      { tag: "link", rel: "canonical", href: `${siteOrigin}${page.canonicalPath || page.path}` },
+      { tag: "meta", property: "og:url", content: `${siteOrigin}${page.canonicalPath || page.path}` },
     );
   }
   if (path === "/") {
-    tags.push({
-      tag: "script",
-      type: "application/ld+json",
-      text: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "@id": `${siteOrigin}/#organization`,
+    tags.push(jsonLd({
+      "@context": "https://schema.org",
+      "@graph": [organization, {
+        "@type": "WebSite",
+        "@id": `${siteOrigin}/#website`,
         name: siteName,
         alternateName: "AIS",
         url: `${siteOrigin}/`,
-        logo: `${siteOrigin}/ais-logo-dark.svg`,
-      }),
-    });
+        publisher: { "@id": organization["@id"] },
+        inLanguage: "en",
+      }],
+    }));
   }
+  if (page?.publication) tags.push(jsonLd(publicationSchema(page)));
   return tags;
 }

@@ -2,55 +2,124 @@
   "buildCommand": "npm run build",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/presentations/:id",
-      "destination": "/presentations/pdf/:id.pdf",
-      "permanent": true
-    },
-    {
-      "source": "/newsletters/:id",
-      "destination": "/newsletters/pdf/:id.pdf",
-      "permanent": true
-    },
-    {
-      "source": "/founder-report/:id",
-      "destination": "/founder-reports/pdf/:id.pdf",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/2026-fall-intake",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/team-2026/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
       ]
     },
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     },
     {
       "source": "/:library(presentations|newsletters|founder-reports)/pdf/:file*",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=300, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, must-revalidate"
+        }
       ]
     },
     {
-      "source": "/:library(presentations|newsletters|founder-reports)/:variant(pdf|originals)/:file.pdf",
+      "source": "/:library(presentations|newsletters)/:variant(pdf|originals)/:file.pdf",
       "headers": [
-        { "key": "Link", "value": "<https://www.escpais.com/:library/pdf/:file.pdf>; rel=\"canonical\"" }
+        {
+          "key": "Link",
+          "value": "<https://www.escpais.com/:library/:file>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/founder-reports/:variant(pdf|originals)/:file.pdf",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://www.escpais.com/founder-report/:file>; rel=\"canonical\""
+        }
       ]
     },
     {
       "source": "/:library(presentations|newsletters|founder-reports)/originals/:file*",
       "headers": [
-        { "key": "Content-Disposition", "value": "attachment" }
+        {
+          "key": "Content-Disposition",
+          "value": "attachment"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/:library(presentations|newsletters|founder-reports)/text/:file*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, must-revalidate"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/:dir(team|team-2026|logos|events)/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/:file(london-skyline.avif|london-skyline.jpg|social-preview.png|ais-logo-512.png|ais-logo.svg|ais-logo-dark.svg|ais-logo-white.svg|favicon.png|favicon.svg|apple-touch-icon.png)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
       ]
     }
   ]

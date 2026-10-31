@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/HomePage";
@@ -13,7 +13,11 @@ import FounderReportPage from "./pages/FounderReportPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import ImpressumPage from "./pages/ImpressumPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import PublicationPage from "./pages/PublicationPage";
 import RouteMetadata from "./components/layout/RouteMetadata";
+
+// Unlisted preview page, loaded only when visited.
+const FallIntake2026Page = lazy(() => import("./pages/FallIntake2026Page"));
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -28,9 +32,10 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+// Shared by the browser app and the build time prerender (src/entry-server.jsx).
+export function AppRoutes() {
   return (
-    <BrowserRouter>
+    <>
       <RouteMetadata />
       <ScrollToTop />
       <Routes>
@@ -40,14 +45,26 @@ export default function App() {
           <Route path="events" element={<EventsPage />} />
           <Route path="events/:slug" element={<EventDetailPage />} />
           <Route path="presentations" element={<PresentationsPage />} />
+          <Route path="presentations/:id" element={<PublicationPage library="presentations" />} />
           <Route path="newsletters" element={<NewslettersPage />} />
+          <Route path="newsletters/:id" element={<PublicationPage library="newsletters" />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="founder-report" element={<FounderReportPage />} />
+          <Route path="founder-report/:id" element={<PublicationPage library="founderReports" />} />
           <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="impressum" element={<ImpressumPage />} />
+          <Route path="2026-fall-intake" element={<Suspense fallback={null}><FallIntake2026Page /></Suspense>} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
