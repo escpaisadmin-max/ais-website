@@ -35,7 +35,7 @@ const joschka = {
 const maxHenkes = {
   name: "Max Henkes",
   photo: "/team/max-henkes-2026.jpg",
-  linkedin: null,
+  linkedin: "https://www.linkedin.com/in/maxhenkeshireme/",
   email: null,
   bio: "Max is Vice President of AIS and a Hedge Funds Analyst. He gained venture capital experience at MätchVC, a deep tech pre-seed and seed fund in Stuttgart, where he worked on sourcing, due diligence and investment memos across quantum, photonics, robotics and AI infrastructure. Before that, he was a Business Intern at AnyDesk. Max is a German national who speaks German, English, Russian and French.",
 };
