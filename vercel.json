@@ -87,7 +87,16 @@
       ]
     },
     {
-      "source": "/:dir(team|logos|events)/:path*",
+      "source": "/team/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/:dir(logos|events)/:path*",
       "headers": [
         {
           "key": "Cache-Control",
