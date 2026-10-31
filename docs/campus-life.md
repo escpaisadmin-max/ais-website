@@ -53,4 +53,5 @@ Before saving, copy the full source into a text file as a backup. CampusGroups k
 
 ## Change log
 
+- 31 Oct 2026 (evening): "For ESCP students" adds "Members and alumni have worked at or are incoming at firms including Blackstone, Morgan Stanley, EQT, Rothschild & Co, UBS, Bain & Company, Jefferies, Ardian and Hines." after the offer rate. Mirrors the homepage About box (PR #30 and its follow up). The widget is still titled "AIS society profile, review draft, 13 Oct 2026" in the widget list; it is the live one.
 - 31 Oct 2026: hero line changed to "A selective ESCP student society researching private markets, hedge funds and alternative investments." The "For ESCP students" section now states recruitment timing, stages and the 1 to 4 percent offer rate, and links to escpais.com/about#join. Mirrors PR #12.
