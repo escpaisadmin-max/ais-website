@@ -40,6 +40,8 @@ export const trackRecord = [
   { id: "ardian", name: "Ardian", logo: "/logos/optimized/Ardian.webp", logoWidth: 400, logoHeight: 58, eventSlug: null },
   { id: "bnp", name: "BNP Paribas", logo: "/logos/optimized/BNPpng.webp", logoWidth: 297, logoHeight: 31, eventSlug: null },
   { id: "stern-stewart", name: "Stern & Stewart", logo: "/logos/optimized/Stern&Stewart.webp", logoWidth: 480, logoHeight: 90, eventSlug: null, scale: 1.15 },
+  { id: "ey-parthenon", name: "EY-Parthenon", logo: "/logos/optimized/EY_Parthenon.webp", logoWidth: 372, logoHeight: 120, eventSlug: null },
+  { id: "kpmg", name: "KPMG", logo: "/logos/optimized/KPMG.webp", logoWidth: 400, logoHeight: 94, eventSlug: null },
   { id: "bain", name: "Bain & Company", logo: "/logos/optimized/Bain.webp", logoWidth: 480, logoHeight: 52, eventSlug: null },
   { id: "greenhill", name: "Greenhill", logo: "/logos/optimized/Greenhill.webp", logoWidth: 397, logoHeight: 81, eventSlug: null },
   { id: "raymond-james", name: "Raymond James", logo: "/logos/optimized/RaymondJames.webp", logoWidth: 400, logoHeight: 35, eventSlug: null },

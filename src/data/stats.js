@@ -10,7 +10,7 @@
  * - suffix: Text appended after the number (e.g., "+")
  */
 export const stats = [
-  { label: "Student Member\nNetwork", value: 800, suffix: "+" },
-  { label: "Operating\nTeam", value: 26, suffix: "" },
+  { label: "Student Member\nNetwork", value: 1100, suffix: "+" },
+  { label: "Operating\nTeam", value: 27, suffix: "" },
   { label: "Publications &\nEducational Resources", value: 40, suffix: "+" },
 ];
