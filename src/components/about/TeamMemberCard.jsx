@@ -2,6 +2,10 @@ import { useId, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
 
+// Appended to photo URLs so browsers fetch replaced headshots instead of a cached copy.
+// Photos are also served with a 5 minute cache (vercel.json), so this rarely needs a bump.
+const PHOTO_VERSION = "2026-10-31";
+
 function ExpandIcon({ expanded }) {
   return (
     <div className="relative w-3 h-3 flex items-center justify-center">
@@ -28,7 +32,7 @@ export default function TeamMemberCard({ member }) {
       <div className="relative overflow-hidden">
         <div className="h-1 bg-ais-ocean" />
         <img
-          src={member.photo}
+          src={member.photo.startsWith("/") ? `${member.photo}?v=${PHOTO_VERSION}` : member.photo}
           alt={member.name}
           className="w-full aspect-[3/4] object-cover grayscale"
           loading="lazy"
