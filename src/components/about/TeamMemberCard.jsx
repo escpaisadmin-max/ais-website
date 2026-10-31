@@ -1,5 +1,5 @@
 import { useId, useState } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
 
 // Appended to photo URLs so browsers fetch replaced headshots instead of a cached copy.
@@ -43,7 +43,7 @@ export default function TeamMemberCard({ member }) {
       <button
         onClick={() => setExpanded(!expanded)}
         aria-expanded={expanded}
-        aria-controls={expanded ? detailsId : undefined}
+        aria-controls={detailsId}
         className="w-full flex items-center justify-between py-3 text-left"
       >
         <div>
@@ -53,40 +53,38 @@ export default function TeamMemberCard({ member }) {
         <ExpandIcon expanded={expanded} />
       </button>
 
-      {/* Expanded content */}
-      <AnimatePresence>
-        {expanded && (
-          <motion.div
-            id={detailsId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="pb-4">
-              {member.bio && (
-                <p className="text-xs text-ais-gray leading-relaxed mb-3">
-                  {member.bio}
-                </p>
-              )}
-              <div className="flex items-center gap-3">
-                {member.linkedin && (
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-ais-navy hover:text-ais-ocean transition-colors"
-                    aria-label={`${member.name}'s LinkedIn`}
-                  >
-                    <FaLinkedin size={20} />
-                  </a>
-                )}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Details: always in the HTML (so search engines and AI crawlers can read the bios), collapsed visually */}
+      <motion.div
+        id={detailsId}
+        initial={false}
+        animate={expanded ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        transition={{ duration: reduceMotion ? 0 : 0.25, ease: "easeInOut" }}
+        className="overflow-hidden"
+        style={expanded ? undefined : { height: 0, opacity: 0 }}
+        aria-hidden={!expanded}
+        inert={!expanded}
+      >
+        <div className="pb-4">
+          {member.bio && (
+            <p className="text-xs text-ais-gray leading-relaxed mb-3">
+              {member.bio}
+            </p>
+          )}
+          <div className="flex items-center gap-3">
+            {member.linkedin && (
+              <a
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ais-navy hover:text-ais-ocean transition-colors"
+                aria-label={`${member.name}'s LinkedIn`}
+              >
+                <FaLinkedin size={20} />
+              </a>
+            )}
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 }
