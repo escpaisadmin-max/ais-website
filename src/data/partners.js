@@ -16,10 +16,6 @@
  * - eventSlug: (Optional) Event slug — clicking the logo navigates there.
  * - scale:     (Optional) Size multiplier on top of optical sizing (default 1).
  * Regenerate optimized assets/dimensions with scripts/optimize-partner-logos.py.
- *
- * KNOWN ISSUES (logo files needing replacement):
- * - BNPpng.png: source file was missing the green BNP star icon.
- * - DartmouthPartners.png: source file is truncated, only shows "Dartmouth".
  */
 
 /**
@@ -50,10 +46,11 @@ export const trackRecord = [
 export const academicPartners = [
   { id: "wso", name: "Wall Street Oasis", logo: "/logos/optimized/WSO.webp", logoWidth: 286, logoHeight: 82, eventSlug: null },
   { id: "job-test-prep", name: "Job Test Prep", logo: "/logos/optimized/JobTestPrep.webp", logoWidth: 225, logoHeight: 120, eventSlug: null, scale: 1.6 },
-  { id: "eqt-real-estate", name: "EQT Real Estate", logo: "/logos/EQTRealEstate.svg", logoWidth: 620, logoHeight: 160, eventSlug: "eqt-real-estate-workshop" },
+  { id: "eqt-real-estate", name: "EQT Real Estate", logo: "/logos/EQTRealEstate.svg", logoWidth: 620, logoHeight: 160, eventSlug: "london-finance-tour-2026-eqt-real-estate" },
+  { id: "nordic-capital", name: "Nordic Capital", logo: "/logos/optimized/NordicCapital.webp", logoWidth: 1544, logoHeight: 212, eventSlug: "london-finance-tour-2026-nordic-capital" },
   { id: "ace-the-round", name: "AceTheRound", logo: "/logos/optimized/AceTheRound.webp", logoWidth: 541, logoHeight: 224, eventSlug: "ace-the-round-workshop" },
   { id: "jobortunity-ai", name: "Jobortunity.AI", logo: "/logos/optimized/JobortunityAI.webp", logoWidth: 1000, logoHeight: 201, eventSlug: null },
-  { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/optimized/DartmouthPartners.webp", logoWidth: 400, logoHeight: 63, eventSlug: null },
+  { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/optimized/DartmouthPartners.webp", logoWidth: 400, logoHeight: 63, eventSlug: "dartmouth-partners-careers-event" },
   { id: "plato", name: "Plato", logo: "/logos/optimized/Plato.webp", logoWidth: 730, logoHeight: 216, eventSlug: "plato-event" },
   { id: "revent", name: "Revent", logo: "/logos/Revent.svg", logoWidth: 360, logoHeight: 70, eventSlug: "revent-event" },
 ];
