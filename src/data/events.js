@@ -5,6 +5,44 @@
  */
 export const events = [
   {
+    "slug": "london-finance-tour-2026-eqt-real-estate",
+    "title": "London Finance Tour 2026: EQT Real Estate",
+    "date": "October 2026",
+    "partnerLogo": null,
+    "partnerName": "EQT Real Estate",
+    "partnerUrl": "https://eqtgroup.com/real-estate",
+    "description": "A visit to EQT Real Estate's London office during our London Finance Tour 2026 with the Oxford Alpha Fund, with a firm presentation, Q&A and networking.",
+    "fullDescription": "EQT Real Estate welcomed us to their London office as part of our London Finance Tour 2026 alongside the Oxford Alpha Fund. The session began with a firm presentation by the team, covering EQT Real Estate's investment focus, insights into current market sentiment, and a showcase of its advanced integration of AI into daily operations. The visit concluded with an extensive Q&A and an after-work networking session, allowing us to connect with the team in a more informal setting.\nIt was particularly exciting to reconnect with a former member of our society who has since joined EQT Real Estate.\nWe are extremely grateful for our continued collaboration with EQT Real Estate, the team's warm hospitality and the valuable insights shared throughout the visit. We look forward to future collaborations and to connecting new generations of students with the firm.",
+    "photo": "/events/london-finance-tour-2026-eqt-real-estate/banner.jpg",
+    "photos": [],
+    "division": "re",
+    "type": "office visit",
+    "keyTakeaways": [
+      "EQT Real Estate's investment focus and current market sentiment",
+      "How the firm integrates AI into its daily operations",
+      "Q&A and after-work networking with the team"
+    ]
+  },
+  {
+    "slug": "london-finance-tour-2026-nordic-capital",
+    "title": "London Finance Tour 2026: Nordic Capital",
+    "date": "October 2026",
+    "partnerLogo": null,
+    "partnerName": "Nordic Capital",
+    "partnerUrl": "https://www.nordiccapital.com",
+    "description": "The first stop of our London Finance Tour 2026 with the Oxford Alpha Fund: a case study on a recent Nordic Capital acquisition and a Q&A with the team.",
+    "fullDescription": "Nordic Capital marked the first stop of our London Finance Tour 2026 alongside the Oxford Alpha Fund, kicking off the programme with a brief introduction to the firm. The session continued with an insightful case study on a recent acquisition, exploring the investment thesis, deal rationale and market outlook, and concluded with an extensive Q&A on Nordic Capital's culture and day-to-day work.\nWe would like to sincerely thank Nordic Capital for the warm hospitality and valuable insights, and we look forward to future collaborations.",
+    "photo": "/events/london-finance-tour-2026-nordic-capital/banner.jpg",
+    "photos": [],
+    "division": "pe",
+    "type": "office visit",
+    "keyTakeaways": [
+      "Introduction to Nordic Capital and its approach to private equity",
+      "Case study on a recent acquisition: investment thesis, deal rationale and market outlook",
+      "Q&A on Nordic Capital's culture and day-to-day work"
+    ]
+  },
+  {
     "slug": "dartmouth-partners-careers-event",
     "title": "Dartmouth Partners Careers Event",
     "date": "2026",
