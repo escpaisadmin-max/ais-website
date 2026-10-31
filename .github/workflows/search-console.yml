@@ -1,0 +1,42 @@
+name: Search Console data
+
+# Weekly pull of Google Search Console data for escpais.com into the private Google Sheet
+# "AIS Search Console data" (Drive: AIS Website Content). Same keyless service account as the
+# Drive sync (drive-sync@ais-escp-website), which is a Restricted user in Search Console and an
+# Editor of that one sheet. Nothing is committed: the repo is public, the data stays in the sheet.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1" # Mondays 06:17 UTC, before the weekly website audit
+  workflow_dispatch:
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+permissions:
+  contents: read
+  id-token: write # mint the OIDC token for Workload Identity Federation
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Authenticate to Google Cloud (keyless / WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: projects/1048877455007/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+          service_account: drive-sync@ais-escp-website.iam.gserviceaccount.com
+
+      - name: Install dependencies
+        working-directory: ops/search-console
+        run: npm ci
+
+      - name: Pull Search Console data into the sheet
+        working-directory: ops/search-console
+        run: node pull.mjs

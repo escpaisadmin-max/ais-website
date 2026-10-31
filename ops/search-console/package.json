@@ -1,0 +1,14 @@
+{
+  "name": "ais-search-console",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Weekly pull of Google Search Console data for escpais.com into a private Google Sheet.",
+  "scripts": {
+    "pull": "node pull.mjs"
+  },
+  "dependencies": {
+    "google-auth-library": "^11.3.2",
+    "googleapis": "^189.0.0"
+  }
+}
