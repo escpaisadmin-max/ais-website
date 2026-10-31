@@ -48,10 +48,10 @@ body {
 /* Logo banner animation */
 @keyframes scroll-left {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(calc(-1 * var(--loop-distance)), 0, 0);
   }
 }
 
@@ -66,10 +66,10 @@ body {
 /* Logo banner — reverse direction */
 @keyframes scroll-right {
   0% {
-    transform: translateX(-50%);
+    transform: translate3d(calc(-1 * var(--loop-distance)), 0, 0);
   }
   100% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -83,6 +83,7 @@ body {
 
 .logo-track {
   width: fit-content;
+  will-change: transform;
 }
 
 .logo-row:has(a:focus-visible) .logo-track {

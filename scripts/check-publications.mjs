@@ -6,7 +6,7 @@
 //
 // Exit code 1 when there are errors (warnings alone exit 0). Used by the daily publication check task.
 import { createHash } from "node:crypto";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { libraries, textPath, publicationPath } from "../src/lib/publications.js";
 import { siteOrigin, sitePages } from "../src/data/pageMetadata.js";
 
@@ -74,6 +74,16 @@ for (const library of Object.values(libraries)) {
       } catch (error) {
         add("error", library.key, id, `live check failed: ${error.message}`, "retry; check the site is up");
       }
+    }
+  }
+  // Files left behind after a PDF was removed from Drive still answer at their old URL.
+  const ids = new Set(library.items.map((item) => item.id));
+  for (const sub of ["pdf", "originals", "text"]) {
+    const dir = file(`/public/${library.folder}/${sub}/`);
+    if (!existsSync(dir)) continue;
+    for (const name of readdirSync(dir)) {
+      const id = name.replace(/\.(pdf|json)$/i, "");
+      if (name !== id && !ids.has(id)) add("error", library.key, id, `public/${library.folder}/${sub}/${name} has no publication entry (removed from Drive?)`, "delete the leftover file (the Drive sync now does this)");
     }
   }
 }
