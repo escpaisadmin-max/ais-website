@@ -24,8 +24,8 @@
 
 /**
  * Team & Alumni Track Record: where AIS members have worked or will work.
- * Only S-tier names, and few of them (Max, Oct 2026): this is a highlight reel, not a list of
- * every employer. Logos come from the AIS logo library (navy versions, Desktop/AIS/Assets/Logos).
+ * Mostly S-tier names plus a few hand-picked A-tier ones, and few overall (Max, Oct 2026): this is a
+ * highlight reel, not a list of every employer. Logos come from the AIS logo library (navy versions, Desktop/AIS/Assets/Logos).
  */
 export const trackRecord = [
   { id: "blackstone", name: "Blackstone", logo: "/logos/optimized/Blackstone.webp", logoWidth: 400, logoHeight: 64, eventSlug: null },
@@ -35,11 +35,15 @@ export const trackRecord = [
   { id: "bain", name: "Bain & Company", logo: "/logos/optimized/Bain.webp", logoWidth: 480, logoHeight: 52, eventSlug: null },
   { id: "rothschild", name: "Rothschild", logo: "/logos/optimized/Rothschild.webp", logoWidth: 1000, logoHeight: 165, eventSlug: null },
   { id: "ardian", name: "Ardian", logo: "/logos/optimized/Ardian.webp", logoWidth: 400, logoHeight: 58, eventSlug: null },
+  { id: "hines", name: "Hines", logo: "/logos/optimized/Hines.webp", logoWidth: 399, logoHeight: 120, eventSlug: null },
   { id: "ubs", name: "UBS", logo: "/logos/optimized/UBS.webp", logoWidth: 311, logoHeight: 120, eventSlug: null },
   { id: "general-catalyst", name: "General Catalyst", logo: "/logos/optimized/GeneralCatalyst.webp", logoWidth: 533, logoHeight: 187, eventSlug: null },
+  { id: "deutsche-bank", name: "Deutsche Bank", logo: "/logos/optimized/DeutscheBank.webp", logoWidth: 1600, logoHeight: 364, eventSlug: null },
   { id: "jefferies", name: "Jefferies", logo: "/logos/optimized/Jefferies.webp", logoWidth: 1600, logoHeight: 392, eventSlug: null },
+  { id: "lincoln", name: "Lincoln International", logo: "/logos/optimized/LincolnInternational.webp", logoWidth: 399, logoHeight: 70, eventSlug: null },
   { id: "bcg", name: "BCG", logo: "/logos/optimized/BCG.webp", logoWidth: 265, logoHeight: 108, eventSlug: null },
   { id: "advent", name: "Advent", logo: "/logos/optimized/Advent.webp", logoWidth: 400, logoHeight: 34, eventSlug: null },
+  { id: "macquarie", name: "Macquarie", logo: "/logos/optimized/Macquarie.webp", logoWidth: 757, logoHeight: 155, eventSlug: null },
 ];
 
 /** Industry Collaborators */
