@@ -111,3 +111,7 @@ The project directory has a trailing space in its name (`AIS website `). The `Re
 - Do not commit `node_modules/`, `dist/`, or `.DS_Store` (covered by `.gitignore`).
 - Do not commit working files (PPTX, DOCX, XLSX, outlines, drafts). Only final PDFs.
 - Remote: `origin` → `https://github.com/escpaisadmin-max/ais-website`
+
+## Search Console data
+
+Google Search Console data for escpais.com lands every Monday in the private sheet "AIS Search Console data" (Drive: AIS Website Content). How it works and who has access: `ops/search-console/README.md`.
