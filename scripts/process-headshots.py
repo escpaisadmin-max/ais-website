@@ -2,15 +2,23 @@
 """Turn raw headshot uploads into consistent team-page photos.
 
 Each photo is rotated upright (EXIF), cropped to the 3:4 portrait shape used by the
-team cards around the detected face (head in the upper third), resized to 900x1200
-and saved as a progressive JPEG in public/team/<slug>.jpg.
+team cards, resized to 900x1200 and saved as a progressive JPEG in public/team/<slug>.jpg.
+
+Faces are aligned by the eyes, so every card in a row shows the eyes at the same height
+and at the same size:
+  - the eye line sits at EYE_LINE (34%) of the card height;
+  - the distance between the eyes is EYE_SPACING (19%) of the card width.
+If the original doesn't reach far enough (for example it ends at the shoulders), the eye
+line may move between 32% and 36%; after that the crop gets tighter and the face larger,
+by at most 15%. A photo that still doesn't fit should be replaced with a less tightly framed one.
 
 Usage:
   python3 scripts/process-headshots.py <mapping.csv>
 
-mapping.csv has no header: <path to raw image>,<slug>[,<face share of crop height, default 0.38>]
-Raise the face share (e.g. 0.5) to crop tighter, for example for small faces or round profile screenshots.
-Requires Pillow and opencv-python 4.x (without it, or on OpenCV 5, crops fall back to the top centre).
+mapping.csv has no header: <path to raw image>,<slug>[,<output file name, default <slug>.jpg>]
+Requires Pillow and opencv-python 4.x. The YuNet face model (scripts/models/) gives the
+eye positions; without it the script falls back to a Haar face box, which is less exact.
+Check the result visually: a wrong detection (a face in the background, a hand) breaks the crop.
 """
 import csv
 import sys
@@ -30,53 +38,79 @@ try:
 except ImportError:
     pass
 
-OUT_DIR = Path(__file__).resolve().parent.parent / "public" / "team"
+ROOT = Path(__file__).resolve().parent.parent
+OUT_DIR = ROOT / "public" / "team"
+YUNET = Path(__file__).resolve().parent / "models" / "face_detection_yunet_2023mar.onnx"
 WIDTH, HEIGHT = 900, 1200
 RATIO = WIDTH / HEIGHT
+EYE_LINE = 0.34
+EYE_LINE_RANGE = (0.32, 0.36)
+EYE_SPACING = 0.19
+MAX_TIGHTEN = 1.15
 
 
-def largest_face(image):
-    if cv2 is None or not hasattr(cv2, "CascadeClassifier"):  # OpenCV 5 dropped Haar cascades; use opencv-python 4.x.
+def detect_eyes(image):
+    """Return (eye_x, eye_y, eye_distance) in image pixels, or None."""
+    if cv2 is None:
         return None
-    gray = cv2.cvtColor(np.array(image.convert("RGB")), cv2.COLOR_RGB2GRAY)
-    cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
-    faces = cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=6, minSize=(60, 60))
-    if len(faces) == 0:
-        return None
-    return max(faces, key=lambda f: f[2] * f[3])
-
-
-def crop_box(image, face, face_share=0.38):
     w, h = image.size
-    if face is None:
+    scale = min(1.0, 1000 / max(w, h))
+    small = image.resize((max(1, int(w * scale)), max(1, int(h * scale))))
+    bgr = cv2.cvtColor(np.array(small), cv2.COLOR_RGB2BGR)
+    if YUNET.exists() and hasattr(cv2, "FaceDetectorYN"):
+        detector = cv2.FaceDetectorYN.create(str(YUNET), "", (bgr.shape[1], bgr.shape[0]), 0.7)
+        _, faces = detector.detect(bgr)
+        if faces is not None and len(faces):
+            f = max(faces, key=lambda r: r[2] * r[3]) / scale
+            rx, ry, lx, ly = f[4:8]
+            return (rx + lx) / 2, (ry + ly) / 2, float(np.hypot(lx - rx, ly - ry))
+    if hasattr(cv2, "CascadeClassifier") and hasattr(cv2, "data"):
+        # Fallback: estimate the eyes from a Haar face box (eyes at about 40% of its height, 40% of its width apart).
+        gray = cv2.cvtColor(bgr, cv2.COLOR_BGR2GRAY)
+        cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        faces = cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=6, minSize=(40, 40))
+        if len(faces):
+            fx, fy, fw, fh = (v / scale for v in max(faces, key=lambda r: r[2] * r[3]))
+            return fx + fw / 2, fy + fh * 0.4, fw * 0.4
+    return None
+
+
+def crop_box(image, eyes):
+    w, h = image.size
+    if eyes is None:
         # No face found: keep the top of the photo, where heads usually are.
         crop_w = min(w, h * RATIO)
         crop_h = crop_w / RATIO
         left = (w - crop_w) / 2
         top = max(0, min(h - crop_h, h * 0.05))
         return (left, top, left + crop_w, top + crop_h)
-    fx, fy, fw, fh = face
-    # The face should take roughly 38% of the crop height, centred, with its middle at 38% from the top.
-    crop_h = min(h, max(fh / face_share, fh * 1.6))
+    ex, ey, spacing = eyes
+    crop_w = spacing / EYE_SPACING
+    crop_h = crop_w / RATIO
+    lo, hi = EYE_LINE_RANGE
+    # Largest crop (up to the ideal size) that stays inside the photo for a given eye line.
+    def fits(line):
+        return min(crop_h, ey / line, (h - ey) / (1 - line), w / RATIO)
+    # Prefer the ideal eye line; move it within its range only if that allows a less tight crop.
+    candidates = [lo + i * (hi - lo) / 20 for i in range(21)]
+    line = max(candidates, key=lambda c: (round(fits(c), 3), -abs(c - EYE_LINE)))
+    # Never zoom in more than MAX_TIGHTEN beyond the ideal size; past that, the eye line gives way instead
+    # (such a photo has too little room around the head and should be replaced).
+    crop_h = min(max(fits(line), crop_h / MAX_TIGHTEN), h, w / RATIO)
     crop_w = crop_h * RATIO
-    if crop_w > w:
-        crop_w = w
-        crop_h = crop_w / RATIO
-    cx = fx + fw / 2
-    cy = fy + fh / 2
-    left = min(max(0, cx - crop_w / 2), w - crop_w)
-    top = min(max(0, cy - crop_h * 0.38), h - crop_h)
+    left = min(max(0, ex - crop_w / 2), w - crop_w)
+    top = min(max(0, ey - line * crop_h), h - crop_h)
     return (left, top, left + crop_w, top + crop_h)
 
 
-def process(src, slug, face_share=0.38):
+def process(src, slug, out_name=None):
     image = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
-    face = largest_face(image)
-    box = crop_box(image, face, face_share)
+    eyes = detect_eyes(image)
+    box = crop_box(image, eyes)
     out = image.crop(tuple(round(v) for v in box)).resize((WIDTH, HEIGHT), Image.LANCZOS)
-    target = OUT_DIR / f"{slug}.jpg"
+    target = OUT_DIR / (out_name or f"{slug}.jpg")
     out.save(target, "JPEG", quality=82, optimize=True, progressive=True)
-    return target, face is not None
+    return target, eyes is not None, box
 
 
 def main():
@@ -85,9 +119,11 @@ def main():
     with open(sys.argv[1], newline="", encoding="utf-8") as handle:
         for row in csv.reader(handle):
             src, slug = row[0], row[1]
-            share = float(row[2]) if len(row) > 2 and row[2] else 0.38
-            target, found = process(src, slug, share)
-            print(f"{slug}: {target.stat().st_size // 1024} KB, face {'found' if found else 'NOT found, check crop'}")
+            out_name = row[2] if len(row) > 2 and row[2] else None
+            target, found, box = process(src, slug, out_name)
+            upscale = WIDTH / (box[2] - box[0])
+            note = f", upscaled {upscale:.1f}x" if upscale > 1.5 else ""
+            print(f"{slug}: {target.stat().st_size // 1024} KB, face {'found' if found else 'NOT found, check crop'}{note}")
 
 
 if __name__ == "__main__":
