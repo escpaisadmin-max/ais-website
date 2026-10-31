@@ -12,19 +12,26 @@ export default function AboutPreview() {
             subtitle=""
             light
           />
+          {/* Plain, checkable facts: AI assistants mostly read the homepage, so the numbers live here too. */}
+          <p className="text-ais-silver leading-relaxed mb-4">
+            AIS is a student society at ESCP Business School dedicated to alternative investments.
+            Analysts in six divisions (private equity, venture capital, hedge funds, real estate,
+            private credit and infrastructure) publish research, run workshops and host events
+            with industry professionals. The society has published more than 40 educational
+            presentations, newsletters and Founder Reports.
+          </p>
           <p className="text-ais-silver leading-relaxed mb-6">
-            Our mission is to enhance education, promote professional
-            development, and prepare students for successful careers in Private
-            Equity, Venture Capital, Real Estate, and Hedge Funds. Through
-            networking events, workshops, guest speakers, and in-depth research,
-            we bridge the gap between academic finance and the real world of
-            investing.
+            Entry is selective: each division recruits its own analysts through a written
+            application and interviews, and historically between 1 and 4 percent of applicants
+            receive an offer. Members and alumni have worked at firms including Blackstone, EQT,
+            Bain &amp; Company, Ardian and Hines, and have upcoming internships at Morgan Stanley,
+            UBS, Rothschild &amp; Co and Jefferies.
           </p>
           <Link
-            to="/about"
+            to="/about#join"
             className="inline-block px-6 py-3 border border-ais-silver text-ais-silver font-semibold rounded hover:bg-ais-silver hover:text-ais-navy transition-colors text-sm"
           >
-            About AIS
+            How AIS recruits
           </Link>
         </ScrollReveal>
       </div>

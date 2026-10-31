@@ -6,7 +6,7 @@ const siteName = "ESCP Alternative Investment Society";
 const image = `${siteOrigin}/social-preview.png`;
 
 const sections = [
-  ["/", "AIS | ESCP Alternative Investment Society", "Explore ESCP's Alternative Investment Society: educational publications, investment insights, industry events, and our student community."],
+  ["/", "AIS | ESCP Alternative Investment Society", "Student society at ESCP for alternative investments: six research divisions, 40+ publications, and selective entry, with 1 to 4 percent of applicants receiving an offer."],
   ["/newsletters", "Newsletters", "Market trends, investment insights, and industry case studies across alternative assets from ESCP's Alternative Investment Society."],
   ["/presentations", "Publications & Educational Resources", "Educational resources, technical guides, and industry deep dives covering private equity, venture capital, hedge funds, and real estate."],
   ["/founder-report", "Founder Report", "Data-driven reports on ESCP's founders, startups, and investor ecosystem from the Alternative Investment Society."],
@@ -72,7 +72,7 @@ const organization = {
   alternateName: ["AIS", "ESCP AIS"],
   url: `${siteOrigin}/`,
   logo: { "@type": "ImageObject", url: `${siteOrigin}/ais-logo-512.png`, width: 512, height: 512 },
-  description: "Student society at ESCP Business School focused on alternative investments: private equity, venture capital, hedge funds, real estate, private credit and infrastructure.",
+  description: "Selective student society at ESCP Business School focused on alternative investments: private equity, venture capital, hedge funds, real estate, private credit and infrastructure. Historically between 1 and 4 percent of applicants receive an offer.",
   parentOrganization: { "@type": "CollegeOrUniversity", name: "ESCP Business School", url: "https://escp.eu/" },
   sameAs: ["https://www.linkedin.com/company/escpais/", "https://campuslife.escp.eu/ldnrealestate/home/"],
 };
