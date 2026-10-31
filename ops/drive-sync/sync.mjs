@@ -17,7 +17,7 @@ import { promisify } from "node:util";
 import { PDFDocument } from "pdf-lib";
 
 import {
-  ROOT_FOLDER_ID, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES, GOOGLE_PDF_EXPORTABLE, PUBLISHING_FOLDER,
+  ROOT_FOLDER_ID, PDF_CATEGORIES, EVENTS_CONFIG, IMAGE_MIMES, GOOGLE_PDF_EXPORTABLE, PUBLISHING_FOLDER, REPO_ROOT,
 } from "./config.mjs";
 import {
   getDrive, listChildren, findFolder, isFolder, fetchAsPdf, fetchBinary,
@@ -164,6 +164,17 @@ async function syncPdfCategory(drive, cat) {
       entries,
     })
   );
+  // A file removed from Drive leaves the site: delete its PDFs too, so the old URL
+  // stops serving a copy that no page lists (extract_text.py then drops its text).
+  const keep = new Set(records.map((r) => r.pdfFilename));
+  for (const dir of [cat.pdfDir, originalsDir]) {
+    for (const name of await fs.readdir(dir)) {
+      if (name.toLowerCase().endsWith(".pdf") && !keep.has(name)) {
+        await fs.rm(path.join(dir, name), { force: true });
+        log(`  ${cat.key}: removed ${path.relative(REPO_ROOT, path.join(dir, name))} (no longer in Drive)`);
+      }
+    }
+  }
   return { wrote: true, count: entries.length };
 }
 
