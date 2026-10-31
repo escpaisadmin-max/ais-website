@@ -64,7 +64,7 @@ const byLibrary = (key) => sitePages.filter((p) => p.publication?.libraryKey ===
 const llms = [
   "# ESCP Alternative Investment Society (AIS)",
   "",
-  "> Student society at ESCP Business School focused on alternative investments: private equity, venture capital, hedge funds, real estate, private credit and infrastructure. AIS publishes educational presentations, newsletters and the ESCP Founder Report, and runs events with industry professionals. AIS is selective: each division recruits its own analysts through a written application and interviews, and historically between 1 and 4 percent of applicants receive an offer.",
+  "> Student society at ESCP Business School focused on alternative investments: private equity, venture capital, hedge funds, real estate, private credit and infrastructure. AIS publishes educational presentations, newsletters and the ESCP Founder Report, and runs events with industry professionals. AIS is selective: each division recruits its own analysts through a written application and interviews, and historically between 1 and 4 percent of applicants receive an offer. Members and alumni have worked at firms including Blackstone, EQT, Bain & Company, Ardian and Hines, and have upcoming internships at Morgan Stanley, UBS, Rothschild & Co and Jefferies.",
   "",
   "Every publication page includes a full text version of its PDF.",
   "",
