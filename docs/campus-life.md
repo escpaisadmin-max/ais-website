@@ -27,6 +27,18 @@ You don't need to mirror single publications, events, newsletters or team member
 
 To get edit rights on another campus group, ask that campus's student life office to add the AIS officer as a group officer.
 
+## Campus contacts and how to get listed (checked 31 Oct 2026)
+
+| Campus | Contact | Process |
+|---|---|---|
+| Berlin | Student Societies Manager, studentsocieties.berlin@escp.eu | The AIS group exists (campuslife.escp.eu/AIS) but has **no officers**. Email to have an AIS officer added and the society list text updated. |
+| London | "How to set up a new society" form on campuslife.escp.eu/sxlondon | AIS is already registered. Officers can be added from the group's Members page. |
+| Turin | Sara Guarino, sguarino@escp.eu (named on escp.eu/turin/student-societies) | Application form (closed as of Oct 2026), meeting with a Student Experience officer, Student Society Jury, decision. Societies with a similar focus can't coexist, and Turin already has the Finance Society and ESCP Students for Finance, so the request has to argue that alternative investments is a distinct focus (precedent: London lists AIS next to finance societies). |
+| Paris | Paris Student Societies team, studentlife-paris@escp.eu | Application window 1 to 30 September each year. Must be registered as a French "association loi 1901"; at least three board members staying in Paris for a full academic year, one fluent in French; liability insurance (about 100 € a year); must not overlap with an existing Paris society. Recognition can take up to 6 months. |
+| Madrid | societiesmadrid@escp.eu | "New Student Society Request" form on campuslife.escp.eu/sxmadrid (deadline 21 September). Needs a member list with roles and student numbers, and a commitment to continuity and at least one event per academic year. |
+
+The escp.eu campus pages (for example escp.eu/berlin/student-societies) are run by the same campus teams, so ask for those in the same email.
+
 ## How to edit the London page
 
 The whole page is one custom HTML widget (widget 12836), not the drag and drop page builder. Editing it in "Edit Web Pages" won't work, because the text there isn't editable.
