@@ -8,13 +8,15 @@
  * 2. Name the file in lowercase-kebab-case (e.g., "jane-doe.jpg"); avoid spaces in filenames
  * 3. Add a new entry to the relevant section below
  *
- * BIO FORMAT (keep every bio in this shape, about 40 to 80 words):
- * 1. "[First name] is [AIS role] at AIS."
- * 2. One or two sentences on real work experience (internships, jobs, ventures founded):
- *    "During his/her time at the society, ..." or "Prior to joining the society, ..."
- *    Leave out virtual experience programmes, certificates, pre-college courses and shadowing.
- * 3. Optional: the next confirmed role, e.g. "He will join UBS in London as a Summer Analyst in summer 2027."
- * 4. "[First name] is a [nationality] national who speaks [languages]."
+ * BIO FORMAT (keep every bio in this shape, about 35 to 60 words; check LinkedIn when updating):
+ * 1. "[First name] is [AIS role] at AIS." Founders: "[First name] is a Co-Founder and former [role] of AIS."
+ * 2. Current role, if any: "He works in [team] at [firm] in [city]." / "She is a [role] at [firm]."
+ * 3. Past experience as plain facts, most relevant first, at most three firms:
+ *    "He interned in [team] at [firm] in [city], ... and ..." or "He previously worked in ..."
+ *    No "during his time at the society" or "prior to joining the society", no descriptions of
+ *    individual projects, no virtual programmes, certificates, pre-college courses or shadowing.
+ * 4. Optional: the next confirmed role, e.g. "He will join UBS in London as a Summer Analyst in summer 2027."
+ * 5. "[First name] is a [nationality] national who speaks [languages]."
  *
  * NOTE: Within each division, the Head should always be the FIRST entry.
  *
@@ -29,7 +31,7 @@ const joschka = {
   photo: "/team/joschka-feuerstein.jpg",
   linkedin: "https://www.linkedin.com/in/joschka-feuerstein-68796b238/",
   email: null,
-  bio: "Joschka is President of AIS and Head of Private Equity. During his time at the society, he gained experience at Bain & Company, where he worked as an Intern in Munich on the strategic transformation of a leading German semiconductor manufacturer. He will join UBS in London as a Global Banking Summer Analyst in summer 2027. Joschka is a German national who speaks German and English.",
+  bio: "Joschka is President of AIS and Head of Private Equity. He interned in strategy consulting at Bain & Company in Munich, in Strategy & Transactions at EY-Parthenon in Frankfurt and at KPMG. He will join UBS in London as a Global Banking Summer Analyst in summer 2027. Joschka is a German national who speaks German and English.",
 };
 
 const maxHenkes = {
@@ -37,7 +39,7 @@ const maxHenkes = {
   photo: "/team/max-henkes-2026.jpg",
   linkedin: "https://www.linkedin.com/in/maxhenkeshireme/",
   email: null,
-  bio: "Max is Vice President of AIS and a Hedge Funds Analyst. He gained venture capital experience at MätchVC, a deep tech pre-seed and seed fund in Stuttgart, where he worked on sourcing, due diligence and investment memos across quantum, photonics, robotics and AI infrastructure. Before that, he was a Business Intern at AnyDesk. Max is a German national who speaks German, English, Russian and French.",
+  bio: "Max is Vice President of AIS and a Hedge Funds Analyst. He was a Venture Capital Analyst Intern at MätchVC, a deep tech pre-seed and seed fund in Stuttgart, and before that a Business Intern at AnyDesk. Max is a German national who speaks German, English, Russian and French.",
 };
 
 const samuel = {
@@ -45,7 +47,7 @@ const samuel = {
   photo: "/team/samuel-barta.jpg",
   linkedin: "https://www.linkedin.com/in/samuel-barta-43b807339/",
   email: null,
-  bio: "Samuel is Head of the Real Assets Group at AIS, leading the Real Estate and Infrastructure divisions, and is part of the Events team, where he runs Spring Week Insights. During his time at the society, he gained experience at Minor International as a Finance Intern in the Group CFO's Office in Thailand. Samuel is an Australian and Slovak national who speaks English, Czech and Slovak.",
+  bio: "Samuel is Head of the Real Assets Group at AIS, leading the Real Estate and Infrastructure divisions, and runs Spring Week Insights. He interned in the Group CFO's Office at Minor International in Bangkok and co-founded MRstrategies. Samuel is an Australian and Slovak national who speaks English, Czech and Slovak.",
 };
 
 // ── Founding Team (max 5) ──────────────────────────────────────────
@@ -56,7 +58,7 @@ export const founders = [
     photo: "/team/noah-junger.jpg",
     linkedin: "https://www.linkedin.com/in/noah-junger-b53b1620a",
     email: null,
-    bio: "Noah is a Co-Founder and former President of AIS. During his time at the society, he gained experience at EQT Group, where he worked in the Real Estate Acquisitions team in London. Noah is a German national who speaks German and English.",
+    bio: "Noah is a Co-Founder and former President of AIS. He works in Private Equity Real Estate at Blackstone in London. He previously worked in Private Equity Real Estate at EQT and Hines, and in Tech M&A at GP Bullhound. Noah is a German national who speaks German and English.",
     division: "founders",
   },
   {
@@ -65,7 +67,7 @@ export const founders = [
     photo: "/team/julius-majowski.jpg",
     linkedin: "https://www.linkedin.com/in/juliusmajowski/",
     email: null,
-    bio: "Julius is a Co-Founder and former President of AIS. During his time at the society, he gained M&A experience at Herax Partners and Lincoln International. He will join Jefferies, Rothschild & Co. and Qatalyst Partners for M&A internships. Julius is a German national who speaks English, German, Spanish and French.",
+    bio: "Julius is a Co-Founder and former President of AIS. He interned in Tech M&A at Lincoln International, in M&A at Herax Partners in London and in the CEO Office at Enpal. He will join Jefferies, Rothschild & Co. and Qatalyst Partners for M&A internships. Julius is a German national who speaks English, German, Spanish and French.",
     division: "founders",
   },
   {
@@ -74,7 +76,7 @@ export const founders = [
     photo: "/team/lukas-de-la-trobe.jpg",
     linkedin: "https://www.linkedin.com/in/lukas-de-la-trobe",
     email: null,
-    bio: "Lukas is a Co-Founder and former Vice-President of AIS. During his time at the society, he gained experience across consulting and M&A at zeb and Herax Partners. He is currently a Private Equity Intern at Cathay Capital in Munich. Lukas is a German national who speaks German and English.",
+    bio: "Lukas is a Co-Founder and former Vice-President of AIS. He is a Private Equity Intern in Tech Growth & Buyout at Cathay Capital in Munich. He previously interned in M&A at Herax Partners in London and in strategy consulting at zeb. Lukas is a German national who speaks German and English.",
     division: "founders",
   },
   {
@@ -83,7 +85,7 @@ export const founders = [
     photo: "/team/david-reuther.jpg",
     linkedin: "https://www.linkedin.com/in/reuther/",
     email: null,
-    bio: "David is a Co-Founder and former Head of Private Equity at AIS. He has worked in M&A advisory and infrastructure private equity, and during his time at the society he gained experience in the Private Equity team at BNP Paribas. David is a German national who speaks German and English.",
+    bio: "David is a Co-Founder and former Head of Private Equity at AIS. He worked in private equity at Habanero Networks, R3 Asset Management Partners and BNP Paribas Asset Management, and in M&A advisory at Belgravia & Co. David is a German national who speaks German and English.",
     division: "founders",
   },
   {
@@ -92,7 +94,7 @@ export const founders = [
     photo: "/team/david-nenning.jpg",
     linkedin: "https://www.linkedin.com/in/david-nenning-7241b8277/",
     email: null,
-    bio: "David is a Co-Founder and former Head of Venture Capital at AIS. During his time at the society, he gained experience at Stern & Stewart, where he worked in the strategy team in Munich. David is a German national who speaks English and German.",
+    bio: "David is a Co-Founder and former Head of Venture Capital at AIS. He works as a Programme Analyst at Helsing in Munich. He previously worked in strategy consulting at Stern Stewart & Co., in M&A at Transfer Partners and as a VC Analyst at Innovis VC. David is a German national who speaks English and German.",
     division: "founders",
   },
 ];
@@ -115,7 +117,7 @@ export const divisions = {
         photo: "/team/pia-marie-kraus.jpg",
         linkedin: "https://www.linkedin.com/in/pia-marie-kraus",
         email: null,
-        bio: "Pia-Marie is a Private Equity Analyst at AIS. During her time at the society, she gained experience in the Corporate Finance team at Fresenius in Germany, completed Deutsche Bank's Spring Week Programme in Frankfurt and previously interned at Ashurst. She will join Deutsche Bank as an Equity Research Intern in summer 2027. Pia-Marie is a German national who speaks German, English, French and Spanish.",
+        bio: "Pia-Marie is a Private Equity Analyst at AIS. She interned in Corporate Finance at Fresenius, completed Deutsche Bank's investment banking Spring Internship in Frankfurt and interned at Ashurst. She will join Deutsche Bank as an Equity Research Intern in summer 2027. Pia-Marie is a German national who speaks German, English, French and Spanish.",
         division: "pe",
       },
       {
@@ -124,7 +126,7 @@ export const divisions = {
         photo: "/team/faisal-abu-ghoush.jpg",
         linkedin: "https://www.linkedin.com/in/faisalabughoush/",
         email: null,
-        bio: "Faisal is a Private Equity Analyst at AIS. He is the founder of Intrivalo, an equity valuation platform launched in 2026, and in 2025 co-founded Ajyal Collective, a not-for-profit that publishes independent equity research across five sectors. Faisal is a Jordanian and Canadian national who speaks Arabic and English.",
+        bio: "Faisal is a Private Equity Analyst at AIS. He founded Intrivalo, an equity valuation platform, and co-founded Ajyal Collective, a not-for-profit that publishes independent equity research. Faisal is a Jordanian and Canadian national who speaks Arabic and English.",
         division: "pe",
       },
       {
@@ -133,7 +135,7 @@ export const divisions = {
         photo: "/team/leanne-louise.jpg",
         linkedin: "https://www.linkedin.com/in/leannel7",
         email: null,
-        bio: "Leanne is a Private Equity Analyst at AIS. Prior to joining the society, she took part in programmes at Big Four firms and volunteers at Private Equity Insights. Leanne speaks English and French.",
+        bio: "Leanne is a Private Equity Analyst at AIS. She was a Research Assistant at Cambridge Judge Business School and took part in programmes at Big Four firms. Leanne speaks English and French.",
         division: "pe",
       },
       {
@@ -142,7 +144,7 @@ export const divisions = {
         photo: "/team/ilian-rouibi.jpg",
         linkedin: "https://www.linkedin.com/in/iroubi75/",
         email: null,
-        bio: "Ilian is a Private Equity Analyst at AIS. Since October 2026 he has been an M&A Analyst at Vantedge and MergerSight. Before that, he was a Private Equity Spring Analyst at Ardian, an M&A Analyst intern at KPMG Deal Advisory and a Financial Analyst intern at BYD Europe. Ilian is a French and Algerian national who speaks French and English.",
+        bio: "Ilian is a Private Equity Analyst at AIS. He is an M&A Analyst at Vantedge and MergerSight. Before that, he was a Spring Intern at Ardian, an M&A Analyst Intern in Deal Advisory at KPMG and a Financial Analyst Intern at BYD. Ilian is a French and Algerian national who speaks French and English.",
         division: "pe",
       },
     ],
@@ -156,7 +158,7 @@ export const divisions = {
         photo: "/team/florian-trepetschnigg.jpg",
         linkedin: "https://www.linkedin.com/in/florian-trepetschnigg/",
         email: null,
-        bio: "Florian is Head of Venture Capital at AIS. Before joining the society, he co-founded Hoodit, a B2B platform digitising merchandise projects that was acquired in 2023. He gained venture capital experience at Elevator Ventures, worked in private credit at Allianz Global Investors, and since summer 2026 has been part of the go-to-market team at Plato, an Atomico-backed AI sales intelligence platform. Florian is an Austrian national who speaks German and English.",
+        bio: "Florian is Head of Venture Capital at AIS. He works in go-to-market at Plato, an AI sales intelligence platform in Berlin. He previously worked in private credit at Allianz Global Investors and in venture capital at Elevator Ventures, and co-founded Hoodit, a merchandise platform acquired in 2023. Florian is an Austrian national who speaks German and English.",
         division: "vc",
       },
       {
@@ -165,7 +167,7 @@ export const divisions = {
         photo: "/team/jasper-hadre.jpg",
         linkedin: "https://www.linkedin.com/in/jasperhadre/",
         email: null,
-        bio: "Jasper is a Venture Capital Analyst at AIS. From November 2025 to September 2026 he was Chief of Staff and Investor at Revent, a European impact VC fund. He previously worked in management consulting at e.venture, in go-to-market at Sequoia-backed Knowde in New York, and as a Founders Associate at the Berlin healthtech company Mirantus. Jasper is a German national who speaks German, English and Spanish.",
+        bio: "Jasper is a Venture Capital Analyst at AIS. He was Chief of Staff at Revent, a European impact VC fund in Berlin. He previously worked in go-to-market at Knowde in New York, in consulting at e.venture and as a Founders Associate at Mirantus Health. Jasper is a German national who speaks German, English and Spanish.",
         division: "vc",
       },
       {
@@ -174,7 +176,7 @@ export const divisions = {
         photo: "/team/david-kindt.jpg",
         linkedin: "https://www.linkedin.com/in/d-kindt/",
         email: null,
-        bio: "David is a Venture Capital Analyst at AIS. During his time at the society, he gained experience in the Business Innovation & Ventures team at Axel Springer, working on venture evaluation and M&A due diligence. He is currently part of the START programme at Blue Factory, ESCP's incubator. David is a German national who speaks German and English.",
+        bio: "David is a Venture Capital Analyst at AIS. He interned in business innovation and corporate venture capital at Axel Springer in Berlin and is part of the START programme at Blue Factory, ESCP's incubator. David is a German national who speaks German and English.",
         division: "vc",
       },
       {
@@ -183,7 +185,7 @@ export const divisions = {
         photo: "/team/kaspar-benedikt.jpg",
         linkedin: "https://www.linkedin.com/in/kaspar-benedikt",
         email: null,
-        bio: "Kaspar is a Venture Capital Analyst at AIS. Prior to joining the society, he interned in Deal Advisory (Valuation) at KPMG in Vienna. Kaspar is an Austrian national who speaks German, English and Spanish.",
+        bio: "Kaspar is a Venture Capital Analyst at AIS. He interned in Valuation at KPMG in Vienna, was a trainee at Innovis VC in Berlin and worked as a consultant at 180 Degrees Consulting. Kaspar is an Austrian national who speaks German, English and Spanish.",
         division: "vc",
       },
       {
@@ -192,7 +194,7 @@ export const divisions = {
         photo: "/team/geraldine-beaud.jpg",
         linkedin: "https://www.linkedin.com/in/geraldine-beaud",
         email: null,
-        bio: "Géraldine is a Venture Capital Analyst at AIS. Prior to joining the society, she interned at Atlantic VC in Berlin, where she supported the investment team and focused on university spinouts in the Swiss deep tech ecosystem. Géraldine is a Swiss national who speaks German, French, Spanish and English.",
+        bio: "Géraldine is a Venture Capital Analyst at AIS. She was a Visiting Analyst at Atlantic, a venture capital fund in Berlin, where she focused on university spinouts in the Swiss deep tech ecosystem. At 16 she co-founded a consumer goods brand, which she ran as COO. Géraldine is a Swiss national who speaks German, French, Spanish and English.",
         division: "vc",
       },
     ],
@@ -206,7 +208,7 @@ export const divisions = {
         photo: "/team/david-billiet.jpg",
         linkedin: "https://www.linkedin.com/in/david-billiet/",
         email: null,
-        bio: "David is Head of Hedge Funds at AIS. During his time at the society, he gained experience at The Citco Group, where he worked as a Summer Intern in Private Markets Services in London. Previously, he was a Summer Intern in Portfolio Value Creation at Olaplex, backed by Advent International, in London. David is a Swiss and Irish national who speaks English and French.",
+        bio: "David is Head of Hedge Funds at AIS. He interned in Private Markets at The Citco Group in London and in Portfolio Value Creation at Olaplex, an Advent International portfolio company. David is a Swiss and Irish national who speaks English and French.",
         division: "hf",
       },
       { ...maxHenkes, role: "Analyst", division: "hf" },
@@ -216,7 +218,7 @@ export const divisions = {
         photo: "/team/annabel-howard.jpg",
         linkedin: "https://www.linkedin.com/in/annabel-howard-040b53333/",
         email: null,
-        bio: "Annabel is a Hedge Funds Analyst at AIS. From May to July 2026, she interned in the Industrials and Capital Goods Coverage team at Crédit Agricole CIB in Frankfurt. She will join Morgan Stanley's Investment Banking Division in London as a Summer Analyst in summer 2027. Annabel is a German and Canadian national who speaks English, German and French.",
+        bio: "Annabel is a Hedge Funds Analyst at AIS. She interned in Coverage and Investment Banking at Crédit Agricole CIB in Frankfurt and in operations at start-ups in Paris and London. She will join Morgan Stanley's Investment Banking Division in London as a Summer Analyst in summer 2027. Annabel is a German and Canadian national who speaks English, German and French.",
         division: "hf",
       },
       {
@@ -225,7 +227,7 @@ export const divisions = {
         photo: "/team/kian-adham.jpg",
         linkedin: "https://www.linkedin.com/in/kianadham",
         email: null,
-        bio: "Kian is a Hedge Funds Analyst at AIS. He completed a corporate finance internship at BlomInvest Saudi Arabia in Riyadh, working on financial models and pitch materials for M&A and financing mandates, and was a credit analysis intern at Banco BAI Cabo Verde, where he extended the bank's internal credit model. Kian is an Austrian national who speaks German and English.",
+        bio: "Kian is a Hedge Funds Analyst at AIS. He interned in corporate finance at BlomInvest Saudi Arabia in Riyadh and in credit analysis at Banco BAI Cabo Verde. Kian is an Austrian national who speaks German and English.",
         division: "hf",
       },
       {
@@ -234,7 +236,7 @@ export const divisions = {
         photo: "/team/linus-deecke.jpg",
         linkedin: "https://www.linkedin.com/in/linusdeecke",
         email: null,
-        bio: "Linus is a Hedge Funds Analyst at AIS, focusing on equity research. Prior to joining the society, he took part in J.P. Morgan's Spring Week in London and gained experience in Portfolio Management at GLKB and in Finance at Novartis. He also has a background in professional volleyball. Linus is a Swiss and French national who speaks German, English and French.",
+        bio: "Linus is a Hedge Funds Analyst at AIS. He was a Spring Intern at J.P. Morgan in London and interned in Portfolio Management at Glarner Kantonalbank and in Finance at Novartis. He also played volleyball professionally in Switzerland. Linus is a Swiss and French national who speaks German, English and French.",
         division: "hf",
       },
       {
@@ -243,7 +245,7 @@ export const divisions = {
         photo: "/team/cian-michael-broderick.jpg",
         linkedin: "https://www.linkedin.com/in/cian-michael-broderick-687984349/",
         email: null,
-        bio: "Cian is a Hedge Funds Analyst at AIS. Prior to joining the society, he completed a finance and accounting internship at DoubleTree by Hilton and a legal internship at BSP in Luxembourg. Cian is an Irish and Luxembourgish national who speaks English, French, German and Luxembourgish.",
+        bio: "Cian is a Hedge Funds Analyst at AIS. He interned in corporate finance at DoubleTree by Hilton and in investment funds and corporate law at BSP in Luxembourg. Cian is an Irish and Luxembourgish national who speaks English, French, German and Luxembourgish.",
         division: "hf",
       },
     ],
@@ -258,7 +260,7 @@ export const divisions = {
         photo: "/team/hedi-zanzouri.jpg",
         linkedin: "https://www.linkedin.com/in/hedizanzouri/",
         email: null,
-        bio: "Hédi is a Real Estate Analyst at AIS. He was previously an Investment and Fund Management Analyst Intern at Principal Asset Management in Paris, a Hotel Investment Analyst Intern at Hova Hospitality, and an M&A Analyst Intern at B&B Hotels. Hédi is a French and Tunisian national who speaks French and English.",
+        bio: "Hédi is a Real Estate Analyst at AIS. He interned in Investment and Fund Management at Principal Asset Management in Paris, in hotel investment at Hova Hospitality and in M&A at B&B Hotels. Hédi is a French and Tunisian national who speaks French and English.",
         division: "re",
       },
       {
@@ -267,7 +269,7 @@ export const divisions = {
         photo: "/team/max-bruel.jpg",
         linkedin: "https://www.linkedin.com/in/max-bruel/",
         email: null,
-        bio: "Max is a Real Estate Analyst at AIS. He was a Real Estate Private Equity Summer Analyst at Azora Capital, focusing on senior living, and worked in hotel investments and asset management at Westmont Hospitality Group. Max speaks French, English and Spanish.",
+        bio: "Max is a Real Estate Analyst at AIS. He was a Real Estate Investments Summer Analyst at Azora in Madrid and interned in acquisitions and asset management at Westmont Hospitality Group in London. He also led the alternatives team of the UCL Investment Fund. Max speaks French, English and Spanish.",
         division: "re",
       },
       {
@@ -276,7 +278,7 @@ export const divisions = {
         photo: "/team/rafael-flaig.jpg",
         linkedin: "https://www.linkedin.com/in/rafael-flaig1",
         email: null,
-        bio: "Rafael is a Real Estate Analyst at AIS. In August 2025, he worked as a Finance & Investment Intern at RB Capital in Singapore, gaining experience in financial analysis, budgeting and real estate investments. Rafael is a German national who speaks German and English, with knowledge of Mandarin and French.",
+        bio: "Rafael is a Real Estate Analyst at AIS. He interned in finance and investment at RB Capital in Singapore. Rafael is a German national who grew up in Asia and speaks German and English, with knowledge of Mandarin and French.",
         division: "re",
       },
       {
@@ -285,7 +287,7 @@ export const divisions = {
         photo: "/team/solene-robinson.jpg",
         linkedin: "https://www.linkedin.com/in/solene-robinson",
         email: null,
-        bio: "Solene is a Real Estate Analyst at AIS. In summer 2026, she took part in the Girls Who Invest Investment Management Summer Intensive Program, where she gained experience with the real estate team. Solene is an American, French and British national who speaks English and French.",
+        bio: "Solene is a Real Estate Analyst at AIS. She is a Girls Who Invest scholar and gained experience with the real estate team during its Investment Management Summer Intensive. She was also a Program Associate intern at HEC Paris. Solene is an American, French and British national who speaks English and French.",
         division: "re",
       },
     ],
@@ -299,7 +301,7 @@ export const divisions = {
         photo: "/team/max-soderman.jpg",
         linkedin: "https://www.linkedin.com/in/maxsoederman",
         email: null,
-        bio: "Max is Head of Private Credit at AIS, having previously been part of the Venture Capital division from October 2025 to August 2026. From May to August 2026, he worked as a Debt Advisory Analyst at Kapitalförmedling in Stockholm. Max is a Swedish national who speaks Swedish and English.",
+        bio: "Max is Head of Private Credit at AIS, after a year in the Venture Capital division. He worked in debt advisory at Kapitalförmedling in Stockholm. Max is a Swedish national who speaks Swedish and English.",
         division: "pc",
       },
       {
@@ -308,7 +310,7 @@ export const divisions = {
         photo: "/team/gabriel-lustig.jpg",
         linkedin: "https://www.linkedin.com/in/gabriel-lustig-087986218",
         email: null,
-        bio: "Gabriel is a Private Credit Analyst at AIS. In summer 2026, he interned as a Data Analyst at Quartr, working with financial data on listed companies, and he previously worked as a Lending Officer at Swedbank, focusing on mortgage assessments and credit risk. Gabriel is a Swedish national who speaks Swedish and English.",
+        bio: "Gabriel is a Private Credit Analyst at AIS. He worked on the data team at Quartr for two years alongside his studies and was a Lending Officer at Swedbank in Stockholm, focusing on mortgage assessments and credit risk. Gabriel is a Swedish national who speaks Swedish and English.",
         division: "pc",
       },
       {
@@ -317,7 +319,7 @@ export const divisions = {
         photo: "/team/henry-mehring.jpg",
         linkedin: "https://www.linkedin.com/in/henry-mehring-4622b3422",
         email: null,
-        bio: "Henry is a Private Credit Analyst at AIS. He joined the society in the first year of his Bachelor's programme and plans to intern at a German M&A boutique in summer 2027. Henry is a German and American national who speaks German, English and French.",
+        bio: "Henry is a Private Credit Analyst at AIS. He interned in strategy and operations at Rent.Group in Frankfurt and has run his own business since 2023. Henry is a German and American national who speaks German, English and French.",
         division: "pc",
       },
     ],
@@ -332,7 +334,7 @@ export const divisions = {
         photo: "/team/charles-lemercier.jpg",
         linkedin: "https://www.linkedin.com/in/charles-lemercier-05001b228",
         email: null,
-        bio: "Charles is an Infrastructure Analyst at AIS. Prior to joining the society, he gained experience in the Fundraising and Sales team at Ardian in Paris. In 2027, he will join Veolia in Dubai as an M&A Infrastructure Intern. Charles is a French national who speaks French, English and Italian.",
+        bio: "Charles is an Infrastructure Analyst at AIS. He was a Private Equity Summer Analyst in Fundraising and Sales at Ardian in Paris. He will join Veolia in Dubai as an M&A Infrastructure Intern in 2027. Charles is a French national who speaks French, English and Italian.",
         division: "infra",
       },
       {
@@ -341,7 +343,7 @@ export const divisions = {
         photo: "/team/timon-hever.jpg",
         linkedin: "https://www.linkedin.com/in/timonhever/",
         email: null,
-        bio: "Timon is an Infrastructure Analyst at AIS. Prior to joining the society, he was a Private Equity Intern at Calista Direct Investors, a Market Analyst at PwC's Asset & Wealth Management Research Centre, and an Investment Analyst at Haltra Group, a single family office in Luxembourg. Timon is a Luxembourgish national who speaks English, French, German and Luxembourgish.",
+        bio: "Timon is an Infrastructure Analyst at AIS. He was an Investment Analyst at Haltra Group, a single family office in Luxembourg, a Market Analyst at PwC's Asset & Wealth Management Research Centre and a Private Equity Intern at Calista Direct Investors. Timon is a Luxembourgish national who speaks English, French, German and Luxembourgish.",
         division: "infra",
       },
       {
@@ -350,7 +352,7 @@ export const divisions = {
         photo: "/team/edward-hope.jpg",
         linkedin: "https://www.linkedin.com/in/edwardhope",
         email: null,
-        bio: "Edward is an Infrastructure Analyst at AIS. He recently worked in the Energy Infrastructure team at Société Générale CIB in London. Edward is a British national who speaks English and French.",
+        bio: "Edward is an Infrastructure Analyst at AIS. He interned in Energy Infrastructure Finance & Advisory at Société Générale CIB, with the pension fund team at Crédit Agricole Assurances in Paris and in real estate at Knight Frank in London. Edward is a British national who speaks English and French.",
         division: "infra",
       },
     ],
@@ -358,15 +360,6 @@ export const divisions = {
   events: {
     name: "Events",
     members: [
-      {
-        name: "Theodor Kisslinger",
-        role: "Head of Events",
-        photo: "/team/theodor-kisslinger.jpeg",
-        linkedin: "https://www.linkedin.com/in/theodor-kisslinger",
-        email: "theodor.kisslinger@edu.escp.eu",
-        bio: "Theodor is Head of Events at AIS. Prior to his time at the society, he gained experience at UBS and Macquarie, where he worked in M&A in Frankfurt. Theodor is a German national who speaks German and English.",
-        division: "events",
-      },
     ],
   },
 };
