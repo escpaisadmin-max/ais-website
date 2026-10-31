@@ -22,34 +22,24 @@
  * - DartmouthPartners.png: source file is truncated, only shows "Dartmouth".
  */
 
-/** Team & Alumni Track Record — where AIS members have worked */
+/**
+ * Team & Alumni Track Record: where AIS members have worked or will work.
+ * Only S-tier names, and few of them (Max, Oct 2026): this is a highlight reel, not a list of
+ * every employer. Logos come from the AIS logo library (navy versions, Desktop/AIS/Assets/Logos).
+ */
 export const trackRecord = [
   { id: "blackstone", name: "Blackstone", logo: "/logos/optimized/Blackstone.webp", logoWidth: 400, logoHeight: 64, eventSlug: null },
+  { id: "jpmorgan", name: "J.P. Morgan", logo: "/logos/optimized/JPMorgan.webp", logoWidth: 1600, logoHeight: 373, eventSlug: null },
   { id: "eqt-re-track", name: "EQT Real Estate", logo: "/logos/EQTRealEstate.svg", logoWidth: 620, logoHeight: 160, eventSlug: null },
-  { id: "rothschild", name: "Rothschild", logo: "/logos/optimized/Rothschild.webp", logoWidth: 1000, logoHeight: 165, eventSlug: null },
-  { id: "ubs", name: "UBS", logo: "/logos/optimized/UBS.webp", logoWidth: 311, logoHeight: 120, eventSlug: null },
-  { id: "macquarie", name: "Macquarie", logo: "/logos/optimized/Macquarie.webp", logoWidth: 757, logoHeight: 155, eventSlug: null },
-  { id: "herax", name: "Herax Partners", logo: "/logos/optimized/Herax.webp", logoWidth: 123, logoHeight: 120, eventSlug: null },
-  { id: "advent", name: "Advent", logo: "/logos/optimized/Advent.webp", logoWidth: 400, logoHeight: 34, eventSlug: null },
-  { id: "clearwater", name: "Clearwater", logo: "/logos/optimized/Clearwater.webp", logoWidth: 252, logoHeight: 120, eventSlug: null },
-  { id: "bcg", name: "BCG", logo: "/logos/optimized/BCG.webp", logoWidth: 265, logoHeight: 108, eventSlug: null },
-  { id: "general-catalyst", name: "General Catalyst", logo: "/logos/optimized/GeneralCatalyst.webp", logoWidth: 533, logoHeight: 187, eventSlug: null },
-  { id: "lincoln", name: "Lincoln International", logo: "/logos/optimized/LincolnInternational.webp", logoWidth: 399, logoHeight: 70, eventSlug: null },
-  { id: "hines", name: "Hines", logo: "/logos/optimized/Hines.webp", logoWidth: 399, logoHeight: 120, eventSlug: null },
-  { id: "altor", name: "Altor", logo: "/logos/optimized/Altor.webp", logoWidth: 400, logoHeight: 112, eventSlug: null },
-  { id: "ardian", name: "Ardian", logo: "/logos/optimized/Ardian.webp", logoWidth: 400, logoHeight: 58, eventSlug: null },
-  { id: "bnp", name: "BNP Paribas", logo: "/logos/optimized/BNPpng.webp", logoWidth: 297, logoHeight: 31, eventSlug: null },
-  { id: "stern-stewart", name: "Stern & Stewart", logo: "/logos/optimized/Stern&Stewart.webp", logoWidth: 480, logoHeight: 90, eventSlug: null, scale: 1.15 },
-  { id: "jpmorgan", name: "J.P. Morgan", logo: "/logos/optimized/JPMorganChase.webp", logoWidth: 1692, logoHeight: 240, eventSlug: null },
-  { id: "morgan-stanley", name: "Morgan Stanley", logo: "/logos/optimized/MorganStanley.webp", logoWidth: 1672, logoHeight: 240, eventSlug: null },
-  { id: "deutsche-bank", name: "Deutsche Bank", logo: "/logos/optimized/DeutscheBank.webp", logoWidth: 1146, logoHeight: 226, eventSlug: null },
-  { id: "jefferies", name: "Jefferies", logo: "/logos/optimized/Jefferies.webp", logoWidth: 1116, logoHeight: 240, eventSlug: null },
-  { id: "societe-generale", name: "Société Générale", logo: "/logos/optimized/SocieteGenerale.webp", logoWidth: 1225, logoHeight: 240, eventSlug: null },
-  { id: "ey-parthenon", name: "EY-Parthenon", logo: "/logos/optimized/EY_Parthenon.webp", logoWidth: 372, logoHeight: 120, eventSlug: null },
-  { id: "kpmg", name: "KPMG", logo: "/logos/optimized/KPMG.webp", logoWidth: 400, logoHeight: 94, eventSlug: null },
+  { id: "morgan-stanley", name: "Morgan Stanley", logo: "/logos/optimized/MorganStanley.webp", logoWidth: 1560, logoHeight: 276, eventSlug: null },
   { id: "bain", name: "Bain & Company", logo: "/logos/optimized/Bain.webp", logoWidth: 480, logoHeight: 52, eventSlug: null },
-  { id: "greenhill", name: "Greenhill", logo: "/logos/optimized/Greenhill.webp", logoWidth: 397, logoHeight: 81, eventSlug: null },
-  { id: "raymond-james", name: "Raymond James", logo: "/logos/optimized/RaymondJames.webp", logoWidth: 400, logoHeight: 35, eventSlug: null },
+  { id: "rothschild", name: "Rothschild", logo: "/logos/optimized/Rothschild.webp", logoWidth: 1000, logoHeight: 165, eventSlug: null },
+  { id: "ardian", name: "Ardian", logo: "/logos/optimized/Ardian.webp", logoWidth: 400, logoHeight: 58, eventSlug: null },
+  { id: "ubs", name: "UBS", logo: "/logos/optimized/UBS.webp", logoWidth: 311, logoHeight: 120, eventSlug: null },
+  { id: "general-catalyst", name: "General Catalyst", logo: "/logos/optimized/GeneralCatalyst.webp", logoWidth: 533, logoHeight: 187, eventSlug: null },
+  { id: "jefferies", name: "Jefferies", logo: "/logos/optimized/Jefferies.webp", logoWidth: 1600, logoHeight: 392, eventSlug: null },
+  { id: "bcg", name: "BCG", logo: "/logos/optimized/BCG.webp", logoWidth: 265, logoHeight: 108, eventSlug: null },
+  { id: "advent", name: "Advent", logo: "/logos/optimized/Advent.webp", logoWidth: 400, logoHeight: 34, eventSlug: null },
 ];
 
 /** Industry Collaborators */
