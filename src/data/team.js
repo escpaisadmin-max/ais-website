@@ -136,6 +136,15 @@ export const divisions = {
         bio: "Leanne is a Private Equity Analyst at AIS. Prior to joining the society, she took part in programmes at Big Four firms and volunteers at Private Equity Insights. Leanne speaks English and French.",
         division: "pe",
       },
+      {
+        name: "Ilian Rouibi",
+        role: "Analyst",
+        photo: "/team/ilian-rouibi.jpg",
+        linkedin: "https://www.linkedin.com/in/iroubi75/",
+        email: null,
+        bio: "Ilian is a Private Equity Analyst at AIS. Since October 2026 he has been an M&A Analyst at Vantedge and MergerSight. Before that, he was a Private Equity Spring Analyst at Ardian, an M&A Analyst intern at KPMG Deal Advisory and a Financial Analyst intern at BYD Europe. Ilian is a French and Algerian national who speaks French and English.",
+        division: "pe",
+      },
     ],
   },
   vc: {
@@ -317,15 +326,6 @@ export const divisions = {
     name: "Infrastructure",
     members: [
       { ...samuel, role: "Head of Infrastructure", division: "infra" },
-      {
-        name: "Ilian Rouibi",
-        role: "Analyst",
-        photo: "/team/ilian-rouibi.jpg",
-        linkedin: "https://www.linkedin.com/in/iroubi75/",
-        email: null,
-        bio: "Ilian is an Infrastructure Analyst at AIS. Since October 2026 he has been an M&A Analyst at Vantedge and MergerSight. Before that, he was a Private Equity Spring Analyst at Ardian, an M&A Analyst intern at KPMG Deal Advisory and a Financial Analyst intern at BYD Europe. Ilian is a French and Algerian national who speaks French and English.",
-        division: "infra",
-      },
       {
         name: "Charles Lemercier",
         role: "Analyst",
