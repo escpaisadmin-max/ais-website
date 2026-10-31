@@ -1,4 +1,4 @@
-import { founders, divisions, adminStaff } from "../../data/team";
+import { founders, leadership, divisions, adminStaff } from "../../data/team";
 import TeamMemberCard from "./TeamMemberCard";
 import SectionHeading from "../ui/SectionHeading";
 import ScrollReveal from "../ui/ScrollReveal";
@@ -26,6 +26,24 @@ export default function TeamSection() {
             </ScrollReveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-2">
               {founders.map((member, i) => (
+                <ScrollReveal key={i} delay={i * 0.05}>
+                  <TeamMemberCard member={member} />
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Society leadership */}
+        {leadership.length > 0 && (
+          <div className="mb-16">
+            <ScrollReveal>
+              <h3 className="text-lg font-bold text-ais-navy mb-6 uppercase tracking-wider">
+                Leadership
+              </h3>
+            </ScrollReveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-2">
+              {leadership.map((member, i) => (
                 <ScrollReveal key={i} delay={i * 0.05}>
                   <TeamMemberCard member={member} />
                 </ScrollReveal>

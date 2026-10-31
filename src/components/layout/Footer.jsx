@@ -14,7 +14,7 @@ export default function Footer({ onOpenPrivacy }) {
               ESCP Alternative Investment Society
             </p>
             <p className="text-sm text-ais-silver mt-2">
-              The leading student-led society at ESCP Business School.
+              A selective student society at ESCP Business School.
             </p>
           </div>
 

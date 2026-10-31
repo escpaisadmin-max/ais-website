@@ -20,7 +20,7 @@ export default function MissionSection() {
             application and interview process.
           </p>
           <p className="text-lg text-ais-silver leading-relaxed">
-            Our four specialized divisions ensure deep, focused learning across
+            Our six specialized divisions ensure deep, focused learning across
             the full spectrum of alternative investment strategies — combining
             educational enrichment, professional development, and applied
             learning through case studies and real-world experiences.

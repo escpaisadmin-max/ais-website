@@ -22,10 +22,11 @@ const questions = [
     question: "Which investment areas does AIS cover?",
     answer: (
       <>
-        AIS has <a href="#divisions" className={linkClassName}>four divisions</a>:
-        Private Equity, Venture Capital, Hedge Funds and Real Estate. Their work
-        covers topics including leveraged buyouts, startup investing,
-        public-market investment strategies and property markets. Explore our{" "}
+        AIS has <a href="#divisions" className={linkClassName}>six divisions</a>:
+        Private Equity, Venture Capital, Hedge Funds, Real Estate, Private Credit
+        and Infrastructure. Their work covers topics including leveraged buyouts,
+        startup investing, public-market investment strategies, property markets,
+        direct lending and infrastructure assets. Explore our{" "}
         <a href="/presentations" className={linkClassName}>publications</a> to
         discover research and educational resources from each division.
       </>
@@ -36,7 +37,7 @@ const questions = [
     answer: (
       <>
         Our publications are produced by <a href="#team" className={linkClassName}>student teams</a> across
-        AIS’s four investment divisions. They include market commentary,
+        AIS’s six investment divisions. They include market commentary,
         industry research and educational guides. We also collaborate on
         selected projects with organisations within the ESCP community,
         including the <a href="/founder-report" className={linkClassName}>Founder Report</a>,
@@ -68,11 +69,14 @@ const questions = [
     ),
   },
   {
-    question: "Who can join AIS, and how does recruitment work?",
+    question: "How do I join AIS, and how selective is it?",
     answer: (
       <>
-        AIS recruits ESCP students interested in alternative investments and
-        contributing to the society’s activities. Interested in joining?{" "}
+        AIS recruits ESCP students at the start of each semester. You apply to
+        one division, and shortlisted candidates are interviewed by that team.
+        Places are limited: historically, between 1 and 4 percent of applicants
+        receive an offer. <a href="#join" className={linkClassName}>See how we recruit</a>.
+        Interested in joining?{" "}
         <a href="/contact#newsletter" className={linkClassName}>Register for our newsletter</a> for
         research updates and future recruitment announcements. We plan to email
         interested students whenever applications open. You can also follow our{" "}

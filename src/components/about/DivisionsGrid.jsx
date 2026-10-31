@@ -25,6 +25,22 @@ const iconMap = {
       <path d="M8 17v-3" />
     </svg>
   ),
+  credit: (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ais-ocean">
+      <rect x="2" y="5" width="20" height="14" rx="2" />
+      <path d="M2 10h20" />
+      <path d="M6 15h4" />
+    </svg>
+  ),
+  infrastructure: (
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ais-ocean">
+      <path d="M2 20h20" />
+      <path d="M4 20V10l4-3 4 3v10" />
+      <path d="M12 20v-6h8v6" />
+      <path d="M16 14V4" />
+      <path d="M13 7l3-3 3 3" />
+    </svg>
+  ),
   building: (
     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-ais-ocean">
       <path d="M3 21h18" />
@@ -42,11 +58,11 @@ export default function DivisionsGrid() {
         <ScrollReveal>
           <SectionHeading
             title="Our Divisions"
-            subtitle="Four specialized teams, each focused on a distinct area of investment."
+            subtitle="Six specialized teams, each focused on a distinct area of investment."
           />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {divisions.map((div, i) => (
             <ScrollReveal key={div.id} delay={i * 0.1}>
               <div className="p-6 rounded-lg border border-ais-silver/30 hover:border-ais-ocean/30 hover:shadow-lg transition-all duration-300 h-full">
