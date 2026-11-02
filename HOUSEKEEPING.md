@@ -42,7 +42,7 @@ Founder Reports/                  Events/  → one sub-folder per event
 
 ## Adding New Team Members
 
-1. Save the headshot to `public/team/` with a URL-safe filename: `firstname-lastname.jpg` (no spaces).
+1. Save the headshot to `public/team/` with a URL-safe filename: `firstname-lastname.jpg` (no spaces). Use `scripts/process-headshots.py` so the eyes line up with everyone else's, then `scripts/uniform-background.py <slug>` so the photo gets the shared grey background (every team photo has it since November 2026). Bump `PHOTO_VERSION` in `src/components/about/TeamMemberCard.jsx` when you replace an existing photo, so browsers fetch the new one.
 2. Add the entry to `src/data/team.js` under the correct section:
    - `leadership` array for President, VP, Treasurer, Head of Events, etc.
    - `divisions.{pe|vc|hf|re}.members` array for division presidents and analysts

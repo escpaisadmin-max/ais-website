@@ -19,6 +19,7 @@ mapping.csv has no header: <path to raw image>,<slug>[,<output file name, defaul
 Requires Pillow and opencv-python 4.x. The YuNet face model (scripts/models/) gives the
 eye positions; without it the script falls back to a Haar face box, which is less exact.
 Check the result visually: a wrong detection (a face in the background, a hand) breaks the crop.
+Afterwards run scripts/uniform-background.py <slug> to give the photo the shared grey background.
 """
 import csv
 import sys
