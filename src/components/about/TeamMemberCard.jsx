@@ -4,7 +4,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 // Appended to photo URLs so browsers fetch replaced headshots instead of a cached copy.
 // Photos are also served with a 5 minute cache (vercel.json), so this rarely needs a bump.
-const PHOTO_VERSION = "2026-11-02";
+const PHOTO_VERSION = "2026-11-02b";
 
 function ExpandIcon({ expanded }) {
   return (
