@@ -5,6 +5,25 @@
  */
 export const events = [
   {
+    "slug": "london-finance-tour-2026-permira",
+    "title": "London Finance Tour 2026: Permira",
+    "date": "October 2026",
+    "partnerLogo": null,
+    "partnerName": "Permira",
+    "partnerUrl": "https://www.permira.com",
+    "description": "A visit to Permira's London office during our London Finance Tour 2026 with the Oxford Alpha Fund, with a firm presentation, Q&A and a case study on the acquisition of The Key Group.",
+    "fullDescription": "Permira welcomed us to their London office as part of our London Finance Tour 2026 alongside the Oxford Alpha Fund. The session began with a firm presentation and an extensive Q&A on Permira's investment focus and perspectives on current market developments. This was followed by an interactive case study on the acquisition of The Key Group, allowing participants to develop their own investment theses and assess key growth opportunities and risk factors.\nWe would like to sincerely thank Permira for the warm hospitality and highly engaging workshop. We look forward to future collaborations with the Permira team.",
+    "photo": "/events/london-finance-tour-2026-permira/banner.jpg",
+    "photos": [],
+    "division": "pe",
+    "type": "office visit",
+    "keyTakeaways": [
+      "Permira's investment focus and perspectives on current market developments",
+      "Interactive case study on the acquisition of The Key Group",
+      "Developing investment theses and weighing growth opportunities against risk factors"
+    ]
+  },
+  {
     "slug": "london-finance-tour-2026-eqt-real-estate",
     "title": "London Finance Tour 2026: EQT Real Estate",
     "date": "October 2026",
