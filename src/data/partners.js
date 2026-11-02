@@ -48,6 +48,7 @@ export const academicPartners = [
   { id: "job-test-prep", name: "Job Test Prep", logo: "/logos/optimized/JobTestPrep.webp", logoWidth: 225, logoHeight: 120, eventSlug: null, scale: 1.6 },
   { id: "eqt-real-estate", name: "EQT Real Estate", logo: "/logos/EQTRealEstate.svg", logoWidth: 620, logoHeight: 160, eventSlug: "london-finance-tour-2026-eqt-real-estate" },
   { id: "nordic-capital", name: "Nordic Capital", logo: "/logos/optimized/NordicCapital.webp", logoWidth: 1544, logoHeight: 212, eventSlug: "london-finance-tour-2026-nordic-capital" },
+  { id: "permira", name: "Permira", logo: "/logos/optimized/Permira.webp", logoWidth: 1544, logoHeight: 396, eventSlug: "london-finance-tour-2026-permira" },
   { id: "ace-the-round", name: "AceTheRound", logo: "/logos/optimized/AceTheRound.webp", logoWidth: 541, logoHeight: 224, eventSlug: "ace-the-round-workshop" },
   { id: "jobortunity-ai", name: "Jobortunity.AI", logo: "/logos/optimized/JobortunityAI.webp", logoWidth: 1000, logoHeight: 201, eventSlug: null },
   { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/optimized/DartmouthPartners.webp", logoWidth: 400, logoHeight: 63, eventSlug: "dartmouth-partners-careers-event" },
