@@ -67,7 +67,7 @@ export const founders = [
     photo: "/team/julius-majowski.jpg",
     linkedin: "https://www.linkedin.com/in/juliusmajowski/",
     email: null,
-    bio: "Julius is a Co-Founder and former President of AIS. He interned in Tech M&A at Lincoln International, in M&A at Herax Partners in London and in the CEO Office at Enpal. He will join Jefferies, Rothschild & Co. and Qatalyst Partners for M&A internships. Julius is a German national who speaks English, German, Spanish and French.",
+    bio: "Julius is a Co-Founder and former President of AIS. He interned in Tech M&A at Lincoln International, in M&A at Herax Partners in London and in the CEO Office at Enpal. He will join Jefferies and Rothschild & Co. for M&A internships. Julius is a German national who speaks English, German, Spanish and French.",
     division: "founders",
   },
   {
