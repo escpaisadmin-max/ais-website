@@ -51,7 +51,7 @@ export const academicPartners = [
   { id: "permira", name: "Permira", logo: "/logos/optimized/Permira.webp", logoWidth: 1544, logoHeight: 396, eventSlug: "london-finance-tour-2026-permira" },
   { id: "ace-the-round", name: "AceTheRound", logo: "/logos/optimized/AceTheRound.webp", logoWidth: 541, logoHeight: 224, eventSlug: "ace-the-round-workshop" },
   { id: "jobortunity-ai", name: "Jobortunity.AI", logo: "/logos/optimized/JobortunityAI.webp", logoWidth: 1000, logoHeight: 201, eventSlug: null },
-  { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/optimized/DartmouthPartners.webp", logoWidth: 400, logoHeight: 63, eventSlug: "dartmouth-partners-careers-event" },
+  { id: "dartmouth-partners", name: "Dartmouth Partners", logo: "/logos/optimized/DartmouthPartners.webp", logoWidth: 400, logoHeight: 63, eventSlug: "london-finance-tour-2026-dartmouth-partners" },
   { id: "plato", name: "Plato", logo: "/logos/optimized/Plato.webp", logoWidth: 730, logoHeight: 216, eventSlug: "plato-event" },
   { id: "revent", name: "Revent", logo: "/logos/Revent.svg", logoWidth: 360, logoHeight: 70, eventSlug: "revent-event" },
 ];
