@@ -5,6 +5,25 @@
  */
 export const events = [
   {
+    "slug": "london-finance-tour-2026-dartmouth-partners",
+    "title": "London Finance Tour 2026: Dartmouth Partners",
+    "date": "October 2026",
+    "partnerLogo": null,
+    "partnerName": "Dartmouth Partners",
+    "partnerUrl": "https://www.dartmouthpartners.com",
+    "description": "A visit to Dartmouth Partners' London office during our London Finance Tour 2026 with the Oxford Alpha Fund, with a firm presentation, a Q&A on finance recruiting and networking with the team.",
+    "fullDescription": "Dartmouth Partners welcomed us to their London office as part of our London Finance Tour 2026 alongside the Oxford Alpha Fund. The session began with a firm presentation, followed by an extensive Q&A on the current recruitment landscape, application processes and practical insights into how candidates can differentiate themselves. The visit concluded with an interactive networking session, allowing participants to connect directly with the team and gain further insights into careers in finance.\nWe would like to sincerely thank Dartmouth Partners for hosting us and sharing valuable career insights with our participants. We look forward to future collaborations with the Dartmouth team.",
+    "photo": "/events/london-finance-tour-2026-dartmouth-partners/banner.jpg",
+    "photos": [],
+    "division": "general",
+    "type": "office visit",
+    "keyTakeaways": [
+      "The current recruitment landscape and application processes in finance",
+      "How candidates can differentiate themselves",
+      "Networking with the Dartmouth Partners team"
+    ]
+  },
+  {
     "slug": "london-finance-tour-2026-permira",
     "title": "London Finance Tour 2026: Permira",
     "date": "October 2026",
