@@ -119,62 +119,62 @@ export const events = [
   },
   {
     "slug": "ace-the-round-workshop",
-    "title": "AceTheRound Workshop",
-    "date": "2026",
+    "title": "AceTheRound Interview Prep Workshop",
+    "date": "March 2026",
     "partnerLogo": "/logos/AceTheRound.png",
     "partnerName": "AceTheRound",
     "partnerUrl": "https://www.acetheround.com",
-    "description": "A recruiting-focused workshop helping members prepare for finance interviews and technical selection processes.",
-    "fullDescription": "AIS worked with AceTheRound on a recruiting preparation session for members. The workshop focused on interview readiness, technical preparation, and practical advice for competitive finance processes.",
+    "description": "An online workshop with AceTheRound on how interviews for investment banking, private equity and hedge fund roles are really assessed.",
+    "fullDescription": "AIS hosted an online interview preparation workshop with AceTheRound, led by its co-founder, a former investment banker at Centerview in London. The session went behind the scenes of recruiting for investment banking, private equity and hedge funds and showed how interviews are really assessed.\nParticipants learned why strong candidates fail, how interviewers evaluate structure and performance under pressure, and took away practical frameworks they can apply immediately.",
     "photo": null,
     "bannerLogo": "/logos/AceTheRound-white.png",
     "photos": [],
     "division": "general",
     "type": "workshop",
     "keyTakeaways": [
-      "Structured interview preparation for finance roles",
-      "Technical and behavioural recruiting guidance",
-      "Practical advice for competitive application processes"
+      "How interviewers assess structure and performance under pressure",
+      "Why strong candidates fail interviews",
+      "Practical frameworks for IB, PE and HF interviews"
     ]
   },
   {
     "slug": "plato-event",
-    "title": "Plato Event",
-    "date": "2026",
+    "title": "Plato Berlin Office Visit",
+    "date": "March 2026",
     "partnerLogo": "/logos/Plato.png",
     "partnerName": "Plato",
     "partnerUrl": "https://www.platoapp.ai/en",
-    "description": "A session with Plato on company building, growth, and the operational side of scaling a business.",
-    "fullDescription": "AIS hosted Plato for a discussion on company building and the practical challenges of scaling a business. The event gave members a closer look at operating perspectives that complement investment analysis.\n\nEvent photos will be added once the final images are selected.",
+    "description": "A visit to the new Berlin office of Plato, an AI startup founded by an ESCP alumnus, with a company presentation and an open discussion on the company's plans and internships.",
+    "fullDescription": "Our members visited Plato at its new Berlin office for an evening with the team. Plato is a Berlin based startup building an AI operating system, founded by an ESCP alumnus, and had recently raised a $14.5M seed round led by Atomico.\nThe evening began with a welcome from the co-founder, followed by a company presentation on Plato's vision, product and growth. The session then turned into an open discussion, where students learned about Plato's future plans, received practical career advice and heard what the team looks for in prospective interns. We would like to thank the Plato team for hosting us and for sharing their perspectives so openly.",
     "photo": null,
     "bannerLogo": "/logos/Plato-white.png",
     "photos": [],
     "division": "vc",
-    "type": "speaker",
+    "type": "office visit",
     "keyTakeaways": [
-      "Company-building insights from an operating perspective",
-      "Discussion of growth, execution, and market positioning",
-      "Practical context for venture and growth investing"
+      "Plato's vision, product and growth",
+      "What it takes to build a fast growing startup",
+      "What the team looks for in prospective interns"
     ]
   },
   {
     "slug": "revent-event",
-    "title": "Revent Event",
-    "date": "2026",
+    "title": "Revent Berlin Office Visit",
+    "date": "March 2026",
     "partnerLogo": "/logos/Revent.svg",
     "partnerName": "Revent",
     "partnerUrl": "https://www.revent.vc",
-    "description": "An event with Revent exploring venture investing, founder evaluation, and the European startup ecosystem.",
-    "fullDescription": "AIS hosted Revent for a session on venture capital and the European startup ecosystem. Members discussed how early-stage investors assess founders, markets, and long-term company-building potential.\n\nEvent photos will be added once the final images are selected.",
+    "description": "A visit to Revent's Berlin office with a firm presentation and a Q&A on the fund's investment philosophy, its market outlook and careers in venture capital.",
+    "fullDescription": "Our members visited Revent at its Berlin office for an evening with the team, welcomed by an ESCP alumnus and Founding Partner of the firm. A firm presentation was followed by an interactive Q&A.\nThe discussion gave students insight into Revent's investment philosophy and current market outlook, and a closer look at career paths in venture capital. We would like to thank the Revent team for their hospitality and the engaging conversations.",
     "photo": null,
     "bannerLogo": "/logos/Revent-white.svg",
     "photos": [],
     "division": "vc",
-    "type": "speaker",
+    "type": "office visit",
     "keyTakeaways": [
-      "Early-stage investment criteria and founder evaluation",
-      "Perspectives on European venture capital",
-      "Career discussion with investors in the startup ecosystem"
+      "Revent's investment philosophy",
+      "The current venture capital market outlook",
+      "Career paths in venture capital"
     ]
   },
   {

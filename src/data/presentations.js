@@ -17,6 +17,30 @@ export const presentations = [
     "pageCount": 26
   },
   {
+    "id": "pe-the-rise-of-private-equity-in-sports",
+    "title": "The Rise of Private Equity in Sports",
+    "driveFileId": "1NgXyfKDsYXlgwl95XXBhf1kPhmsj3X5U",
+    "department": "pe",
+    "topic": "",
+    "date": "March 2026",
+    "description": "Explores the growing role of private equity in the global sports industry and the different ways investors take part in this fast changing market.",
+    "pdfPath": "/presentations/pdf/pe-the-rise-of-private-equity-in-sports.pdf",
+    "downloadPath": "/presentations/originals/pe-the-rise-of-private-equity-in-sports.pdf",
+    "pageCount": 23
+  },
+  {
+    "id": "vc-interview-prep-growth-equity",
+    "title": "Interview Prep: Growth Equity",
+    "driveFileId": "106loK2DTOBREZkp-MUtvQiHX2AQ4q9HP",
+    "department": "vc",
+    "topic": "",
+    "date": "March 2026",
+    "description": "Prepares for growth equity interviews: the types of questions to expect, from valuation and industry knowledge to case studies and mental math, and how to answer them.",
+    "pdfPath": "/presentations/pdf/vc-interview-prep-growth-equity.pdf",
+    "downloadPath": "/presentations/originals/vc-interview-prep-growth-equity.pdf",
+    "pageCount": 33
+  },
+  {
     "id": "hf-05-activist",
     "title": "Deep Dive: Activist Hedge Funds",
     "driveFileId": "1jIHebpK-4FgmEujQlglka8n9NHqsR9q6",

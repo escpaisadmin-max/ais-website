@@ -35,6 +35,7 @@
   "public/presentations/pdf/pe-03-deal-syndication.pdf": "1179e836dc188427fdc529110c9fcba1e8fe4542c4b2744d571c1254ed5df273",
   "public/presentations/pdf/pe-04-buy-and-build.pdf": "d4640a40efcaef71f9052d1c239f138047f0b7cfa88fe506b51edcb50dd7ad03",
   "public/presentations/pdf/pe-05-private-credit.pdf": "29617b85ab7de1f401fb9b9067424977bb08a5a04e13162435c404eefa0aaaf9",
+  "public/presentations/pdf/pe-the-rise-of-private-equity-in-sports.pdf": "66786d481c9f8095e218ecdcb0e32aac98c879573fc31ce3dc870a17503dfde0",
   "public/presentations/pdf/re-01-main-players.pdf": "5baf0876d1ca1eaa1913bc6280c3ad54bad2504518af7515b8be523b3af3307b",
   "public/presentations/pdf/re-02-cap-rates.pdf": "688eef3d37d5cfccc6d780d505925ec9cd1184cc41979454897b5b9cc8a243f5",
   "public/presentations/pdf/re-03-debt.pdf": "60647eb6fd46f365405103ecdb820cddc1359ff0211768258a3f1832cab909c6",
@@ -42,5 +43,6 @@
   "public/presentations/pdf/re-05-interview-prep.pdf": "70398d1f5cee575f352d057aa09ad61a6bcea9727d362bf76889bf5d5940b50a",
   "public/presentations/pdf/vc-01-main-players.pdf": "5b81a5a29cff6e82c4eab2f2a3194b1f790cdec3c4ee6f254d4c3f9641bb3ba0",
   "public/presentations/pdf/vc-02-term-sheets.pdf": "d208f34412a9a546a6885e3ec57e2b2e3fd9ef1eba2d2df189165775ace592ea",
-  "public/presentations/pdf/vc-03-saas-investing.pdf": "96f47a16197fa5b2f889319164f9d8b7da7666bf4bf8463f8f1ad4d186a5ec2f"
+  "public/presentations/pdf/vc-03-saas-investing.pdf": "96f47a16197fa5b2f889319164f9d8b7da7666bf4bf8463f8f1ad4d186a5ec2f",
+  "public/presentations/pdf/vc-interview-prep-growth-equity.pdf": "1d779f8a3f80bfe80548d2ac676b4682a3ea9e3fae0877e015f44c5612a86937"
 }
