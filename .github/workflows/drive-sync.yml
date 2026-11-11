@@ -12,6 +12,10 @@ on:
         description: "Read Drive and log changes without writing/committing"
         type: boolean
         default: false
+      force_qpdf_fallback:
+        description: "Skip apt and use the pikepdf qpdf fallback (to test it)"
+        type: boolean
+        default: false
 
 # Opt the JS-based actions into Node 24 (Node 20 is being deprecated).
 env:
@@ -55,8 +59,31 @@ jobs:
       - name: Install PDF optimization tools
         run: |
           python -m pip install -r ops/drive-sync/requirements.txt
-          sudo apt-get update -qq
-          sudo apt-get install -y qpdf
+          # qpdf comes from apt. GitHub's runners sometimes cannot reach the Ubuntu package
+          # servers (11 Nov 2026: DNS failures, the whole sync failed). Try apt twice with a
+          # time limit; if it still fails, use pikepdf from PyPI (same qpdf library) through
+          # ops/drive-sync/qpdf-fallback.py, so the sync never depends on Ubuntu's mirrors.
+          for attempt in 1 2; do
+            [ "${{ inputs.force_qpdf_fallback }}" = "true" ] && break
+            if timeout 180 sudo apt-get update -qq -o Acquire::Retries=3 \
+              && timeout 180 sudo apt-get install -y -o Acquire::Retries=3 qpdf; then
+              break
+            fi
+            echo "::warning::apt could not install qpdf (attempt $attempt)"
+            sleep 15
+          done
+          if ! command -v qpdf >/dev/null; then
+            echo "::warning::Using the pikepdf fallback for qpdf"
+            python -m pip install pikepdf==10.13.0.post1
+            sudo install -m 755 ops/drive-sync/qpdf-fallback.py /usr/local/bin/qpdf
+            sudo sed -i "1s|.*|#!$(command -v python)|" /usr/local/bin/qpdf
+          fi
+          # Smoke test the exact qpdf calls optimize-pdf.py makes, whichever qpdf is installed.
+          python -c "import pymupdf; d = pymupdf.open(); d.new_page(); d.save('/tmp/qpdf-smoke.pdf')"
+          qpdf --linearize --object-streams=generate --recompress-flate --compression-level=9 \
+            --deterministic-id /tmp/qpdf-smoke.pdf /tmp/qpdf-smoke-out.pdf
+          qpdf --check /tmp/qpdf-smoke-out.pdf
+          echo "qpdf ready: $(command -v qpdf)"
 
       - name: Check PDF image optimization
         run: python -m unittest discover -s ops/drive-sync -p 'test_*.py'
