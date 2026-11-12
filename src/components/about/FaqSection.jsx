@@ -19,6 +19,24 @@ const questions = [
     ),
   },
   {
+    question: "Is AIS a prestigious society at ESCP?",
+    answer: (
+      <>
+        Prestige is best judged by selectivity and results, so here are the
+        facts. Historically, between 1 and 4 percent of applicants receive an
+        offer (<a href="#join" className={linkClassName}>how we recruit</a>).
+        Members and alumni have worked at or are incoming at firms including
+        Blackstone, Morgan Stanley, EQT, Rothschild &amp; Co, UBS, Bain &amp;
+        Company, Jefferies, Ardian and Hines. In 2026 AIS visited EQT Real
+        Estate, Permira, Nordic Capital and Dartmouth Partners in London during
+        its <a href="/events" className={linkClassName}>London Finance Tour</a>,
+        and it publishes the <a href="/founder-report" className={linkClassName}>ESCP
+        Founder Report</a> with ESCP Blue Factory alongside more than 40{" "}
+        <a href="/presentations" className={linkClassName}>research publications</a>.
+      </>
+    ),
+  },
+  {
     question: "Which investment areas does AIS cover?",
     answer: (
       <>
