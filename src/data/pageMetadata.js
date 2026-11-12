@@ -1,4 +1,5 @@
 import { events } from "./events.js";
+import { faqText } from "./faq.js";
 import { divisionFor, isoDate, libraries } from "../lib/publications.js";
 
 export const siteOrigin = "https://www.escpais.com";
@@ -76,6 +77,18 @@ const organization = {
   parentOrganization: { "@type": "CollegeOrUniversity", name: "ESCP Business School", url: "https://escp.eu/" },
   sameAs: ["https://www.linkedin.com/company/escpais/", "https://campuslife.escp.eu/ldnrealestate/home/"],
 };
+
+const faqSchema = () => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${siteOrigin}/about#faq`,
+  about: { "@id": organization["@id"] },
+  mainEntity: faqText.map(({ question, answer }) => ({
+    "@type": "Question",
+    name: question,
+    acceptedAnswer: { "@type": "Answer", text: answer },
+  })),
+});
 
 const jsonLd = (data) => ({ tag: "script", type: "application/ld+json", text: JSON.stringify(data) });
 
@@ -159,6 +172,7 @@ export function getHeadTags(pathname) {
       }],
     }));
   }
+  if (path === "/about") tags.push(jsonLd(faqSchema()));
   if (page?.publication) tags.push(jsonLd(publicationSchema(page)));
   return tags;
 }
