@@ -5,6 +5,16 @@
  */
 export const founderReports = [
   {
+    "id": "founder-report-q3-2026",
+    "title": "Founder Report — Q3 2026",
+    "driveFileId": "1YfldMafOh_dIIA49DlStkUXyb6nA3KA8",
+    "date": "November 2026",
+    "description": "The Q3 2026 edition tracks ESCP alumni startup funding, with over $79 million raised across 13 rounds, and features interviews with Ben Scheidt (Partner at Redstone), Daria Gneusheva (Senior Investment Manager at Project A), Alessandro Fiume (co founder of IMPACT Drones) and Gunnar Graef (Managing Partner at Deutsche Ventures and ESCP professor). Prepared by AIS with institutional support from ESCP and Blue Factory.",
+    "pdfPath": "/founder-reports/pdf/founder-report-q3-2026.pdf",
+    "downloadPath": "/founder-reports/originals/founder-report-q3-2026.pdf",
+    "pageCount": 33
+  },
+  {
     "id": "founder-report-q2-2026",
     "title": "Founder Report — Q2 2026",
     "driveFileId": "1L1B6bfxSmQc2sYo0n27ff3UuBEFHyBDG",
