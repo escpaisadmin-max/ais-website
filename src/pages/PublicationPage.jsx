@@ -14,31 +14,6 @@ function Byline({ item, library, author }) {
   return author ? <>By {author}, {team}</> : <>By {team} of the ESCP Alternative Investment Society</>;
 }
 
-function TextVersion({ state, item }) {
-  const pages = state.data?.pages?.filter((page) => page.length > 0) ? state.data.pages : null;
-  if (!pages) {
-    return state.failed ? (
-      <p className="text-ais-gray">
-        The text version is not available yet. <a href={item.pdfPath} className="text-ais-ocean underline">Read the PDF</a>.
-      </p>
-    ) : (
-      <p className="text-ais-gray">Loading the text version…</p>
-    );
-  }
-  return (
-    <div className="space-y-6">
-      {pages.map((paragraphs, index) => paragraphs.length > 0 && (
-        <section key={index} aria-label={`Page ${index + 1}`} className="border-l-2 border-ais-silver/40 pl-4">
-          <p className="text-xs font-semibold uppercase tracking-wider text-ais-gray mb-2">Page {index + 1}</p>
-          {paragraphs.map((paragraph, i) => (
-            <p key={i} className="text-ais-navy/80 leading-relaxed mb-2 break-words">{paragraph}</p>
-          ))}
-        </section>
-      ))}
-    </div>
-  );
-}
-
 export default function PublicationPage({ library: libraryKey }) {
   const { id } = useParams();
   const library = libraries[libraryKey];
@@ -91,13 +66,6 @@ export default function PublicationPage({ library: libraryKey }) {
           </div>
         </header>
 
-        <section aria-labelledby="text-version" className="border-t border-ais-silver/40 pt-10">
-          <h2 id="text-version" className="text-2xl font-bold text-ais-navy mb-2">Text version</h2>
-          <p className="text-sm text-ais-gray mb-8">
-            Extracted from the PDF. Charts, tables and images are only in the PDF.
-          </p>
-          <TextVersion state={state} item={item} />
-        </section>
 
         {more.length > 0 && (
           <section aria-labelledby="more" className="border-t border-ais-silver/40 pt-10 mt-12">
