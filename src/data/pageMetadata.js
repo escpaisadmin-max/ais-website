@@ -1,6 +1,7 @@
 import { events } from "./events.js";
 import { faqText } from "./faq.js";
 import { divisionFor, isoDate, libraries } from "../lib/publications.js";
+import { webEditions } from "./reports/index.js";
 
 export const siteOrigin = "https://www.escpais.com";
 const siteName = "ESCP Alternative Investment Society";
@@ -92,6 +93,29 @@ const faqSchema = () => ({
 
 const jsonLd = (data) => ({ tag: "script", type: "application/ld+json", text: JSON.stringify(data) });
 
+// Extra structured data for publications with a web edition: the startups covered and the interviews.
+function webEditionSchema(edition, url) {
+  if (!edition) return {};
+  return {
+    about: edition.rounds.map((r) => ({
+      "@type": "Organization",
+      name: r.company,
+      description: r.description,
+      foundingDate: String(r.founded),
+      location: r.hq,
+      founder: { "@type": "Person", name: r.escpFounder, alumniOf: { "@type": "CollegeOrUniversity", name: "ESCP Business School" } },
+    })),
+    hasPart: edition.interviews.map((iv) => ({
+      "@type": "Article",
+      "@id": `${url}#${iv.id}`,
+      headline: `Interview with ${iv.name}, ${iv.role}`,
+      about: { "@type": "Person", name: iv.name, jobTitle: iv.role },
+      url: `${url}#${iv.id}`,
+      author: organization,
+    })),
+  };
+}
+
 function publicationSchema(page) {
   const { libraryKey, item } = page.publication;
   const library = libraries[libraryKey];
@@ -115,6 +139,7 @@ function publicationSchema(page) {
         isAccessibleForFree: true,
         ...(item.pageCount ? { numberOfPages: item.pageCount } : {}),
         encoding: { "@type": "MediaObject", contentUrl: `${siteOrigin}${item.pdfPath}`, encodingFormat: "application/pdf" },
+        ...webEditionSchema(webEditions[item.id], url),
       },
       {
         "@type": "BreadcrumbList",

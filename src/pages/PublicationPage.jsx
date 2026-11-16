@@ -4,6 +4,8 @@ import NotFoundPage from "./NotFoundPage";
 import { trackGoal } from "../lib/analytics.js";
 import { divisionFor, eduNumbers, findPublication, libraries, publicationPath, textPath } from "../lib/publications.js";
 import { usePublicationText } from "../lib/publicationText.js";
+import { webEditions } from "../data/reports/index.js";
+import InteractiveReport from "../components/founder-reports/InteractiveReport.jsx";
 
 const MORE_COUNT = 3;
 
@@ -28,6 +30,9 @@ export default function PublicationPage({ library: libraryKey }) {
   const more = library.items
     .filter((other) => other.id !== item.id && (libraryKey === "founderReports" || other.department === item.department))
     .slice(0, MORE_COUNT);
+
+  const webEdition = webEditions[item.id];
+  if (webEdition) return <InteractiveReport item={item} data={webEdition} library={library} more={more} />;
 
   return (
     <article className="py-20 bg-white min-h-screen">
