@@ -22,7 +22,7 @@ export default function AboutPreview() {
           </p>
           <p className="text-ais-silver leading-relaxed mb-6">
             Entry is selective: each division recruits its own analysts through a written
-            application and interviews, and historically between 1 and 4 percent of applicants
+            application and interviews, and historically between 1% and 4% of applicants
             receive an offer. Members and alumni have worked at or are incoming at firms including
             Blackstone, Morgan Stanley, EQT, Rothschild &amp; Co, UBS, Bain &amp; Company, Jefferies,
             Ardian and Hines.
