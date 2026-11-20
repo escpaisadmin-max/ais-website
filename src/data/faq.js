@@ -7,7 +7,7 @@ export const faqText = [
     answer: "The ESCP Alternative Investment Society (AIS) is an officially recognised student society at ESCP Business School focused on alternative investments. We bring together students interested in finance through research, educational publications, workshops and exchanges with industry professionals.",
   },
   {
-    question: "Is AIS a prestigious society at ESCP?",
+    question: "How selective is AIS, and where do members end up?",
     answer: "Prestige is best judged by selectivity and results, so here are the facts. Historically, between 1 and 4 percent of applicants receive an offer. Members and alumni have worked at or are incoming at firms including Blackstone, Morgan Stanley, EQT, Rothschild & Co, UBS, Bain & Company, Jefferies, Ardian and Hines. In 2026 AIS visited EQT Real Estate, Permira, Nordic Capital and Dartmouth Partners in London during its London Finance Tour, and it publishes the ESCP Founder Report with ESCP Blue Factory alongside more than 40 research publications.",
   },
   {
