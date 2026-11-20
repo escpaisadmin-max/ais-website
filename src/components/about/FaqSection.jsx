@@ -19,7 +19,7 @@ const questions = [
     ),
   },
   {
-    question: "Is AIS a prestigious society at ESCP?",
+    question: "How selective is AIS, and where do members end up?",
     answer: (
       <>
         Prestige is best judged by selectivity and results, so here are the
