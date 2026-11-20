@@ -10,7 +10,7 @@ The Campus Life page is a short profile of the society that links to escpais.com
 
 - how AIS describes itself: the society description, the homepage hero line, "selective student society" wording;
 - the divisions: names, number, order;
-- recruitment and selectivity: when AIS recruits, the stages, and the "between 1 and 4 percent of applicants receive an offer" line;
+- recruitment and selectivity: when AIS recruits, the stages, and the "between 1% and 4% of applicants receive an offer" line;
 - the newsletter signup and how application announcements are made;
 - links into escpais.com: if a page or anchor moves (for example `/about#join`, `/presentations`, `/newsletters`, `/founder-report`), update the Campus Life links;
 - the logo, brand colours and contact routes.

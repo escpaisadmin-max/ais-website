@@ -8,7 +8,7 @@ export const faqText = [
   },
   {
     question: "How selective is AIS, and where do members end up?",
-    answer: "Prestige is best judged by selectivity and results, so here are the facts. Historically, between 1 and 4 percent of applicants receive an offer. Members and alumni have worked at or are incoming at firms including Blackstone, Morgan Stanley, EQT, Rothschild & Co, UBS, Bain & Company, Jefferies, Ardian and Hines. In 2026 AIS visited EQT Real Estate, Permira, Nordic Capital and Dartmouth Partners in London during its London Finance Tour, and it publishes the ESCP Founder Report with ESCP Blue Factory alongside more than 40 research publications.",
+    answer: "Prestige is best judged by selectivity and results, so here are the facts. Historically, between 1% and 4% of applicants receive an offer. Members and alumni have worked at or are incoming at firms including Blackstone, Morgan Stanley, EQT, Rothschild & Co, UBS, Bain & Company, Jefferies, Ardian and Hines. In 2026 AIS visited EQT Real Estate, Permira, Nordic Capital and Dartmouth Partners in London during its London Finance Tour, and it publishes the ESCP Founder Report with ESCP Blue Factory alongside more than 40 research publications.",
   },
   {
     question: "Which investment areas does AIS cover?",
@@ -28,6 +28,6 @@ export const faqText = [
   },
   {
     question: "How do I join AIS, and how selective is it?",
-    answer: "AIS recruits ESCP students at the start of each semester. You apply to one division, and shortlisted candidates are interviewed by that team. Places are limited: historically, between 1 and 4 percent of applicants receive an offer. Register for our newsletter or follow our LinkedIn page to hear when applications open.",
+    answer: "AIS recruits ESCP students at the start of each semester. You apply to one division, and shortlisted candidates are interviewed by that team. Places are limited: historically, between 1% and 4% of applicants receive an offer. Register for our newsletter or follow our LinkedIn page to hear when applications open.",
   },
 ];

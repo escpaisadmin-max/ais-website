@@ -23,7 +23,7 @@ const questions = [
     answer: (
       <>
         Prestige is best judged by selectivity and results, so here are the
-        facts. Historically, between 1 and 4 percent of applicants receive an
+        facts. Historically, between 1% and 4% of applicants receive an
         offer (<a href="#join" className={linkClassName}>how we recruit</a>).
         Members and alumni have worked at or are incoming at firms including
         Blackstone, Morgan Stanley, EQT, Rothschild &amp; Co, UBS, Bain &amp;
@@ -92,7 +92,7 @@ const questions = [
       <>
         AIS recruits ESCP students at the start of each semester. You apply to
         one division, and shortlisted candidates are interviewed by that team.
-        Places are limited: historically, between 1 and 4 percent of applicants
+        Places are limited: historically, between 1% and 4% of applicants
         receive an offer. <a href="#join" className={linkClassName}>See how we recruit</a>.
         Interested in joining?{" "}
         <a href="/contact#newsletter" className={linkClassName}>Register for our newsletter</a> for

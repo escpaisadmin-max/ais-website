@@ -2,7 +2,7 @@ import ScrollReveal from "../ui/ScrollReveal";
 import SectionHeading from "../ui/SectionHeading";
 
 // Selectivity is stated once, here and in the FAQ, as a quiet fact rather than a headline.
-// The 1 to 4 percent range was confirmed by the AIS VP, Max Henkes (Oct 2026); update it if a round falls outside it.
+// The 1% to 4% range was confirmed by the AIS VP, Max Henkes (Oct 2026); update it if a round falls outside it.
 const steps = [
   { title: "Written application", text: "You apply online to the division you want to join." },
   { title: "Interview", text: "Shortlisted candidates are interviewed by members of that division." },
@@ -28,7 +28,7 @@ export default function RecruitmentSection() {
             ))}
           </ol>
           <p className="mt-8 border-t border-ais-silver/40 pt-6 text-sm text-ais-gray leading-relaxed text-center max-w-2xl mx-auto">
-            Applications have historically been very competitive: between 1 and 4 percent of applicants
+            Applications have historically been very competitive: between 1% and 4% of applicants
             receive an offer. If you are not selected, you are welcome to apply again in a later round.
           </p>
         </ScrollReveal>
