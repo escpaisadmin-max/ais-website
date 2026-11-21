@@ -5,6 +5,19 @@
  */
 export const newsletters = [
   {
+    "id": "pe-making-sense-of-impact-private-equity",
+    "title": "Making Sense of Impact Private Equity",
+    "driveFileId": "1BhNPXWaHmIROrnD-f7ZOzjEpg7sNG8Iw",
+    "department": "pe",
+    "topic": "",
+    "date": "November 2026",
+    "description": "In this week's newsletter, we explore the rise of impact private equity, an investment strategy that aims to generate positive social and environmental change alongside financial returns. With the impact investing market now estimated at $1.76 trillion, a key question arises: can impact PE deliver competitive returns while creating meaningful impact?",
+    "pdfPath": "/newsletters/pdf/pe-making-sense-of-impact-private-equity.pdf",
+    "downloadPath": "/newsletters/originals/pe-making-sense-of-impact-private-equity.pdf",
+    "pageCount": 5,
+    "issue": 22
+  },
+  {
     "id": "pe-23-ai-in-pe",
     "title": "Artificial Intelligence in Private Equity",
     "driveFileId": "11uw04siKI-DAxq7qgxMp_8Z57b4alMh0",

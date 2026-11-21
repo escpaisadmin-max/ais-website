@@ -5,6 +5,18 @@
  */
 export const presentations = [
   {
+    "id": "pe-private-equity-market-update",
+    "title": "Private Equity Market Update",
+    "driveFileId": "18qA-Jk_QJysOFn6LUUQDvjdjbC2LFB3k",
+    "department": "pe",
+    "topic": "",
+    "date": "October 2026",
+    "description": "This week, we are excited to share our latest educational presentation, exploring the key trends shaping the private equity market in 2026. As dealmaking recovers, the industry continues to face challenges around fundraising, liquidity, and capital deployment.",
+    "pdfPath": "/presentations/pdf/pe-private-equity-market-update.pdf",
+    "downloadPath": "/presentations/originals/pe-private-equity-market-update.pdf",
+    "pageCount": 24
+  },
+  {
     "id": "hf-treasury-yields-and-stock-prices",
     "title": "Treasury Yields and Stock Prices",
     "driveFileId": "15qNuAzjrIFusFAgkEie4hr2mPWC0jdO2",
