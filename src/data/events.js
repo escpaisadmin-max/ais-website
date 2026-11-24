@@ -5,6 +5,25 @@
  */
 export const events = [
   {
+    "slug": "london-finance-tour-2026-cdr",
+    "title": "London Finance Tour 2026: CD&R",
+    "date": "October 2026",
+    "partnerLogo": null,
+    "partnerName": "CD&R",
+    "partnerUrl": "https://www.cdr.com",
+    "description": "A visit to CD&R's London office during our London Finance Tour 2026 with the Oxford Alpha Fund, with a presentation on its investment approach and network of operating experts, an interactive case study and an extensive Q&A.",
+    "fullDescription": "CD&R welcomed us to their London office as part of our London Finance Tour 2026 alongside the Oxford Alpha Fund. The visit began with a presentation highlighting the firm's investment approach and highly integrated network of operating experts who previously held senior leadership positions across various industries. This was followed by an interactive case study and an extensive Q&A, exploring key learnings and the rationale behind the investment.\nWe would like to sincerely thank CD&R for hosting us and sharing valuable insights into private equity investing. We look forward to future collaborations with the CD&R team.",
+    "photo": "/events/london-finance-tour-2026-cdr/banner.jpg",
+    "photos": [],
+    "division": "pe",
+    "type": "office visit",
+    "keyTakeaways": [
+      "CD&R's investment approach",
+      "How its network of operating experts, former senior leaders across industries, works with the investment team",
+      "Interactive case study and Q&A on the rationale behind an investment"
+    ]
+  },
+  {
     "slug": "london-finance-tour-2026-dartmouth-partners",
     "title": "London Finance Tour 2026: Dartmouth Partners",
     "date": "October 2026",
