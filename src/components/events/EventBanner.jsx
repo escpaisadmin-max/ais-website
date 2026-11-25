@@ -6,6 +6,8 @@ import { divisions } from "../../data/divisions";
  * ===========
  * Hero/card image for an event.
  *  - If `event.photo` is set (a real event photo), it's shown as the image.
+ *    `event.photoPosition` (CSS object-position, e.g. "50% 80%") picks which
+ *    part of the photo stays visible in the wide crop; default is the centre.
  *  - Otherwise a branded navy→ocean gradient banner is rendered, with the
  *    light partner logo (`event.bannerLogo`) when available. On the detail
  *    variant the event title, date and division are overlaid.
@@ -32,6 +34,7 @@ export default function EventBanner({ event, variant = "detail" }) {
           className={`w-full h-full ${
             event.photoFit === "contain" ? "object-contain p-8" : "object-cover"
           }`}
+          style={event.photoPosition ? { objectPosition: event.photoPosition } : undefined}
           loading={isDetail ? undefined : "lazy"}
         />
       ) : (

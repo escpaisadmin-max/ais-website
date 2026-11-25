@@ -228,6 +228,7 @@ async function syncEvents(drive) {
       fullDescription: meta.fullDescription ?? prev.fullDescription ?? "",
       photo,
       bannerLogo: meta.bannerLogo ?? prev.bannerLogo,
+      photoPosition: meta.photoPosition ?? prev.photoPosition,
       photos: photos.length ? photos : (prev.photos ?? []),
       division: meta.division ?? prev.division ?? "general",
       type: meta.type ?? prev.type ?? "speaker",

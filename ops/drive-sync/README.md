@@ -103,11 +103,16 @@ Put an **`event.json`** in it for the editorial fields, plus images:
   "description": "Short card text.",
   "fullDescription": "Longer recap.\n\nSecond paragraph.",
   "keyTakeaways": ["First point", "Second point"],
-  "bannerLogo": "/logos/EQTRealEstate-white.svg"
+  "bannerLogo": "/logos/EQTRealEstate-white.svg",
+  "photoPosition": "50% 80%"
 }
 ```
 
 - An image named `banner.*` becomes the hero photo; other images become the gallery.
+- `photoPosition` (optional) chooses which part of the banner photo stays visible, because the
+  hero is much wider than a normal photo and only a horizontal strip of it is shown. It is a CSS
+  object-position: the second number is the vertical position, `50%` (default) keeps the middle,
+  higher values move the strip down (less ceiling, more people), lower values move it up.
 - Missing fields fall back to the event's current values on the site.
 
 ---
