@@ -18,6 +18,19 @@ export const newsletters = [
     "issue": 22
   },
   {
+    "id": "re-redeveloping-historic-property-for-hospitality",
+    "title": "Redeveloping Historic Property for Hospitality",
+    "driveFileId": "1LKMTf19vijhgyjVJJ6lT5P2f2SPONRAz",
+    "department": "re",
+    "topic": "",
+    "date": "November 2026",
+    "description": "",
+    "pdfPath": "/newsletters/pdf/re-redeveloping-historic-property-for-hospitality.pdf",
+    "downloadPath": "/newsletters/originals/re-redeveloping-historic-property-for-hospitality.pdf",
+    "pageCount": 6,
+    "issue": 23
+  },
+  {
     "id": "pe-23-ai-in-pe",
     "title": "Artificial Intelligence in Private Equity",
     "driveFileId": "11uw04siKI-DAxq7qgxMp_8Z57b4alMh0",
