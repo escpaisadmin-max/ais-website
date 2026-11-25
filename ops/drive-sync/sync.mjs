@@ -212,7 +212,10 @@ async function syncEvents(drive) {
     for (const img of images) {
       const isBanner = /^banner\./i.test(img.name);
       const safe = `${slugify(stripExt(img.name)) || "photo"}${path.extname(img.name)}`;
-      const url = `${cfg.photoUrlBase}/${slug}/${safe}`;
+      // ?v= from the Drive checksum: browsers cache event photos for a day, so a
+      // replaced photo under the same file name would otherwise keep showing the old one
+      const version = (img.md5Checksum || img.modifiedTime || "").replace(/[^a-zA-Z0-9]/g, "").slice(0, 10);
+      const url = `${cfg.photoUrlBase}/${slug}/${safe}${version ? `?v=${version}` : ""}`;
       photoWrites.push({ dir: eventPhotoDir, name: safe, file: img });
       if (isBanner) photo = url; else photos.push(url);
     }
