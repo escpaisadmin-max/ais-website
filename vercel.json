@@ -105,7 +105,7 @@
       ]
     },
     {
-      "source": "/:file(london-skyline.avif|london-skyline.jpg|social-preview.png|ais-logo-512.png|ais-logo.svg|ais-logo-dark.svg|ais-logo-white.svg|favicon.png|favicon.svg|apple-touch-icon.png)",
+      "source": "/:file(london-skyline.avif|london-skyline.jpg|social-preview.png|social-preview.jpg|ais-logo-512.png|ais-logo.svg|ais-logo-dark.svg|ais-logo-white.svg|favicon.png|favicon.svg|apple-touch-icon.png)",
       "headers": [
         {
           "key": "Cache-Control",
