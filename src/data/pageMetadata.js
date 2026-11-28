@@ -4,7 +4,8 @@ import { divisionFor, isoDate, libraries } from "../lib/publications.js";
 
 export const siteOrigin = "https://www.escpais.com";
 const siteName = "ESCP Alternative Investment Society";
-const image = `${siteOrigin}/social-preview.png`;
+// Bump ?v= whenever the card changes, so WhatsApp, LinkedIn and browsers fetch the new image (source: scripts/social-preview/card.html).
+const image = `${siteOrigin}/social-preview.jpg?v=2026-11-28`;
 
 const sections = [
   ["/", "AIS | ESCP Alternative Investment Society", "Student society at ESCP for alternative investments: six research divisions, 40+ publications, and selective entry, with 1% to 4% of applicants receiving an offer."],
@@ -143,14 +144,15 @@ export function getHeadTags(pathname) {
     { tag: "meta", property: "og:type", content: page?.type || "website" },
     { tag: "meta", property: "og:site_name", content: siteName },
     { tag: "meta", property: "og:image", content: image },
+    { tag: "meta", property: "og:image:type", content: "image/jpeg" },
     { tag: "meta", property: "og:image:width", content: "1200" },
     { tag: "meta", property: "og:image:height", content: "630" },
-    { tag: "meta", property: "og:image:alt", content: "ESCP Alternative Investment Society — Publications, Events, Community" },
+    { tag: "meta", property: "og:image:alt", content: "ESCP Alternative Investment Society, over the City of London skyline" },
     { tag: "meta", name: "twitter:card", content: "summary_large_image" },
     { tag: "meta", name: "twitter:title", content: title },
     { tag: "meta", name: "twitter:description", content: description },
     { tag: "meta", name: "twitter:image", content: image },
-    { tag: "meta", name: "twitter:image:alt", content: "ESCP Alternative Investment Society" },
+    { tag: "meta", name: "twitter:image:alt", content: "ESCP Alternative Investment Society, over the City of London skyline" },
   ];
   if (page) {
     tags.push(
